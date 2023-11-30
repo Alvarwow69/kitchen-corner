@@ -1,0 +1,76 @@
+[gd_scene load_steps=16 format=3 uid="uid://dr3p8o02b47o3"]
+
+[ext_resource type="PackedScene" uid="uid://bj241aakk1vns" path="res://Asset/Kitchen/crate.gltf" id="1_j5rcq"]
+[ext_resource type="PackedScene" uid="uid://b2do07jmy7yft" path="res://Asset/Kitchen/crate_buns.gltf" id="2_knq4j"]
+[ext_resource type="PackedScene" uid="uid://bwvl6m6dicmey" path="res://Asset/Kitchen/crate_carrots.gltf" id="3_5yiet"]
+[ext_resource type="PackedScene" uid="uid://c5vrmqok4gjdp" path="res://Asset/Kitchen/crate_cheese.gltf" id="4_lfp1i"]
+[ext_resource type="PackedScene" uid="uid://5u0o22r07y7c" path="res://Asset/Kitchen/crate_ham.gltf" id="5_u2epa"]
+[ext_resource type="PackedScene" uid="uid://c1f5khlc5d04h" path="res://Asset/Kitchen/kitchencounter_sink.gltf" id="6_kllem"]
+[ext_resource type="PackedScene" uid="uid://drwmg88u1e1h" path="res://Asset/Kitchen/kitchencounter_straight_A.gltf" id="7_f2v1a"]
+[ext_resource type="PackedScene" uid="uid://u80mp2m3kl6t" path="res://Asset/Kitchen/plate.gltf" id="8_o4l8b"]
+[ext_resource type="PackedScene" uid="uid://dacwo12a1tlmv" path="res://Asset/Kitchen/plate_dirty.gltf" id="9_nkvb1"]
+[ext_resource type="PackedScene" uid="uid://bc0606o4lhvrf" path="res://Asset/Kitchen/stove_single.gltf" id="10_1jgn2"]
+[ext_resource type="PackedScene" uid="uid://c2cu1j5tq21o2" path="res://Asset/Kitchen/wall_orderwindow_decorated.gltf" id="11_63ws6"]
+[ext_resource type="PackedScene" uid="uid://bv7qmmxvob8bj" path="res://Asset/Kitchen/pan_006.gltf" id="12_j5trt"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k5aar"]
+albedo_color = Color(0.380392, 0.380392, 0.380392, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_mn0sv"]
+material = SubResource("StandardMaterial3D_k5aar")
+size = Vector2(100, 100)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_tgqqb"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Kitchen" type="Node3D" parent="."]
+
+[node name="crate" parent="Kitchen" instance=ExtResource("1_j5rcq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 1)
+
+[node name="crate_buns" parent="Kitchen" instance=ExtResource("2_knq4j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -1)
+
+[node name="crate_carrots" parent="Kitchen" instance=ExtResource("3_5yiet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -3)
+
+[node name="crate_cheese" parent="Kitchen" instance=ExtResource("4_lfp1i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -5)
+
+[node name="crate_ham" parent="Kitchen" instance=ExtResource("5_u2epa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -7)
+
+[node name="kitchencounter_sink" parent="Kitchen" instance=ExtResource("6_kllem")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -8)
+
+[node name="kitchencounter_straight_A2" parent="Kitchen" instance=ExtResource("7_f2v1a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -8)
+
+[node name="kitchencounter_straight_A4" parent="Kitchen" instance=ExtResource("7_f2v1a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -8)
+
+[node name="plate" parent="Kitchen" instance=ExtResource("8_o4l8b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -8)
+
+[node name="kitchencounter_straight_A3" parent="Kitchen" instance=ExtResource("7_f2v1a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
+
+[node name="plate_dirty" parent="Kitchen" instance=ExtResource("9_nkvb1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, -8)
+
+[node name="stove_single" parent="Kitchen" instance=ExtResource("10_1jgn2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -8)
+
+[node name="wall_orderwindow_decorated" parent="Kitchen" instance=ExtResource("11_63ws6")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 16, 0, -3)
+
+[node name="pan_006" parent="Kitchen" instance=ExtResource("12_j5trt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 1, -8)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_mn0sv")
+
+[node name="player" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1, -3)
+mesh = SubResource("CapsuleMesh_tgqqb")
