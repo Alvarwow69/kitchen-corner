@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cdfqelyl7uccd"
+path="res://.godot/imported/kitchentable_A.obj-fc2fb2327a3ed09b42e7b248165ae8fc.mesh"
+
+[deps]
+
+files=["res://.godot/imported/kitchentable_A.obj-fc2fb2327a3ed09b42e7b248165ae8fc.mesh"]
+
+source_file="res://Asset/Kitchen/obj/kitchentable_A.obj"
+dest_files=["res://.godot/imported/kitchentable_A.obj-fc2fb2327a3ed09b42e7b248165ae8fc.mesh", "res://.godot/imported/kitchentable_A.obj-fc2fb2327a3ed09b42e7b248165ae8fc.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

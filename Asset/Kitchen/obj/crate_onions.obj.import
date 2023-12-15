@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cchpy2k5v30jr"
+path="res://.godot/imported/crate_onions.obj-7ea85c8a68211a5554cb44d9c3b47d81.mesh"
+
+[deps]
+
+files=["res://.godot/imported/crate_onions.obj-7ea85c8a68211a5554cb44d9c3b47d81.mesh"]
+
+source_file="res://Asset/Kitchen/obj/crate_onions.obj"
+dest_files=["res://.godot/imported/crate_onions.obj-7ea85c8a68211a5554cb44d9c3b47d81.mesh", "res://.godot/imported/crate_onions.obj-7ea85c8a68211a5554cb44d9c3b47d81.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

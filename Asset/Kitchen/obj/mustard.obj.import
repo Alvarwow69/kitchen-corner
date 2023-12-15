@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://q3nscgmifa8t"
+path="res://.godot/imported/mustard.obj-201349d12e83a0aa1aa2ca197312a4d5.mesh"
+
+[deps]
+
+files=["res://.godot/imported/mustard.obj-201349d12e83a0aa1aa2ca197312a4d5.mesh"]
+
+source_file="res://Asset/Kitchen/obj/mustard.obj"
+dest_files=["res://.godot/imported/mustard.obj-201349d12e83a0aa1aa2ca197312a4d5.mesh", "res://.godot/imported/mustard.obj-201349d12e83a0aa1aa2ca197312a4d5.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

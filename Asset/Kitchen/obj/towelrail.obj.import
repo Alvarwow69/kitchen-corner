@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c3qoxk5uhfpw8"
+path="res://.godot/imported/towelrail.obj-23b93fdd9a90fa7ed9c8f4b9b5110052.mesh"
+
+[deps]
+
+files=["res://.godot/imported/towelrail.obj-23b93fdd9a90fa7ed9c8f4b9b5110052.mesh"]
+
+source_file="res://Asset/Kitchen/obj/towelrail.obj"
+dest_files=["res://.godot/imported/towelrail.obj-23b93fdd9a90fa7ed9c8f4b9b5110052.mesh", "res://.godot/imported/towelrail.obj-23b93fdd9a90fa7ed9c8f4b9b5110052.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

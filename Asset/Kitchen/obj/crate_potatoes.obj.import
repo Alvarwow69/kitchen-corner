@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cd70sjc6adrna"
+path="res://.godot/imported/crate_potatoes.obj-6cf3384f2a94e538ad673ce2443ad71a.mesh"
+
+[deps]
+
+files=["res://.godot/imported/crate_potatoes.obj-6cf3384f2a94e538ad673ce2443ad71a.mesh"]
+
+source_file="res://Asset/Kitchen/obj/crate_potatoes.obj"
+dest_files=["res://.godot/imported/crate_potatoes.obj-6cf3384f2a94e538ad673ce2443ad71a.mesh", "res://.godot/imported/crate_potatoes.obj-6cf3384f2a94e538ad673ce2443ad71a.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

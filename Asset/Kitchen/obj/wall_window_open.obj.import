@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bw7jd0jdcg5xs"
+path="res://.godot/imported/wall_window_open.obj-dccd2576d0e78adca06b9fe9ad8c8061.mesh"
+
+[deps]
+
+files=["res://.godot/imported/wall_window_open.obj-dccd2576d0e78adca06b9fe9ad8c8061.mesh"]
+
+source_file="res://Asset/Kitchen/obj/wall_window_open.obj"
+dest_files=["res://.godot/imported/wall_window_open.obj-dccd2576d0e78adca06b9fe9ad8c8061.mesh", "res://.godot/imported/wall_window_open.obj-dccd2576d0e78adca06b9fe9ad8c8061.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

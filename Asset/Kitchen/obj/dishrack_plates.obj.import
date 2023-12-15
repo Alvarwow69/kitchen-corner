@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bx63wxseamfst"
+path="res://.godot/imported/dishrack_plates.obj-66e8dbc38d92f77711e92c5f193fffea.mesh"
+
+[deps]
+
+files=["res://.godot/imported/dishrack_plates.obj-66e8dbc38d92f77711e92c5f193fffea.mesh"]
+
+source_file="res://Asset/Kitchen/obj/dishrack_plates.obj"
+dest_files=["res://.godot/imported/dishrack_plates.obj-66e8dbc38d92f77711e92c5f193fffea.mesh", "res://.godot/imported/dishrack_plates.obj-66e8dbc38d92f77711e92c5f193fffea.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

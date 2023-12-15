@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dxrffqmxrheyl"
+path="res://.godot/imported/crate_cheese.obj-b3ad8ceb17a43a14d1895903e009d3a8.mesh"
+
+[deps]
+
+files=["res://.godot/imported/crate_cheese.obj-b3ad8ceb17a43a14d1895903e009d3a8.mesh"]
+
+source_file="res://Asset/Kitchen/obj/crate_cheese.obj"
+dest_files=["res://.godot/imported/crate_cheese.obj-b3ad8ceb17a43a14d1895903e009d3a8.mesh", "res://.godot/imported/crate_cheese.obj-b3ad8ceb17a43a14d1895903e009d3a8.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

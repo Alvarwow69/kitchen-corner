@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ckg57abx8khdq"
+path="res://.godot/imported/lid_A.obj-2ba8b212d64a9e41d77dc08a2ba2cf35.mesh"
+
+[deps]
+
+files=["res://.godot/imported/lid_A.obj-2ba8b212d64a9e41d77dc08a2ba2cf35.mesh"]
+
+source_file="res://Asset/Kitchen/obj/lid_A.obj"
+dest_files=["res://.godot/imported/lid_A.obj-2ba8b212d64a9e41d77dc08a2ba2cf35.mesh", "res://.godot/imported/lid_A.obj-2ba8b212d64a9e41d77dc08a2ba2cf35.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

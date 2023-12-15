@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://q22r7nd61jlv"
+path="res://.godot/imported/extractorhood.obj-970dbf8eba6c51637aa5945b94581f03.mesh"
+
+[deps]
+
+files=["res://.godot/imported/extractorhood.obj-970dbf8eba6c51637aa5945b94581f03.mesh"]
+
+source_file="res://Asset/Kitchen/obj/extractorhood.obj"
+dest_files=["res://.godot/imported/extractorhood.obj-970dbf8eba6c51637aa5945b94581f03.mesh", "res://.godot/imported/extractorhood.obj-970dbf8eba6c51637aa5945b94581f03.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

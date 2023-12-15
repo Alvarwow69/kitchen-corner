@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dw5cul0nwctgc"
+path="res://.godot/imported/food_ingredient_burger_trash.obj-7763105068f17791a70b4ce544166b9c.mesh"
+
+[deps]
+
+files=["res://.godot/imported/food_ingredient_burger_trash.obj-7763105068f17791a70b4ce544166b9c.mesh"]
+
+source_file="res://Asset/Kitchen/obj/food_ingredient_burger_trash.obj"
+dest_files=["res://.godot/imported/food_ingredient_burger_trash.obj-7763105068f17791a70b4ce544166b9c.mesh", "res://.godot/imported/food_ingredient_burger_trash.obj-7763105068f17791a70b4ce544166b9c.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

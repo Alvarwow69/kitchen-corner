@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cys0na8igqcpx"
+path="res://.godot/imported/floor_kitchen.obj-5c9d6a723cb9ac36a47a63451f426155.mesh"
+
+[deps]
+
+files=["res://.godot/imported/floor_kitchen.obj-5c9d6a723cb9ac36a47a63451f426155.mesh"]
+
+source_file="res://Asset/Kitchen/obj/floor_kitchen.obj"
+dest_files=["res://.godot/imported/floor_kitchen.obj-5c9d6a723cb9ac36a47a63451f426155.mesh", "res://.godot/imported/floor_kitchen.obj-5c9d6a723cb9ac36a47a63451f426155.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

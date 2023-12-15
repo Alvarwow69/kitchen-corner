@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bftxvixhdaqd0"
+path="res://.godot/imported/kitchencounter_straight_B_backsplash.obj-92fb54abc016ccc8f2fb8b1e71d1aaa7.mesh"
+
+[deps]
+
+files=["res://.godot/imported/kitchencounter_straight_B_backsplash.obj-92fb54abc016ccc8f2fb8b1e71d1aaa7.mesh"]
+
+source_file="res://Asset/Kitchen/obj/kitchencounter_straight_B_backsplash.obj"
+dest_files=["res://.godot/imported/kitchencounter_straight_B_backsplash.obj-92fb54abc016ccc8f2fb8b1e71d1aaa7.mesh", "res://.godot/imported/kitchencounter_straight_B_backsplash.obj-92fb54abc016ccc8f2fb8b1e71d1aaa7.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

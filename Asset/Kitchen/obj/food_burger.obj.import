@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ds8m1ienhnjrn"
+path="res://.godot/imported/food_burger.obj-bfca15ffb0ac17d9b8fe26630e4d7374.mesh"
+
+[deps]
+
+files=["res://.godot/imported/food_burger.obj-bfca15ffb0ac17d9b8fe26630e4d7374.mesh"]
+
+source_file="res://Asset/Kitchen/obj/food_burger.obj"
+dest_files=["res://.godot/imported/food_burger.obj-bfca15ffb0ac17d9b8fe26630e4d7374.mesh", "res://.godot/imported/food_burger.obj-bfca15ffb0ac17d9b8fe26630e4d7374.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dia0ms6ik03fn"
+path="res://.godot/imported/fridge_A_decorated_door_bottom.obj-5e4ce1933ec985c2ce7e301c677fb481.mesh"
+
+[deps]
+
+files=["res://.godot/imported/fridge_A_decorated_door_bottom.obj-5e4ce1933ec985c2ce7e301c677fb481.mesh"]
+
+source_file="res://Asset/Kitchen/obj/fridge_A_decorated_door_bottom.obj"
+dest_files=["res://.godot/imported/fridge_A_decorated_door_bottom.obj-5e4ce1933ec985c2ce7e301c677fb481.mesh", "res://.godot/imported/fridge_A_decorated_door_bottom.obj-5e4ce1933ec985c2ce7e301c677fb481.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

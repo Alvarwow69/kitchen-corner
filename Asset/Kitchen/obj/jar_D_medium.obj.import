@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ckvurewt1ivck"
+path="res://.godot/imported/jar_D_medium.obj-b4e1b4d1d5aae872b5d7ad651e2cde05.mesh"
+
+[deps]
+
+files=["res://.godot/imported/jar_D_medium.obj-b4e1b4d1d5aae872b5d7ad651e2cde05.mesh"]
+
+source_file="res://Asset/Kitchen/obj/jar_D_medium.obj"
+dest_files=["res://.godot/imported/jar_D_medium.obj-b4e1b4d1d5aae872b5d7ad651e2cde05.mesh", "res://.godot/imported/jar_D_medium.obj-b4e1b4d1d5aae872b5d7ad651e2cde05.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

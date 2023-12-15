@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bmmck60grse6e"
+path="res://.godot/imported/food_ingredient_onion_chopped.obj-5c3638e4add48e4fa750d82a79b44c5c.mesh"
+
+[deps]
+
+files=["res://.godot/imported/food_ingredient_onion_chopped.obj-5c3638e4add48e4fa750d82a79b44c5c.mesh"]
+
+source_file="res://Asset/Kitchen/obj/food_ingredient_onion_chopped.obj"
+dest_files=["res://.godot/imported/food_ingredient_onion_chopped.obj-5c3638e4add48e4fa750d82a79b44c5c.mesh", "res://.godot/imported/food_ingredient_onion_chopped.obj-5c3638e4add48e4fa750d82a79b44c5c.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

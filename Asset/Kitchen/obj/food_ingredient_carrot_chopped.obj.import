@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://gjk5t4jg16ka"
+path="res://.godot/imported/food_ingredient_carrot_chopped.obj-0c82683354c2accd65178bd42a85e767.mesh"
+
+[deps]
+
+files=["res://.godot/imported/food_ingredient_carrot_chopped.obj-0c82683354c2accd65178bd42a85e767.mesh"]
+
+source_file="res://Asset/Kitchen/obj/food_ingredient_carrot_chopped.obj"
+dest_files=["res://.godot/imported/food_ingredient_carrot_chopped.obj-0c82683354c2accd65178bd42a85e767.mesh", "res://.godot/imported/food_ingredient_carrot_chopped.obj-0c82683354c2accd65178bd42a85e767.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
