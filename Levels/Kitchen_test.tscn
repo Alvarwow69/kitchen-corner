@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dr3p8o02b47o3"]
+[gd_scene load_steps=20 format=3 uid="uid://dr3p8o02b47o3"]
 
 [ext_resource type="PackedScene" uid="uid://bj241aakk1vns" path="res://Asset/Kitchen/crate.gltf" id="1_j5rcq"]
 [ext_resource type="PackedScene" uid="uid://b2do07jmy7yft" path="res://Asset/Kitchen/crate_buns.gltf" id="2_knq4j"]
@@ -12,6 +12,13 @@
 [ext_resource type="PackedScene" uid="uid://bc0606o4lhvrf" path="res://Asset/Kitchen/stove_single.gltf" id="10_1jgn2"]
 [ext_resource type="PackedScene" uid="uid://c2cu1j5tq21o2" path="res://Asset/Kitchen/wall_orderwindow_decorated.gltf" id="11_63ws6"]
 [ext_resource type="PackedScene" uid="uid://bv7qmmxvob8bj" path="res://Asset/Kitchen/pan_006.gltf" id="12_j5trt"]
+[ext_resource type="PackedScene" uid="uid://k5io6bxv6534" path="res://Player.tscn" id="13_8oirm"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1i73y"]
+size = Vector3(2.00109, 1, 9.97935)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3els5"]
+size = Vector3(9.97316, 1, 2.09202)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k5aar"]
 albedo_color = Color(0.380392, 0.380392, 0.380392, 1)
@@ -20,47 +27,72 @@ albedo_color = Color(0.380392, 0.380392, 0.380392, 1)
 material = SubResource("StandardMaterial3D_k5aar")
 size = Vector2(100, 100)
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_tgqqb"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_o0wsl"]
+size = Vector3(100, 0.1, 100)
+
+[sub_resource type="Environment" id="Environment_pefkh"]
+background_mode = 1
+background_color = Color(1, 1, 1, 1)
+background_energy_multiplier = 2.0
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 5.0
 
 [node name="Node3D" type="Node3D"]
 
 [node name="Kitchen" type="Node3D" parent="."]
 
-[node name="crate" parent="Kitchen" instance=ExtResource("1_j5rcq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 1)
+[node name="Creates" type="StaticBody3D" parent="Kitchen"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0)
+collision_layer = 4
+collision_mask = 0
 
-[node name="crate_buns" parent="Kitchen" instance=ExtResource("2_knq4j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -1)
+[node name="crate" parent="Kitchen/Creates" instance=ExtResource("1_j5rcq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
 
-[node name="crate_carrots" parent="Kitchen" instance=ExtResource("3_5yiet")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -3)
+[node name="crate_buns" parent="Kitchen/Creates" instance=ExtResource("2_knq4j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
 
-[node name="crate_cheese" parent="Kitchen" instance=ExtResource("4_lfp1i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -5)
+[node name="crate_carrots" parent="Kitchen/Creates" instance=ExtResource("3_5yiet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
 
-[node name="crate_ham" parent="Kitchen" instance=ExtResource("5_u2epa")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -7)
+[node name="crate_cheese" parent="Kitchen/Creates" instance=ExtResource("4_lfp1i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
 
-[node name="kitchencounter_sink" parent="Kitchen" instance=ExtResource("6_kllem")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -8)
+[node name="crate_ham" parent="Kitchen/Creates" instance=ExtResource("5_u2epa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7)
 
-[node name="kitchencounter_straight_A2" parent="Kitchen" instance=ExtResource("7_f2v1a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -8)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Kitchen/Creates"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.443226, -2.99177)
+shape = SubResource("BoxShape3D_1i73y")
 
-[node name="kitchencounter_straight_A4" parent="Kitchen" instance=ExtResource("7_f2v1a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -8)
+[node name="Kitchen" type="StaticBody3D" parent="Kitchen"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
+collision_layer = 4
+collision_mask = 0
+
+[node name="kitchencounter_sink" parent="Kitchen/Kitchen" instance=ExtResource("6_kllem")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+
+[node name="kitchencounter_straight_A2" parent="Kitchen/Kitchen" instance=ExtResource("7_f2v1a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+
+[node name="kitchencounter_straight_A4" parent="Kitchen/Kitchen" instance=ExtResource("7_f2v1a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+
+[node name="kitchencounter_straight_A3" parent="Kitchen/Kitchen" instance=ExtResource("7_f2v1a")]
+
+[node name="stove_single" parent="Kitchen/Kitchen" instance=ExtResource("10_1jgn2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Kitchen/Kitchen"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.00288, 0.498629, 0)
+shape = SubResource("BoxShape3D_3els5")
 
 [node name="plate" parent="Kitchen" instance=ExtResource("8_o4l8b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -8)
 
-[node name="kitchencounter_straight_A3" parent="Kitchen" instance=ExtResource("7_f2v1a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
-
 [node name="plate_dirty" parent="Kitchen" instance=ExtResource("9_nkvb1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, -8)
-
-[node name="stove_single" parent="Kitchen" instance=ExtResource("10_1jgn2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -8)
 
 [node name="wall_orderwindow_decorated" parent="Kitchen" instance=ExtResource("11_63ws6")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 16, 0, -3)
@@ -68,9 +100,22 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 16, 0,
 [node name="pan_006" parent="Kitchen" instance=ExtResource("12_j5trt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 1, -8)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("PlaneMesh_mn0sv")
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 4
+collision_mask = 0
 
-[node name="player" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1, -3)
-mesh = SubResource("CapsuleMesh_tgqqb")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("PlaneMesh_mn0sv")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_o0wsl")
+
+[node name="Player" parent="." instance=ExtResource("13_8oirm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+collision_mask = 7
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.688177, 0.725543, 0, -0.725543, 0.688177, 0, 7.11486, 9.97989)
+environment = SubResource("Environment_pefkh")
+current = true
