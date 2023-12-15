@@ -112,8 +112,14 @@ skeleton = NodePath("../..")
 shape = SubResource("BoxShape3D_o0wsl")
 
 [node name="Player" parent="." instance=ExtResource("13_8oirm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.93549, 1, 0)
+collision_mask = 7
+PlayerNumber = 0
+
+[node name="Player2" parent="." instance=ExtResource("13_8oirm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 collision_mask = 7
+PlayerNumber = 1
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.688177, 0.725543, 0, -0.725543, 0.688177, 0, 7.11486, 9.97989)
