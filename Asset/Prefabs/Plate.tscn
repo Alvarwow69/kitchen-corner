@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqhd3ht4yxttr"]
+
+[ext_resource type="Script" path="res://Script/Interactable.cs" id="1_n3pjm"]
+[ext_resource type="ArrayMesh" uid="uid://bb6yo8whw61ey" path="res://Asset/Kitchen/obj/plate.obj" id="1_q3mqb"]
+
+[node name="Plate" type="Node3D"]
+script = ExtResource("1_n3pjm")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_q3mqb")

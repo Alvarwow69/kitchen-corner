@@ -1,0 +1,29 @@
+[gd_scene load_steps=7 format=3 uid="uid://dger84eef3jnr"]
+
+[ext_resource type="Script" path="res://Script/SelectionInteractable.cs" id="1_xspay"]
+[ext_resource type="ArrayMesh" uid="uid://cchpy2k5v30jr" path="res://Asset/Kitchen/obj/crate_onions.obj" id="2_0fkyw"]
+[ext_resource type="Shader" path="res://Selection.gdshader" id="3_d8elp"]
+[ext_resource type="Texture2D" uid="uid://c8jvxgl2348ht" path="res://Asset/Kitchen/obj/restaurantbits_texture.png" id="4_5lewl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gguth"]
+size = Vector3(1.99241, 1, 1.93028)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n570g"]
+render_priority = 0
+shader = ExtResource("3_d8elp")
+shader_parameter/selectColor = Color(0.94902, 0.964706, 0, 1)
+shader_parameter/selected = false
+shader_parameter/tex = ExtResource("4_5lewl")
+
+[node name="CreateOnions" type="StaticBody3D"]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_xspay")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.387823, 0)
+shape = SubResource("BoxShape3D_gguth")
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+mesh = ExtResource("2_0fkyw")
+surface_material_override/0 = SubResource("ShaderMaterial_n570g")

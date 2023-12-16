@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://buw721hn78rq4"]
 
-[ext_resource type="Shader" path="res://Levels/Selection.gdshader" id="1_q77kv"]
+[ext_resource type="Shader" path="res://Selection.gdshader" id="1_q77kv"]
 [ext_resource type="Texture2D" uid="uid://c8jvxgl2348ht" path="res://Asset/Kitchen/obj/restaurantbits_texture.png" id="2_cw1vw"]
 
 [resource]

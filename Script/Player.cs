@@ -12,13 +12,16 @@ public partial class Player : CharacterBody3D
 	private Dash _dash;
 	private RayCast3D _raycast;
 	private Node3D _pivot;
+	private SelectionInteractable _selectionInteractable = null;
 	private Interactable _interactable = null;
+	private Node3D _anchor;
 
 	public override void _Ready()
 	{
 		_dash = GetNode<Dash>("Dash");
 		_raycast = GetNode<RayCast3D>("Pivot/RayCast3D");
 		_pivot = GetNode<Node3D>("Pivot");
+		_anchor = GetNode<Node3D>("Pivot/Anchor");
 	}
 
 	public override void _PhysicsProcess(double delta)
@@ -30,25 +33,25 @@ public partial class Player : CharacterBody3D
 
 	private void ProcessActionableItem()
 	{
-		if (_raycast.IsColliding() && _raycast.GetCollider() is Interactable)
+		if (_raycast.IsColliding() && _raycast.GetCollider() is SelectionInteractable)
 		{
-			if (_raycast.GetCollider() == _interactable)
+			if (_raycast.GetCollider() == _selectionInteractable)
 				return;
-			_interactable = _raycast.GetCollider() as Interactable;
-			_interactable.Select();
-			Debug.Print("oueoueoeuoeueoeuoeu");
+			_selectionInteractable?.Reset();
+			_selectionInteractable = _raycast.GetCollider() as SelectionInteractable;
+			_selectionInteractable?.Select();
 		}
-		else if (_interactable != null)
+		else if (_selectionInteractable != null)
 		{
-			_interactable.Reset();
-			_interactable = null;
+			_selectionInteractable.Reset();
+			_selectionInteractable = null;
 		}
 	}
 
 	private void ProcessAction()
 	{
-		if (Input.IsActionJustPressed("player" + PlayerNumber + "_action") && _interactable != null)
-			_interactable.PerformAction();
+		if (Input.IsActionJustPressed("player" + PlayerNumber + "_action") && _selectionInteractable != null)
+			_selectionInteractable.PerformAction(this);
 	}
 
 	private void MovePlayer(double delta)
@@ -79,5 +82,25 @@ public partial class Player : CharacterBody3D
 
 		Velocity = velocity;
 		MoveAndSlide();
+	}
+
+	public bool HasInteractable()
+	{
+		return _interactable != null;
+	}
+
+	public void AddInteractable(Interactable interactable)
+	{
+		_interactable = interactable;
+		_interactable.Reparent(_anchor);
+		_interactable.GlobalPosition = _anchor.GlobalPosition;
+	}
+
+	public Interactable RemoveInteractable()
+	{
+		Interactable tmp = _interactable;
+
+		_interactable = null;
+		return tmp;
 	}
 }

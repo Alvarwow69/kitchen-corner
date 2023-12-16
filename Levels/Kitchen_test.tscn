@@ -1,37 +1,22 @@
-[gd_scene load_steps=25 format=3 uid="uid://dr3p8o02b47o3"]
+[gd_scene load_steps=22 format=3 uid="uid://dr3p8o02b47o3"]
 
-[ext_resource type="PackedScene" uid="uid://bj241aakk1vns" path="res://Asset/Kitchen/crate.gltf" id="1_j5rcq"]
-[ext_resource type="PackedScene" uid="uid://bwvl6m6dicmey" path="res://Asset/Kitchen/crate_carrots.gltf" id="3_5yiet"]
-[ext_resource type="PackedScene" uid="uid://c5vrmqok4gjdp" path="res://Asset/Kitchen/crate_cheese.gltf" id="4_lfp1i"]
-[ext_resource type="PackedScene" uid="uid://5u0o22r07y7c" path="res://Asset/Kitchen/crate_ham.gltf" id="5_u2epa"]
-[ext_resource type="PackedScene" uid="uid://c1f5khlc5d04h" path="res://Asset/Kitchen/kitchencounter_sink.gltf" id="6_kllem"]
-[ext_resource type="PackedScene" uid="uid://drwmg88u1e1h" path="res://Asset/Kitchen/kitchencounter_straight_A.gltf" id="7_f2v1a"]
-[ext_resource type="PackedScene" uid="uid://u80mp2m3kl6t" path="res://Asset/Kitchen/plate.gltf" id="8_o4l8b"]
-[ext_resource type="PackedScene" uid="uid://dacwo12a1tlmv" path="res://Asset/Kitchen/plate_dirty.gltf" id="9_nkvb1"]
-[ext_resource type="PackedScene" uid="uid://bc0606o4lhvrf" path="res://Asset/Kitchen/stove_single.gltf" id="10_1jgn2"]
-[ext_resource type="PackedScene" uid="uid://c2cu1j5tq21o2" path="res://Asset/Kitchen/wall_orderwindow_decorated.gltf" id="11_63ws6"]
-[ext_resource type="Shader" path="res://Levels/Selection.gdshader" id="12_0hirf"]
-[ext_resource type="PackedScene" uid="uid://bv7qmmxvob8bj" path="res://Asset/Kitchen/pan_006.gltf" id="12_j5trt"]
-[ext_resource type="Script" path="res://Script/Interactable.cs" id="12_vwjd8"]
-[ext_resource type="ArrayMesh" uid="uid://ce3hcvrbwu6up" path="res://Asset/Kitchen/obj/crate_buns.obj" id="13_4xo8i"]
+[ext_resource type="PackedScene" uid="uid://dnkgd6nbuk5v7" path="res://Asset/Prefabs/Furniture/Counter_Straight.tscn" id="8_4kfd2"]
+[ext_resource type="PackedScene" uid="uid://hkh7js1my8ij" path="res://Asset/Prefabs/Creates/Create_Buns.tscn" id="9_c5byw"]
+[ext_resource type="PackedScene" uid="uid://cnehf3jphwdje" path="res://Asset/Prefabs/Creates/Create_Carrot.tscn" id="10_n636r"]
+[ext_resource type="PackedScene" uid="uid://cxwj8f2fdxofd" path="res://Asset/Prefabs/Creates/Create_Cheese.tscn" id="11_6pqwl"]
+[ext_resource type="PackedScene" uid="uid://c12j08jxgtyfm" path="res://Asset/Prefabs/Creates/Create_Ham.tscn" id="12_fy24p"]
 [ext_resource type="PackedScene" uid="uid://k5io6bxv6534" path="res://Asset/Prefabs/Player.tscn" id="13_8oirm"]
-[ext_resource type="Texture2D" uid="uid://c8jvxgl2348ht" path="res://Asset/Kitchen/obj/restaurantbits_texture.png" id="14_r0cxd"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_1i73y"]
-size = Vector3(2.00109, 1, 9.97935)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_3els5"]
-size = Vector3(9.97316, 1, 2.09202)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_gguth"]
-size = Vector3(1.99241, 1, 1.93028)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_n570g"]
-render_priority = 0
-shader = ExtResource("12_0hirf")
-shader_parameter/selectColor = Color(0.94902, 0.964706, 0, 1)
-shader_parameter/selected = false
-shader_parameter/tex = ExtResource("14_r0cxd")
+[ext_resource type="PackedScene" uid="uid://c34ot6q3cu0jt" path="res://Asset/Prefabs/Creates/Create_Lettuce.tscn" id="13_hd7ps"]
+[ext_resource type="PackedScene" uid="uid://dger84eef3jnr" path="res://Asset/Prefabs/Creates/Create_Onions.tscn" id="14_exp3c"]
+[ext_resource type="PackedScene" uid="uid://cqhd3ht4yxttr" path="res://Asset/Prefabs/Plate.tscn" id="14_k8bnr"]
+[ext_resource type="PackedScene" uid="uid://btqmpmhf8khe1" path="res://Asset/Prefabs/Creates/Create_Potatos.tscn" id="15_jme74"]
+[ext_resource type="PackedScene" uid="uid://4nx7c3hblfj3" path="res://Asset/Prefabs/Creates/Create_Steak.tscn" id="16_0ewfk"]
+[ext_resource type="ArrayMesh" uid="uid://cotlqt7kdjufm" path="res://Asset/Kitchen/obj/wall_orderwindow.obj" id="17_d4xcc"]
+[ext_resource type="PackedScene" uid="uid://ca72728kboj3a" path="res://Asset/Prefabs/Creates/Create_Tomatoes.tscn" id="17_ul8v7"]
+[ext_resource type="PackedScene" uid="uid://boi7g10ip6fge" path="res://Asset/Prefabs/Furniture/Counter_Outercorner.tscn" id="19_s10pa"]
+[ext_resource type="PackedScene" uid="uid://cx0bsuv6fm6ec" path="res://Asset/Prefabs/Furniture/Counter_Innercorner.tscn" id="20_p10tn"]
+[ext_resource type="PackedScene" uid="uid://cpl53s0o03r5r" path="res://Asset/Prefabs/Furniture/Counter_Sink.tscn" id="21_vtnlg"]
+[ext_resource type="PackedScene" uid="uid://b6g4ge1u682o6" path="res://Asset/Prefabs/Furniture/Counter_StraightB.tscn" id="23_5gckd"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k5aar"]
 albedo_color = Color(0.380392, 0.380392, 0.380392, 1)
@@ -46,7 +31,6 @@ size = Vector3(100, 0.1, 100)
 [sub_resource type="Environment" id="Environment_pefkh"]
 background_mode = 1
 background_color = Color(1, 1, 1, 1)
-background_energy_multiplier = 2.0
 ambient_light_color = Color(1, 1, 1, 1)
 ambient_light_energy = 5.0
 
@@ -54,98 +38,77 @@ ambient_light_energy = 5.0
 
 [node name="Kitchen" type="Node3D" parent="."]
 
-[node name="Creates" type="StaticBody3D" parent="Kitchen"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0)
+[node name="Floor" type="StaticBody3D" parent="Kitchen"]
 collision_layer = 4
 collision_mask = 0
 
-[node name="crate" parent="Kitchen/Creates" instance=ExtResource("1_j5rcq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Kitchen/Floor"]
+mesh = SubResource("PlaneMesh_mn0sv")
+skeleton = NodePath("../../..")
 
-[node name="crate_carrots" parent="Kitchen/Creates" instance=ExtResource("3_5yiet")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Kitchen/Floor"]
+shape = SubResource("BoxShape3D_o0wsl")
 
-[node name="crate_cheese" parent="Kitchen/Creates" instance=ExtResource("4_lfp1i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+[node name="Creates" type="Node3D" parent="Kitchen"]
 
-[node name="crate_ham" parent="Kitchen/Creates" instance=ExtResource("5_u2epa")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7)
+[node name="CreateBuns" parent="Kitchen/Creates" instance=ExtResource("9_c5byw")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8, 0, -4)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Kitchen/Creates"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.443226, -2.99177)
-shape = SubResource("BoxShape3D_1i73y")
+[node name="CreateCarrot" parent="Kitchen/Creates" instance=ExtResource("10_n636r")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6, 0, -4)
 
-[node name="Kitchen" type="StaticBody3D" parent="Kitchen"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
-collision_layer = 4
-collision_mask = 0
+[node name="CreateCheese" parent="Kitchen/Creates" instance=ExtResource("11_6pqwl")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4, 0, -4)
 
-[node name="kitchencounter_sink" parent="Kitchen/Kitchen" instance=ExtResource("6_kllem")]
+[node name="CreateHam" parent="Kitchen/Creates" instance=ExtResource("12_fy24p")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 0, -4)
+
+[node name="CreateLettuce" parent="Kitchen/Creates" instance=ExtResource("13_hd7ps")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -4)
+
+[node name="CreateOnions" parent="Kitchen/Creates" instance=ExtResource("14_exp3c")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6, 0, 2)
+
+[node name="CreatePotatos" parent="Kitchen/Creates" instance=ExtResource("15_jme74")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4, 0, 2)
+
+[node name="CreateSteak" parent="Kitchen/Creates" instance=ExtResource("16_0ewfk")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 0, 2)
+
+[node name="CreateTomatoes" parent="Kitchen/Creates" instance=ExtResource("17_ul8v7")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 2)
+
+[node name="Furniture" type="Node3D" parent="Kitchen"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4, 0, 0)
+
+[node name="CounterInnercorner" parent="Kitchen/Furniture" instance=ExtResource("20_p10tn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
 
-[node name="kitchencounter_straight_A2" parent="Kitchen/Kitchen" instance=ExtResource("7_f2v1a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+[node name="CounterStraight" parent="Kitchen/Furniture" node_paths=PackedStringArray("_defaultInteractable") instance=ExtResource("8_4kfd2")]
+_defaultInteractable = NodePath("Plate")
 
-[node name="kitchencounter_straight_A4" parent="Kitchen/Kitchen" instance=ExtResource("7_f2v1a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+[node name="Plate" parent="Kitchen/Furniture/CounterStraight" instance=ExtResource("14_k8bnr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.42109e-14, 1, 2.38419e-07)
 
-[node name="kitchencounter_straight_A3" parent="Kitchen/Kitchen" instance=ExtResource("7_f2v1a")]
+[node name="CounterStraight2" parent="Kitchen/Furniture" instance=ExtResource("23_5gckd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
 
-[node name="stove_single" parent="Kitchen/Kitchen" instance=ExtResource("10_1jgn2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+[node name="CounterSink" parent="Kitchen/Furniture" instance=ExtResource("21_vtnlg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Kitchen/Kitchen"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.00288, 0.498629, 0)
-shape = SubResource("BoxShape3D_3els5")
-
-[node name="plate" parent="Kitchen" instance=ExtResource("8_o4l8b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -8)
-
-[node name="plate_dirty" parent="Kitchen" instance=ExtResource("9_nkvb1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, -8)
-
-[node name="wall_orderwindow_decorated" parent="Kitchen" instance=ExtResource("11_63ws6")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 16, 0, -3)
-
-[node name="pan_006" parent="Kitchen" instance=ExtResource("12_j5trt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 1, -8)
-
-[node name="Create" type="StaticBody3D" parent="Kitchen"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.864208, 4.76837e-07, -3.77578)
-collision_layer = 4
-collision_mask = 0
-script = ExtResource("12_vwjd8")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Kitchen/Create"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.387823, 0)
-shape = SubResource("BoxShape3D_gguth")
-
-[node name="Mesh" type="MeshInstance3D" parent="Kitchen/Create"]
-mesh = ExtResource("13_4xo8i")
-surface_material_override/0 = SubResource("ShaderMaterial_n570g")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
-collision_layer = 4
-collision_mask = 0
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
-mesh = SubResource("PlaneMesh_mn0sv")
-skeleton = NodePath("../..")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-shape = SubResource("BoxShape3D_o0wsl")
+[node name="CounterOutercorner" parent="Kitchen/Furniture" instance=ExtResource("19_s10pa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0)
 
 [node name="Player" parent="." instance=ExtResource("13_8oirm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.93549, 1, 0)
 collision_mask = 7
 PlayerNumber = 0
 
-[node name="Player2" parent="." instance=ExtResource("13_8oirm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-collision_mask = 7
-PlayerNumber = 1
-
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.688177, 0.725543, 0, -0.725543, 0.688177, 0, 7.11486, 9.97989)
 environment = SubResource("Environment_pefkh")
 current = true
+
+[node name="WallOrderwindow" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 13.5602, 0.0500002, -2.90911)
+mesh = ExtResource("17_d4xcc")
