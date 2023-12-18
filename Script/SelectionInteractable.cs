@@ -7,16 +7,16 @@ public partial class SelectionInteractable : Interactable
 
 	public override void _Ready()
 	{
-		_shader = GetNode<MeshInstance3D>("Mesh").GetSurfaceOverrideMaterial(0) as ShaderMaterial;
+		_shader = GetNode<MeshInstance3D>("StaticBody3D/Mesh").GetSurfaceOverrideMaterial(0) as ShaderMaterial;
 	}
 
-	public void Select()
+	public override void HoverEnter(Player player)
 	{
 		_state = State.SELECT;
 		_shader.SetShaderParameter("selected", true);
 	}
 
-	public void Reset()
+	public override void HoverExit(Player player)
 	{
 		_state = State.IDLE;
 		_shader.SetShaderParameter("selected", false);

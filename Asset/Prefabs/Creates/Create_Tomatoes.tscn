@@ -15,15 +15,17 @@ shader_parameter/selectColor = Color(0.94902, 0.964706, 0, 1)
 shader_parameter/selected = false
 shader_parameter/tex = ExtResource("4_w2oi2")
 
-[node name="CreateTomatoes" type="StaticBody3D"]
-collision_layer = 4
-collision_mask = 0
+[node name="CreateTomatoes" type="Node3D"]
 script = ExtResource("1_o58m0")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.387823, 0)
 shape = SubResource("BoxShape3D_gguth")
 
-[node name="Mesh" type="MeshInstance3D" parent="."]
+[node name="Mesh" type="MeshInstance3D" parent="StaticBody3D"]
 mesh = ExtResource("2_7qy18")
 surface_material_override/0 = SubResource("ShaderMaterial_n570g")

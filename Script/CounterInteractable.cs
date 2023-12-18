@@ -10,7 +10,7 @@ public partial class CounterInteractable : SelectionInteractable
 
 	public override void _Ready()
 	{
-		_anchor = GetNode<Node3D>("Anchor");
+		_anchor = GetNode<Node3D>("StaticBody3D/Anchor");
 		if (_defaultInteractable != null)
 		{
 			_interactable = _defaultInteractable;
@@ -41,6 +41,7 @@ public partial class CounterInteractable : SelectionInteractable
 	{
 		if (_interactable == null || player.HasInteractable())
 			return;
+
 		player.AddInteractable(_interactable);
 		_interactable = null;
 	}

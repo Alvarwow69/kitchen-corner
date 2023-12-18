@@ -13,14 +13,19 @@ public partial class Interactable : Node3D
 
 	protected State _state;
 
+	public virtual void HoverEnter(Player player)
+	{ }
+
+	public virtual void HoverExit(Player player)
+	{ }
+
 	public virtual void PerformAction(Player player)
-	{
-		Debug.Print("Action Performed.");
-	}
+	{ }
 
 	public virtual void ProcessAction(Player player)
-	{
-		Debug.Print("Action Performed.");
-	}
+	{ }
+
+	public virtual void Drop(Player player)
+	{ }
 
 }

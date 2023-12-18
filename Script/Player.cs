@@ -12,7 +12,7 @@ public partial class Player : CharacterBody3D
 	private Dash _dash;
 	private RayCast3D _raycast;
 	private Node3D _pivot;
-	private SelectionInteractable _selectionInteractable = null;
+	private Interactable _selectionInteractable = null;
 	private Interactable _interactable = null;
 	private Node3D _anchor;
 
@@ -26,32 +26,42 @@ public partial class Player : CharacterBody3D
 
 	public override void _PhysicsProcess(double delta)
 	{
-		ProcessActionableItem();
+		ProcessInteractable();
 		ProcessAction();
 		MovePlayer(delta);
 	}
 
-	private void ProcessActionableItem()
+	private void ProcessInteractable()
 	{
-		if (_raycast.IsColliding() && _raycast.GetCollider() is SelectionInteractable)
+		if (_raycast.IsColliding())
 		{
-			if (_raycast.GetCollider() == _selectionInteractable)
-				return;
-			_selectionInteractable?.Reset();
-			_selectionInteractable = _raycast.GetCollider() as SelectionInteractable;
-			_selectionInteractable?.Select();
+			if ((_raycast.GetCollider() as Node3D).GetParent() is Interactable)
+			{
+				if (_raycast.GetCollider() == _selectionInteractable)
+					return;
+				_selectionInteractable?.HoverExit(this);
+				_selectionInteractable = (_raycast.GetCollider() as Node3D).GetParent() as Interactable;
+				_selectionInteractable?.HoverEnter(this);
+			}
 		}
 		else if (_selectionInteractable != null)
 		{
-			_selectionInteractable.Reset();
+			_selectionInteractable.HoverExit(this);
 			_selectionInteractable = null;
 		}
 	}
 
 	private void ProcessAction()
 	{
-		if (Input.IsActionJustPressed("player" + PlayerNumber + "_action") && _selectionInteractable != null)
-			_selectionInteractable.PerformAction(this);
+		if (Input.IsActionJustPressed("player" + PlayerNumber + "_action"))
+		{
+			if (_selectionInteractable != null)
+				_selectionInteractable?.PerformAction(this);
+			else if (_interactable != null)
+				_interactable.Drop(this);
+
+		}
+
 	}
 
 	private void MovePlayer(double delta)
@@ -100,6 +110,7 @@ public partial class Player : CharacterBody3D
 	{
 		Interactable tmp = _interactable;
 
+		_interactable.Reparent(GetTree().Root.GetChild(0));
 		_interactable = null;
 		return tmp;
 	}

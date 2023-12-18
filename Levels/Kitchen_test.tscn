@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dr3p8o02b47o3"]
+[gd_scene load_steps=23 format=3 uid="uid://dr3p8o02b47o3"]
 
 [ext_resource type="PackedScene" uid="uid://dnkgd6nbuk5v7" path="res://Asset/Prefabs/Furniture/Counter_Straight.tscn" id="8_4kfd2"]
 [ext_resource type="PackedScene" uid="uid://hkh7js1my8ij" path="res://Asset/Prefabs/Creates/Create_Buns.tscn" id="9_c5byw"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://4nx7c3hblfj3" path="res://Asset/Prefabs/Creates/Create_Steak.tscn" id="16_0ewfk"]
 [ext_resource type="ArrayMesh" uid="uid://cotlqt7kdjufm" path="res://Asset/Kitchen/obj/wall_orderwindow.obj" id="17_d4xcc"]
 [ext_resource type="PackedScene" uid="uid://ca72728kboj3a" path="res://Asset/Prefabs/Creates/Create_Tomatoes.tscn" id="17_ul8v7"]
+[ext_resource type="PackedScene" uid="uid://mt1blvomgy38" path="res://Asset/Prefabs/Food/Carrot.tscn" id="18_4ajwg"]
 [ext_resource type="PackedScene" uid="uid://boi7g10ip6fge" path="res://Asset/Prefabs/Furniture/Counter_Outercorner.tscn" id="19_s10pa"]
 [ext_resource type="PackedScene" uid="uid://cx0bsuv6fm6ec" path="res://Asset/Prefabs/Furniture/Counter_Innercorner.tscn" id="20_p10tn"]
 [ext_resource type="PackedScene" uid="uid://cpl53s0o03r5r" path="res://Asset/Prefabs/Furniture/Counter_Sink.tscn" id="21_vtnlg"]
@@ -88,7 +89,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
 _defaultInteractable = NodePath("Plate")
 
 [node name="Plate" parent="Kitchen/Furniture/CounterStraight" instance=ExtResource("14_k8bnr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.42109e-14, 1, 2.38419e-07)
+transform = Transform3D(1.4865, 0, 0, 0, 1.4865, 0, 0, 0, 1.4865, -1.42109e-14, 1, 2.38419e-07)
 
 [node name="CounterStraight2" parent="Kitchen/Furniture" instance=ExtResource("23_5gckd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
@@ -99,8 +100,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
 [node name="CounterOutercorner" parent="Kitchen/Furniture" instance=ExtResource("19_s10pa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0)
 
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Kitchen"]
+transform = Transform3D(0.782456, -0.234005, -0.577065, 0.622706, 0.294037, 0.725107, 0, -0.926706, 0.375788, 0, 6.23207, 0)
+
 [node name="Player" parent="." instance=ExtResource("13_8oirm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.93549, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.93549, 1.89814, 0)
 collision_mask = 7
 PlayerNumber = 0
 
@@ -112,3 +116,6 @@ current = true
 [node name="WallOrderwindow" type="MeshInstance3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 13.5602, 0.0500002, -2.90911)
 mesh = ExtResource("17_d4xcc")
+
+[node name="Carrot" parent="." instance=ExtResource("18_4ajwg")]
+transform = Transform3D(0.820032, -0.572318, 0, 0.572318, 0.820032, 0, 0, 0, 1, -0.264152, 1.78699, -1.28471)
