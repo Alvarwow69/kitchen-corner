@@ -19,7 +19,10 @@ script = ExtResource("1_tf5dd")
 [node name="RayCast3D" type="RayCast3D" parent="Pivot"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -0.512384, 0)
 target_position = Vector3(2, 0, 0)
-collision_mask = 12
+collision_mask = 20
+collide_with_areas = true
+debug_shape_custom_color = Color(1, 0, 0, 1)
+debug_shape_thickness = 5
 
 [node name="playerMesh" type="MeshInstance3D" parent="Pivot"]
 mesh = SubResource("CapsuleMesh_h6d47")

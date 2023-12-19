@@ -1,19 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://mt1blvomgy38"]
+[gd_scene load_steps=6 format=3 uid="uid://b6f1lal8ii33r"]
 
-[ext_resource type="ArrayMesh" uid="uid://n7xw4hcddoev" path="res://Asset/Kitchen/obj/food_ingredient_carrot.obj" id="1_f4jck"]
-[ext_resource type="Script" path="res://Script/Food.cs" id="1_w8f0r"]
+[ext_resource type="Script" path="res://Script/Food.cs" id="1_85hwg"]
+[ext_resource type="ArrayMesh" uid="uid://7vj48r01d4ap" path="res://Asset/Kitchen/obj/food_ingredient_ham.obj" id="2_v4bxb"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vbwjl"]
+size = Vector3(1.18538, 0.74866, 0.882076)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6t2cd"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hw7qp"]
-radius = 0.253254
-height = 1.05076
+radius = 0.390394
+height = 1.4704
 
-[node name="Carrot" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.275252, 0)
-script = ExtResource("1_w8f0r")
+[node name="Ham" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.435075, 0)
+script = ExtResource("1_85hwg")
 
 [node name="HitBox" type="Area3D" parent="."]
 process_mode = 3
@@ -23,18 +24,18 @@ collision_priority = 2.0
 priority = 1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HitBox"]
-transform = Transform3D(1.49512, 0, 0, 0, 1.49512, 0, 0, 0, 1.49512, 0, 0, 0)
+transform = Transform3D(1.49512, 0, 0, 0, 1.49512, 0, 0, 0, 1.49512, 0.221977, 0.0177582, 0)
 shape = SubResource("BoxShape3D_vbwjl")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
 collision_layer = 8
 collision_mask = 15
 mass = 3.0
 physics_material_override = SubResource("PhysicsMaterial_6t2cd")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0.204219, 0, 0)
 shape = SubResource("CapsuleShape3D_hw7qp")
 
 [node name="FoodIngredientCarrot" type="MeshInstance3D" parent="RigidBody3D"]
-mesh = ExtResource("1_f4jck")
+mesh = ExtResource("2_v4bxb")

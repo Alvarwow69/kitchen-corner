@@ -40,7 +40,7 @@ public partial class Player : CharacterBody3D
 				if (_raycast.GetCollider() == _selectionInteractable)
 					return;
 				_selectionInteractable?.HoverExit(this);
-				_selectionInteractable = (_raycast.GetCollider() as Node3D).GetParent() as Interactable;
+				_selectionInteractable = (_raycast.GetCollider() as Node3D)?.GetParent() as Interactable;
 				_selectionInteractable?.HoverEnter(this);
 			}
 		}
