@@ -14,6 +14,8 @@ height = 0.695439
 
 [node name="Bun" type="Node3D"]
 script = ExtResource("1_58kyi")
+_name = "Bun"
+_compatibility = ["Steak_Raw"]
 
 [node name="HitBox" type="Area3D" parent="."]
 process_mode = 3

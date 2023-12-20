@@ -13,6 +13,8 @@ size = Vector3(1, 0.246327, 1)
 
 [node name="Steack" type="Node3D"]
 script = ExtResource("1_h25xx")
+_name = "Steak"
+_compatibility = ["Bun_Raw"]
 
 [node name="HitBox" type="Area3D" parent="."]
 process_mode = 3

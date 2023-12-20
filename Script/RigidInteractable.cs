@@ -31,6 +31,7 @@ public partial class RigidInteractable : Interactable
 	{
 		RigidBody.Freeze = true;
 		RigidBody.GlobalPosition = GlobalPosition;
+		RigidBody.GlobalRotation = Vector3.Zero;
 		RigidBody.CollisionLayer = 0;
 		RigidBody.CollisionMask = 0;
 		HitBox.CollisionLayer = 0;

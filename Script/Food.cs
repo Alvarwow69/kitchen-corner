@@ -1,24 +1,29 @@
 using Godot;
 using System;
 using System.Diagnostics;
+using Godot.Collections;
 
 public partial class Food : RigidInteractable
 {
 	public enum State
 	{
-		RAW,
-		SLICED,
-		COOCKED,
-		BURNED
+		Raw,
+		Sliced,
+		Cooked,
+		Burned
 	}
 
-	[Export] private State _state = State.RAW;
-
+	[Export] private State _state = State.Raw;
+	[Export] private String _name = "Food";
+	[Export] private Array<string> _compatibility;
 
 	public override void PerformAction(Player player)
 	{
-		Freeze();
-		player.AddInteractable(this);
+		if (!player.HasInteractable())
+		{
+			player.AddInteractable(this);
+			Freeze();
+		}
 	}
 
 	public override void Drop(Player player)
@@ -27,15 +32,14 @@ public partial class Food : RigidInteractable
 		Activate();
 	}
 
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
+	public bool IsCompatible(Food food)
 	{
-		base._Ready();
+		Debug.Print(_compatibility[0]);
+		return _compatibility.Contains(food.GetNameState());
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
+	public string GetNameState()
 	{
-		base._Process(delta);
+		return _name + "_" + _state;
 	}
 }

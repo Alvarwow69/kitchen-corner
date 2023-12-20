@@ -8,7 +8,7 @@ public partial class Player : CharacterBody3D
 	[Export] public float DashSpeed = 10.0f;
 	[Export] public int PlayerNumber { get; set; } = -1;
 
-	private float gravity = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle();
+	private float _gravity = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle();
 	private Dash _dash;
 	private RayCast3D _raycast;
 	private Node3D _pivot;
@@ -56,10 +56,18 @@ public partial class Player : CharacterBody3D
 	{
 		if (Input.IsActionJustPressed("player" + PlayerNumber + "_grab"))
 		{
-			if (_selectionInteractable != null)
+			if (_interactable != null)
+			{
+				if (_selectionInteractable is Food && _interactable is Plate)
+				{
+					(_interactable as Plate).AddFood(_selectionInteractable as Food);
+				} else if (_selectionInteractable == null)
+					_interactable.Drop(this);
+				else
+					_selectionInteractable?.PerformAction(this);
+			}
+			else if (_selectionInteractable != null)
 				_selectionInteractable?.PerformAction(this);
-			else if (_interactable != null)
-				_interactable.Drop(this);
 		}
 
 		if (Input.IsActionPressed("player" + PlayerNumber + "_action"))
@@ -83,25 +91,25 @@ public partial class Player : CharacterBody3D
 		Vector3 velocity = Velocity;
 
 		if (!IsOnFloor())
-			velocity.Y -= gravity * (float)delta;
+			velocity.Y -= _gravity * (float)delta;
 
 		if (Input.IsActionJustPressed("player" + PlayerNumber + "_dash"))
 			_dash.StartDash(DashDuration);
 
-		float Speed = _dash.isDashing() ? DashSpeed : NormalSpeed;
+		float speed = _dash.isDashing() ? DashSpeed : NormalSpeed;
 
 		Vector2 inputDir = Input.GetVector("player" + PlayerNumber + "_left", "player" + PlayerNumber + "_right", "player" + PlayerNumber + "_forward", "player" + PlayerNumber + "_backward");
 		Vector3 direction = (Transform.Basis * new Vector3(inputDir.X, 0, inputDir.Y)).Normalized();
 		if (direction != Vector3.Zero)
 		{
-			velocity.X = direction.X * Speed * (_freeze ? 0 : 1);
-			velocity.Z = direction.Z * Speed * (_freeze ? 0 : 1);
+			velocity.X = direction.X * speed * (_freeze ? 0 : 1);
+			velocity.Z = direction.Z * speed * (_freeze ? 0 : 1);
 			_pivot.LookAt(Position + direction, Vector3.Up);
 		}
 		else
 		{
-			velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
-			velocity.Z = Mathf.MoveToward(Velocity.Z, 0, Speed);
+			velocity.X = Mathf.MoveToward(Velocity.X, 0, speed);
+			velocity.Z = Mathf.MoveToward(Velocity.Z, 0, speed);
 		}
 
 		Velocity = velocity;

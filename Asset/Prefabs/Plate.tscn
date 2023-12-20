@@ -1,10 +1,40 @@
-[gd_scene load_steps=3 format=3 uid="uid://cqhd3ht4yxttr"]
+[gd_scene load_steps=6 format=3 uid="uid://cqhd3ht4yxttr"]
 
-[ext_resource type="Script" path="res://Script/Interactable.cs" id="1_n3pjm"]
 [ext_resource type="ArrayMesh" uid="uid://bb6yo8whw61ey" path="res://Asset/Kitchen/obj/plate.obj" id="1_q3mqb"]
+[ext_resource type="Script" path="res://Script/Plate.cs" id="1_vjtju"]
+[ext_resource type="ArrayMesh" uid="uid://c4ac8qrteynop" path="res://Asset/Kitchen/obj/plate_dirty.obj" id="2_dki5a"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rtx7j"]
+size = Vector3(1, 0.736964, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ind2l"]
+size = Vector3(1, 0.127762, 1)
 
 [node name="Plate" type="Node3D"]
-script = ExtResource("1_n3pjm")
+script = ExtResource("1_vjtju")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="HitBox" type="Area3D" parent="."]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitBox"]
+shape = SubResource("BoxShape3D_rtx7j")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+collision_layer = 8
+collision_mask = 15
+
+[node name="Dirty" type="MeshInstance3D" parent="RigidBody3D"]
+visible = false
+mesh = ExtResource("2_dki5a")
+
+[node name="Clean" type="MeshInstance3D" parent="RigidBody3D"]
 mesh = ExtResource("1_q3mqb")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0584054, 0)
+shape = SubResource("BoxShape3D_ind2l")
+
+[node name="Anchor" type="Node3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0693564, 0)
