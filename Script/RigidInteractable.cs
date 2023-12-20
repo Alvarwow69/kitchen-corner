@@ -45,4 +45,11 @@ public partial class RigidInteractable : Interactable
 		HitBox.CollisionLayer = SaveHitLayer;
 		HitBox.CollisionMask = SaveHitMask;
 	}
+
+	public virtual void Throw(Player player, float force, Vector3 direction)
+	{
+		player.RemoveInteractable();
+		Activate();
+		RigidBody.ApplyImpulse(direction * force);
+	}
 }

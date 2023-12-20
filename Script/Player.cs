@@ -3,9 +3,9 @@ using Godot;
 
 public partial class Player : CharacterBody3D
 {
-	[Export] public const float NormalSpeed = 5.0f;
-	[Export] public const float DashDuration = .2f;
-	[Export] public const float DashSpeed = 10.0f;
+	[Export] public float NormalSpeed = 5.0f;
+	[Export] public float DashDuration = .2f;
+	[Export] public float DashSpeed = 10.0f;
 	[Export] public int PlayerNumber { get; set; } = -1;
 
 	private float gravity = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle();
@@ -15,6 +15,7 @@ public partial class Player : CharacterBody3D
 	private Interactable _selectionInteractable = null;
 	private Interactable _interactable = null;
 	private Node3D _anchor;
+	private bool _freeze = false;
 
 	public override void _Ready()
 	{
@@ -53,13 +54,26 @@ public partial class Player : CharacterBody3D
 
 	private void ProcessAction()
 	{
-		if (Input.IsActionJustPressed("player" + PlayerNumber + "_action"))
+		if (Input.IsActionJustPressed("player" + PlayerNumber + "_grab"))
 		{
 			if (_selectionInteractable != null)
 				_selectionInteractable?.PerformAction(this);
 			else if (_interactable != null)
 				_interactable.Drop(this);
+		}
 
+		if (Input.IsActionPressed("player" + PlayerNumber + "_action"))
+			_freeze = true;
+		else if (Input.IsActionJustReleased("player" + PlayerNumber + "_action"))
+		{
+			_freeze = false;
+			if (_interactable != null)
+			{
+				if (_interactable is RigidInteractable)
+					(_interactable as RigidInteractable).Throw(this, 30, -_pivot.GlobalTransform.Basis.Z);
+				else
+					_interactable.Drop(this);
+			}
 		}
 
 	}
@@ -80,8 +94,8 @@ public partial class Player : CharacterBody3D
 		Vector3 direction = (Transform.Basis * new Vector3(inputDir.X, 0, inputDir.Y)).Normalized();
 		if (direction != Vector3.Zero)
 		{
-			velocity.X = direction.X * Speed;
-			velocity.Z = direction.Z * Speed;
+			velocity.X = direction.X * Speed * (_freeze ? 0 : 1);
+			velocity.Z = direction.Z * Speed * (_freeze ? 0 : 1);
 			_pivot.LookAt(Position + direction, Vector3.Up);
 		}
 		else
