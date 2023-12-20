@@ -15,7 +15,7 @@ height = 0.695439
 [node name="Bun" type="Node3D"]
 script = ExtResource("1_58kyi")
 _name = "Bun"
-_compatibility = ["Steak_Raw"]
+_compatibility = ["Steak_Cooked", "Tomato_Sliced"]
 
 [node name="HitBox" type="Area3D" parent="."]
 process_mode = 3
@@ -38,5 +38,5 @@ physics_material_override = SubResource("PhysicsMaterial_6t2cd")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0136733, 0.204916, 0)
 shape = SubResource("CapsuleShape3D_55vh1")
 
-[node name="FoodIngredientCarrot" type="MeshInstance3D" parent="RigidBody3D"]
+[node name="Raw" type="MeshInstance3D" parent="RigidBody3D"]
 mesh = ExtResource("2_kvbu3")

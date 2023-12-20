@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://x2e7ie0tro65"]
+[gd_scene load_steps=7 format=3 uid="uid://x2e7ie0tro65"]
 
 [ext_resource type="Script" path="res://Script/Food.cs" id="1_cwny2"]
 [ext_resource type="ArrayMesh" uid="uid://dkiuagwpvfpdv" path="res://Asset/Kitchen/obj/food_ingredient_cheese.obj" id="2_1l8vo"]
+[ext_resource type="ArrayMesh" uid="uid://ccxva5uwumhah" path="res://Asset/Kitchen/obj/food_ingredient_cheese_slice.obj" id="3_rh7kn"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vbwjl"]
 size = Vector3(0.889064, 0.742002, 0.908622)
@@ -13,6 +14,7 @@ size = Vector3(1, 0.523866, 0.736964)
 
 [node name="Cheese" type="Node3D"]
 script = ExtResource("1_cwny2")
+_name = "Cheese"
 
 [node name="HitBox" type="Area3D" parent="."]
 process_mode = 3
@@ -35,5 +37,9 @@ physics_material_override = SubResource("PhysicsMaterial_6t2cd")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.150944, 0.230856, 0)
 shape = SubResource("BoxShape3D_jnytq")
 
-[node name="FoodIngredientCarrot" type="MeshInstance3D" parent="RigidBody3D"]
+[node name="Raw" type="MeshInstance3D" parent="RigidBody3D"]
 mesh = ExtResource("2_1l8vo")
+
+[node name="Sliced" type="MeshInstance3D" parent="RigidBody3D"]
+visible = false
+mesh = ExtResource("3_rh7kn")

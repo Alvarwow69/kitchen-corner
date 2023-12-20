@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://b6f1lal8ii33r"]
+[gd_scene load_steps=8 format=3 uid="uid://b6f1lal8ii33r"]
 
 [ext_resource type="Script" path="res://Script/Food.cs" id="1_85hwg"]
 [ext_resource type="ArrayMesh" uid="uid://7vj48r01d4ap" path="res://Asset/Kitchen/obj/food_ingredient_ham.obj" id="2_v4bxb"]
+[ext_resource type="ArrayMesh" uid="uid://427u55d3a7a4" path="res://Asset/Kitchen/obj/food_ingredient_ham_cooked.obj" id="3_34sr5"]
+[ext_resource type="ArrayMesh" uid="uid://kljfjwt64t5u" path="res://Asset/Kitchen/obj/food_ingredient_ham_trash.obj" id="4_6hi1s"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vbwjl"]
 size = Vector3(1.18538, 0.74866, 0.882076)
@@ -15,6 +17,7 @@ height = 1.4704
 [node name="Ham" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.435075, 0)
 script = ExtResource("1_85hwg")
+_name = "Ham"
 
 [node name="HitBox" type="Area3D" parent="."]
 process_mode = 3
@@ -37,5 +40,13 @@ physics_material_override = SubResource("PhysicsMaterial_6t2cd")
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0.204219, 0, 0)
 shape = SubResource("CapsuleShape3D_hw7qp")
 
-[node name="FoodIngredientCarrot" type="MeshInstance3D" parent="RigidBody3D"]
+[node name="Raw" type="MeshInstance3D" parent="RigidBody3D"]
 mesh = ExtResource("2_v4bxb")
+
+[node name="Cooked" type="MeshInstance3D" parent="RigidBody3D"]
+visible = false
+mesh = ExtResource("3_34sr5")
+
+[node name="Burned" type="MeshInstance3D" parent="RigidBody3D"]
+visible = false
+mesh = ExtResource("4_6hi1s")

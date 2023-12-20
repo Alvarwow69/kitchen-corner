@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://u1e6usnuf5l0"]
+[gd_scene load_steps=7 format=3 uid="uid://u1e6usnuf5l0"]
 
 [ext_resource type="Script" path="res://Script/Food.cs" id="1_31arq"]
 [ext_resource type="ArrayMesh" uid="uid://bo0h1he11ucw0" path="res://Asset/Kitchen/obj/food_ingredient_onion.obj" id="2_i3shq"]
+[ext_resource type="ArrayMesh" uid="uid://hwt6bs1pmybw" path="res://Asset/Kitchen/obj/food_ingredient_onion_rings.obj" id="3_wbwyj"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vbwjl"]
 size = Vector3(1.0907, 0.969812, 0.908622)
@@ -13,6 +14,7 @@ radius = 0.372948
 
 [node name="Onion" type="Node3D"]
 script = ExtResource("1_31arq")
+_name = "Onion"
 
 [node name="HitBox" type="Area3D" parent="."]
 process_mode = 3
@@ -35,5 +37,9 @@ physics_material_override = SubResource("PhysicsMaterial_6t2cd")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0136733, 0.373556, 0)
 shape = SubResource("SphereShape3D_xkwh1")
 
-[node name="FoodIngredientCarrot" type="MeshInstance3D" parent="RigidBody3D"]
+[node name="Raw" type="MeshInstance3D" parent="RigidBody3D"]
 mesh = ExtResource("2_i3shq")
+
+[node name="Sliced" type="MeshInstance3D" parent="RigidBody3D"]
+visible = false
+mesh = ExtResource("3_wbwyj")

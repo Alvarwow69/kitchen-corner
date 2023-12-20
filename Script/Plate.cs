@@ -21,8 +21,8 @@ public partial class Plate : RigidInteractable
 		_anchor = GetNode<Node3D>("RigidBody3D/Anchor");
 		_cleanModel = GetNode<MeshInstance3D>("RigidBody3D/Clean");
 		_dirtyModel = GetNode<MeshInstance3D>("RigidBody3D/Dirty");
-		_cleanModel.Visible = _state == State.Clean;
-		_dirtyModel.Visible = _state == State.Dirty;
+		GetNode<MeshInstance3D>("RigidBody3D/" + State.Clean).Visible = false;
+		SetState(_state);
 	}
 
 	public override void PerformAction(Player player)
@@ -56,8 +56,8 @@ public partial class Plate : RigidInteractable
 	
 	public void SetState(State newState)
 	{
+		GetNode<MeshInstance3D>("RigidBody3D/" + _state).Visible = false;
 		_state = newState;
-		
+		GetNode<MeshInstance3D>("RigidBody3D/" + _state).Visible = true;
 	}
-
 }

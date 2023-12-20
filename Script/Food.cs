@@ -1,6 +1,5 @@
 using Godot;
 using System;
-using System.Diagnostics;
 using Godot.Collections;
 
 public partial class Food : RigidInteractable
@@ -16,6 +15,13 @@ public partial class Food : RigidInteractable
 	[Export] private State _state = State.Raw;
 	[Export] private String _name = "Food";
 	[Export] private Array<string> _compatibility;
+
+	public override void _Ready()
+	{
+		base._Ready();
+		GetNode<MeshInstance3D>("RigidBody3D/" + State.Raw).Visible = false;
+		SetState(_state);
+	}
 
 	public override void PerformAction(Player player)
 	{
@@ -34,12 +40,18 @@ public partial class Food : RigidInteractable
 
 	public bool IsCompatible(Food food)
 	{
-		Debug.Print(_compatibility[0]);
 		return _compatibility.Contains(food.GetNameState());
 	}
 
 	public string GetNameState()
 	{
 		return _name + "_" + _state;
+	}
+	
+	public void SetState(State newState)
+	{
+		GetNode<MeshInstance3D>("RigidBody3D/" + _state).Visible = false;
+		_state = newState;
+		GetNode<MeshInstance3D>("RigidBody3D/" + _state).Visible = true;
 	}
 }

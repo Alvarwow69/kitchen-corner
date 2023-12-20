@@ -113,8 +113,7 @@ collision_mask = 7
 PlayerNumber = 0
 
 [node name="Plate" parent="." instance=ExtResource("14_k8bnr")]
-transform = Transform3D(-6.4977e-08, 0, 1.4865, 0, 1.4865, 0, -1.4865, 0, -6.4977e-08, -1, 1, 1.42109e-14)
-_state = 1
+transform = Transform3D(-6.54882e-08, 0, 1.4982, 0, 1.4982, 0, -1.4982, 0, -6.54882e-08, -1, 1, 1.42109e-14)
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.688177, 0.725543, 0, -0.725543, 0.688177, 0, 7.11486, 9.97989)
@@ -148,6 +147,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, 4)
 
 [node name="Steack" parent="." instance=ExtResource("23_i2wbn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, 4)
+_state = 2
 
 [node name="Tomato" parent="." instance=ExtResource("22_edhow")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 4)
+_state = 1
+_compatibility = Array[String](["Bun_Raw"])
