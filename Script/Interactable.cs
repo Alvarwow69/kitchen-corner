@@ -4,7 +4,7 @@ using System.Diagnostics;
 
 public partial class Interactable : Node3D
 {
-	public enum State
+	public enum InteractableState
 	{
 		IDLE,
 		SELECT,
@@ -13,7 +13,8 @@ public partial class Interactable : Node3D
 
 	[Export] public CollisionObject3D _hitbox;
 
-	protected State _state;
+	protected InteractableState State;
+	protected Player Player = null;
 
 	public virtual void HoverEnter(Player player)
 	{ }
@@ -31,13 +32,14 @@ public partial class Interactable : Node3D
 	{ }
 
 	public virtual void EnableHitBox()
-	{
-		
-	}
+	{ }
 	
 	public virtual void DisableHitBox()
+	{ }
+
+	public Player GetPlayer()
 	{
-		
+		return Player;
 	}
 
 }

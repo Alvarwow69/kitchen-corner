@@ -39,7 +39,7 @@ size = Vector3(100, 0.1, 100)
 
 [sub_resource type="Environment" id="Environment_pefkh"]
 background_mode = 1
-background_color = Color(1, 1, 1, 1)
+background_color = Color(0, 0.603922, 1, 1)
 ambient_light_color = Color(1, 1, 1, 1)
 ambient_light_energy = 5.0
 
@@ -115,6 +115,9 @@ PlayerNumber = 0
 [node name="Plate" parent="." instance=ExtResource("14_k8bnr")]
 transform = Transform3D(-6.54882e-08, 0, 1.4982, 0, 1.4982, 0, -1.4982, 0, -6.54882e-08, -1, 1, 1.42109e-14)
 
+[node name="Plate2" parent="." instance=ExtResource("14_k8bnr")]
+transform = Transform3D(-6.54882e-08, 0, 1.4982, 0, 1.4982, 0, -1.4982, 0, -6.54882e-08, 5.99352, 1, 1.42109e-14)
+
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.688177, 0.725543, 0, -0.725543, 0.688177, 0, 7.11486, 9.97989)
 environment = SubResource("Environment_pefkh")
@@ -135,9 +138,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, -2)
 
 [node name="Cheese" parent="." instance=ExtResource("21_c0wdt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0062, 0.887823, -1.74172)
+State = 1
 
 [node name="Lettuce" parent="." instance=ExtResource("19_sj4xu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -2)
+State = 1
 
 [node name="Onion" parent="." instance=ExtResource("2_05ao7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, 4)
@@ -147,9 +152,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, 4)
 
 [node name="Steack" parent="." instance=ExtResource("23_i2wbn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, 4)
-_state = 2
+State = 2
 
 [node name="Tomato" parent="." instance=ExtResource("22_edhow")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 4)
-_state = 1
-_compatibility = Array[String](["Bun_Raw"])
+State = 1

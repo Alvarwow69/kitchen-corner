@@ -27,6 +27,15 @@ public partial class RigidInteractable : Interactable
 		HitBox.GlobalPosition = RigidBody.GlobalPosition;
 	}
 
+	public override void PerformAction(Player player)
+	{
+		if (player.HasInteractable())
+			return;
+		Player = player;
+		player.AddInteractable(this);
+		Freeze();
+	}
+
 	public virtual void Freeze()
 	{
 		RigidBody.Freeze = true;
@@ -52,5 +61,11 @@ public partial class RigidInteractable : Interactable
 		player.RemoveInteractable();
 		Activate();
 		RigidBody.ApplyImpulse(direction * force);
+	}
+
+	public override void Drop(Player player)
+	{
+		player.RemoveInteractable();
+		Activate();
 	}
 }

@@ -12,6 +12,7 @@ size = Vector3(1, 0.127762, 1)
 
 [node name="Plate" type="Node3D"]
 script = ExtResource("1_vjtju")
+Height = 0.0
 
 [node name="HitBox" type="Area3D" parent="."]
 collision_layer = 16
@@ -23,6 +24,7 @@ shape = SubResource("BoxShape3D_rtx7j")
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
 collision_layer = 8
 collision_mask = 15
+lock_rotation = true
 
 [node name="Dirty" type="MeshInstance3D" parent="RigidBody3D"]
 visible = false
@@ -38,3 +40,5 @@ shape = SubResource("BoxShape3D_ind2l")
 
 [node name="Anchor" type="Node3D" parent="RigidBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0693564, 0)
+
+[node name="Raw" type="Node3D" parent="RigidBody3D"]

@@ -1,63 +1,58 @@
+using System.Diagnostics;
 using Godot;
 using Godot.Collections;
 
-public partial class Plate : RigidInteractable
+public partial class Plate : Ingredient
 {
-	public enum State
-	{
-		Clean,
-		Dirty
-	}
-	
-	[Export] private State _state = State.Clean;
-	private Node3D _anchor;
-	private Array<Food> _foods = new Array<Food>();
-	private MeshInstance3D _cleanModel;
-	private MeshInstance3D _dirtyModel;
+    public enum PlateState
+    {
+        Clean,
+        Dirty
+    }
 
-	public override void _Ready()
-	{
-		base._Ready();
-		_anchor = GetNode<Node3D>("RigidBody3D/Anchor");
-		_cleanModel = GetNode<MeshInstance3D>("RigidBody3D/Clean");
-		_dirtyModel = GetNode<MeshInstance3D>("RigidBody3D/Dirty");
-		GetNode<MeshInstance3D>("RigidBody3D/" + State.Clean).Visible = false;
-		SetState(_state);
-	}
+    [Export] private PlateState _state = PlateState.Clean;
+    private Node3D _anchor;
+    private MeshInstance3D _cleanModel;
+    private MeshInstance3D _dirtyModel;
 
-	public override void PerformAction(Player player)
-	{
-		if (!player.HasInteractable())
-		{
-			player.AddInteractable(this);
-			Freeze();
-		}
-	}
+    public override void _Ready()
+    {
+        base._Ready();
+        _anchor = GetNode<Node3D>("RigidBody3D/Anchor");
+        GetNode<MeshInstance3D>("RigidBody3D/" + PlateState.Clean).Visible = false;
+        SetState(_state);
+    }
 
-	public override void Drop(Player player)
-	{
-		player.RemoveInteractable();
-		Activate();
-	}
+    public void SetState(PlateState newState)
+    {
+        GetNode<MeshInstance3D>("RigidBody3D/" + _state).Visible = false;
+        _state = newState;
+        GetNode<MeshInstance3D>("RigidBody3D/" + _state).Visible = true;
+    }
 
-	public void AddFood(Food food)
-	{
-		if (_state == State.Dirty)
-			return;
-		foreach (var element in _foods)
-			if (!element.IsCompatible(food))
-				return;
-		food.Reparent(_anchor);
-		food.Freeze();
-		food.GlobalPosition = _anchor.GlobalPosition;
-		food.GlobalRotation = _anchor.GlobalRotation;
-		_foods.Add(food);
-	}
-	
-	public void SetState(State newState)
-	{
-		GetNode<MeshInstance3D>("RigidBody3D/" + _state).Visible = false;
-		_state = newState;
-		GetNode<MeshInstance3D>("RigidBody3D/" + _state).Visible = true;
-	}
+    public override void AddFood(Ingredient ingredient)
+    {
+        if (_state == PlateState.Dirty || ingredient is Plate)
+            return;
+        if (Player == null)
+        {
+            ingredient.GetPlayer().RemoveInteractable();
+            base.PerformAction(ingredient.GetPlayer());
+            ingredient.Reparent(GetNode("RigidBody3D"));
+            ingredient.GlobalPosition = GlobalPosition;
+            ingredient.GlobalRotation = GlobalRotation;
+            Foods.Add(ingredient);
+            foreach (var element in ingredient.GetIngredients())
+            {
+                element.Reparent(GetNode("RigidBody3D"));
+                element.GlobalPosition = GlobalPosition;
+                element.GlobalRotation = GlobalRotation;
+                Foods.Add(element);
+            }
+        }
+        else
+        {
+            base.AddFood(ingredient);
+        }
+    }
 }
