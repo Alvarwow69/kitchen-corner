@@ -14,7 +14,6 @@ radius = 0.372948
 
 [node name="Onion" type="Node3D"]
 script = ExtResource("1_31arq")
-_name = "Onion"
 
 [node name="HitBox" type="Area3D" parent="."]
 process_mode = 3

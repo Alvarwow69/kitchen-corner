@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://dr3p8o02b47o3"]
+[gd_scene load_steps=32 format=3 uid="uid://dr3p8o02b47o3"]
 
 [ext_resource type="PackedScene" uid="uid://d1faqtqm3f0xq" path="res://Asset/Prefabs/Food/Potato.tscn" id="1_5k6uc"]
 [ext_resource type="PackedScene" uid="uid://u1e6usnuf5l0" path="res://Asset/Prefabs/Food/Onion.tscn" id="2_05ao7"]
@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://t2543lcsxrp8" path="res://Asset/Prefabs/Food/Tomato.tscn" id="22_edhow"]
 [ext_resource type="PackedScene" uid="uid://b6g4ge1u682o6" path="res://Asset/Prefabs/Furniture/Counter_StraightB.tscn" id="23_5gckd"]
 [ext_resource type="PackedScene" uid="uid://ch8mw5050x6sx" path="res://Asset/Prefabs/Food/Steack.tscn" id="23_i2wbn"]
+[ext_resource type="PackedScene" uid="uid://c6vhdvaujvtsv" path="res://Asset/Prefabs/Bowl.tscn" id="27_lft7r"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k5aar"]
 albedo_color = Color(0.380392, 0.380392, 0.380392, 1)
@@ -132,9 +133,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 1, -2)
 
 [node name="Carrot" parent="." instance=ExtResource("18_4ajwg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, -2)
+State = 1
 
 [node name="Ham" parent="." instance=ExtResource("19_gi321")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, -2)
+State = 2
 
 [node name="Cheese" parent="." instance=ExtResource("21_c0wdt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0062, 0.887823, -1.74172)
@@ -157,3 +160,7 @@ State = 2
 [node name="Tomato" parent="." instance=ExtResource("22_edhow")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 4)
 State = 1
+
+[node name="Bowl" parent="." instance=ExtResource("27_lft7r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.33122, 0.05, -0.340617)
+_state = 1

@@ -12,8 +12,6 @@ public partial class Plate : Ingredient
 
     [Export] private PlateState _state = PlateState.Clean;
     private Node3D _anchor;
-    private MeshInstance3D _cleanModel;
-    private MeshInstance3D _dirtyModel;
 
     public override void _Ready()
     {
