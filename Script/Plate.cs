@@ -1,6 +1,4 @@
-using System.Diagnostics;
 using Godot;
-using Godot.Collections;
 
 public partial class Plate : Ingredient
 {

@@ -13,7 +13,7 @@ public partial class Player : CharacterBody3D
     private RayCast3D _raycast;
     private Node3D _pivot;
     private Interactable _selectionInteractable = null;
-    private Interactable _interactable = null;
+    private RigidInteractable _interactable = null;
     private Node3D _anchor;
     private bool _freeze = false;
 
@@ -60,10 +60,10 @@ public partial class Player : CharacterBody3D
             {
                 if (_selectionInteractable is Ingredient && _interactable is Ingredient)
                 {
-                    if (_selectionInteractable is Plate)
-                        (_selectionInteractable as Plate).AddFood(_interactable as Ingredient);
+                    if (_selectionInteractable is Plate || _selectionInteractable is Plate)
+                        (_selectionInteractable as Plate)?.AddFood(_interactable as Ingredient);
                     else
-                        (_interactable as Ingredient).AddFood(_selectionInteractable as Ingredient);
+                        (_interactable as Ingredient)?.AddFood(_selectionInteractable as Ingredient);
                 }
                 else if (_selectionInteractable == null)
                     _interactable.Drop(this);
@@ -125,16 +125,16 @@ public partial class Player : CharacterBody3D
         return _interactable != null;
     }
 
-    public void AddInteractable(Interactable interactable)
+    public void AddInteractable(RigidInteractable interactable)
     {
         _interactable = interactable;
         _interactable.Reparent(_anchor);
         _interactable.GlobalPosition = _anchor.GlobalPosition;
     }
 
-    public Interactable RemoveInteractable()
+    public RigidInteractable RemoveInteractable()
     {
-        Interactable tmp = _interactable;
+        RigidInteractable tmp = _interactable;
 
         _interactable.Reparent(GetTree().Root.GetChild(0));
         _interactable = null;

@@ -4,9 +4,9 @@ using System.Diagnostics;
 
 public partial class CounterInteractable : SelectionInteractable
 {
-	[Export] private Interactable _defaultInteractable { get; set; } = null;
+	[Export] private RigidInteractable _defaultInteractable { get; set; } = null;
 	private Node3D _anchor;
-	private Interactable _interactable = null;
+	protected RigidInteractable _interactable = null;
 
 	public override void _Ready()
 	{
@@ -16,6 +16,7 @@ public partial class CounterInteractable : SelectionInteractable
 			_interactable = _defaultInteractable;
 			_interactable.Reparent(_anchor);
 			_interactable.GlobalPosition = _anchor.GlobalPosition;
+			_interactable.Freeze();
 		}
 		base._Ready();
 	}
@@ -28,20 +29,20 @@ public partial class CounterInteractable : SelectionInteractable
 			RemoveInteractable(player);
 	}
 
-	private void PlaceInteractable(Player player)
+	protected virtual void PlaceInteractable(Player player)
 	{
 		if (_interactable != null || !player.HasInteractable())
 			return;
 		_interactable = player.RemoveInteractable();
+		_interactable.Freeze();
 		_interactable.Reparent(_anchor);
 		_interactable.GlobalPosition = _anchor.GlobalPosition;
 	}
 
-	private void RemoveInteractable(Player player)
+	protected virtual void RemoveInteractable(Player player)
 	{
 		if (_interactable == null || player.HasInteractable())
 			return;
-
 		player.AddInteractable(_interactable);
 		_interactable = null;
 	}
