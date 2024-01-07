@@ -28,6 +28,9 @@ public partial class Interactable : Node3D
 	public virtual void ProcessAction(Player player)
 	{ }
 
+	public virtual void EndProcessAction(Player player)
+	{ }
+
 	public virtual void Drop(Player player)
 	{ }
 

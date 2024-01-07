@@ -1,13 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://cqrgm414sjfhp"]
+[gd_scene load_steps=11 format=3 uid="uid://dgxiv3v83xnem"]
 
-[ext_resource type="ArrayMesh" uid="uid://dcnowrqnkbi2q" path="res://Asset/Kitchen/obj/pan_A.obj" id="1_1kdj1"]
-[ext_resource type="Script" path="res://Script/Pan.cs" id="1_a2o73"]
+[ext_resource type="Script" path="res://Script/Pot.cs" id="1_q3ym8"]
+[ext_resource type="ArrayMesh" uid="uid://cwqk5q1nal8ps" path="res://Asset/Kitchen/obj/pot_A.obj" id="2_efg4p"]
+[ext_resource type="ArrayMesh" uid="uid://bxmdf3wr0opfj" path="res://Asset/Kitchen/obj/stew_bowl.obj" id="3_6tch3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rtx7j"]
-size = Vector3(1, 0.736964, 1.65015)
+size = Vector3(1.60238, 0.987899, 1.65015)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ind2l"]
-size = Vector3(1, 0.254504, 1)
+size = Vector3(1, 0.501023, 1)
 
 [sub_resource type="Curve" id="Curve_josnr"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.114187, 1), 0.0, 0.0, 0, 0, Vector2(0.629758, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -27,15 +28,16 @@ scale_curve = SubResource("CurveTexture_gyejf")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4r50i"]
 transparency = 1
-albedo_color = Color(0.423529, 0.423529, 0.423529, 0.623529)
+albedo_color = Color(0.835294, 0.835294, 0.835294, 0.623529)
 
 [sub_resource type="SphereMesh" id="SphereMesh_72ao3"]
 material = SubResource("StandardMaterial3D_4r50i")
 radius = 0.1
 height = 0.2
 
-[node name="Pan" type="Node3D" node_paths=PackedStringArray("Particles")]
-script = ExtResource("1_a2o73")
+[node name="Pot" type="Node3D" node_paths=PackedStringArray("_stew", "Particles")]
+script = ExtResource("1_q3ym8")
+_stew = NodePath("RigidBody3D/Stew")
 Particles = NodePath("SmokeParticle")
 
 [node name="HitBox" type="Area3D" parent="."]
@@ -43,7 +45,7 @@ collision_layer = 16
 collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HitBox"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.135712, 0.246497)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.260184, 0.000470847)
 shape = SubResource("BoxShape3D_rtx7j")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
@@ -52,20 +54,25 @@ collision_mask = 15
 lock_rotation = true
 
 [node name="Clean" type="MeshInstance3D" parent="RigidBody3D"]
-mesh = ExtResource("1_1kdj1")
+mesh = ExtResource("2_efg4p")
 skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.130206, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.249981, 0)
 shape = SubResource("BoxShape3D_ind2l")
 
 [node name="Anchor" type="Node3D" parent="RigidBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0693564, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.257239, 0)
 
 [node name="Raw" type="Node3D" parent="RigidBody3D"]
 
+[node name="Stew" type="MeshInstance3D" parent="RigidBody3D"]
+transform = Transform3D(1.03172, 0, 0, 0, 1, 0, 0, 0, 1.03172, 0, 0.201386, 0)
+visible = false
+mesh = ExtResource("3_6tch3")
+
 [node name="SmokeParticle" type="GPUParticles3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.248216, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.475071, 0)
 emitting = false
 lifetime = 1.7
 explosiveness = 0.14

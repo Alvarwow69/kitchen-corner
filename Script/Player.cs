@@ -79,14 +79,13 @@ public partial class Player : CharacterBody3D
         else if (Input.IsActionJustReleased("player" + PlayerNumber + "_action"))
         {
             _freeze = false;
-            if (_interactable != null)
-            {
-                if (_interactable is RigidInteractable)
-                    (_interactable as RigidInteractable).Throw(this, 30, -_pivot.GlobalTransform.Basis.Z);
-                else
-                    _interactable.Drop(this);
-            }
+            _interactable?.Throw(this, 30, -_pivot.GlobalTransform.Basis.Z);
+            _selectionInteractable?.EndProcessAction(this);
         }
+
+        if (Input.IsActionPressed("player" + PlayerNumber + "_action"))
+            if (_interactable == null)
+                _selectionInteractable?.ProcessAction(this);
     }
 
     private void MovePlayer(double delta)

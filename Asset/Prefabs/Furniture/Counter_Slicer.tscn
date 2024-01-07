@@ -1,0 +1,112 @@
+[gd_scene load_steps=12 format=3 uid="uid://c11cm5a88t5w0"]
+
+[ext_resource type="Script" path="res://Script/Cuttingboard.cs" id="1_u7ori"]
+[ext_resource type="ArrayMesh" uid="uid://bwtlv07oyl0wn" path="res://Asset/Kitchen/obj/kitchencounter_straight_B.obj" id="2_wt7pu"]
+[ext_resource type="Shader" path="res://Selection.gdshader" id="3_24vx1"]
+[ext_resource type="Texture2D" uid="uid://c8jvxgl2348ht" path="res://Asset/Kitchen/obj/restaurantbits_texture.png" id="4_onn8s"]
+[ext_resource type="ArrayMesh" uid="uid://cfn4ib7bjdtxy" path="res://Asset/Kitchen/obj/cuttingboard.obj" id="5_4enay"]
+[ext_resource type="ArrayMesh" uid="uid://cfp6l2by1536h" path="res://Asset/Kitchen/obj/knife.obj" id="6_tugrc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_aga35"]
+render_priority = 0
+shader = ExtResource("3_24vx1")
+shader_parameter/selectColor = Color(0.94902, 0.964706, 0, 1)
+shader_parameter/selected = false
+shader_parameter/tex = ExtResource("4_onn8s")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_05mc7"]
+size = Vector3(2.01516, 1, 1.98592)
+
+[sub_resource type="Animation" id="Animation_ruamt"]
+resource_name = "Cuttingboard"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StaticBody3D/Knife:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-2.46588e-15, -1.28486, 1.5708)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StaticBody3D/Knife:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.17, 1.27, 0.439), Vector3(0.17, 1.407, 0.439), Vector3(0.17, 1.27, 0.439)]
+}
+
+[sub_resource type="Animation" id="Animation_cu82b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StaticBody3D/Knife:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.2297e-15, -1.4854, 1.5708)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StaticBody3D/Knife:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.634947, 1.2699, 0.439498)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2jgt3"]
+_data = {
+"Cuttingboard": SubResource("Animation_ruamt"),
+"RESET": SubResource("Animation_cu82b")
+}
+
+[node name="CounterCuttingboard" type="Node3D" node_paths=PackedStringArray("_animation")]
+script = ExtResource("1_u7ori")
+_animation = NodePath("AnimationPlayer")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 12
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = ExtResource("2_wt7pu")
+surface_material_override/0 = SubResource("ShaderMaterial_aga35")
+
+[node name="MeshCollider" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_05mc7")
+
+[node name="Anchor" type="Node3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.19267, 0)
+
+[node name="Cuttongboard" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = ExtResource("5_4enay")
+
+[node name="Knife" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(-3.72837e-09, -0.0852952, -0.996355, 1, -4.37114e-08, 1.2297e-15, -4.35521e-08, -0.996355, 0.0852952, 0.634947, 1.2699, 0.439498)
+mesh = ExtResource("6_tugrc")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_2jgt3")
+}
