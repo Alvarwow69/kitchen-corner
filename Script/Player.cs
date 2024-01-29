@@ -127,6 +127,7 @@ public partial class Player : CharacterBody3D
     public void AddInteractable(RigidInteractable interactable)
     {
         _interactable = interactable;
+        _interactable.Freeze();
         _interactable.Reparent(_anchor);
         _interactable.GlobalPosition = _anchor.GlobalPosition;
     }
