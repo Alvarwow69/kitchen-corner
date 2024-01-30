@@ -38,6 +38,7 @@ public partial class Player : CharacterBody3D
         {
             if ((_raycast.GetCollider() as Node3D)?.GetParent() is Interactable)
             {
+                Debug.Print((_raycast.GetCollider() as Node3D)?.Name);
                 if (_raycast.GetCollider() == _selectionInteractable)
                     return;
                 _selectionInteractable?.HoverExit(this);
@@ -60,7 +61,7 @@ public partial class Player : CharacterBody3D
             {
                 if (_selectionInteractable is Ingredient && _interactable is Ingredient)
                 {
-                    if (_selectionInteractable is Plate || _selectionInteractable is Plate)
+                    if (_selectionInteractable is Plate || _selectionInteractable is Bowl)
                         (_selectionInteractable as Plate)?.AddFood(_interactable as Ingredient);
                     else
                         (_interactable as Ingredient)?.AddFood(_selectionInteractable as Ingredient);

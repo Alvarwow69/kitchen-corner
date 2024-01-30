@@ -10,6 +10,8 @@ public partial class FoodProvider : SelectionInteractable
 	[Export] private AnimationPlayer _animation;
 	public override void PerformAction(Player player)
 	{
+		if (player.HasInteractable())
+			return;
 		var newIngredient = GD.Load<PackedScene>(_ingredient.ResourcePath).Instantiate();
 		AddChild(newIngredient);
 		player.AddInteractable(newIngredient as RigidInteractable);

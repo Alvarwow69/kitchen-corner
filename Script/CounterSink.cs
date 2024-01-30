@@ -23,7 +23,8 @@ public partial class CounterSink : CounterInteractable
 
 	protected override void PlaceInteractable(Player player)
 	{
-		if (player.GetInteractable() is not Plate || _interactable != null || !player.HasInteractable())
+		if (player.GetInteractable() is not Plate || _interactable != null || !player.HasInteractable() ||
+		    (player.GetInteractable() as Plate).isClean())
 			return;
 		var plate = player.RemoveInteractable();
 		_plates.Push(plate as Plate);

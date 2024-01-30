@@ -4,8 +4,6 @@ using System.Collections.Generic;
 
 public partial class DishRack : CounterInteractable
 {
-	[Export] private Node3D _anchor;
-
 	private Stack<Plate> _plates = new Stack<Plate>();
 	public void AddPlate(Plate plate)
 	{
@@ -20,5 +18,18 @@ public partial class DishRack : CounterInteractable
 	{
 		Plate plate = _plates.Pop();
 		player.AddInteractable(plate);
+	}
+
+	public override void PerformAction(Player player)
+	{
+		if (!player.HasInteractable())
+			RemoveInteractable(player);
+	}
+
+	protected override void RemoveInteractable(Player player)
+	{
+		if (_plates.Count == 0 || player.HasInteractable())
+			return;
+		player.AddInteractable(_plates.Pop());
 	}
 }

@@ -5,13 +5,14 @@ using System.Diagnostics;
 public partial class CounterInteractable : SelectionInteractable
 {
 	[Export] private RigidInteractable _defaultInteractable { get; set; } = null;
-	
-	protected Node3D _anchor;
+
+	[Export]
+	protected Node3D _anchor = null;
 	protected RigidInteractable _interactable = null;
 
 	public override void _Ready()
 	{
-		_anchor = GetNode<Node3D>("StaticBody3D/Anchor");
+		_anchor = _anchor == null ? GetNode<Node3D>("StaticBody3D/Anchor") : _anchor;
 		if (_defaultInteractable != null)
 		{
 			_interactable = _defaultInteractable;

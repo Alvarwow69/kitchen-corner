@@ -13,8 +13,10 @@ size = Vector3(1, 0.295392, 1)
 
 [node name="Bowl" type="Node3D"]
 script = ExtResource("1_uf1m1")
+Height = 0.0
 
 [node name="HitBox" type="Area3D" parent="."]
+transform = Transform3D(1.10249, 0, 0, 0, 1.10249, 0, 0, 0, 1.10249, 0, 0.142209, 0)
 collision_layer = 16
 collision_mask = 0
 

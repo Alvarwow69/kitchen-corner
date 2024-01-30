@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://dr3p8o02b47o3"]
+[gd_scene load_steps=28 format=3 uid="uid://dr3p8o02b47o3"]
 
 [ext_resource type="PackedScene" uid="uid://dnkgd6nbuk5v7" path="res://Asset/Prefabs/Furniture/Counter_Straight.tscn" id="8_4kfd2"]
 [ext_resource type="PackedScene" uid="uid://hkh7js1my8ij" path="res://Asset/Prefabs/Creates/Create_Buns.tscn" id="9_c5byw"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://cx0bsuv6fm6ec" path="res://Asset/Prefabs/Furniture/Counter_Innercorner.tscn" id="20_p10tn"]
 [ext_resource type="PackedScene" uid="uid://cpl53s0o03r5r" path="res://Asset/Prefabs/Furniture/Counter_Sink.tscn" id="21_vtnlg"]
 [ext_resource type="PackedScene" uid="uid://b6g4ge1u682o6" path="res://Asset/Prefabs/Furniture/Counter_StraightB.tscn" id="23_5gckd"]
+[ext_resource type="PackedScene" uid="uid://d312hlyms7td0" path="res://Asset/Prefabs/Furniture/DishRack.tscn" id="23_lbypj"]
 [ext_resource type="PackedScene" uid="uid://v4q4k83rovpw" path="res://Asset/Prefabs/Furniture/Stove.tscn" id="27_bxd6t"]
 [ext_resource type="PackedScene" uid="uid://c6vhdvaujvtsv" path="res://Asset/Prefabs/Bowl.tscn" id="27_lft7r"]
 [ext_resource type="PackedScene" uid="uid://c11cm5a88t5w0" path="res://Asset/Prefabs/Furniture/Counter_Slicer.tscn" id="30_pjq1q"]
@@ -103,8 +104,12 @@ _defaultInteractable = NodePath("Pan")
 [node name="Pan" parent="Kitchen/Furniture/CounterStraight2" instance=ExtResource("14_rxo7v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
-[node name="CounterSink" parent="Kitchen/Furniture" instance=ExtResource("21_vtnlg")]
+[node name="CounterSink" parent="Kitchen/Furniture" node_paths=PackedStringArray("_dishRack") instance=ExtResource("21_vtnlg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+_dishRack = NodePath("../DishRack")
+
+[node name="DishRack" parent="Kitchen/Furniture" instance=ExtResource("23_lbypj")]
+transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, 0, 0, 0)
 
 [node name="CounterOutercorner" parent="Kitchen/Furniture" node_paths=PackedStringArray("_defaultInteractable") instance=ExtResource("19_s10pa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0)

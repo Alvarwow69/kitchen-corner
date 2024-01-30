@@ -3,7 +3,7 @@ using System;
 using Godot.Collections;
 using Array = System.Array;
 
-public partial class Bowl : Node
+public partial class Bowl : Ingredient
 {
 	public enum BowlState
 	{
@@ -21,6 +21,7 @@ public partial class Bowl : Node
 		_anchor = GetNode<Node3D>("RigidBody3D/Anchor");
 		GetNode<MeshInstance3D>("RigidBody3D/" + BowlState.Clean).Visible = false;
 		SetState(_state);
+		base._Ready();
 	}
 	
 	public void SetState(BowlState newState)
