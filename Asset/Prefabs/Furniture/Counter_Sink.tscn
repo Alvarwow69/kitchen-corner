@@ -27,7 +27,7 @@ viewport_path = NodePath("SubViewport")
 script = ExtResource("1_m2md3")
 _dishRack = NodePath("DishRack")
 _progressBar = NodePath("SubViewport/ProgressBar")
-_allowMultiple = true
+_cleanTime = 5.0
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 collision_layer = 12

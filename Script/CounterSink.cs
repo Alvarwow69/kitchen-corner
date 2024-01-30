@@ -1,15 +1,17 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
 
 public partial class CounterSink : CounterInteractable
 {
 	[Export] private DishRack _dishRack;
 	[Export] private ProgressBar _progressBar;
-	[Export] private float _cleanTime;
+	[Export] private double _cleanTime;
 
 	private Stack<Plate> _plates = new Stack<Plate>();
-	private float _cleanTimer = 0;
+	private double _cleanTimer = 0;
 	private bool _cleaning = false;
 
 	public override void _Ready()
@@ -38,5 +40,23 @@ public partial class CounterSink : CounterInteractable
 	public override void EndProcessAction(Player player)
 	{
 		_cleaning = false;
+	}
+
+	public override void _Process(double delta)
+	{
+		if (!_cleaning || _plates.Count == 0)
+			return;
+		_cleanTimer += delta;
+		_progressBar.Value = _cleanTimer / _cleanTime * 100;
+		if (_progressBar.Value > 0)
+			_progressBar.Visible = true;
+		if (_cleanTimer < _cleanTime)
+			return;
+		var plate = _plates.Pop();
+		plate.SetState(Plate.PlateState.Clean);
+		_dishRack.AddPlate(plate);
+		_cleanTimer = 0;
+		_progressBar.Value = 0;
+		_progressBar.Visible = false;
 	}
 }

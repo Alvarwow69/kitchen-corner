@@ -2,7 +2,7 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
-public partial class DishRack : Node
+public partial class DishRack : CounterInteractable
 {
 	[Export] private Node3D _anchor;
 
@@ -12,7 +12,7 @@ public partial class DishRack : Node
 		plate.Freeze();
 		plate.GlobalPosition = _anchor.GlobalPosition;
 		plate.GlobalRotation = _anchor.GlobalRotation;
-		_anchor.AddChild(plate);
+		_anchor.Reparent(plate);
 		_plates.Push(plate);
 	}
 	
