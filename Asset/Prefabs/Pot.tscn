@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://dgxiv3v83xnem"]
+[gd_scene load_steps=13 format=3 uid="uid://dgxiv3v83xnem"]
 
 [ext_resource type="Script" path="res://Script/Pot.cs" id="1_q3ym8"]
 [ext_resource type="ArrayMesh" uid="uid://cwqk5q1nal8ps" path="res://Asset/Kitchen/obj/pot_A.obj" id="2_efg4p"]
 [ext_resource type="ArrayMesh" uid="uid://bxmdf3wr0opfj" path="res://Asset/Kitchen/obj/stew_bowl.obj" id="3_6tch3"]
+[ext_resource type="PackedScene" uid="uid://c7028uon8wrot" path="res://Asset/Prefabs/utils/ProgressBar.tscn" id="4_jnve1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rtx7j"]
 size = Vector3(1.60238, 0.987899, 1.65015)
@@ -35,10 +36,14 @@ material = SubResource("StandardMaterial3D_4r50i")
 radius = 0.1
 height = 0.2
 
-[node name="Pot" type="Node3D" node_paths=PackedStringArray("_stew", "Particles")]
+[sub_resource type="ViewportTexture" id="ViewportTexture_6lhpo"]
+viewport_path = NodePath("SubViewport")
+
+[node name="Pot" type="Node3D" node_paths=PackedStringArray("_stew", "Particles", "ProgressBar")]
 script = ExtResource("1_q3ym8")
 _stew = NodePath("RigidBody3D/Stew")
 Particles = NodePath("SmokeParticle")
+ProgressBar = NodePath("SubViewport/ProgressBar")
 
 [node name="HitBox" type="Area3D" parent="."]
 collision_layer = 16
@@ -79,3 +84,14 @@ explosiveness = 0.14
 visibility_aabb = AABB(-0.637887, -1.64153, -0.69077, 1.27577, 3.28306, 1.38154)
 process_material = SubResource("ParticleProcessMaterial_7pevs")
 draw_pass_1 = SubResource("SphereMesh_72ao3")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+disable_3d = true
+transparent_bg = true
+
+[node name="ProgressBar" parent="SubViewport" instance=ExtResource("4_jnve1")]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.668461, 0, 0, 0, 0.668461, 0, 0, 0, 0.668461, 0, 1.79084, 0)
+billboard = 1
+texture = SubResource("ViewportTexture_6lhpo")

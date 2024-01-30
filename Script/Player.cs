@@ -140,4 +140,9 @@ public partial class Player : CharacterBody3D
         _interactable = null;
         return tmp;
     }
+    
+    public RigidInteractable GetInteractable()
+    {
+        return _interactable;
+    }
 }

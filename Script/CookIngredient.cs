@@ -2,7 +2,7 @@ using Godot;
 using System;
 using System.Diagnostics;
 
-public partial class CookIngredient : Ingredient
+public partial class CookIngredient : SliceIngredients
 {
 	private double _cookTime = 0.0f;
 	[Export] private float _cookedTime = 5.0f;
@@ -17,5 +17,10 @@ public partial class CookIngredient : Ingredient
 			SetState(FoodState.Cooked);
 		if (_cookTime >= _burnedTime)
 			SetState(FoodState.Burned);
+	}
+
+	public double GetProgress()
+	{
+		return _cookTime / _cookedTime * 100.0;
 	}
 }

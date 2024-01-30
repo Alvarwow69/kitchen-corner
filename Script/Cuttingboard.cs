@@ -5,13 +5,13 @@ using System.Diagnostics;
 public partial class Cuttingboard : CounterInteractable
 {
     private bool _cutting = false;
-    private double _cutTimer = 0.0;
     private Vector3 _knifePos;
     private Vector3 _knifeRot;
     private Node3D _knife;
 
     [Export]
     private AnimationPlayer _animation;
+    [Export] private ProgressBar _progressBar;
 
     public override void _Ready()
     {
@@ -19,6 +19,8 @@ public partial class Cuttingboard : CounterInteractable
         _knife = GetNode<Node3D>("StaticBody3D/Knife");
         _knifePos = _knife.GlobalPosition;
         _knifeRot = _knife.GlobalRotation;
+        _progressBar.Visible = false;
+        _progressBar.Value = 0;
     }
 
     public override void ProcessAction(Player player)
@@ -34,12 +36,12 @@ public partial class Cuttingboard : CounterInteractable
     {
         Reset();
         base.RemoveInteractable(player);
+        _progressBar.Visible = false;
     }
 
     private void Reset()
     {
         _cutting = false;
-        _cutTimer = 0;
         _animation.Pause();
         _knife.GlobalPosition = _knifePos;
         _knife.GlobalRotation = _knifeRot;
@@ -48,7 +50,19 @@ public partial class Cuttingboard : CounterInteractable
     public override void EndProcessAction(Player player)
     {
         if (_interactable != null)
-            _cutting = false;
+            Reset();
+    }
+
+    protected override void PlaceInteractable(Player player)
+    {
+        if (player.GetInteractable() is not SliceIngredients)
+            return;
+        base.PlaceInteractable(player);
+        if ((_interactable as SliceIngredients).GetProgress() > 0)
+        {
+            _progressBar.Visible = true;
+            _progressBar.Value = (_interactable as SliceIngredients).GetProgress();
+        }
     }
 
     public override void _Process(double delta)
@@ -56,10 +70,9 @@ public partial class Cuttingboard : CounterInteractable
         base._Process(delta);
         if (!_cutting)
             return;
-        _cutTimer += delta;
-        if (_cutTimer < 5)
-            return;
-        (_interactable as Ingredient)?.SetState(Ingredient.FoodState.Sliced);
-        Reset();
+        (_interactable as SliceIngredients)?.UpdateSliceTime(delta);
+        _progressBar.Value = (_interactable as SliceIngredients).GetProgress();
+        if (_progressBar.Value >= 0)
+            _progressBar.Visible = true;
     }
 }

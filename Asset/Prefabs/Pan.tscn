@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://cqrgm414sjfhp"]
+[gd_scene load_steps=12 format=3 uid="uid://cqrgm414sjfhp"]
 
 [ext_resource type="ArrayMesh" uid="uid://dcnowrqnkbi2q" path="res://Asset/Kitchen/obj/pan_A.obj" id="1_1kdj1"]
 [ext_resource type="Script" path="res://Script/Pan.cs" id="1_a2o73"]
+[ext_resource type="PackedScene" uid="uid://c7028uon8wrot" path="res://Asset/Prefabs/utils/ProgressBar.tscn" id="3_l8wfu"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rtx7j"]
 size = Vector3(1, 0.736964, 1.65015)
@@ -34,9 +35,13 @@ material = SubResource("StandardMaterial3D_4r50i")
 radius = 0.1
 height = 0.2
 
-[node name="Pan" type="Node3D" node_paths=PackedStringArray("Particles")]
+[sub_resource type="ViewportTexture" id="ViewportTexture_ybwd2"]
+viewport_path = NodePath("SubViewport")
+
+[node name="Pan" type="Node3D" node_paths=PackedStringArray("Particles", "ProgressBar")]
 script = ExtResource("1_a2o73")
 Particles = NodePath("SmokeParticle")
+ProgressBar = NodePath("SubViewport/ProgressBar")
 
 [node name="HitBox" type="Area3D" parent="."]
 collision_layer = 16
@@ -72,3 +77,14 @@ explosiveness = 0.14
 visibility_aabb = AABB(-0.637887, -1.64153, -0.69077, 1.27577, 3.28306, 1.38154)
 process_material = SubResource("ParticleProcessMaterial_7pevs")
 draw_pass_1 = SubResource("SphereMesh_72ao3")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+disable_3d = true
+transparent_bg = true
+
+[node name="ProgressBar" parent="SubViewport" instance=ExtResource("3_l8wfu")]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.668461, 0, 0, 0, 0.668461, 0, 0, 0, 0.668461, 0, 1.79084, 0)
+billboard = 1
+texture = SubResource("ViewportTexture_ybwd2")

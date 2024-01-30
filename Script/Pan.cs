@@ -12,7 +12,13 @@ public partial class Pan : Cooker
 
     protected override void Cooking(double time)
     {
-        if (Cook)
-            (Foods[0] as CookIngredient)?.UpdateCookTime(time);
+        if (!Cook)
+            return;
+        (Foods[0] as CookIngredient)?.UpdateCookTime(time);
+        ProgressBar.Value = (Foods[0] as CookIngredient).GetProgress();
+        if (ProgressBar.Value >= 0)
+            ProgressBar.Visible = true;
+        if (ProgressBar.Value >= 100)
+            ProgressBar.Visible = false;
     }
 }
