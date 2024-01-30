@@ -5,7 +5,8 @@ using System.Diagnostics;
 public partial class CounterInteractable : SelectionInteractable
 {
 	[Export] private RigidInteractable _defaultInteractable { get; set; } = null;
-	private Node3D _anchor;
+	
+	protected Node3D _anchor;
 	protected RigidInteractable _interactable = null;
 
 	public override void _Ready()

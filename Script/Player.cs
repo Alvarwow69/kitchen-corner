@@ -36,7 +36,7 @@ public partial class Player : CharacterBody3D
     {
         if (_raycast.IsColliding())
         {
-            if ((_raycast.GetCollider() as Node3D).GetParent() is Interactable)
+            if ((_raycast.GetCollider() as Node3D)?.GetParent() is Interactable)
             {
                 if (_raycast.GetCollider() == _selectionInteractable)
                     return;
