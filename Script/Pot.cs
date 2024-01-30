@@ -27,6 +27,11 @@ public partial class Pot : Cooker
         _timer += time;
         if (_timer >= _targetTimer)
             UpdateVisual();
+        ProgressBar.Value = _timer / _targetTimer * 100;
+        if (ProgressBar.Value >= 0)
+            ProgressBar.Visible = true;
+        if (ProgressBar.Value >= 100)
+            ProgressBar.Visible = false;
     }
 
     private void UpdateVisual()

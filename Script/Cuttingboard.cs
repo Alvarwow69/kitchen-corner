@@ -58,7 +58,7 @@ public partial class Cuttingboard : CounterInteractable
         if (player.GetInteractable() is not SliceIngredients)
             return;
         base.PlaceInteractable(player);
-        if ((_interactable as SliceIngredients).GetProgress() > 0)
+        if ((_interactable as SliceIngredients).GetProgress() > 0 && (_interactable as SliceIngredients).GetProgress() < 100)
         {
             _progressBar.Visible = true;
             _progressBar.Value = (_interactable as SliceIngredients).GetProgress();
