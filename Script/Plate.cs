@@ -5,11 +5,11 @@ public partial class Plate : Ingredient
     public enum PlateState
     {
         Clean,
-        Dirty
-        // TODO Add has food state
+        Dirty,
+        HasFood,
     }
 
-    [Export] private PlateState _state { get; set; } = PlateState.Clean;
+    [Export] protected PlateState _state { get; set; } = PlateState.Clean;
     private Node3D _anchor;
 
     public override void _Ready()

@@ -45,6 +45,7 @@ public partial class Cuttingboard : CounterInteractable
         _animation.Pause();
         _knife.GlobalPosition = _knifePos;
         _knife.GlobalRotation = _knifeRot;
+        _progressBar.Visible = false;
     }
 
     public override void EndProcessAction(Player player)
@@ -74,5 +75,9 @@ public partial class Cuttingboard : CounterInteractable
         _progressBar.Value = (_interactable as SliceIngredients).GetProgress();
         if (_progressBar.Value >= 0)
             _progressBar.Visible = true;
+        if (_progressBar.Value >= 100)
+        {
+            Reset();
+        }
     }
 }
