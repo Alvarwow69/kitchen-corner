@@ -1,6 +1,6 @@
 using Godot;
 
-public partial class Plate : Ingredient
+public partial class Plate : Container
 {
     public enum PlateState
     {
@@ -38,8 +38,8 @@ public partial class Plate : Ingredient
             return;
         if (Player == null)
         {
-            ingredient.GetPlayer().RemoveInteractable();
-            base.PerformAction(ingredient.GetPlayer());
+            ingredient.Player.RemoveInteractable();
+            base.PerformAction(ingredient.Player);
             ingredient.Reparent(GetNode("RigidBody3D"));
             ingredient.GlobalPosition = GlobalPosition;
             ingredient.GlobalRotation = GlobalRotation;

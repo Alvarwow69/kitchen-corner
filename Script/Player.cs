@@ -126,6 +126,11 @@ public partial class Player : CharacterBody3D
 
     public void AddInteractable(RigidInteractable interactable)
     {
+        if (_interactable is Container)
+        {
+            (_interactable as Container)?.AddFood(interactable as Ingredient);
+            return;
+        }
         _interactable = interactable;
         _interactable.Freeze();
         _interactable.Reparent(_anchor);

@@ -99,9 +99,9 @@ transform = Transform3D(1.4982, 0, -2.20268e-13, 0, 1.4982, 0, 2.20268e-13, 0, 1
 
 [node name="CounterStraight2" parent="Kitchen/Furniture" node_paths=PackedStringArray("_defaultInteractable") instance=ExtResource("23_5gckd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
-_defaultInteractable = NodePath("Pan")
+_defaultInteractable = NodePath("Pot")
 
-[node name="Pan" parent="Kitchen/Furniture/CounterStraight2" instance=ExtResource("14_rxo7v")]
+[node name="Pot" parent="Kitchen/Furniture/CounterStraight2" instance=ExtResource("14_rxo7v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="CounterSink" parent="Kitchen/Furniture" node_paths=PackedStringArray("_dishRack") instance=ExtResource("21_vtnlg")]

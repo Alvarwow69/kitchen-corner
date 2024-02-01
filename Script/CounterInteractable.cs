@@ -43,9 +43,29 @@ public partial class CounterInteractable : SelectionInteractable
 
 	protected virtual void RemoveInteractable(Player player)
 	{
-		if (_interactable == null || player.HasInteractable())
+		if (_interactable == null)
 			return;
-		player.AddInteractable(_interactable);
-		_interactable = null;
+		if (!player.HasInteractable())
+		{
+			player.AddInteractable(_interactable);
+			_interactable.Player = player;
+			_interactable = null;
+		}
+		else
+		{
+			if (_interactable is Container)
+			{
+				var ingredient = (_interactable as Cooker)?.RemoveIngredient();
+				player.AddInteractable(ingredient);
+				return;
+			}
+
+			if (player.GetInteractable() is Container)
+			{
+				player.AddInteractable(_interactable);
+				_interactable = null;
+			}
+		}
+
 	}
 }

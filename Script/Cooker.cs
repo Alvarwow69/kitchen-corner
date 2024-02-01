@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public abstract partial class Cooker : Ingredient
+public abstract partial class Cooker : Container
 {
 	protected bool Cook = false;
 	[Export] protected GpuParticles3D Particles;
