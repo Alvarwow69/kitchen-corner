@@ -1,16 +1,15 @@
-using System.Diagnostics;
 using Godot;
-using Godot.Collections;
 
 public partial class Plate : Ingredient
 {
     public enum PlateState
     {
         Clean,
-        Dirty
+        Dirty,
+        HasFood,
     }
 
-    [Export] private PlateState _state = PlateState.Clean;
+    [Export] protected PlateState _state { get; set; } = PlateState.Clean;
     private Node3D _anchor;
 
     public override void _Ready()
@@ -26,6 +25,11 @@ public partial class Plate : Ingredient
         GetNode<MeshInstance3D>("RigidBody3D/" + _state).Visible = false;
         _state = newState;
         GetNode<MeshInstance3D>("RigidBody3D/" + _state).Visible = true;
+    }
+
+    public bool isClean()
+    {
+        return _state == PlateState.Clean;
     }
 
     public override void AddFood(Ingredient ingredient)

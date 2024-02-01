@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://btqmpmhf8khe1"]
+[gd_scene load_steps=10 format=3 uid="uid://btqmpmhf8khe1"]
 
-[ext_resource type="Script" path="res://Script/SelectionInteractable.cs" id="1_h3huv"]
+[ext_resource type="Script" path="res://Script/FoodProvider.cs" id="1_88ovr"]
 [ext_resource type="ArrayMesh" uid="uid://cd70sjc6adrna" path="res://Asset/Kitchen/obj/crate_potatoes.obj" id="2_2ray0"]
+[ext_resource type="PackedScene" uid="uid://d1faqtqm3f0xq" path="res://Asset/Prefabs/Food/Potato.tscn" id="2_b2wpd"]
 [ext_resource type="Shader" path="res://Selection.gdshader" id="3_sri0a"]
 [ext_resource type="Texture2D" uid="uid://c8jvxgl2348ht" path="res://Asset/Kitchen/obj/restaurantbits_texture.png" id="4_7qtvn"]
+[ext_resource type="Animation" uid="uid://bhkdypsiqym4h" path="res://Asset/Animation/Create_provider.res" id="6_7ebrs"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gguth"]
 size = Vector3(1.99241, 1, 1.93028)
@@ -15,8 +17,15 @@ shader_parameter/selectColor = Color(0.94902, 0.964706, 0, 1)
 shader_parameter/selected = false
 shader_parameter/tex = ExtResource("4_7qtvn")
 
-[node name="CreatePotatos" type="Node3D"]
-script = ExtResource("1_h3huv")
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_radyc"]
+_data = {
+"Create_provider": ExtResource("6_7ebrs")
+}
+
+[node name="CreatePotatos" type="Node3D" node_paths=PackedStringArray("_animation")]
+script = ExtResource("1_88ovr")
+_ingredient = ExtResource("2_b2wpd")
+_animation = NodePath("AnimationPlayer")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 collision_layer = 4
@@ -29,3 +38,8 @@ shape = SubResource("BoxShape3D_gguth")
 [node name="Mesh" type="MeshInstance3D" parent="StaticBody3D"]
 mesh = ExtResource("2_2ray0")
 surface_material_override/0 = SubResource("ShaderMaterial_n570g")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_radyc")
+}

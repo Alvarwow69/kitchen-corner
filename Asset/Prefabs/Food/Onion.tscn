@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://u1e6usnuf5l0"]
 
-[ext_resource type="Script" path="res://Script/Ingredient.cs" id="1_31arq"]
+[ext_resource type="Script" path="res://Script/CookIngredient.cs" id="1_mfhkj"]
 [ext_resource type="ArrayMesh" uid="uid://bo0h1he11ucw0" path="res://Asset/Kitchen/obj/food_ingredient_onion.obj" id="2_i3shq"]
 [ext_resource type="ArrayMesh" uid="uid://hwt6bs1pmybw" path="res://Asset/Kitchen/obj/food_ingredient_onion_rings.obj" id="3_wbwyj"]
 
@@ -13,7 +13,9 @@ size = Vector3(1.0907, 0.969812, 0.908622)
 radius = 0.372948
 
 [node name="Onion" type="Node3D"]
-script = ExtResource("1_31arq")
+script = ExtResource("1_mfhkj")
+Name = "Onion"
+Compatibility = Array[String](["Potato_Sliced"])
 
 [node name="HitBox" type="Area3D" parent="."]
 process_mode = 3

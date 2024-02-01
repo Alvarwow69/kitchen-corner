@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cpl53s0o03r5r"]
+[gd_scene load_steps=9 format=3 uid="uid://cpl53s0o03r5r"]
 
-[ext_resource type="Script" path="res://Script/CounterInteractable.cs" id="1_x7ruq"]
+[ext_resource type="Script" path="res://Script/CounterSink.cs" id="1_m2md3"]
 [ext_resource type="ArrayMesh" uid="uid://cffol5sa75rce" path="res://Asset/Kitchen/obj/kitchencounter_sink.obj" id="2_rn0qt"]
 [ext_resource type="Shader" path="res://Selection.gdshader" id="3_xrc5m"]
 [ext_resource type="Texture2D" uid="uid://c8jvxgl2348ht" path="res://Asset/Kitchen/obj/restaurantbits_texture.png" id="4_igdx5"]
+[ext_resource type="PackedScene" uid="uid://c7028uon8wrot" path="res://Asset/Prefabs/utils/ProgressBar.tscn" id="9_fq3jm"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_35bwo"]
 render_priority = 0
@@ -15,8 +16,13 @@ shader_parameter/tex = ExtResource("4_igdx5")
 [sub_resource type="BoxShape3D" id="BoxShape3D_05mc7"]
 size = Vector3(2.01516, 1, 1.98592)
 
-[node name="CounterSink" type="Node3D"]
-script = ExtResource("1_x7ruq")
+[sub_resource type="ViewportTexture" id="ViewportTexture_td6nj"]
+viewport_path = NodePath("SubViewport")
+
+[node name="CounterSink" type="Node3D" node_paths=PackedStringArray("_progressBar")]
+script = ExtResource("1_m2md3")
+_progressBar = NodePath("SubViewport/ProgressBar")
+_cleanTime = 5.0
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 collision_layer = 12
@@ -32,3 +38,14 @@ shape = SubResource("BoxShape3D_05mc7")
 
 [node name="Anchor" type="Node3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="SubViewport" type="SubViewport" parent="."]
+disable_3d = true
+transparent_bg = true
+
+[node name="ProgressBar" parent="SubViewport" instance=ExtResource("9_fq3jm")]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.668461, 0, 0, 0, 0.668461, 0, 0, 0, 0.668461, 0, 1.79084, 0)
+billboard = 1
+texture = SubResource("ViewportTexture_td6nj")

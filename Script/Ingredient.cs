@@ -28,7 +28,7 @@ public partial class Ingredient : RigidInteractable
 		SetState(State);
 	}
 
-	public bool IsCompatible(Ingredient food)
+	public virtual bool IsCompatible(Ingredient food)
 	{
 		return Compatibility.Contains(food.GetNameState());
 	}
@@ -36,6 +36,11 @@ public partial class Ingredient : RigidInteractable
 	public string GetNameState()
 	{
 		return Name + "_" + State;
+	}
+
+	public FoodState GetState()
+	{
+		return State;
 	}
 	
 	public void SetState(FoodState newState)
