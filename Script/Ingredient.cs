@@ -30,7 +30,7 @@ public partial class Ingredient : RigidInteractable
 
 	public virtual bool IsCompatible(Ingredient food)
 	{
-		return Compatibility.Contains(food.GetNameState());
+		return Compatibility == null || Compatibility.Contains(food.GetNameState());
 	}
 
 	public string GetNameState()

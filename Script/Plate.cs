@@ -34,7 +34,7 @@ public partial class Plate : Container
 
     public override void AddFood(Ingredient ingredient)
     {
-        if (_state == PlateState.Dirty || ingredient is Plate)
+        if (_state == PlateState.Dirty || ingredient is Container)
             return;
         if (Player == null)
         {

@@ -128,7 +128,6 @@ PlayerNumber = 0
 
 [node name="Plate2" parent="." instance=ExtResource("14_k8bnr")]
 transform = Transform3D(-6.54882e-08, 0, 1.4982, 0, 1.4982, 0, -1.4982, 0, -6.54882e-08, 5.99352, 1, 1.42109e-14)
-_state = 1
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.688177, 0.725543, 0, -0.725543, 0.688177, 0, 7.11486, 9.97989)

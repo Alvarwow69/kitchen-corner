@@ -27,8 +27,15 @@ public partial class CounterInteractable : SelectionInteractable
 	{
 		if (_interactable == null)
 			PlaceInteractable(player);
+		else if (player.HasInteractable() && player.GetInteractable() is not Container)
+			PlaceOnInteractable(player);
 		else
 			RemoveInteractable(player);
+	}
+
+	protected virtual void PlaceOnInteractable(Player player)
+	{
+		(_interactable as Container)?.AddFood(player.RemoveInteractable() as Ingredient);
 	}
 
 	protected virtual void PlaceInteractable(Player player)

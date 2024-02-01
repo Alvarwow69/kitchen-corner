@@ -15,6 +15,10 @@ radius = 0.346457
 
 [node name="Bun" type="Node3D"]
 script = ExtResource("1_hyu7u")
+Name = "Bun"
+Compatibility = Array[String](["Steak_Cooked", "Lettuce_Sliced", "Tomato_Sliced", "Cheese_Sliced"])
+Weight = 5
+Height = 0.15
 
 [node name="HitBox" type="Area3D" parent="."]
 process_mode = 3
