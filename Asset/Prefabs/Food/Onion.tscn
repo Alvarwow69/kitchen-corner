@@ -14,7 +14,7 @@ radius = 0.372948
 
 [node name="Onion" type="Node3D"]
 script = ExtResource("1_mfhkj")
-Name = "Onion"
+IngredientName = "Onion"
 Compatibility = Array[String](["Potato_Sliced"])
 
 [node name="HitBox" type="Area3D" parent="."]

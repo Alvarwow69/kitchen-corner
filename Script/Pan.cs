@@ -8,6 +8,8 @@ public partial class Pan : Cooker
         if (ingredient is not CookIngredient || Foods.Count >= 1)
             return;
         base.AddFood(ingredient);
+        if (GetParent().GetParent().GetParent() is Stove)
+            StartCooking();
     }
 
     protected override void Cooking(double time)
@@ -20,5 +22,10 @@ public partial class Pan : Cooker
             ProgressBar.Visible = true;
         if (ProgressBar.Value >= 100)
             ProgressBar.Visible = false;
+    }
+
+    public override bool CanGetFood()
+    {
+        return Foods.Count == 0;
     }
 }

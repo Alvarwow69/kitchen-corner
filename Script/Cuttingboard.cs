@@ -25,6 +25,8 @@ public partial class Cuttingboard : CounterInteractable
 
     public override void ProcessAction(Player player)
     {
+        if (_interactable is not SliceIngredients)
+            return;
         if (!_cutting && _interactable != null && (_interactable as Ingredient)?.GetState() == Ingredient.FoodState.Raw)
         {
             _cutting = true;
@@ -56,9 +58,16 @@ public partial class Cuttingboard : CounterInteractable
 
     protected override void PlaceInteractable(Player player)
     {
-        if (player.GetInteractable() is not SliceIngredients)
-            return;
-        base.PlaceInteractable(player);
+        if (player.GetInteractable() is Container && (player.GetInteractable() as Container).GetIngredient(0) is SliceIngredients)
+        {
+            if (_interactable != null || !player.HasInteractable())
+                return;
+            _interactable = player.RemoveFromInteractable();
+            _interactable.Freeze();
+            _interactable.Reparent(_anchor);
+            _interactable.GlobalPosition = _anchor.GlobalPosition;
+        } else
+            base.PlaceInteractable(player);
         if ((_interactable as SliceIngredients).GetProgress() > 0 && (_interactable as SliceIngredients).GetProgress() < 100)
         {
             _progressBar.Visible = true;

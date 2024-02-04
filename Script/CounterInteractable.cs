@@ -2,6 +2,8 @@ using Godot;
 using System;
 using System.Diagnostics;
 
+// TODO Fix Bowl and Pot
+
 public partial class CounterInteractable : SelectionInteractable
 {
 	[Export] private RigidInteractable _defaultInteractable { get; set; } = null;
@@ -16,9 +18,9 @@ public partial class CounterInteractable : SelectionInteractable
 		if (_defaultInteractable != null)
 		{
 			_interactable = _defaultInteractable;
+			_interactable.Freeze();
 			_interactable.Reparent(_anchor);
 			_interactable.GlobalPosition = _anchor.GlobalPosition;
-			_interactable.Freeze();
 		}
 		base._Ready();
 	}
@@ -27,7 +29,7 @@ public partial class CounterInteractable : SelectionInteractable
 	{
 		if (_interactable == null)
 			PlaceInteractable(player);
-		else if (player.HasInteractable() && player.GetInteractable() is not Container)
+		else if (player.HasInteractable() && ((_interactable is Container && (_interactable as Container).CanGetFood()) || player.GetInteractable() is not Container))
 			PlaceOnInteractable(player);
 		else
 			RemoveInteractable(player);
@@ -35,7 +37,10 @@ public partial class CounterInteractable : SelectionInteractable
 
 	protected virtual void PlaceOnInteractable(Player player)
 	{
-		(_interactable as Container)?.AddFood(player.RemoveInteractable() as Ingredient);
+		if (player.GetInteractable() is not Container)
+			(_interactable as Container)?.AddFood(player.RemoveInteractable() as Ingredient);
+		else
+			(_interactable as Container)?.AddFood(player.RemoveFromInteractable() as Ingredient);
 	}
 
 	protected virtual void PlaceInteractable(Player player)
@@ -63,15 +68,15 @@ public partial class CounterInteractable : SelectionInteractable
 			if (_interactable is Container)
 			{
 				var ingredient = (_interactable as Cooker)?.RemoveIngredient();
-				player.AddInteractable(ingredient);
+				(player.GetInteractable() as Ingredient)?.AddFood(ingredient);
 				return;
 			}
 
 			if (player.GetInteractable() is Container)
-			{
 				player.AddInteractable(_interactable);
-				_interactable = null;
-			}
+			else
+				(player.GetInteractable() as Ingredient)?.AddFood(_interactable as Ingredient);
+			_interactable = null;
 		}
 
 	}

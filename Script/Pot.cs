@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using Godot.Collections;
 
 public partial class Pot : Cooker
 {
@@ -7,6 +8,7 @@ public partial class Pot : Cooker
     private float _targetTimer = 5.0f;
     private bool _cooked = false;
     [Export] private MeshInstance3D _stew;
+    [Export] private PackedScene _stewScene;
 
     public override void AddFood(Ingredient ingredient)
     {
@@ -40,9 +42,25 @@ public partial class Pot : Cooker
         _stew.Visible = true;
     }
 
-    private void Reset()
+    public void Reset()
     {
         _cooked = false;
         _stew.Visible = false;
+        _timer = 0;
+        foreach (var ingredient in Foods)
+        {
+            ingredient.QueueFree();
+        }
+        Foods.Clear();
+    }
+
+    public override bool CanGetFood()
+    {
+        return !_cooked;
+    }
+
+    public Array<Ingredient> GetFoods()
+    {
+        return Foods;
     }
 }

@@ -1,9 +1,16 @@
 using Godot;
 using System;
 
-public partial class Container : Ingredient
+public abstract partial class Container : Ingredient
 {
-    public Ingredient RemoveIngredient()
+    public abstract bool CanGetFood();
+
+    public Ingredient GetIngredient(int index)
+    {
+        return Foods[index];
+    }
+
+    public virtual Ingredient RemoveIngredient()
     {
         var ingredient = Foods[0];
         Foods.Remove(ingredient);

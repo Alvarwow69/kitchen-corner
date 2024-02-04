@@ -12,6 +12,12 @@ public partial class Stove : CounterInteractable
     protected override void RemoveInteractable(Player player)
     {
         (_interactable as Cooker)?.StopCooking();
+        if (player.GetInteractable() is Bowl)
+        {
+            (player.GetInteractable() as Bowl)?.AddSoup((_interactable as Pot)?.GetFoods());
+            (_interactable as Pot)?.Reset();
+            return;
+        }
         base.RemoveInteractable(player);
     }
 }

@@ -36,9 +36,10 @@ public partial class Plate : Container
     {
         if (_state == PlateState.Dirty || ingredient is Container)
             return;
-        if (Player == null)
+        if (Player == null && ingredient.Player != null)
         {
-            ingredient.Player.RemoveInteractable();
+            if (ingredient.Player.GetInteractable() is not Container)
+                ingredient.Player.RemoveInteractable();
             base.PerformAction(ingredient.Player);
             ingredient.Reparent(GetNode("RigidBody3D"));
             ingredient.GlobalPosition = GlobalPosition;
@@ -56,5 +57,10 @@ public partial class Plate : Container
         {
             base.AddFood(ingredient);
         }
+    }
+
+    public override bool CanGetFood()
+    {
+        return true;
     }
 }

@@ -16,7 +16,7 @@ height = 0.806941
 [node name="Potato" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.397862, 0)
 script = ExtResource("1_bk3kn")
-Name = "Potato"
+IngredientName = "Potato"
 Compatibility = Array[String](["Onion_Sliced"])
 
 [node name="HitBox" type="Area3D" parent="."]
