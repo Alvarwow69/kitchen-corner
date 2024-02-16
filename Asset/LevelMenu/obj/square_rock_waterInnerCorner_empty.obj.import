@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://llqdwoqq5iy2"
+path="res://.godot/imported/square_rock_waterInnerCorner_empty.obj-6ebff7cc9693aba3a1d9dd6ddfacde54.mesh"
+
+[deps]
+
+files=["res://.godot/imported/square_rock_waterInnerCorner_empty.obj-6ebff7cc9693aba3a1d9dd6ddfacde54.mesh"]
+
+source_file="res://Asset/LevelMenu/obj/square_rock_waterInnerCorner_empty.obj"
+dest_files=["res://.godot/imported/square_rock_waterInnerCorner_empty.obj-6ebff7cc9693aba3a1d9dd6ddfacde54.mesh", "res://.godot/imported/square_rock_waterInnerCorner_empty.obj-6ebff7cc9693aba3a1d9dd6ddfacde54.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bt4orseyb7wnq"
+path="res://.godot/imported/hex_sand_roadD_detail.obj-243fe7b14de68c534b14a6f21a2096ff.mesh"
+
+[deps]
+
+files=["res://.godot/imported/hex_sand_roadD_detail.obj-243fe7b14de68c534b14a6f21a2096ff.mesh"]
+
+source_file="res://Asset/LevelMenu/obj/hex_sand_roadD_detail.obj"
+dest_files=["res://.godot/imported/hex_sand_roadD_detail.obj-243fe7b14de68c534b14a6f21a2096ff.mesh", "res://.godot/imported/hex_sand_roadD_detail.obj-243fe7b14de68c534b14a6f21a2096ff.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

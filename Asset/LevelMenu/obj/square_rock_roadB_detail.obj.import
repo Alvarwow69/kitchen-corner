@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://v7ux03y2gu2l"
+path="res://.godot/imported/square_rock_roadB_detail.obj-2be67964a880f23924659a710ef19972.mesh"
+
+[deps]
+
+files=["res://.godot/imported/square_rock_roadB_detail.obj-2be67964a880f23924659a710ef19972.mesh"]
+
+source_file="res://Asset/LevelMenu/obj/square_rock_roadB_detail.obj"
+dest_files=["res://.godot/imported/square_rock_roadB_detail.obj-2be67964a880f23924659a710ef19972.mesh", "res://.godot/imported/square_rock_roadB_detail.obj-2be67964a880f23924659a710ef19972.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

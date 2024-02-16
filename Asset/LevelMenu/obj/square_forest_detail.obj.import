@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ct0b04vkjes6a"
+path="res://.godot/imported/square_forest_detail.obj-ca406e551d5388c095fbe8cbcbd0cac1.mesh"
+
+[deps]
+
+files=["res://.godot/imported/square_forest_detail.obj-ca406e551d5388c095fbe8cbcbd0cac1.mesh"]
+
+source_file="res://Asset/LevelMenu/obj/square_forest_detail.obj"
+dest_files=["res://.godot/imported/square_forest_detail.obj-ca406e551d5388c095fbe8cbcbd0cac1.mesh", "res://.godot/imported/square_forest_detail.obj-ca406e551d5388c095fbe8cbcbd0cac1.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

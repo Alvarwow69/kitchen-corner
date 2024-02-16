@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://by0t6fs4woka4"
+path="res://.godot/imported/hex_forest_waterD_detail.obj-fc9e872aba80d7fc689fd54a21110430.mesh"
+
+[deps]
+
+files=["res://.godot/imported/hex_forest_waterD_detail.obj-fc9e872aba80d7fc689fd54a21110430.mesh"]
+
+source_file="res://Asset/LevelMenu/obj/hex_forest_waterD_detail.obj"
+dest_files=["res://.godot/imported/hex_forest_waterD_detail.obj-fc9e872aba80d7fc689fd54a21110430.mesh", "res://.godot/imported/hex_forest_waterD_detail.obj-fc9e872aba80d7fc689fd54a21110430.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

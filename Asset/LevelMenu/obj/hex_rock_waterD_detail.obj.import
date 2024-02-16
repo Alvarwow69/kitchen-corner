@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://btjl863yi5048"
+path="res://.godot/imported/hex_rock_waterD_detail.obj-72121b17c51a99499ed08f747e7646fb.mesh"
+
+[deps]
+
+files=["res://.godot/imported/hex_rock_waterD_detail.obj-72121b17c51a99499ed08f747e7646fb.mesh"]
+
+source_file="res://Asset/LevelMenu/obj/hex_rock_waterD_detail.obj"
+dest_files=["res://.godot/imported/hex_rock_waterD_detail.obj-72121b17c51a99499ed08f747e7646fb.mesh", "res://.godot/imported/hex_rock_waterD_detail.obj-72121b17c51a99499ed08f747e7646fb.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

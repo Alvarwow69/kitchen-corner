@@ -1,0 +1,473 @@
+[gd_scene load_steps=17 format=3 uid="uid://hi46t3r2tcox"]
+
+[ext_resource type="ArrayMesh" uid="uid://bvnw6wb1vn4qf" path="res://Asset/LevelMenu/obj/hex_forest.obj" id="1_7pqwd"]
+[ext_resource type="ArrayMesh" uid="uid://3i71crb28hq2" path="res://Asset/LevelMenu/obj/hex_forest_detail.obj" id="2_jx02h"]
+[ext_resource type="ArrayMesh" uid="uid://46fsnqk6oy1k" path="res://Asset/LevelMenu/obj/house.obj" id="3_vxvm7"]
+[ext_resource type="ArrayMesh" uid="uid://dudjjxvty0ijl" path="res://Asset/LevelMenu/obj/detail_forestB.obj" id="4_373g2"]
+[ext_resource type="ArrayMesh" uid="uid://cucsjjd1c6k20" path="res://Asset/LevelMenu/obj/forest.obj" id="5_q4mki"]
+[ext_resource type="ArrayMesh" uid="uid://d4lxl8fo7e0pa" path="res://Asset/LevelMenu/obj/detail_hill.obj" id="6_db2xq"]
+[ext_resource type="ArrayMesh" uid="uid://ccb1fco8siu45" path="res://Asset/LevelMenu/obj/hex_forest_roadD.obj" id="7_mi4k5"]
+[ext_resource type="ArrayMesh" uid="uid://l8d3qmudnbtm" path="res://Asset/LevelMenu/obj/castle.obj" id="7_vnbdh"]
+[ext_resource type="ArrayMesh" uid="uid://krl3d5rnvnhk" path="res://Asset/LevelMenu/obj/archeryrange.obj" id="8_gj0xy"]
+[ext_resource type="ArrayMesh" uid="uid://cvt3134p2xwsd" path="res://Asset/LevelMenu/obj/hex_forest_roadF.obj" id="8_peh8j"]
+[ext_resource type="ArrayMesh" uid="uid://bgeokg2aj1i2j" path="res://Asset/LevelMenu/obj/hex_forest_roadB.obj" id="9_8xdl5"]
+[ext_resource type="ArrayMesh" uid="uid://c63hrwf6vmbwk" path="res://Asset/LevelMenu/obj/lumbermill.obj" id="9_i156v"]
+[ext_resource type="ArrayMesh" uid="uid://by63yx36pem7r" path="res://Asset/LevelMenu/obj/hex_forest_roadC.obj" id="10_c267g"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_83ofx"]
+size = Vector3(60, 2, 60)
+
+[sub_resource type="BoxMesh" id="BoxMesh_25pcu"]
+size = Vector3(60, 2, 60)
+
+[sub_resource type="Environment" id="Environment_osaiu"]
+background_mode = 1
+background_color = Color(0.556863, 0.760784, 0.85098, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.705882, 0.933333, 0.878431, 1)
+
+[node name="Node" type="Node"]
+
+[node name="Ground" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00777388, 4.76837e-07, 0.0100927)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+shape = SubResource("BoxShape3D_83ofx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0941525, 0, 0)
+mesh = SubResource("BoxMesh_25pcu")
+
+[node name="4thLayer" type="MultiMeshInstance3D" parent="."]
+transform = Transform3D(0.998892, 0.00600417, 0.0466695, 8.08916e-20, -0.991826, 0.127601, 0.0470542, -0.12746, -0.990727, 5.25903, 2.34752, 5.8211)
+
+[node name="HexFieldWithTreeStone2" type="MeshInstance3D" parent="4thLayer"]
+transform = Transform3D(0.904752, -2.11565e-08, 0.425937, 0.0543501, -0.991826, -0.115448, 0.422455, 0.127601, -0.897357, -3.14264, 0.101845, -1.28346)
+mesh = ExtResource("2_jx02h")
+skeleton = NodePath("../../3floor-chateau/HexFieldWithForest")
+
+[node name="DetailForestB" type="MeshInstance3D" parent="4thLayer/HexFieldWithTreeStone2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0826359, 0.969435, -0.237299)
+mesh = ExtResource("4_373g2")
+
+[node name="HexForestDetail3" type="MeshInstance3D" parent="4thLayer"]
+transform = Transform3D(0.86147, 2.40157e-10, 0.507809, 0.0647971, -0.991826, -0.109925, 0.503658, 0.127601, -0.854428, 0.217897, 0.381654, 0.788341)
+mesh = ExtResource("2_jx02h")
+skeleton = NodePath("../../second-floor-House/HexForestDetail")
+
+[node name="second-floor-House2" type="MultiMeshInstance3D" parent="."]
+transform = Transform3D(0.606641, -6.85136e-07, -0.794981, -1.48402e-06, 1, -1.15495e-07, 0.794981, -8.17425e-07, 0.606641, 22.6999, 1.88069, -1.48896)
+
+[node name="House" type="MeshInstance3D" parent="second-floor-House2"]
+transform = Transform3D(-0.996612, -9.35311e-05, 0.0822168, 4.59677e-05, 0.999997, 0.00169305, -0.0822169, 0.00168932, -0.996611, 0.160276, 1.06635, -0.0491254)
+mesh = ExtResource("3_vxvm7")
+skeleton = NodePath("../../HexForestHouse2/House")
+
+[node name="HexForestDetail7" type="MeshInstance3D" parent="second-floor-House2"]
+transform = Transform3D(1, -1.11859e-13, -1.51503e-08, 1.00355e-13, 1, 3.99882e-14, 2.92872e-08, 2.67202e-14, 1, 0, 0, 0)
+mesh = ExtResource("2_jx02h")
+skeleton = NodePath("")
+
+[node name="HexForestDetail2" type="MeshInstance3D" parent="second-floor-House2"]
+transform = Transform3D(0.516309, 1.86732e-07, -0.856401, -2.13775e-07, 0.999999, -4.99381e-07, 0.856401, -3.41519e-07, 0.516309, 0.0231133, -0.971813, 0.0340366)
+mesh = ExtResource("2_jx02h")
+skeleton = NodePath("../../second-floor-House2")
+
+[node name="second-floor-House" type="MultiMeshInstance3D" parent="."]
+transform = Transform3D(-0.00732898, 5.64752e-07, 0.999975, -8.00182e-07, 1, 6.89721e-07, -0.999975, 5.04033e-07, -0.00732889, 17.1347, 1.89757, 3.24205)
+
+[node name="HexForestDetail" type="MeshInstance3D" parent="second-floor-House"]
+transform = Transform3D(0.518832, 6.07157e-07, -0.854874, -1.74462e-07, 0.999998, -1.0419e-06, 0.854874, -4.48501e-07, 0.518832, 0.00174046, -1.99743, 0.0310888)
+mesh = ExtResource("2_jx02h")
+skeleton = NodePath("../..")
+
+[node name="House" type="MeshInstance3D" parent="second-floor-House"]
+transform = Transform3D(-0.996612, -9.35311e-05, 0.0822168, 4.59677e-05, 0.999997, 0.00169305, -0.0822169, 0.00168932, -0.996611, 0.160276, 1.06635, -0.0491254)
+mesh = ExtResource("3_vxvm7")
+skeleton = NodePath("../../HexForestHouse2/House")
+
+[node name="HexForestDetail7" type="MeshInstance3D" parent="second-floor-House"]
+transform = Transform3D(1, -1.1196e-14, 4.31409e-09, 2.597e-15, 1, 6.31246e-14, 1.45724e-08, 3.79759e-14, 1, 0, 0, 0)
+mesh = ExtResource("2_jx02h")
+skeleton = NodePath("../HexForestDetail")
+
+[node name="HexForestDetail2" type="MeshInstance3D" parent="second-floor-House"]
+transform = Transform3D(0.516309, 1.86732e-07, -0.856401, -2.13775e-07, 0.999999, -4.99381e-07, 0.856401, -3.41519e-07, 0.516309, 0.0231133, -0.971813, 0.0340366)
+mesh = ExtResource("2_jx02h")
+
+[node name="downstair-chateau" type="MultiMeshInstance3D" parent="."]
+transform = Transform3D(0.891007, -1.13329e-08, 0.45399, -3.17297e-07, 1, 4.40913e-07, -0.45399, 3.89071e-07, 0.891008, 17.0104, 2.63562, 5.23604)
+
+[node name="floor-down-chateau1" type="MultiMeshInstance3D" parent="downstair-chateau"]
+transform = Transform3D(1, 5.01545e-17, -3.7256e-08, 2.1928e-14, 1, 3.64122e-14, 1.56461e-08, 1.73417e-14, 1, 0, 0, 0)
+
+[node name="HexForestDetail7" type="MeshInstance3D" parent="downstair-chateau/floor-down-chateau1"]
+transform = Transform3D(1, 1.42608e-14, -4.05042e-08, 2.1928e-14, 1, 9.32556e-14, 1.56461e-08, 3.95678e-14, 1, 0, 0, 0)
+mesh = ExtResource("2_jx02h")
+skeleton = NodePath("../../../second-floor-House/HexForestDetail")
+
+[node name="HexForestDetail2" type="MeshInstance3D" parent="downstair-chateau/floor-down-chateau1"]
+transform = Transform3D(0.516309, 1.86732e-07, -0.856401, -2.13775e-07, 0.999999, -4.99381e-07, 0.856401, -3.41519e-07, 0.516309, 0.0231133, -0.971813, 0.0340366)
+mesh = ExtResource("2_jx02h")
+skeleton = NodePath("../../..")
+
+[node name="HexForestDetail8" type="MeshInstance3D" parent="downstair-chateau/floor-down-chateau1"]
+transform = Transform3D(0.516309, 1.86732e-07, -0.856401, -2.13775e-07, 0.999999, -4.99381e-07, 0.856401, -3.41519e-07, 0.516309, 0.0231123, -0.971813, 0.0340362)
+mesh = ExtResource("2_jx02h")
+skeleton = NodePath("../../../second-floor-House/HexForestDetail")
+
+[node name="HexForestDetail3" type="MeshInstance3D" parent="downstair-chateau/floor-down-chateau1"]
+transform = Transform3D(-0.466824, -0.00465843, -0.884336, -0.010262, 0.999946, 0.000148077, 0.884288, 0.00914346, -0.466847, 0.0289221, -1.94363, 0.0924244)
+mesh = ExtResource("2_jx02h")
+
+[node name="floor-down-chateau4" type="MultiMeshInstance3D" parent="downstair-chateau"]
+transform = Transform3D(0.999999, 7.77271e-14, -5.70886e-07, 4.108e-13, 1, 9.76863e-13, 3.4735e-07, 2.24317e-12, 0.999998, 2.90698, 0.257245, 1.68985)
+
+[node name="HexForestDetail7" type="MeshInstance3D" parent="downstair-chateau/floor-down-chateau4"]
+transform = Transform3D(1, 4.32251e-15, -2.82307e-08, -1.3404e-14, 1, 9.51266e-14, 1.13241e-08, 6.32998e-14, 1, 0, 0, 0)
+mesh = ExtResource("2_jx02h")
+skeleton = NodePath("../../../second-floor-House/HexForestDetail")
+
+[node name="HexForestDetail2" type="MeshInstance3D" parent="downstair-chateau/floor-down-chateau4"]
+transform = Transform3D(0.516309, 1.86732e-07, -0.856401, -2.13775e-07, 0.999999, -4.99381e-07, 0.856401, -3.41519e-07, 0.516309, 0.0231133, -0.971813, 0.0340366)
+mesh = ExtResource("2_jx02h")
+
+[node name="HexForestDetail8" type="MeshInstance3D" parent="downstair-chateau/floor-down-chateau4"]
+transform = Transform3D(0.516309, 1.86732e-07, -0.856401, -2.13775e-07, 0.999999, -4.99381e-07, 0.856401, -3.41519e-07, 0.516309, 0.0231123, -0.971813, 0.0340362)
+mesh = ExtResource("2_jx02h")
+skeleton = NodePath("../../../second-floor-House/HexForestDetail")
+
+[node name="HexForestDetail3" type="MeshInstance3D" parent="downstair-chateau/floor-down-chateau4"]
+transform = Transform3D(-0.466848, 5.75621e-07, -0.884336, -7.51819e-07, 0.999998, -5.74138e-07, 0.884335, -3.57931e-07, -0.466848, 0.00589657, -1.94363, 0.071404)
+mesh = ExtResource("2_jx02h")
+
+[node name="floor-down-chateau5" type="MultiMeshInstance3D" parent="downstair-chateau"]
+transform = Transform3D(0.999999, 8.27841e-14, -3.23876e-07, -2.429e-13, 1, 3.58304e-13, 3.4735e-07, 2.00906e-12, 0.999999, -2.878, 0.207194, 1.21008)
+
+[node name="HexForestDetail7" type="MeshInstance3D" parent="downstair-chateau/floor-down-chateau5"]
+transform = Transform3D(1, 4.32251e-15, -2.82307e-08, -1.3404e-14, 1, 9.51266e-14, 1.13241e-08, 6.32998e-14, 1, 0, 0, 0)
+mesh = ExtResource("2_jx02h")
+skeleton = NodePath("../../../second-floor-House/HexForestDetail")
+
+[node name="HexForestDetail2" type="MeshInstance3D" parent="downstair-chateau/floor-down-chateau5"]
+transform = Transform3D(0.516309, 1.86732e-07, -0.856401, -2.13775e-07, 0.999999, -4.99381e-07, 0.856401, -3.41519e-07, 0.516309, 0.0231133, -0.971813, 0.0340366)
+mesh = ExtResource("2_jx02h")
+
+[node name="HexForestDetail8" type="MeshInstance3D" parent="downstair-chateau/floor-down-chateau5"]
+transform = Transform3D(0.516309, 1.86732e-07, -0.856401, -2.13775e-07, 0.999999, -4.99381e-07, 0.856401, -3.41519e-07, 0.516309, 0.0231123, -0.971813, 0.0340362)
+mesh = ExtResource("2_jx02h")
+skeleton = NodePath("../../../second-floor-House/HexForestDetail")
+
+[node name="HexForestDetail3" type="MeshInstance3D" parent="downstair-chateau/floor-down-chateau5"]
+transform = Transform3D(-0.466848, 5.75621e-07, -0.884336, -7.51819e-07, 0.999998, -5.74138e-07, 0.884335, -3.57931e-07, -0.466848, 0.00589657, -1.94363, 0.071404)
+mesh = ExtResource("2_jx02h")
+
+[node name="Forest" type="MeshInstance3D" parent="downstair-chateau/floor-down-chateau5"]
+transform = Transform3D(0.50235, 0.00383819, 0.864655, -0.00238699, 0.999992, -0.00305157, -0.86466, -0.000531752, 0.502355, -0.0439777, 0.942695, -0.028326)
+mesh = ExtResource("5_q4mki")
+skeleton = NodePath("../../../3floor-chateau")
+
+[node name="floor-down-chateau3" type="MultiMeshInstance3D" parent="downstair-chateau"]
+transform = Transform3D(1, 2.24549e-14, -2.81524e-07, 2.42141e-13, 1, 3.95596e-13, 1.51665e-07, 9.25363e-13, 0.999999, 1.91322, 0.0796971, 0.00925064)
+
+[node name="DetailHill" type="MeshInstance3D" parent="downstair-chateau/floor-down-chateau3"]
+transform = Transform3D(0.886098, -6.63302e-07, 0.463497, 4.85518e-07, 0.999999, -2.43626e-07, -0.463497, -4.23105e-07, 0.886098, 0.0454035, 0.979595, 0.0329962)
+mesh = ExtResource("6_db2xq")
+skeleton = NodePath("../../../road/HexFieldHill")
+
+[node name="HexForestDetail7" type="MeshInstance3D" parent="downstair-chateau/floor-down-chateau3"]
+transform = Transform3D(1, 4.32251e-15, -2.82307e-08, -1.3404e-14, 1, 9.51266e-14, 1.13241e-08, 6.32998e-14, 1, 0, 0, 0)
+mesh = ExtResource("2_jx02h")
+skeleton = NodePath("../../../second-floor-House/HexForestDetail")
+
+[node name="HexForestDetail2" type="MeshInstance3D" parent="downstair-chateau/floor-down-chateau3"]
+transform = Transform3D(0.516309, 1.86732e-07, -0.856401, -2.13775e-07, 0.999999, -4.99381e-07, 0.856401, -3.41519e-07, 0.516309, 0.0231133, -0.971813, 0.0340366)
+mesh = ExtResource("2_jx02h")
+skeleton = NodePath("../..")
+
+[node name="HexForestDetail8" type="MeshInstance3D" parent="downstair-chateau/floor-down-chateau3"]
+transform = Transform3D(0.516309, 1.86732e-07, -0.856401, -2.13775e-07, 0.999999, -4.99381e-07, 0.856401, -3.41519e-07, 0.516309, 0.0231123, -0.971813, 0.0340362)
+mesh = ExtResource("2_jx02h")
+skeleton = NodePath("../../../second-floor-House/HexForestDetail")
+
+[node name="HexForestDetail3" type="MeshInstance3D" parent="downstair-chateau/floor-down-chateau3"]
+transform = Transform3D(-0.466848, 5.75621e-07, -0.884336, -7.51819e-07, 0.999998, -5.74138e-07, 0.884335, -3.57931e-07, -0.466848, 0.00589657, -1.94363, 0.071404)
+mesh = ExtResource("2_jx02h")
+
+[node name="floor-down-chateau2" type="MultiMeshInstance3D" parent="downstair-chateau"]
+transform = Transform3D(1, 2.26302e-14, -1.3135e-07, -6.85679e-14, 1, 1.98294e-13, 1.07795e-07, 5.031e-13, 1, -1.84921, 0.079695, -0.331689)
+
+[node name="HexForestDetail7" type="MeshInstance3D" parent="downstair-chateau/floor-down-chateau2"]
+transform = Transform3D(1, 2.47217e-14, -4.75064e-08, 7.97656e-14, 1, 7.98399e-14, 8.64369e-09, 1.93891e-14, 1, 0.00123882, 0, 0.000630379)
+mesh = ExtResource("2_jx02h")
+skeleton = NodePath("../../../second-floor-House/HexForestDetail")
+
+[node name="HexForestDetail2" type="MeshInstance3D" parent="downstair-chateau/floor-down-chateau2"]
+transform = Transform3D(0.516309, 1.86732e-07, -0.856401, -2.13775e-07, 0.999999, -4.99381e-07, 0.856401, -3.41519e-07, 0.516309, 0.0231133, -0.971813, 0.0340366)
+mesh = ExtResource("2_jx02h")
+skeleton = NodePath("../..")
+
+[node name="HexForestDetail8" type="MeshInstance3D" parent="downstair-chateau/floor-down-chateau2"]
+transform = Transform3D(0.516309, 1.86732e-07, -0.856401, -2.13775e-07, 0.999999, -4.99381e-07, 0.856401, -3.41519e-07, 0.516309, 0.0231123, -0.971813, 0.0340362)
+mesh = ExtResource("2_jx02h")
+skeleton = NodePath("../../../second-floor-House/HexForestDetail")
+
+[node name="HexForestDetail3" type="MeshInstance3D" parent="downstair-chateau/floor-down-chateau2"]
+transform = Transform3D(-0.466848, 5.75621e-07, -0.884336, -7.51819e-07, 0.999998, -5.74138e-07, 0.884335, -3.57931e-07, -0.466848, 0.00589657, -1.94363, 0.071404)
+mesh = ExtResource("2_jx02h")
+
+[node name="second-floor-House3" type="MultiMeshInstance3D" parent="downstair-chateau"]
+transform = Transform3D(-0.478875, 7.39784e-07, 0.877887, -1.24889e-06, 1, 3.74198e-07, -0.877886, 5.70471e-07, -0.478875, 3.84799, -0.172879, -0.0866175)
+
+[node name="Forest" type="MeshInstance3D" parent="downstair-chateau/second-floor-House3"]
+transform = Transform3D(-0.854313, -0.00294897, -0.519741, 0.000175184, 0.99998, -0.00595748, 0.519748, -0.00517937, -0.854297, 0.0968494, 1.00279, 0.16538)
+mesh = ExtResource("5_q4mki")
+skeleton = NodePath("../../../3floor-chateau")
+
+[node name="HexForestDetail" type="MeshInstance3D" parent="downstair-chateau/second-floor-House3"]
+transform = Transform3D(0.518832, 6.07157e-07, -0.854874, -1.74462e-07, 0.999998, -1.0419e-06, 0.854874, -4.48501e-07, 0.518832, 0.00174046, -1.99743, 0.0310888)
+mesh = ExtResource("2_jx02h")
+
+[node name="HexForestDetail7" type="MeshInstance3D" parent="downstair-chateau/second-floor-House3"]
+transform = Transform3D(1, -1.1196e-14, 4.31409e-09, 2.597e-15, 1, 6.31246e-14, 1.45724e-08, 3.79759e-14, 1, 0, 0, 0)
+mesh = ExtResource("2_jx02h")
+skeleton = NodePath("../HexForestDetail")
+
+[node name="HexForestDetail2" type="MeshInstance3D" parent="downstair-chateau/second-floor-House3"]
+transform = Transform3D(0.516309, 1.86732e-07, -0.856401, -2.13775e-07, 0.999999, -4.99381e-07, 0.856401, -3.41519e-07, 0.516309, 0.0231133, -0.971813, 0.0340366)
+mesh = ExtResource("2_jx02h")
+
+[node name="3floor-chateau" type="MultiMeshInstance3D" parent="."]
+transform = Transform3D(0.991729, 0, 0.128346, 0, 1, 0, -0.128346, 0, 0.991729, 18.5549, 3.74683, 5.70454)
+
+[node name="HexForestDetail7" type="MeshInstance3D" parent="3floor-chateau"]
+transform = Transform3D(0.930187, -1.96402e-16, 0.367086, 3.48787e-16, 1, -3.48787e-16, -0.367086, 4.52471e-16, 0.930187, -1.90447, -1.5164, 1.18161)
+mesh = ExtResource("2_jx02h")
+skeleton = NodePath("../../second-floor-House/HexForestDetail")
+
+[node name="HexForestDetail8" type="MeshInstance3D" parent="3floor-chateau"]
+transform = Transform3D(0.804188, -4.878e-16, -0.594373, 3.48787e-16, 1, -3.48787e-16, 0.594373, 7.31808e-17, 0.804188, -1.92965, -2.54961, 1.20965)
+mesh = ExtResource("2_jx02h")
+skeleton = NodePath("../../second-floor-House/HexForestDetail")
+
+[node name="HexFieldWithForest" type="MeshInstance3D" parent="3floor-chateau"]
+transform = Transform3D(0.182746, 0.00343655, 0.983154, -0.00238753, 0.999992, -0.00305162, -0.983157, -0.00178964, 0.182753, -1.91929, -0.571106, 1.17878)
+mesh = ExtResource("2_jx02h")
+skeleton = NodePath("../..")
+
+[node name="Forest" type="MeshInstance3D" parent="3floor-chateau/HexFieldWithForest"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0347099, 0.806161, -0.0124402)
+mesh = ExtResource("5_q4mki")
+skeleton = NodePath("../../..")
+
+[node name="HexFieldWithCastle2" type="MeshInstance3D" parent="3floor-chateau"]
+transform = Transform3D(0.949184, 0, 0.314721, 0, 1, 0, -0.314721, 0, 0.949184, -0.00841904, -0.63087, 0.69051)
+mesh = ExtResource("2_jx02h")
+skeleton = NodePath("../../HexFieldWithFarm")
+
+[node name="Castle" type="MeshInstance3D" parent="3floor-chateau/HexFieldWithCastle2"]
+transform = Transform3D(-0.997413, 0, -0.0718804, 0, 1, 0, 0.0718805, 0, -0.997413, 0.0627062, 0.962553, 0.0359869)
+mesh = ExtResource("7_vnbdh")
+
+[node name="HexForestDetail6" type="MeshInstance3D" parent="3floor-chateau"]
+transform = Transform3D(0.955614, -2.30545e-16, 0.294624, 3.48787e-16, 1, -3.48787e-16, -0.294624, 4.36066e-16, 0.955614, 0.00728512, -1.60142, 0.664333)
+mesh = ExtResource("2_jx02h")
+skeleton = NodePath("../../second-floor-House/HexForestDetail")
+
+[node name="HexForestDetail5" type="MeshInstance3D" parent="3floor-chateau"]
+transform = Transform3D(0.95412, -2.2835e-16, 0.299423, 3.48787e-16, 1, -3.48787e-16, -0.299423, 4.3722e-16, 0.95412, -0.0206108, -2.64262, 0.678259)
+mesh = ExtResource("2_jx02h")
+skeleton = NodePath("../../second-floor-House/HexForestDetail")
+
+[node name="road" type="MultiMeshInstance3D" parent="."]
+transform = Transform3D(0.919238, 0, 0.393702, 0, 1, 0, -0.393702, 0, 0.919238, 16.013, 3.09761, -8.59913)
+
+[node name="HexFieldWithTreeStone" type="MeshInstance3D" parent="road"]
+transform = Transform3D(0.992321, -1.50382e-07, 0.123687, -1.06335e-07, 1, 3.49749e-07, -0.123688, 3.59094e-07, 0.992322, -2.33064, -1.89329, 0.0972376)
+mesh = ExtResource("2_jx02h")
+skeleton = NodePath("../../3floor-chateau/HexFieldWithForest")
+
+[node name="DetailForestB" type="MeshInstance3D" parent="road/HexFieldWithTreeStone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0826359, 0.969435, -0.237299)
+mesh = ExtResource("4_373g2")
+skeleton = NodePath("../../..")
+
+[node name="HexForestRoadD4" type="MeshInstance3D" parent="road"]
+transform = Transform3D(-0.996279, 0, -0.0861986, 0, 1, 0, 0.0861987, 0, -0.996279, -4.04766, -2.08079, 3.78099)
+mesh = ExtResource("7_mi4k5")
+skeleton = NodePath("../..")
+
+[node name="HexForestRoadF" type="MeshInstance3D" parent="road"]
+transform = Transform3D(-0.996197, 0.00182373, -0.0871242, 0.00223952, 0.999987, -0.00467486, 0.0871146, -0.00485219, -0.996188, -5.98197, -2.07284, 3.97266)
+mesh = ExtResource("8_peh8j")
+skeleton = NodePath("../..")
+
+[node name="HexForestRoadB" type="MeshInstance3D" parent="road"]
+transform = Transform3D(0.991473, -3.00359e-16, 0.130319, 3.48787e-16, 1, -3.48787e-16, -0.130319, 3.91266e-16, 0.991473, -1.21707, -2.05885, 1.73472)
+mesh = ExtResource("9_8xdl5")
+skeleton = NodePath("../..")
+
+[node name="HexForestHouse" type="MeshInstance3D" parent="road"]
+transform = Transform3D(-0.570326, 0, 0.82142, 0, 1, 0, -0.82142, 0, -0.570326, -5.09322, -1.97883, 2.20994)
+mesh = ExtResource("2_jx02h")
+skeleton = NodePath("../../second-floor-House/HexForestDetail")
+
+[node name="House" type="MeshInstance3D" parent="road/HexForestHouse"]
+transform = Transform3D(0.999999, 0, 0.00146613, 0, 1, 0, -0.00146612, 0, 0.999999, 0.0744755, 1.02447, -0.0331802)
+mesh = ExtResource("3_vxvm7")
+skeleton = NodePath("../../..")
+
+[node name="HexForestRoadC" type="MeshInstance3D" parent="road"]
+transform = Transform3D(0.996645, 0, 0.0818674, 0, 1, 0, -0.0818676, 0, 0.996645, -9.94392, -2.05029, 4.26766)
+mesh = ExtResource("10_c267g")
+skeleton = NodePath("../..")
+
+[node name="HexForestRoadD" type="MeshInstance3D" parent="road"]
+transform = Transform3D(0.643415, 0, -0.765519, 0, 1, 0, 0.765518, 0, 0.643415, 2.63767, -2.05865, 1.25091)
+mesh = ExtResource("7_mi4k5")
+skeleton = NodePath("../..")
+
+[node name="HexForestRoadD2" type="MeshInstance3D" parent="road"]
+transform = Transform3D(-0.634409, 0.00126992, 0.772998, -0.00307918, 0.999987, -0.00416995, -0.772994, -0.00502564, -0.634396, 3.95423, -2.02878, 2.75919)
+mesh = ExtResource("7_mi4k5")
+skeleton = NodePath("../..")
+
+[node name="HexForestRoadB4" type="MeshInstance3D" parent="road"]
+transform = Transform3D(-0.997348, 0.00182373, -0.0727732, 0.00217198, 0.999987, -0.00470663, 0.0727628, -0.00485219, -0.997339, -7.96296, -2.05042, 4.157)
+mesh = ExtResource("9_8xdl5")
+skeleton = NodePath("../HexForestRoadB3")
+
+[node name="HexForestRoadB3" type="MeshInstance3D" parent="road"]
+transform = Transform3D(0.429783, 0.00182373, 0.902932, -0.00516501, 0.999987, 0.000438705, -0.902919, -0.00485219, 0.429785, -6.89935, -2.05758, 5.75153)
+mesh = ExtResource("9_8xdl5")
+
+[node name="HexForestRoadB2" type="MeshInstance3D" parent="road"]
+transform = Transform3D(0.993269, -3.06036e-16, 0.115839, 3.48787e-16, 1, -3.48787e-16, -0.115839, 3.86842e-16, 0.993268, 0.722309, -2.06571, 1.51521)
+mesh = ExtResource("9_8xdl5")
+skeleton = NodePath("../..")
+
+[node name="HexForestRoadD3" type="MeshInstance3D" parent="road"]
+transform = Transform3D(0.994125, 0.00182373, 0.108228, -0.00233814, 0.999986, 0.00462633, -0.108218, -0.00485219, 0.994116, -3.1933, -2.06924, 1.9907)
+mesh = ExtResource("7_mi4k5")
+skeleton = NodePath("../..")
+
+[node name="HexForest5" type="MeshInstance3D" parent="road"]
+transform = Transform3D(0.369918, 0, 0.929072, 0, 1, 0, -0.929073, 0, 0.369919, 1.46826, -2.08139, -0.335424)
+mesh = ExtResource("1_7pqwd")
+skeleton = NodePath("../HexForest4")
+
+[node name="HexForest6" type="MeshInstance3D" parent="road"]
+transform = Transform3D(0.369918, 0, 0.929072, 0, 1, 0, -0.929074, 0, 0.369919, 5.052, -2.08139, -8.70294)
+mesh = ExtResource("1_7pqwd")
+skeleton = NodePath("../HexForest4")
+
+[node name="HexForest7" type="MeshInstance3D" parent="road"]
+transform = Transform3D(0.369919, 0, 0.929074, 0, 1, 0, -0.929075, 0, 0.36992, 5.80193, -1.08139, -10.4539)
+mesh = ExtResource("1_7pqwd")
+skeleton = NodePath("../HexForest4")
+
+[node name="HexForest4" type="MeshInstance3D" parent="road"]
+transform = Transform3D(0.428532, 0, 0.903533, 0, 1, 0, -0.903533, 0, 0.428533, -0.308781, -2.04097, 0.00928125)
+mesh = ExtResource("1_7pqwd")
+skeleton = NodePath("../HexForest3")
+
+[node name="HexForest3" type="MeshInstance3D" parent="road"]
+transform = Transform3D(0.994488, 0, 0.10489, 0, 1, 0, -0.10489, 0, 0.994488, -1.98785, -1.77085, 3.51216)
+mesh = ExtResource("1_7pqwd")
+skeleton = NodePath("../HexForest2")
+
+[node name="HexForest2" type="MeshInstance3D" parent="road"]
+transform = Transform3D(0.997708, 0, 0.0676999, 0, 1, 0, -0.0677001, 0, 0.997708, -4.95195, -2.12837, 5.52496)
+mesh = ExtResource("1_7pqwd")
+
+[node name="HexFieldHill" type="MeshInstance3D" parent="road"]
+transform = Transform3D(0.99498, 0, 0.100083, 0, 1, 0, -0.100083, 0, 0.99498, -5.46186, -2.10463, -1.29077)
+mesh = ExtResource("1_7pqwd")
+skeleton = NodePath("../..")
+
+[node name="DetailHill" type="MeshInstance3D" parent="road/HexFieldHill"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0267954, 1.03225, -0.114418)
+mesh = ExtResource("6_db2xq")
+skeleton = NodePath("../../..")
+
+[node name="HexForest" type="MeshInstance3D" parent="road"]
+transform = Transform3D(0.992464, 0, 0.122544, 0, 1, 0, -0.122544, 0, 0.992464, -4.28759, -2.30703, 0.318183)
+mesh = ExtResource("1_7pqwd")
+skeleton = NodePath("../..")
+
+[node name="HexForestDetail7" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.967054, 0, 0.254569, 0, 1, 0, -0.254569, 0, 0.967054, 28.1335, 3.16708, -3.15165)
+mesh = ExtResource("2_jx02h")
+skeleton = NodePath("../second-floor-House/HexForestDetail")
+
+[node name="HexFieldWithForest" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.835226, 0.0034229, 0.549896, 0.000176393, 0.999983, -0.00595663, -0.549907, -0.00487812, -0.835212, -3.79546, 2.14907, -7.59955)
+mesh = ExtResource("2_jx02h")
+skeleton = NodePath("../3floor-chateau")
+
+[node name="Forest" type="MeshInstance3D" parent="HexFieldWithForest"]
+transform = Transform3D(1, -4.05703e-11, -5.92494e-09, -1.63758e-10, 1, -5.75303e-10, -3.62296e-09, -4.25025e-10, 1, 0.0347099, 0.806161, -0.0124402)
+mesh = ExtResource("5_q4mki")
+skeleton = NodePath("../../3floor-chateau")
+
+[node name="MultiMeshInstance3D3" type="MultiMeshInstance3D" parent="."]
+transform = Transform3D(0.0656459, 0, 0.997843, 0, 1, 0, -0.997843, 0, 0.065646, 15.5712, 1.34617, 3.7537)
+
+[node name="HexForest3" type="MeshInstance3D" parent="MultiMeshInstance3D3"]
+transform = Transform3D(0.999987, -3.46956e-16, 0.00523599, 3.48787e-16, 1, -3.48787e-16, -0.00523603, 3.50608e-16, 0.999987, -0.0374203, 0.758387, 0.0184965)
+mesh = ExtResource("1_7pqwd")
+skeleton = NodePath("../HexForest2")
+
+[node name="HexForest2" type="MeshInstance3D" parent="MultiMeshInstance3D3"]
+transform = Transform3D(1, 0, 7.15828e-09, 0, 1, 0, 1.48315e-09, 0, 1, -0.0649529, -0.266361, 0.0494257)
+mesh = ExtResource("1_7pqwd")
+
+[node name="MultiMeshInstance3D2" type="MultiMeshInstance3D" parent="."]
+transform = Transform3D(0.865676, 0, 0.500605, 0, 1, 0, -0.500605, 0, 0.865676, 18.8817, 1.14421, 2.15198)
+
+[node name="HexForest3" type="MeshInstance3D" parent="MultiMeshInstance3D2"]
+transform = Transform3D(0.999987, -3.46956e-16, 0.00523599, 3.48787e-16, 1, -3.48787e-16, -0.00523603, 3.50608e-16, 0.999987, -0.0374203, 0.758387, 0.0184965)
+mesh = ExtResource("1_7pqwd")
+skeleton = NodePath("../HexForest2")
+
+[node name="HexForest2" type="MeshInstance3D" parent="MultiMeshInstance3D2"]
+transform = Transform3D(1, 0, 7.15828e-09, 0, 1, 0, 1.48315e-09, 0, 1, -0.021492, -0.266361, -0.0257292)
+mesh = ExtResource("1_7pqwd")
+skeleton = NodePath("../..")
+
+[node name="HexForestHouse2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.999534, 1.87119e-10, 0.0305213, 5.16708e-05, 0.999999, 0.00169216, -0.0305213, 0.00169297, -0.999533, -2.95689, 3.00768, -6.0562)
+mesh = ExtResource("2_jx02h")
+skeleton = NodePath("../second-floor-House/HexForestDetail")
+
+[node name="House" type="MeshInstance3D" parent="HexForestHouse2"]
+transform = Transform3D(0.999999, 1.38357e-11, 0.00146607, 1.55589e-13, 1, -4.01125e-10, -0.00146611, 4.48357e-10, 0.999999, 0.081007, 1.13732, 0.180697)
+mesh = ExtResource("3_vxvm7")
+
+[node name="HexFieldWithFarm" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8473, -0.209553, -10.4661)
+mesh = ExtResource("2_jx02h")
+
+[node name="Archeryrange" type="MeshInstance3D" parent="HexFieldWithFarm"]
+transform = Transform3D(-0.929712, 0, -0.368287, 0, 1, 0, 0.368287, 0, -0.929712, 0.150373, 0.982111, -0.0577536)
+mesh = ExtResource("8_gj0xy")
+skeleton = NodePath("../..")
+
+[node name="HexForestDetail4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.352054, 0, 0.93598, 0, 1, 0, -0.93598, 0, 0.352054, -7.45553, 1.87117, -8.47612)
+mesh = ExtResource("2_jx02h")
+skeleton = NodePath("../second-floor-House/HexForestDetail")
+
+[node name="Lumbermill" type="MeshInstance3D" parent="HexForestDetail4"]
+transform = Transform3D(0.530314, 0.00229677, -0.847798, -0.00434585, 0.999991, -9.32948e-06, 0.84779, 0.00368935, 0.530319, 0.0748434, 0.997422, 0.134285)
+mesh = ExtResource("9_i156v")
+skeleton = NodePath("../..")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.880964, 0.126355, -0.456001, 0.00450281, 0.965883, 0.25894, 0.473162, 0.226063, -0.851477, 11.0084, 5.17984, -8.1862)
+environment = SubResource("Environment_osaiu")
+current = true
+fov = 92.2176
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.945911, -0.310885, -0.0927524, 0.13337, 0.112007, 0.984717, -0.295745, -0.943825, 0.147411, 15.6669, 12.1279, -6.84726)

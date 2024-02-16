@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://srdwd33pc30y"
+path="res://.godot/imported/hex_sand_waterC_empty.obj-cdf95531823e4a825cf9230ed6d274ee.mesh"
+
+[deps]
+
+files=["res://.godot/imported/hex_sand_waterC_empty.obj-cdf95531823e4a825cf9230ed6d274ee.mesh"]
+
+source_file="res://Asset/LevelMenu/obj/hex_sand_waterC_empty.obj"
+dest_files=["res://.godot/imported/hex_sand_waterC_empty.obj-cdf95531823e4a825cf9230ed6d274ee.mesh", "res://.godot/imported/hex_sand_waterC_empty.obj-cdf95531823e4a825cf9230ed6d274ee.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

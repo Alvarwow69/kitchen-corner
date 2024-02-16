@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bjhhk850llgdl"
+path="res://.godot/imported/hex_forest_roadA_detail.obj-00d624aa15d54fc1c17a7968ad12c153.mesh"
+
+[deps]
+
+files=["res://.godot/imported/hex_forest_roadA_detail.obj-00d624aa15d54fc1c17a7968ad12c153.mesh"]
+
+source_file="res://Asset/LevelMenu/obj/hex_forest_roadA_detail.obj"
+dest_files=["res://.godot/imported/hex_forest_roadA_detail.obj-00d624aa15d54fc1c17a7968ad12c153.mesh", "res://.godot/imported/hex_forest_roadA_detail.obj-00d624aa15d54fc1c17a7968ad12c153.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cyqmoqfw3vtbq"
+path="res://.godot/imported/square_sand_waterStraight.obj-d1b238fa17c9db2146999429e31e8d1a.mesh"
+
+[deps]
+
+files=["res://.godot/imported/square_sand_waterStraight.obj-d1b238fa17c9db2146999429e31e8d1a.mesh"]
+
+source_file="res://Asset/LevelMenu/obj/square_sand_waterStraight.obj"
+dest_files=["res://.godot/imported/square_sand_waterStraight.obj-d1b238fa17c9db2146999429e31e8d1a.mesh", "res://.godot/imported/square_sand_waterStraight.obj-d1b238fa17c9db2146999429e31e8d1a.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
