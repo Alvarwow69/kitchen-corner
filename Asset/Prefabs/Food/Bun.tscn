@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=3 uid="uid://bbrcahq5fslne"]
+
+[ext_resource type="Script" path="res://Script/Bun.cs" id="1_hyu7u"]
+[ext_resource type="ArrayMesh" uid="uid://d24qtoduhu4tg" path="res://Asset/Kitchen/obj/food_ingredient_bun_top.obj" id="2_ib06v"]
+[ext_resource type="ArrayMesh" uid="uid://mvc0ycjfaw68" path="res://Asset/Kitchen/obj/food_ingredient_bun_bottom.obj" id="3_xjsrl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vbwjl"]
+size = Vector3(1.0907, 1.09285, 0.908622)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6t2cd"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_hk1xu"]
+height = 0.466309
+radius = 0.346457
+
+[node name="Bun" type="Node3D"]
+script = ExtResource("1_hyu7u")
+Name = "Bun"
+Compatibility = Array[String](["Steak_Cooked", "Lettuce_Sliced", "Tomato_Sliced", "Cheese_Sliced"])
+Weight = 5
+Height = 0.15
+
+[node name="HitBox" type="Area3D" parent="."]
+process_mode = 3
+collision_layer = 16
+collision_mask = 0
+collision_priority = 2.0
+priority = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitBox"]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0.203141, 0)
+shape = SubResource("BoxShape3D_vbwjl")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+collision_layer = 8
+collision_mask = 15
+mass = 3.0
+physics_material_override = SubResource("PhysicsMaterial_6t2cd")
+
+[node name="Raw" type="Node3D" parent="RigidBody3D"]
+
+[node name="UpperBun" type="MeshInstance3D" parent="RigidBody3D/Raw"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+mesh = ExtResource("2_ib06v")
+skeleton = NodePath("../..")
+
+[node name="LowerBun" type="MeshInstance3D" parent="RigidBody3D/Raw"]
+mesh = ExtResource("3_xjsrl")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.246869, 0)
+shape = SubResource("CylinderShape3D_hk1xu")

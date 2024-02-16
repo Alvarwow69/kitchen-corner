@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://4nx7c3hblfj3"]
+[gd_scene load_steps=10 format=3 uid="uid://4nx7c3hblfj3"]
 
-[ext_resource type="Script" path="res://Script/SelectionInteractable.cs" id="1_2fpja"]
+[ext_resource type="Script" path="res://Script/FoodProvider.cs" id="1_1luw1"]
 [ext_resource type="ArrayMesh" uid="uid://dlxa0x7edx6lh" path="res://Asset/Kitchen/obj/crate_steak.obj" id="2_6c7s3"]
+[ext_resource type="PackedScene" uid="uid://ch8mw5050x6sx" path="res://Asset/Prefabs/Food/Steack.tscn" id="2_bwpfl"]
 [ext_resource type="Shader" path="res://Selection.gdshader" id="3_6j5lw"]
 [ext_resource type="Texture2D" uid="uid://c8jvxgl2348ht" path="res://Asset/Kitchen/obj/restaurantbits_texture.png" id="4_4kw8o"]
+[ext_resource type="Animation" uid="uid://bhkdypsiqym4h" path="res://Asset/Animation/Create_provider.res" id="6_rlrij"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gguth"]
 size = Vector3(1.99241, 1, 1.93028)
@@ -15,15 +17,29 @@ shader_parameter/selectColor = Color(0.94902, 0.964706, 0, 1)
 shader_parameter/selected = false
 shader_parameter/tex = ExtResource("4_4kw8o")
 
-[node name="CreateSteak" type="StaticBody3D"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qkv6b"]
+_data = {
+"Create_provider": ExtResource("6_rlrij")
+}
+
+[node name="CreateSteak" type="Node3D" node_paths=PackedStringArray("_animation")]
+script = ExtResource("1_1luw1")
+_ingredient = ExtResource("2_bwpfl")
+_animation = NodePath("AnimationPlayer")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
 collision_layer = 4
 collision_mask = 0
-script = ExtResource("1_2fpja")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.387823, 0)
 shape = SubResource("BoxShape3D_gguth")
 
-[node name="Mesh" type="MeshInstance3D" parent="."]
+[node name="Mesh" type="MeshInstance3D" parent="StaticBody3D"]
 mesh = ExtResource("2_6c7s3")
 surface_material_override/0 = SubResource("ShaderMaterial_n570g")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qkv6b")
+}

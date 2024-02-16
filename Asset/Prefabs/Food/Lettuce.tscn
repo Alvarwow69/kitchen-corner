@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://b5uwxabwqts7j"]
+
+[ext_resource type="Script" path="res://Script/SliceIngredients.cs" id="1_uwv0b"]
+[ext_resource type="ArrayMesh" uid="uid://dbwn7sc1ysw7y" path="res://Asset/Kitchen/obj/food_ingredient_lettuce.obj" id="2_igm45"]
+[ext_resource type="ArrayMesh" uid="uid://bittym4o0ok7r" path="res://Asset/Kitchen/obj/food_ingredient_lettuce_slice.obj" id="3_b0wrn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vbwjl"]
+size = Vector3(0.889064, 0.742002, 1)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6t2cd"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hw7qp"]
+radius = 0.522564
+height = 1.04513
+
+[node name="Lettuce" type="Node3D"]
+script = ExtResource("1_uwv0b")
+Name = "Lettuce"
+Compatibility = Array[String](["Bun_Raw", "Steak_Cooked", "Tomato_Sliced", "Cheese_Sliced"])
+Weight = 3
+Height = 0.05
+
+[node name="HitBox" type="Area3D" parent="."]
+process_mode = 3
+collision_layer = 16
+collision_mask = 0
+collision_priority = 2.0
+priority = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitBox"]
+transform = Transform3D(1.49512, 0, 0, 0, 1.49512, 0, 0, 0, 1.49512, 0, 0.417317, 0)
+shape = SubResource("BoxShape3D_vbwjl")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+collision_layer = 8
+collision_mask = 15
+mass = 3.0
+physics_material_override = SubResource("PhysicsMaterial_6t2cd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.319647, 0)
+shape = SubResource("CapsuleShape3D_hw7qp")
+
+[node name="Raw" type="MeshInstance3D" parent="RigidBody3D"]
+mesh = ExtResource("2_igm45")
+
+[node name="Sliced" type="MeshInstance3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0463101, 0)
+visible = false
+mesh = ExtResource("3_b0wrn")

@@ -15,18 +15,20 @@ shader_parameter/tex = ExtResource("4_i37w8")
 [sub_resource type="BoxShape3D" id="BoxShape3D_05mc7"]
 size = Vector3(2.01516, 1, 1.98592)
 
-[node name="CounterStraightB" type="StaticBody3D"]
-collision_layer = 4
-collision_mask = 0
+[node name="CounterStraightB" type="Node3D"]
 script = ExtResource("1_e31eu")
 
-[node name="Mesh" type="MeshInstance3D" parent="."]
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 12
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="StaticBody3D"]
 mesh = ExtResource("2_uw8f8")
 surface_material_override/0 = SubResource("ShaderMaterial_bbbs5")
 
-[node name="MeshCollider" type="CollisionShape3D" parent="."]
+[node name="MeshCollider" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_05mc7")
 
-[node name="Anchor" type="Node3D" parent="."]
+[node name="Anchor" type="Node3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

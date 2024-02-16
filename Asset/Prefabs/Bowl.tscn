@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://c6vhdvaujvtsv"]
+
+[ext_resource type="Script" path="res://Script/Bowl.cs" id="1_uf1m1"]
+[ext_resource type="ArrayMesh" uid="uid://ctu5wahexblcy" path="res://Asset/Kitchen/obj/bowl_dirty.obj" id="2_7wjn1"]
+[ext_resource type="ArrayMesh" uid="uid://cgf7dj5fh1d75" path="res://Asset/Kitchen/obj/bowl.obj" id="3_wko8l"]
+[ext_resource type="ArrayMesh" uid="uid://b3f70apc50gsg" path="res://Asset/Kitchen/obj/food_stew.obj" id="4_jqt7g"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rtx7j"]
+size = Vector3(1, 0.736964, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ind2l"]
+size = Vector3(1, 0.295392, 1)
+
+[node name="Bowl" type="Node3D"]
+script = ExtResource("1_uf1m1")
+Height = 0.0
+
+[node name="HitBox" type="Area3D" parent="."]
+transform = Transform3D(1.10249, 0, 0, 0, 1.10249, 0, 0, 0, 1.10249, 0, 0.142209, 0)
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitBox"]
+transform = Transform3D(1.16162, 0, 0, 0, 1.16162, 0, 0, 0, 1.16162, 0, 0.122725, 0)
+shape = SubResource("BoxShape3D_rtx7j")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+collision_layer = 8
+collision_mask = 15
+lock_rotation = true
+
+[node name="Dirty" type="MeshInstance3D" parent="RigidBody3D"]
+visible = false
+mesh = ExtResource("2_7wjn1")
+
+[node name="Clean" type="MeshInstance3D" parent="RigidBody3D"]
+mesh = ExtResource("3_wko8l")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.147649, 0)
+shape = SubResource("BoxShape3D_ind2l")
+
+[node name="Anchor" type="Node3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0693564, 0)
+
+[node name="Raw" type="Node3D" parent="RigidBody3D"]
+
+[node name="HasFood" type="MeshInstance3D" parent="RigidBody3D"]
+visible = false
+mesh = ExtResource("4_jqt7g")
