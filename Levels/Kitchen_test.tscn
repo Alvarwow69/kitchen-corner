@@ -99,9 +99,9 @@ transform = Transform3D(1.4982, 0, -2.20268e-13, 0, 1.4982, 0, 2.20268e-13, 0, 1
 
 [node name="CounterStraight2" parent="Kitchen/Furniture" node_paths=PackedStringArray("_defaultInteractable") instance=ExtResource("23_5gckd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
-_defaultInteractable = NodePath("Pan")
+_defaultInteractable = NodePath("Pot")
 
-[node name="Pan" parent="Kitchen/Furniture/CounterStraight2" instance=ExtResource("14_rxo7v")]
+[node name="Pot" parent="Kitchen/Furniture/CounterStraight2" instance=ExtResource("14_rxo7v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="CounterSink" parent="Kitchen/Furniture" node_paths=PackedStringArray("_dishRack") instance=ExtResource("21_vtnlg")]
@@ -128,7 +128,6 @@ PlayerNumber = 0
 
 [node name="Plate2" parent="." instance=ExtResource("14_k8bnr")]
 transform = Transform3D(-6.54882e-08, 0, 1.4982, 0, 1.4982, 0, -1.4982, 0, -6.54882e-08, 5.99352, 1, 1.42109e-14)
-_state = 1
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.688177, 0.725543, 0, -0.725543, 0.688177, 0, 7.11486, 9.97989)

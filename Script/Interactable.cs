@@ -13,8 +13,8 @@ public partial class Interactable : Node3D
 
 	[Export] public CollisionObject3D _hitbox;
 
-	protected InteractableState State;
-	protected Player Player = null;
+	protected InteractableState _InteractableState;
+	public Player Player { get; set; } = null;
 
 	public virtual void HoverEnter(Player player)
 	{ }
@@ -39,10 +39,4 @@ public partial class Interactable : Node3D
 	
 	public virtual void DisableHitBox()
 	{ }
-
-	public Player GetPlayer()
-	{
-		return Player;
-	}
-
 }

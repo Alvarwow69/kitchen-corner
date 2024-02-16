@@ -15,13 +15,13 @@ public partial class SelectionInteractable : Interactable
 
 	public override void HoverEnter(Player player)
 	{
-		State = InteractableState.SELECT;
+		_InteractableState = InteractableState.SELECT;
 		_shader.SetShaderParameter("selected", true);
 	}
 
 	public override void HoverExit(Player player)
 	{
-		State = InteractableState.IDLE;
+		_InteractableState = InteractableState.IDLE;
 		_shader.SetShaderParameter("selected", false);
 	}
 }

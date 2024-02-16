@@ -1,6 +1,6 @@
 using Godot;
 
-public partial class Plate : Ingredient
+public partial class Plate : Container
 {
     public enum PlateState
     {
@@ -34,12 +34,13 @@ public partial class Plate : Ingredient
 
     public override void AddFood(Ingredient ingredient)
     {
-        if (_state == PlateState.Dirty || ingredient is Plate)
+        if (_state == PlateState.Dirty || ingredient is Container)
             return;
-        if (Player == null)
+        if (Player == null && ingredient.Player != null)
         {
-            ingredient.GetPlayer().RemoveInteractable();
-            base.PerformAction(ingredient.GetPlayer());
+            if (ingredient.Player.GetInteractable() is not Container)
+                ingredient.Player.RemoveInteractable();
+            base.PerformAction(ingredient.Player);
             ingredient.Reparent(GetNode("RigidBody3D"));
             ingredient.GlobalPosition = GlobalPosition;
             ingredient.GlobalRotation = GlobalRotation;
@@ -56,5 +57,10 @@ public partial class Plate : Ingredient
         {
             base.AddFood(ingredient);
         }
+    }
+
+    public override bool CanGetFood()
+    {
+        return true;
     }
 }

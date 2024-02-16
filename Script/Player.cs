@@ -60,7 +60,7 @@ public partial class Player : CharacterBody3D
             {
                 if (_selectionInteractable is Ingredient && _interactable is Ingredient)
                 {
-                    if (_selectionInteractable is Plate || _selectionInteractable is Bowl)
+                    if (_selectionInteractable is Plate)
                         (_selectionInteractable as Plate)?.AddFood(_interactable as Ingredient);
                     else
                         (_interactable as Ingredient)?.AddFood(_selectionInteractable as Ingredient);
@@ -126,10 +126,16 @@ public partial class Player : CharacterBody3D
 
     public void AddInteractable(RigidInteractable interactable)
     {
+        if (_interactable is Container)
+        {
+            (_interactable as Container)?.AddFood(interactable as Ingredient);
+            return;
+        }
         _interactable = interactable;
         _interactable.Freeze();
         _interactable.Reparent(_anchor);
         _interactable.GlobalPosition = _anchor.GlobalPosition;
+        _interactable.Player = this;
     }
 
     public RigidInteractable RemoveInteractable()
@@ -138,6 +144,14 @@ public partial class Player : CharacterBody3D
 
         _interactable.Reparent(GetTree().Root.GetChild(0));
         _interactable = null;
+        return tmp;
+    }
+
+    public RigidInteractable RemoveFromInteractable()
+    {
+        RigidInteractable tmp = (_interactable as Container)?.RemoveIngredient();
+
+        tmp.Reparent(GetTree().Root.GetChild(0));
         return tmp;
     }
     

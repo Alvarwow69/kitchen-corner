@@ -14,7 +14,7 @@ public partial class Ingredient : RigidInteractable
 	}
 
 	[Export] protected FoodState State = FoodState.Raw;
-	[Export] protected String Name = "Food";
+	[Export] protected String IngredientName = "Food";
 	[Export] protected Array<string> Compatibility;
 	[Export] protected int Weight = 0;
 	[Export] protected float Height = 0.1f;
@@ -30,12 +30,12 @@ public partial class Ingredient : RigidInteractable
 
 	public virtual bool IsCompatible(Ingredient food)
 	{
-		return Compatibility.Contains(food.GetNameState());
+		return Compatibility == null || Compatibility.Contains(food.GetNameState());
 	}
 
 	public string GetNameState()
 	{
-		return Name + "_" + State;
+		return IngredientName + "_" + State;
 	}
 
 	public FoodState GetState()
@@ -63,7 +63,7 @@ public partial class Ingredient : RigidInteractable
 		UpdateVisual(this, ingredient);
 		foreach (var element in Foods)
 		{
-			if (element.Name == ingredient.Name)
+			if (element.IngredientName == ingredient.IngredientName)
 				continue;
 			UpdateVisual(element, ingredient);
 		}
@@ -71,11 +71,11 @@ public partial class Ingredient : RigidInteractable
 
 	private void UpdateVisual(Ingredient element, Ingredient ingredient)
 	{
-		if (element.Weight < ingredient.Weight || element.Name == "Bun")
+		if (element.Weight < ingredient.Weight || element.IngredientName == "Bun")
 			ingredient.AddLevel(element.Height);
 		else
 			element.AddLevel(ingredient.Height);
-		if (element.Name == "Bun")
+		if (element.IngredientName == "Bun")
 			element.AddLevel(ingredient.Height);
 	}
 

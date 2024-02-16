@@ -6,8 +6,6 @@ using Array = System.Array;
 public partial class Bowl : Plate
 {
 	private Node3D _anchor;
-	private Array<Ingredient> Foods { get; } = new Array<Ingredient>();
-
 	public override void _Ready()
 	{
 		_anchor = GetNode<Node3D>("RigidBody3D/Anchor");
@@ -22,5 +20,6 @@ public partial class Bowl : Plate
 		{
 			Foods.Add(ingredient);
 		}
+		SetState(PlateState.HasFood);
 	}
 }

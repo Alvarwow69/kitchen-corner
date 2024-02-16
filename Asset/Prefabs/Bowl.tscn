@@ -46,6 +46,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0693564, 0)
 
 [node name="Raw" type="Node3D" parent="RigidBody3D"]
 
-[node name="Full" type="MeshInstance3D" parent="RigidBody3D"]
+[node name="HasFood" type="MeshInstance3D" parent="RigidBody3D"]
 visible = false
 mesh = ExtResource("4_jqt7g")
