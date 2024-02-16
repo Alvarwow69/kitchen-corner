@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dr3p8o02b47o3"]
+[gd_scene load_steps=35 format=3 uid="uid://dr3p8o02b47o3"]
 
 [ext_resource type="PackedScene" uid="uid://dnkgd6nbuk5v7" path="res://Asset/Prefabs/Furniture/Counter_Straight.tscn" id="8_4kfd2"]
 [ext_resource type="PackedScene" uid="uid://hkh7js1my8ij" path="res://Asset/Prefabs/Creates/Create_Buns.tscn" id="9_c5byw"]
@@ -20,8 +20,13 @@
 [ext_resource type="PackedScene" uid="uid://cpl53s0o03r5r" path="res://Asset/Prefabs/Furniture/Counter_Sink.tscn" id="21_vtnlg"]
 [ext_resource type="PackedScene" uid="uid://b6g4ge1u682o6" path="res://Asset/Prefabs/Furniture/Counter_StraightB.tscn" id="23_5gckd"]
 [ext_resource type="PackedScene" uid="uid://d312hlyms7td0" path="res://Asset/Prefabs/Furniture/DishRack.tscn" id="23_lbypj"]
+[ext_resource type="Script" path="res://Script/TimerManager.cs" id="24_6lkte"]
+[ext_resource type="StyleBox" uid="uid://2ay566iyxb45" path="res://Levels/Tab.tres" id="24_dq5s1"]
+[ext_resource type="Texture2D" uid="uid://c5dshwlfeeod7" path="res://icon.svg" id="24_r58w7"]
+[ext_resource type="PackedScene" uid="uid://bd70in7lumm2a" path="res://Asset/Prefabs/Ui/UI_Command.tscn" id="26_rnmt7"]
 [ext_resource type="PackedScene" uid="uid://v4q4k83rovpw" path="res://Asset/Prefabs/Furniture/Stove.tscn" id="27_bxd6t"]
 [ext_resource type="PackedScene" uid="uid://c6vhdvaujvtsv" path="res://Asset/Prefabs/Bowl.tscn" id="27_lft7r"]
+[ext_resource type="Script" path="res://Script/ScoreManager.cs" id="27_rnowg"]
 [ext_resource type="PackedScene" uid="uid://c11cm5a88t5w0" path="res://Asset/Prefabs/Furniture/Counter_Slicer.tscn" id="30_pjq1q"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k5aar"]
@@ -39,6 +44,15 @@ background_mode = 1
 background_color = Color(0, 0.603922, 1, 1)
 ambient_light_color = Color(1, 1, 1, 1)
 ambient_light_energy = 5.0
+
+[sub_resource type="Theme" id="Theme_jijpt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yp2x4"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 1
+border_width_top = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
 
 [node name="Node3D" type="Node3D"]
 
@@ -148,3 +162,124 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4, 0,
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.33122, 0.05, -0.340617)
 _state = 1
 Height = 0.1
+
+[node name="Timer" type="Control" parent="." node_paths=PackedStringArray("_text")]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+theme = SubResource("Theme_jijpt")
+script = ExtResource("24_6lkte")
+_text = NodePath("Panel/Label")
+
+[node name="Panel" type="Panel" parent="Timer"]
+layout_mode = 0
+offset_left = -301.0
+offset_right = 40.0
+offset_bottom = 132.0
+theme_override_styles/panel = ExtResource("24_dq5s1")
+
+[node name="TextureRect" type="TextureRect" parent="Timer/Panel"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 37.0
+offset_top = -50.0
+offset_right = 134.0
+offset_bottom = 47.0
+grow_vertical = 2
+texture = ExtResource("24_r58w7")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Timer/Panel"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -24.0
+offset_right = -22.0
+offset_bottom = 18.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 21
+text = "6:00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="Control" parent="." node_paths=PackedStringArray("_text")]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = SubResource("Theme_jijpt")
+script = ExtResource("27_rnowg")
+_text = NodePath("Panel/Label")
+
+[node name="Panel" type="Panel" parent="Score"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -341.0
+offset_top = -132.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_yp2x4")
+
+[node name="Label" type="Label" parent="Score/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -89.0
+offset_top = -21.0
+offset_right = 89.0
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 21
+text = "Score: 1000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Command" type="Control" parent="."]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 812.0
+offset_bottom = 129.0
+size_flags_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Command"]
+clip_contents = true
+layout_mode = 0
+offset_right = 1095.0
+offset_bottom = 134.0
+
+[node name="PanelContainer" parent="Command/HBoxContainer" instance=ExtResource("26_rnmt7")]
+layout_mode = 2
+
+[node name="PanelContainer2" parent="Command/HBoxContainer" instance=ExtResource("26_rnmt7")]
+layout_mode = 2
+
+[node name="PanelContainer3" parent="Command/HBoxContainer" instance=ExtResource("26_rnmt7")]
+layout_mode = 2
