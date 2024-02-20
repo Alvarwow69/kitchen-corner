@@ -25,6 +25,8 @@ public partial class ScoreManager : Control
 	public void RemoveScore(int malus)
 	{
 		_score -= malus;
+		if (_score < 0)
+			_score = 0;
 		_text.Text = "Score: " + _score;
 	}
 }

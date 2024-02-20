@@ -2,6 +2,7 @@ using Godot;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using Godot.Collections;
 
 public partial class Command : Node
 {
@@ -12,8 +13,9 @@ public partial class Command : Node
 	[Export] private StyleBoxFlat _styleBox;
 	[Export] public Label Title { get; set; } = null;
 	[Export] private TextureRect Image { get; set; } = null;
-    
-	private List<Ingredient> _ingredients;
+	[Export] private Array<string> _baseIngredients;
+
+	private Array<Ingredient> _ingredients;
 	private double _timer;
 	private bool _running = false;
 
@@ -23,8 +25,18 @@ public partial class Command : Node
 
 	public override void _Ready()
 	{
+		PrepareCommand();
 		_timer = _waitingTime;
 		_running = true;
+	}
+
+	private void PrepareCommand()
+	{
+		Title.Text = "";
+		foreach (var baseIngredient in _baseIngredients)
+		{
+			Title.Text += baseIngredient + "\n";
+		}
 	}
 
 	public override void _Process(double delta)
@@ -43,6 +55,11 @@ public partial class Command : Node
 	{
 		_running = false;
 		(GetParent() as CommandManager)?.RemoveCommand(this);
+	}
+
+	public double RemainTime()
+	{
+		return _timer / _waitingTime * 100;
 	}
 
 	#endregion

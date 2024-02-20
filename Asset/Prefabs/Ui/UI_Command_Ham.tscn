@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bd70in7lumm2a"]
+[gd_scene load_steps=6 format=3 uid="uid://vb58s1dxnr6s"]
 
-[ext_resource type="Script" path="res://Script/Command.cs" id="1_4jq6k"]
-[ext_resource type="Texture2D" uid="uid://c8jvxgl2348ht" path="res://Asset/Kitchen/obj/restaurantbits_texture.png" id="1_y8x5g"]
+[ext_resource type="Script" path="res://Script/Command.cs" id="1_pb70e"]
+[ext_resource type="Texture2D" uid="uid://c8jvxgl2348ht" path="res://Asset/Kitchen/obj/restaurantbits_texture.png" id="2_0yysq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i3lh8"]
 bg_color = Color(1, 1, 1, 1)
@@ -25,7 +25,7 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[node name="Panel" type="Panel" node_paths=PackedStringArray("_progressBar", "_title", "_image")]
+[node name="Panel" type="Panel" node_paths=PackedStringArray("_progressBar", "Title", "Image")]
 custom_minimum_size = Vector2(200, 50)
 anchors_preset = 15
 anchor_right = 1.0
@@ -33,11 +33,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_i3lh8")
-script = ExtResource("1_4jq6k")
+script = ExtResource("1_pb70e")
 _progressBar = NodePath("AspectRatioContainer/VBoxContainer/ProgressBar")
 _styleBox = SubResource("StyleBoxFlat_f43a3")
-_title = NodePath("AspectRatioContainer/VBoxContainer/HBoxContainer/Label")
-_image = NodePath("AspectRatioContainer/VBoxContainer/HBoxContainer/TextureRect")
+Title = NodePath("AspectRatioContainer/VBoxContainer/HBoxContainer/Label")
+Image = NodePath("AspectRatioContainer/VBoxContainer/HBoxContainer/TextureRect")
+_baseIngredients = Array[String](["Ham", "Carrot"])
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
 layout_mode = 1
@@ -58,7 +59,7 @@ layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-texture = ExtResource("1_y8x5g")
+texture = ExtResource("2_0yysq")
 expand_mode = 2
 
 [node name="Label" type="Label" parent="AspectRatioContainer/VBoxContainer/HBoxContainer"]

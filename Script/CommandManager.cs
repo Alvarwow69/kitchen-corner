@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using Godot.Collections;
 
 public partial class CommandManager : Node
 {
@@ -14,7 +15,7 @@ public partial class CommandManager : Node
 
     [Export] private double _timeBetweenCommand = 20;
     [Export] private int _maxCommand = 4;
-    [Export] private PackedScene _commandScene;
+    [Export] private Array<PackedScene> _commandScene;
     [Export] private CommandType _commandType = CommandType.Burger;
 
     private int _currentCommand = 0;
@@ -40,7 +41,8 @@ public partial class CommandManager : Node
 
     private void CreateCommand()
     {
-        var newCommand = GD.Load<PackedScene>(_commandScene.ResourcePath).Instantiate();
+        var randomIndex = new RandomNumberGenerator().RandiRange(0, _commandScene.Count - 1);
+        var newCommand = GD.Load<PackedScene>(_commandScene[randomIndex].ResourcePath).Instantiate();
         AddChild(newCommand);
         _currentCommand += 1;
         _timer = 0;
@@ -49,6 +51,8 @@ public partial class CommandManager : Node
     public void RemoveCommand(Command command)
     {
         _currentCommand -= 1;
+        if (command.RemainTime() <= 0)
+            GetNode<ScoreManager>("../ScoreManager").RemoveScore(10);
         command.QueueFree();
     }
 
