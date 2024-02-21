@@ -38,7 +38,7 @@ _progressBar = NodePath("AspectRatioContainer/VBoxContainer/ProgressBar")
 _styleBox = SubResource("StyleBoxFlat_f43a3")
 Title = NodePath("AspectRatioContainer/VBoxContainer/HBoxContainer/Label")
 Image = NodePath("AspectRatioContainer/VBoxContainer/HBoxContainer/TextureRect")
-_baseIngredients = Array[String](["Bread", "Steak", "Cheese"])
+_baseIngredients = Array[String](["Bun"])
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
 layout_mode = 1

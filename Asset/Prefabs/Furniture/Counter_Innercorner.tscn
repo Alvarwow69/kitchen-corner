@@ -13,7 +13,7 @@ shader_parameter/selected = false
 shader_parameter/tex = ExtResource("4_6y2e1")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_05mc7"]
-size = Vector3(2.01516, 1, 1.98592)
+size = Vector3(2, 1, 2)
 
 [node name="CounterInnercorner" type="Node3D"]
 script = ExtResource("1_mpngj")

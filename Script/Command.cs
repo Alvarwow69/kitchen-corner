@@ -62,6 +62,19 @@ public partial class Command : Node
 		return _timer / _waitingTime * 100;
 	}
 
+	public bool IsValidCommand(Array<Ingredient> list)
+	{
+		int valid = 0;
+		foreach (var baseIngredient in _baseIngredients)
+			foreach (var ingredient in list)
+				if (baseIngredient == ingredient.Name)
+				{
+					valid += 1;
+					break;
+				}
+		return valid == _baseIngredients.Count;
+	}
+
 	#endregion
 	
 }

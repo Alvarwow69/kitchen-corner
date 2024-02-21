@@ -1,8 +1,9 @@
-[gd_scene load_steps=38 format=3 uid="uid://dr3p8o02b47o3"]
+[gd_scene load_steps=37 format=3 uid="uid://dr3p8o02b47o3"]
 
 [ext_resource type="PackedScene" uid="uid://dnkgd6nbuk5v7" path="res://Asset/Prefabs/Furniture/Counter_Straight.tscn" id="8_4kfd2"]
 [ext_resource type="PackedScene" uid="uid://hkh7js1my8ij" path="res://Asset/Prefabs/Creates/Create_Buns.tscn" id="9_c5byw"]
 [ext_resource type="PackedScene" uid="uid://cnehf3jphwdje" path="res://Asset/Prefabs/Creates/Create_Carrot.tscn" id="10_n636r"]
+[ext_resource type="PackedScene" uid="uid://cdcg8p7vas3ix" path="res://Asset/Prefabs/Furniture/PlateManager.tscn" id="10_plpkw"]
 [ext_resource type="PackedScene" uid="uid://cxwj8f2fdxofd" path="res://Asset/Prefabs/Creates/Create_Cheese.tscn" id="11_6pqwl"]
 [ext_resource type="PackedScene" uid="uid://c12j08jxgtyfm" path="res://Asset/Prefabs/Creates/Create_Ham.tscn" id="12_fy24p"]
 [ext_resource type="PackedScene" uid="uid://k5io6bxv6534" path="res://Asset/Prefabs/Player.tscn" id="13_8oirm"]
@@ -13,7 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://cqrgm414sjfhp" path="res://Asset/Prefabs/Pan.tscn" id="15_1ffbl"]
 [ext_resource type="PackedScene" uid="uid://btqmpmhf8khe1" path="res://Asset/Prefabs/Creates/Create_Potatos.tscn" id="15_jme74"]
 [ext_resource type="PackedScene" uid="uid://4nx7c3hblfj3" path="res://Asset/Prefabs/Creates/Create_Steak.tscn" id="16_0ewfk"]
-[ext_resource type="ArrayMesh" uid="uid://cotlqt7kdjufm" path="res://Asset/Kitchen/obj/wall_orderwindow.obj" id="17_d4xcc"]
 [ext_resource type="PackedScene" uid="uid://ca72728kboj3a" path="res://Asset/Prefabs/Creates/Create_Tomatoes.tscn" id="17_ul8v7"]
 [ext_resource type="PackedScene" uid="uid://boi7g10ip6fge" path="res://Asset/Prefabs/Furniture/Counter_Outercorner.tscn" id="19_s10pa"]
 [ext_resource type="PackedScene" uid="uid://cx0bsuv6fm6ec" path="res://Asset/Prefabs/Furniture/Counter_Innercorner.tscn" id="20_p10tn"]
@@ -29,8 +29,7 @@
 [ext_resource type="Script" path="res://Script/CommandManager.cs" id="28_o3tol"]
 [ext_resource type="PackedScene" uid="uid://bd70in7lumm2a" path="res://Asset/Prefabs/Ui/UI_Command_Burger.tscn" id="29_wntbi"]
 [ext_resource type="PackedScene" uid="uid://c11cm5a88t5w0" path="res://Asset/Prefabs/Furniture/Counter_Slicer.tscn" id="30_pjq1q"]
-[ext_resource type="PackedScene" uid="uid://vb58s1dxnr6s" path="res://Asset/Prefabs/Ui/UI_Command_Ham.tscn" id="30_rj5qn"]
-[ext_resource type="PackedScene" uid="uid://bqoe4qgir527x" path="res://Asset/Prefabs/Ui/UI_Command_Stew.tscn" id="31_c3fv1"]
+[ext_resource type="PackedScene" uid="uid://b1qxj6vfso1x5" path="res://Asset/Prefabs/Furniture/OrderWindow.tscn" id="31_seaqb"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k5aar"]
 albedo_color = Color(0.380392, 0.380392, 0.380392, 1)
@@ -104,6 +103,9 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 
 [node name="Furniture" type="Node3D" parent="Kitchen"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4, 0, 0)
 
+[node name="PlateManager" parent="Kitchen/Furniture" instance=ExtResource("10_plpkw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 17)
+
 [node name="CounterInnercorner" parent="Kitchen/Furniture" instance=ExtResource("20_p10tn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
 
@@ -150,10 +152,6 @@ transform = Transform3D(-6.54882e-08, 0, 1.4982, 0, 1.4982, 0, -1.4982, 0, -6.54
 transform = Transform3D(1, 0, 0, 0, 0.688177, 0.725543, 0, -0.725543, 0.688177, 0, 7.11486, 9.97989)
 environment = SubResource("Environment_pefkh")
 current = true
-
-[node name="WallOrderwindow" type="MeshInstance3D" parent="."]
-transform = Transform3D(-4.45189e-08, 0, 1.01847, 0, 1.01847, 0, -1.01847, 0, -4.45189e-08, 13.5602, 0.0500002, -2.90911)
-mesh = ExtResource("17_d4xcc")
 
 [node name="CounterCuttingboard" parent="." instance=ExtResource("30_pjq1q")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4, 0, -4)
@@ -271,4 +269,9 @@ offset_right = 830.0
 offset_bottom = 135.0
 theme_override_constants/separation = 10
 script = ExtResource("28_o3tol")
-_commandScene = Array[PackedScene]([ExtResource("29_wntbi"), ExtResource("30_rj5qn"), ExtResource("31_c3fv1")])
+_commandScene = Array[PackedScene]([ExtResource("29_wntbi")])
+
+[node name="OrderWindow" parent="." node_paths=PackedStringArray("_commandManager", "_plateManager") instance=ExtResource("31_seaqb")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 14, 0, -1)
+_commandManager = NodePath("../CommandManager")
+_plateManager = NodePath("../Kitchen/Furniture/PlateManager")

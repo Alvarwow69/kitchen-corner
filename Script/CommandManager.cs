@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Diagnostics;
 using Godot.Collections;
 
 public partial class CommandManager : Node
@@ -35,14 +36,13 @@ public partial class CommandManager : Node
         if (_currentCommand >= _maxCommand)
             return;
         _timer += delta;
-        if (_timer >= _timeBetweenCommand || _currentCommand == 0)
+        if (_timer >= _timeBetweenCommand || (_currentCommand == 0 && _timer >= _timeBetweenCommand / 2))
             CreateCommand();
     }
 
     private void CreateCommand()
     {
-        var randomIndex = new RandomNumberGenerator().RandiRange(0, _commandScene.Count - 1);
-        var newCommand = GD.Load<PackedScene>(_commandScene[randomIndex].ResourcePath).Instantiate();
+        var newCommand = GD.Load<PackedScene>(_commandScene.PickRandom().ResourcePath).Instantiate();
         AddChild(newCommand);
         _currentCommand += 1;
         _timer = 0;
@@ -54,6 +54,22 @@ public partial class CommandManager : Node
         if (command.RemainTime() <= 0)
             GetNode<ScoreManager>("../ScoreManager").RemoveScore(10);
         command.QueueFree();
+    }
+
+    public bool CheckCommands(Array<Ingredient> list)
+    {
+        var commandList = GetChildren();
+        foreach (Command command in commandList)
+            if (command.IsValidCommand(list))
+            {
+                Debug.Print("Command valid");
+                GetNode<ScoreManager>("../ScoreManager").AddScore(50);
+                command.QueueFree();
+                _currentCommand -= 1;
+                return true;
+            }
+        Debug.Print("Command Invalid");
+        return false;
     }
 
     #endregion
