@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://ch8mw5050x6sx"]
 
-[ext_resource type="Script" path="res://Script/CookIngredient.cs" id="1_rfylu"]
+[ext_resource type="Script" path="res://Script/Ingredients/CookIngredient.cs" id="1_rfylu"]
 [ext_resource type="ArrayMesh" uid="uid://dv62ofeg8date" path="res://Asset/Kitchen/obj/food_ingredient_steak.obj" id="2_gi5yx"]
 [ext_resource type="ArrayMesh" uid="uid://dw36ihmsrril6" path="res://Asset/Kitchen/obj/food_ingredient_burger_uncooked.obj" id="3_ia7rm"]
 [ext_resource type="ArrayMesh" uid="uid://52afw1kimsbb" path="res://Asset/Kitchen/obj/food_ingredient_burger_cooked.obj" id="4_78ui6"]

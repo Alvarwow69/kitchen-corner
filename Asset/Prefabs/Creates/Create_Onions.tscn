@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://dger84eef3jnr"]
 
-[ext_resource type="Script" path="res://Script/FoodProvider.cs" id="1_bo1bk"]
+[ext_resource type="Script" path="res://Script/Ingredients/FoodProvider.cs" id="1_bo1bk"]
 [ext_resource type="ArrayMesh" uid="uid://cchpy2k5v30jr" path="res://Asset/Kitchen/obj/crate_onions.obj" id="2_0fkyw"]
 [ext_resource type="PackedScene" uid="uid://u1e6usnuf5l0" path="res://Asset/Prefabs/Food/Onion.tscn" id="2_xd4r1"]
 [ext_resource type="Shader" path="res://Selection.gdshader" id="3_d8elp"]

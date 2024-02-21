@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://cpl53s0o03r5r"]
 
-[ext_resource type="Script" path="res://Script/CounterSink.cs" id="1_m2md3"]
+[ext_resource type="Script" path="res://Script/Furniture/CounterSink.cs" id="1_m2md3"]
 [ext_resource type="ArrayMesh" uid="uid://cffol5sa75rce" path="res://Asset/Kitchen/obj/kitchencounter_sink.obj" id="2_rn0qt"]
 [ext_resource type="Shader" path="res://Selection.gdshader" id="3_xrc5m"]
 [ext_resource type="Texture2D" uid="uid://c8jvxgl2348ht" path="res://Asset/Kitchen/obj/restaurantbits_texture.png" id="4_igdx5"]

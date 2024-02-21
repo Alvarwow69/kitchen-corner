@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://v4q4k83rovpw"]
 
-[ext_resource type="Script" path="res://Script/Stove.cs" id="1_d8ljl"]
+[ext_resource type="Script" path="res://Script/Furniture/Stove.cs" id="1_d8ljl"]
 [ext_resource type="ArrayMesh" uid="uid://c7yjtg0y2smwr" path="res://Asset/Kitchen/obj/stove_single.obj" id="2_k2eoe"]
 [ext_resource type="Shader" path="res://Selection.gdshader" id="3_10358"]
 [ext_resource type="Texture2D" uid="uid://c8jvxgl2348ht" path="res://Asset/Kitchen/obj/restaurantbits_texture.png" id="4_sysbh"]

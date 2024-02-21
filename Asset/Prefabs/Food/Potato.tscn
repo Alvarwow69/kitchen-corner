@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://d1faqtqm3f0xq"]
 
-[ext_resource type="Script" path="res://Script/CookIngredient.cs" id="1_bk3kn"]
+[ext_resource type="Script" path="res://Script/Ingredients/CookIngredient.cs" id="1_bk3kn"]
 [ext_resource type="ArrayMesh" uid="uid://b4x3cg1dpv75k" path="res://Asset/Kitchen/obj/food_ingredient_potato.obj" id="2_rw2iv"]
 [ext_resource type="ArrayMesh" uid="uid://cponkqrbvb558" path="res://Asset/Kitchen/obj/food_ingredient_potato_mashed.obj" id="3_7amn4"]
 

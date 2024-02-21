@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://c6vhdvaujvtsv"]
 
-[ext_resource type="Script" path="res://Script/Bowl.cs" id="1_uf1m1"]
+[ext_resource type="Script" path="res://Script/Furniture/Bowl.cs" id="1_uf1m1"]
 [ext_resource type="ArrayMesh" uid="uid://ctu5wahexblcy" path="res://Asset/Kitchen/obj/bowl_dirty.obj" id="2_7wjn1"]
 [ext_resource type="ArrayMesh" uid="uid://cgf7dj5fh1d75" path="res://Asset/Kitchen/obj/bowl.obj" id="3_wko8l"]
 [ext_resource type="ArrayMesh" uid="uid://b3f70apc50gsg" path="res://Asset/Kitchen/obj/food_stew.obj" id="4_jqt7g"]

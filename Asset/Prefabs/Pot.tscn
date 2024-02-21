@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://dgxiv3v83xnem"]
 
-[ext_resource type="Script" path="res://Script/Pot.cs" id="1_q3ym8"]
+[ext_resource type="Script" path="res://Script/Furniture/Pot.cs" id="1_q3ym8"]
 [ext_resource type="ArrayMesh" uid="uid://cwqk5q1nal8ps" path="res://Asset/Kitchen/obj/pot_A.obj" id="2_efg4p"]
 [ext_resource type="ArrayMesh" uid="uid://bxmdf3wr0opfj" path="res://Asset/Kitchen/obj/stew_bowl.obj" id="3_6tch3"]
 [ext_resource type="PackedScene" uid="uid://c7028uon8wrot" path="res://Asset/Prefabs/utils/ProgressBar.tscn" id="4_jnve1"]

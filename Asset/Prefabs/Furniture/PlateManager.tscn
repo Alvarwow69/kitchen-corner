@@ -1,14 +1,14 @@
 [gd_scene load_steps=5 format=3 uid="uid://cdcg8p7vas3ix"]
 
+[ext_resource type="Script" path="res://Script/Furniture/PlateManager.cs" id="1_7oi1k"]
 [ext_resource type="ArrayMesh" uid="uid://bi8srbcw75v52" path="res://Asset/Kitchen/obj/kitchentable_B.obj" id="1_bipb2"]
-[ext_resource type="Script" path="res://Script/PlateManager.cs" id="1_nu01a"]
 [ext_resource type="Material" uid="uid://buw721hn78rq4" path="res://Selection.tres" id="3_w67dl"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nv461"]
 size = Vector3(2, 1, 2)
 
 [node name="PlateManager" type="Node3D" node_paths=PackedStringArray("_anchor", "_mesh")]
-script = ExtResource("1_nu01a")
+script = ExtResource("1_7oi1k")
 _anchor = NodePath("StaticBody3D/Anchor")
 _mesh = NodePath("StaticBody3D/MeshInstance3D")
 

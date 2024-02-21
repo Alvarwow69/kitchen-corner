@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://d312hlyms7td0"]
 
-[ext_resource type="Script" path="res://Script/DishRack.cs" id="1_w5o1k"]
+[ext_resource type="Script" path="res://Script/Furniture/DishRack.cs" id="1_w5o1k"]
 [ext_resource type="ArrayMesh" uid="uid://bwtlv07oyl0wn" path="res://Asset/Kitchen/obj/kitchencounter_straight_B.obj" id="2_a1afh"]
 [ext_resource type="ArrayMesh" uid="uid://t1um62k2jdb2" path="res://Asset/Kitchen/obj/dishrack.obj" id="3_jcuoa"]
 [ext_resource type="Material" uid="uid://buw721hn78rq4" path="res://Selection.tres" id="4_8fl1h"]
