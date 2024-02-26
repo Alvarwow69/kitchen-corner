@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Diagnostics;
+using KitchenCorner.Script.Event;
 
 // TODO Fix Bowl and Pot
 
@@ -27,7 +28,7 @@ public partial class CounterInteractable : SelectionInteractable
 	
 	public override void PerformAction(Player player)
 	{
-		if (_interactable == null)
+		if (_interactable == null && player.HasInteractable())
 			PlaceInteractable(player);
 		else if (player.HasInteractable() && ((_interactable is Container && (_interactable as Container).CanGetFood()) || player.GetInteractable() is not Container))
 			PlaceOnInteractable(player);
@@ -51,6 +52,7 @@ public partial class CounterInteractable : SelectionInteractable
 		_interactable.Freeze();
 		_interactable.Reparent(_anchor);
 		_interactable.GlobalPosition = _anchor.GlobalPosition;
+		CounterEvent.PerformFoodPlaced(this);
 	}
 
 	protected virtual void RemoveInteractable(Player player)
@@ -78,6 +80,6 @@ public partial class CounterInteractable : SelectionInteractable
 				(player.GetInteractable() as Ingredient)?.AddFood(_interactable as Ingredient);
 			_interactable = null;
 		}
-
+		CounterEvent.PerformFoodRemoved(this);
 	}
 }

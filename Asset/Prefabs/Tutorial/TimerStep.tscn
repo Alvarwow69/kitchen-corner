@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ev22p436jiee"]
+
+[ext_resource type="Script" path="res://Script/Tutorial/TimedTuto.cs" id="1_kpu8a"]
+
+[node name="TimerStep" type="Node3D"]
+script = ExtResource("1_kpu8a")

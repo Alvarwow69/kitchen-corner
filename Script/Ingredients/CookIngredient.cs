@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Diagnostics;
+using KitchenCorner.Script.Event;
 
 public partial class CookIngredient : SliceIngredients
 {
@@ -14,9 +15,17 @@ public partial class CookIngredient : SliceIngredients
 			return;
 		_cookTime += addTime;
 		if (_cookTime >= _cookedTime && _cookTime < _burnedTime)
+		{
 			SetState(FoodState.Cooked);
+			FoodEvent.PerformFoodCooked(this);
+		}
+
 		if (_cookTime >= _burnedTime)
+		{
 			SetState(FoodState.Burned);
+			FoodEvent.PerformFoodBurned(this);
+		}
+
 	}
 
 	public double GetProgress()

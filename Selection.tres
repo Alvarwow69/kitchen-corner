@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c8jvxgl2348ht" path="res://Asset/Kitchen/obj/restaurantbits_texture.png" id="2_cw1vw"]
 
 [resource]
+resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("1_q77kv")
 shader_parameter/selectColor = Color(0.94902, 0.964706, 0, 1)
