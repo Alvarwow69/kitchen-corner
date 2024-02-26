@@ -1,4 +1,5 @@
 using Godot;
+using KitchenCorner.Script.Event;
 
 public partial class Plate : Container
 {
@@ -57,6 +58,8 @@ public partial class Plate : Container
         {
             base.AddFood(ingredient);
         }
+
+        PlateEvent.PerformFoodAddedPlateEvent(this, ingredient);
     }
 
     public override bool CanGetFood()

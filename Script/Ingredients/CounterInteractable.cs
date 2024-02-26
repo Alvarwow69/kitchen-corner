@@ -30,7 +30,7 @@ public partial class CounterInteractable : SelectionInteractable
 	{
 		if (_interactable == null && player.HasInteractable())
 			PlaceInteractable(player);
-		else if (player.HasInteractable() && ((_interactable is Container && (_interactable as Container).CanGetFood()) || player.GetInteractable() is not Container))
+		else if (player.HasInteractable() && player.GetInteractable() is not Plate && ((_interactable is Container && (_interactable as Container).CanGetFood()) || player.GetInteractable() is not Container))
 			PlaceOnInteractable(player);
 		else
 			RemoveInteractable(player);

@@ -11,23 +11,28 @@ public partial class TutorialManager : Node
 	{
 		_maxStep = GetChildren().Count;
 		TargetEvent.TargetReached += NewStep;
-		GetNode<Target>("Step0" + _currentStep).EnableTarget();
+		GetNode<Target>("Step" + AddZero() + _currentStep).EnableTarget();
 	}
 
 	public void NewStep()
 	{
-		GetNode<Target>("Step0" + _currentStep).DisableTarget();
-		Debug.Print("Step0" + _currentStep + ": Disabled");
+		GetNode<Target>("Step" + AddZero() + _currentStep).DisableTarget();
+		Debug.Print("Step" + AddZero() + _currentStep + ": Disabled");
 		_currentStep += 1;
 		if (_currentStep > _maxStep)
 			return;
-		Debug.Print("Step0" + _currentStep + ": Enabled");
-		GetNode<Target>("Step0" + _currentStep).EnableTarget();
+		Debug.Print("Step" + AddZero() + _currentStep + ": Enabled");
+		GetNode<Target>("Step" + AddZero() + _currentStep).EnableTarget();
 	}
 
 	public static int GetCurrentStep()
 	{
 		return _currentStep;
+	}
+
+	private string AddZero()
+	{
+		return _currentStep < 10 ? "0" : "";
 	}
 
 }

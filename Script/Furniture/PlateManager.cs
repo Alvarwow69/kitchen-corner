@@ -2,6 +2,7 @@ using Godot;
 using System;
 using System.Diagnostics;
 using Godot.Collections;
+using KitchenCorner.Script.Event;
 
 public partial class PlateManager : CounterInteractable
 {
@@ -44,15 +45,17 @@ public partial class PlateManager : CounterInteractable
 		plate.Visible = true;
 		plate.SetState(Plate.PlateState.Dirty);
 		_plates.Add(plate);
+		PlateEvent.PerformDirtyPlateSpawn(plate);
 	}
 
 	public override void PerformAction(Player player)
 	{
-		if (player.HasInteractable() && _plates.Count == 0)
+		if (player.HasInteractable() || _plates.Count == 0)
 			return;
 		var plate = _plates[0];
 		_plates.Remove(plate);
 		player.AddInteractable(plate);
+		CounterEvent.PerformFoodRemoved(this);
 	}
 
 	#endregion
