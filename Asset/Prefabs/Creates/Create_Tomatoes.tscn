@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://ca72728kboj3a"]
 
-[ext_resource type="Script" path="res://Script/FoodProvider.cs" id="1_a2b2q"]
+[ext_resource type="Script" path="res://Script/Ingredients/FoodProvider.cs" id="1_a2b2q"]
 [ext_resource type="ArrayMesh" uid="uid://bd6i6fywcivu8" path="res://Asset/Kitchen/obj/crate_tomatoes.obj" id="2_7qy18"]
 [ext_resource type="PackedScene" uid="uid://t2543lcsxrp8" path="res://Asset/Prefabs/Food/Tomato.tscn" id="2_mwbls"]
 [ext_resource type="Shader" path="res://Selection.gdshader" id="3_fhulv"]

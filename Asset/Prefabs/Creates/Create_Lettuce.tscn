@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://c34ot6q3cu0jt"]
 
-[ext_resource type="Script" path="res://Script/FoodProvider.cs" id="1_k35sc"]
+[ext_resource type="Script" path="res://Script/Ingredients/FoodProvider.cs" id="1_k35sc"]
 [ext_resource type="ArrayMesh" uid="uid://b7xlumvpbq1y2" path="res://Asset/Kitchen/obj/crate_lettuce.obj" id="2_7635x"]
 [ext_resource type="PackedScene" uid="uid://b5uwxabwqts7j" path="res://Asset/Prefabs/Food/Lettuce.tscn" id="2_mvpeg"]
 [ext_resource type="Shader" path="res://Selection.gdshader" id="3_xnl4w"]

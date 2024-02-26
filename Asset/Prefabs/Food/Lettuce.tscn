@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://b5uwxabwqts7j"]
 
-[ext_resource type="Script" path="res://Script/SliceIngredients.cs" id="1_uwv0b"]
+[ext_resource type="Script" path="res://Script/Ingredients/SliceIngredients.cs" id="1_uwv0b"]
 [ext_resource type="ArrayMesh" uid="uid://dbwn7sc1ysw7y" path="res://Asset/Kitchen/obj/food_ingredient_lettuce.obj" id="2_igm45"]
 [ext_resource type="ArrayMesh" uid="uid://bittym4o0ok7r" path="res://Asset/Kitchen/obj/food_ingredient_lettuce_slice.obj" id="3_b0wrn"]
 

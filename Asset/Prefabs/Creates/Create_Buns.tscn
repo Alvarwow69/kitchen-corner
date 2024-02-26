@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://hkh7js1my8ij"]
 
-[ext_resource type="Script" path="res://Script/FoodProvider.cs" id="1_i4n12"]
+[ext_resource type="Script" path="res://Script/Ingredients/FoodProvider.cs" id="1_i4n12"]
 [ext_resource type="ArrayMesh" uid="uid://ce3hcvrbwu6up" path="res://Asset/Kitchen/obj/crate_buns.obj" id="2_3guoh"]
 [ext_resource type="PackedScene" uid="uid://bbrcahq5fslne" path="res://Asset/Prefabs/Food/Bun.tscn" id="2_dp2pe"]
 [ext_resource type="Shader" path="res://Selection.gdshader" id="3_jtxyw"]

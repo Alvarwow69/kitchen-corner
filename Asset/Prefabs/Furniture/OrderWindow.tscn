@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://b1qxj6vfso1x5"]
+
+[ext_resource type="Script" path="res://Script/Furniture/OrderWindow.cs" id="1_mwapq"]
+[ext_resource type="ArrayMesh" uid="uid://cotlqt7kdjufm" path="res://Asset/Kitchen/obj/wall_orderwindow.obj" id="1_qxwku"]
+[ext_resource type="Shader" path="res://Selection.gdshader" id="3_5jr2a"]
+[ext_resource type="Texture2D" uid="uid://c8jvxgl2348ht" path="res://Asset/Kitchen/obj/restaurantbits_texture.png" id="4_5m172"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5rian"]
+render_priority = 0
+shader = ExtResource("3_5jr2a")
+shader_parameter/selectColor = Color(0.94902, 0.964706, 0, 1)
+shader_parameter/selected = false
+shader_parameter/tex = ExtResource("4_5m172")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_006f7"]
+size = Vector3(4, 4, 0.932303)
+
+[node name="OrderWindow" type="Node3D" node_paths=PackedStringArray("_mesh")]
+script = ExtResource("1_mwapq")
+_mesh = NodePath("StaticBody3D/MeshInstance3D")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 12
+collision_mask = 0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = ExtResource("1_qxwku")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_5rian")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("BoxShape3D_006f7")

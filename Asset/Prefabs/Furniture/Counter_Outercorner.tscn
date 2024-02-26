@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://boi7g10ip6fge"]
 
-[ext_resource type="Script" path="res://Script/CounterInteractable.cs" id="1_xoric"]
+[ext_resource type="Script" path="res://Script/Ingredients/CounterInteractable.cs" id="1_xoric"]
 [ext_resource type="Texture2D" uid="uid://c8jvxgl2348ht" path="res://Asset/Kitchen/obj/restaurantbits_texture.png" id="2_o1dpt"]
 [ext_resource type="Shader" path="res://Selection.gdshader" id="3_jvsm4"]
 

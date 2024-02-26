@@ -1,8 +1,9 @@
-[gd_scene load_steps=28 format=3 uid="uid://dr3p8o02b47o3"]
+[gd_scene load_steps=37 format=3 uid="uid://dr3p8o02b47o3"]
 
 [ext_resource type="PackedScene" uid="uid://dnkgd6nbuk5v7" path="res://Asset/Prefabs/Furniture/Counter_Straight.tscn" id="8_4kfd2"]
 [ext_resource type="PackedScene" uid="uid://hkh7js1my8ij" path="res://Asset/Prefabs/Creates/Create_Buns.tscn" id="9_c5byw"]
 [ext_resource type="PackedScene" uid="uid://cnehf3jphwdje" path="res://Asset/Prefabs/Creates/Create_Carrot.tscn" id="10_n636r"]
+[ext_resource type="PackedScene" uid="uid://cdcg8p7vas3ix" path="res://Asset/Prefabs/Furniture/PlateManager.tscn" id="10_plpkw"]
 [ext_resource type="PackedScene" uid="uid://cxwj8f2fdxofd" path="res://Asset/Prefabs/Creates/Create_Cheese.tscn" id="11_6pqwl"]
 [ext_resource type="PackedScene" uid="uid://c12j08jxgtyfm" path="res://Asset/Prefabs/Creates/Create_Ham.tscn" id="12_fy24p"]
 [ext_resource type="PackedScene" uid="uid://k5io6bxv6534" path="res://Asset/Prefabs/Player.tscn" id="13_8oirm"]
@@ -13,16 +14,22 @@
 [ext_resource type="PackedScene" uid="uid://cqrgm414sjfhp" path="res://Asset/Prefabs/Pan.tscn" id="15_1ffbl"]
 [ext_resource type="PackedScene" uid="uid://btqmpmhf8khe1" path="res://Asset/Prefabs/Creates/Create_Potatos.tscn" id="15_jme74"]
 [ext_resource type="PackedScene" uid="uid://4nx7c3hblfj3" path="res://Asset/Prefabs/Creates/Create_Steak.tscn" id="16_0ewfk"]
-[ext_resource type="ArrayMesh" uid="uid://cotlqt7kdjufm" path="res://Asset/Kitchen/obj/wall_orderwindow.obj" id="17_d4xcc"]
 [ext_resource type="PackedScene" uid="uid://ca72728kboj3a" path="res://Asset/Prefabs/Creates/Create_Tomatoes.tscn" id="17_ul8v7"]
 [ext_resource type="PackedScene" uid="uid://boi7g10ip6fge" path="res://Asset/Prefabs/Furniture/Counter_Outercorner.tscn" id="19_s10pa"]
 [ext_resource type="PackedScene" uid="uid://cx0bsuv6fm6ec" path="res://Asset/Prefabs/Furniture/Counter_Innercorner.tscn" id="20_p10tn"]
 [ext_resource type="PackedScene" uid="uid://cpl53s0o03r5r" path="res://Asset/Prefabs/Furniture/Counter_Sink.tscn" id="21_vtnlg"]
 [ext_resource type="PackedScene" uid="uid://b6g4ge1u682o6" path="res://Asset/Prefabs/Furniture/Counter_StraightB.tscn" id="23_5gckd"]
 [ext_resource type="PackedScene" uid="uid://d312hlyms7td0" path="res://Asset/Prefabs/Furniture/DishRack.tscn" id="23_lbypj"]
+[ext_resource type="Script" path="res://Script/TimerManager.cs" id="24_6lkte"]
+[ext_resource type="StyleBox" uid="uid://2ay566iyxb45" path="res://Levels/Tab.tres" id="24_dq5s1"]
+[ext_resource type="Texture2D" uid="uid://c5dshwlfeeod7" path="res://icon.svg" id="24_r58w7"]
 [ext_resource type="PackedScene" uid="uid://v4q4k83rovpw" path="res://Asset/Prefabs/Furniture/Stove.tscn" id="27_bxd6t"]
 [ext_resource type="PackedScene" uid="uid://c6vhdvaujvtsv" path="res://Asset/Prefabs/Bowl.tscn" id="27_lft7r"]
+[ext_resource type="Script" path="res://Script/ScoreManager.cs" id="27_rnowg"]
+[ext_resource type="Script" path="res://Script/CommandManager.cs" id="28_o3tol"]
+[ext_resource type="PackedScene" uid="uid://bd70in7lumm2a" path="res://Asset/Prefabs/Ui/UI_Command_Burger.tscn" id="29_wntbi"]
 [ext_resource type="PackedScene" uid="uid://c11cm5a88t5w0" path="res://Asset/Prefabs/Furniture/Counter_Slicer.tscn" id="30_pjq1q"]
+[ext_resource type="PackedScene" uid="uid://b1qxj6vfso1x5" path="res://Asset/Prefabs/Furniture/OrderWindow.tscn" id="31_seaqb"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k5aar"]
 albedo_color = Color(0.380392, 0.380392, 0.380392, 1)
@@ -39,6 +46,15 @@ background_mode = 1
 background_color = Color(0, 0.603922, 1, 1)
 ambient_light_color = Color(1, 1, 1, 1)
 ambient_light_energy = 5.0
+
+[sub_resource type="Theme" id="Theme_jijpt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yp2x4"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 1
+border_width_top = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
 
 [node name="Node3D" type="Node3D"]
 
@@ -87,6 +103,9 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 
 [node name="Furniture" type="Node3D" parent="Kitchen"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4, 0, 0)
 
+[node name="PlateManager" parent="Kitchen/Furniture" instance=ExtResource("10_plpkw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 17)
+
 [node name="CounterInnercorner" parent="Kitchen/Furniture" instance=ExtResource("20_p10tn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
 
@@ -134,10 +153,6 @@ transform = Transform3D(1, 0, 0, 0, 0.688177, 0.725543, 0, -0.725543, 0.688177, 
 environment = SubResource("Environment_pefkh")
 current = true
 
-[node name="WallOrderwindow" type="MeshInstance3D" parent="."]
-transform = Transform3D(-4.45189e-08, 0, 1.01847, 0, 1.01847, 0, -1.01847, 0, -4.45189e-08, 13.5602, 0.0500002, -2.90911)
-mesh = ExtResource("17_d4xcc")
-
 [node name="CounterCuttingboard" parent="." instance=ExtResource("30_pjq1q")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4, 0, -4)
 
@@ -148,3 +163,115 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4, 0,
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.33122, 0.05, -0.340617)
 _state = 1
 Height = 0.1
+
+[node name="Timer" type="Control" parent="." node_paths=PackedStringArray("_text")]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+theme = SubResource("Theme_jijpt")
+script = ExtResource("24_6lkte")
+_text = NodePath("Panel/Label")
+
+[node name="Panel" type="Panel" parent="Timer"]
+layout_mode = 0
+offset_left = -301.0
+offset_right = 40.0
+offset_bottom = 132.0
+theme_override_styles/panel = ExtResource("24_dq5s1")
+
+[node name="TextureRect" type="TextureRect" parent="Timer/Panel"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 37.0
+offset_top = -50.0
+offset_right = 134.0
+offset_bottom = 47.0
+grow_vertical = 2
+texture = ExtResource("24_r58w7")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Timer/Panel"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -24.0
+offset_right = -22.0
+offset_bottom = 18.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 21
+text = "6:00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreManager" type="Control" parent="." node_paths=PackedStringArray("_text")]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -342.0
+offset_top = -133.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = SubResource("Theme_jijpt")
+script = ExtResource("27_rnowg")
+_text = NodePath("Panel/Label")
+
+[node name="Panel" type="Panel" parent="ScoreManager"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -341.0
+offset_top = -132.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_yp2x4")
+
+[node name="Label" type="Label" parent="ScoreManager/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -89.0
+offset_top = -21.0
+offset_right = 89.0
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 21
+text = "Score: 1000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CommandManager" type="HBoxContainer" parent="."]
+clip_contents = true
+layout_direction = 2
+offset_right = 830.0
+offset_bottom = 135.0
+theme_override_constants/separation = 10
+script = ExtResource("28_o3tol")
+_commandScene = Array[PackedScene]([ExtResource("29_wntbi")])
+
+[node name="OrderWindow" parent="." node_paths=PackedStringArray("_commandManager", "_plateManager") instance=ExtResource("31_seaqb")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 14, 0, -1)
+_commandManager = NodePath("../CommandManager")
+_plateManager = NodePath("../Kitchen/Furniture/PlateManager")

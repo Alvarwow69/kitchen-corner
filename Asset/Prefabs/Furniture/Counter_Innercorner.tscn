@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://cx0bsuv6fm6ec"]
 
-[ext_resource type="Script" path="res://Script/CounterInteractable.cs" id="1_mpngj"]
+[ext_resource type="Script" path="res://Script/Ingredients/CounterInteractable.cs" id="1_mpngj"]
 [ext_resource type="ArrayMesh" uid="uid://drpd6k0agtcxu" path="res://Asset/Kitchen/obj/kitchencounter_innercorner.obj" id="2_05jmc"]
 [ext_resource type="Shader" path="res://Selection.gdshader" id="3_rcbv7"]
 [ext_resource type="Texture2D" uid="uid://c8jvxgl2348ht" path="res://Asset/Kitchen/obj/restaurantbits_texture.png" id="4_6y2e1"]
@@ -13,7 +13,7 @@ shader_parameter/selected = false
 shader_parameter/tex = ExtResource("4_6y2e1")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_05mc7"]
-size = Vector3(2.01516, 1, 1.98592)
+size = Vector3(2, 1, 2)
 
 [node name="CounterInnercorner" type="Node3D"]
 script = ExtResource("1_mpngj")

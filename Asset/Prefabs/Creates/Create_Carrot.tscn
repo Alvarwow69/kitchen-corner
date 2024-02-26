@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://cnehf3jphwdje"]
 
-[ext_resource type="Script" path="res://Script/FoodProvider.cs" id="1_se0cn"]
+[ext_resource type="Script" path="res://Script/Ingredients/FoodProvider.cs" id="1_se0cn"]
 [ext_resource type="PackedScene" uid="uid://mt1blvomgy38" path="res://Asset/Prefabs/Food/Carrot.tscn" id="2_ty5gc"]
 [ext_resource type="ArrayMesh" uid="uid://carbd1bvkhncu" path="res://Asset/Kitchen/obj/crate_carrots.obj" id="2_up4ai"]
 [ext_resource type="Shader" path="res://Selection.gdshader" id="3_0cycr"]
