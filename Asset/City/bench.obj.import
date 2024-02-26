@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cp7puns2i8pvh"
+path="res://.godot/imported/bench.obj-70fbab573dd71d8c548aaf77cb651130.mesh"
+
+[deps]
+
+files=["res://.godot/imported/bench.obj-70fbab573dd71d8c548aaf77cb651130.mesh"]
+
+source_file="res://Asset/City/bench.obj"
+dest_files=["res://.godot/imported/bench.obj-70fbab573dd71d8c548aaf77cb651130.mesh", "res://.godot/imported/bench.obj-70fbab573dd71d8c548aaf77cb651130.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

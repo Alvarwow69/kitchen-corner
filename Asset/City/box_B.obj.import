@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://mtlabt2ela6o"
+path="res://.godot/imported/box_B.obj-e6e5bac7dae90fd441639539b0888a20.mesh"
+
+[deps]
+
+files=["res://.godot/imported/box_B.obj-e6e5bac7dae90fd441639539b0888a20.mesh"]
+
+source_file="res://Asset/City/box_B.obj"
+dest_files=["res://.godot/imported/box_B.obj-e6e5bac7dae90fd441639539b0888a20.mesh", "res://.godot/imported/box_B.obj-e6e5bac7dae90fd441639539b0888a20.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

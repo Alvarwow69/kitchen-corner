@@ -1,11 +1,12 @@
 [gd_scene load_steps=7 format=3 uid="uid://v4q4k83rovpw"]
 
-[ext_resource type="Script" path="res://Script/Furniture/Stove.cs" id="1_d8ljl"]
+[ext_resource type="Script" path="res://Script/Furniture/Stove.cs" id="1_gu314"]
 [ext_resource type="ArrayMesh" uid="uid://c7yjtg0y2smwr" path="res://Asset/Kitchen/obj/stove_single.obj" id="2_k2eoe"]
 [ext_resource type="Shader" path="res://Selection.gdshader" id="3_10358"]
 [ext_resource type="Texture2D" uid="uid://c8jvxgl2348ht" path="res://Asset/Kitchen/obj/restaurantbits_texture.png" id="4_sysbh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_aga35"]
+resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("3_10358")
 shader_parameter/selectColor = Color(0.94902, 0.964706, 0, 1)
@@ -16,7 +17,7 @@ shader_parameter/tex = ExtResource("4_sysbh")
 size = Vector3(2.01516, 1, 1.98592)
 
 [node name="Stove" type="Node3D"]
-script = ExtResource("1_d8ljl")
+script = ExtResource("1_gu314")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 collision_layer = 12

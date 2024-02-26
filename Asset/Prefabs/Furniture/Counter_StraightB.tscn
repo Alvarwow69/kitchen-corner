@@ -1,22 +1,47 @@
 [gd_scene load_steps=7 format=3 uid="uid://b6g4ge1u682o6"]
 
-[ext_resource type="Script" path="res://Script/Ingredients/CounterInteractable.cs" id="1_e31eu"]
+[ext_resource type="Script" path="res://Script/Ingredients/CounterInteractable.cs" id="1_f02c2"]
 [ext_resource type="ArrayMesh" uid="uid://bwtlv07oyl0wn" path="res://Asset/Kitchen/obj/kitchencounter_straight_B.obj" id="2_uw8f8"]
-[ext_resource type="Shader" path="res://Selection.gdshader" id="3_s6l6x"]
-[ext_resource type="Texture2D" uid="uid://c8jvxgl2348ht" path="res://Asset/Kitchen/obj/restaurantbits_texture.png" id="4_i37w8"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_bbbs5"]
+[sub_resource type="Shader" id="Shader_p77h8"]
+code = "shader_type spatial;
+
+uniform vec3 selectColor : source_color;
+uniform sampler2D tex : source_color;
+uniform bool selected = false;
+//uniform float speed = 2.0;
+//uniform float height = 1.0;
+
+void fragment() {
+	vec3 color = texture(tex, UV).rgb;
+	if (selected) {
+		vec3 selectAnim = vec3(1, 1, 1);
+		//selectAnim *= clamp(sin(speed * -TIME + UV.y * 10.0) * height + 0.5, 0.0, 1.0);
+		selectAnim *= selectColor;
+		color *= selectAnim;
+	}
+	ALBEDO = color;
+}
+"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gadau"]
+load_path = "res://.godot/imported/restaurantbits_texture.png-eb85fc9fd0be8d60b95179c5546cc675.s3tc.ctex"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8l21a"]
+resource_local_to_scene = true
 render_priority = 0
-shader = ExtResource("3_s6l6x")
+shader = SubResource("Shader_p77h8")
 shader_parameter/selectColor = Color(0.94902, 0.964706, 0, 1)
 shader_parameter/selected = false
-shader_parameter/tex = ExtResource("4_i37w8")
+shader_parameter/tex = SubResource("CompressedTexture2D_gadau")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_05mc7"]
 size = Vector3(2.01516, 1, 1.98592)
 
-[node name="CounterStraightB" type="Node3D"]
-script = ExtResource("1_e31eu")
+[node name="CounterStraightB" type="Node3D" node_paths=PackedStringArray("_anchor", "_mesh")]
+script = ExtResource("1_f02c2")
+_anchor = NodePath("StaticBody3D/Anchor")
+_mesh = NodePath("StaticBody3D/Mesh")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 collision_layer = 12
@@ -24,7 +49,7 @@ collision_mask = 0
 
 [node name="Mesh" type="MeshInstance3D" parent="StaticBody3D"]
 mesh = ExtResource("2_uw8f8")
-surface_material_override/0 = SubResource("ShaderMaterial_bbbs5")
+surface_material_override/0 = SubResource("ShaderMaterial_8l21a")
 
 [node name="MeshCollider" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)

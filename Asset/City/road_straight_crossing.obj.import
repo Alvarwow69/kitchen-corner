@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://2b25ludeigr1"
+path="res://.godot/imported/road_straight_crossing.obj-c73eea2c9871b18b326067e1d5dcac55.mesh"
+
+[deps]
+
+files=["res://.godot/imported/road_straight_crossing.obj-c73eea2c9871b18b326067e1d5dcac55.mesh"]
+
+source_file="res://Asset/City/road_straight_crossing.obj"
+dest_files=["res://.godot/imported/road_straight_crossing.obj-c73eea2c9871b18b326067e1d5dcac55.mesh", "res://.godot/imported/road_straight_crossing.obj-c73eea2c9871b18b326067e1d5dcac55.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
