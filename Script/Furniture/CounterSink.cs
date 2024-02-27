@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using KitchenCorner.Script.Event;
 
 public partial class CounterSink : CounterInteractable
 {
@@ -54,6 +55,7 @@ public partial class CounterSink : CounterInteractable
 		if (_cleanTimer < _cleanTime)
 			return;
 		var plate = _plates.Pop();
+		PlateEvent.PerformCleanPlate(plate);
 		plate.SetState(Plate.PlateState.Clean);
 		_dishRack.AddPlate(plate);
 		_cleanTimer = 0;

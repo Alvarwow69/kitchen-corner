@@ -17,11 +17,9 @@ public partial class TutorialManager : Node
 	public void NewStep()
 	{
 		GetNode<Target>("Step" + AddZero() + _currentStep).DisableTarget();
-		Debug.Print("Step" + AddZero() + _currentStep + ": Disabled");
 		_currentStep += 1;
 		if (_currentStep > _maxStep)
 			return;
-		Debug.Print("Step" + AddZero() + _currentStep + ": Enabled");
 		GetNode<Target>("Step" + AddZero() + _currentStep).EnableTarget();
 	}
 

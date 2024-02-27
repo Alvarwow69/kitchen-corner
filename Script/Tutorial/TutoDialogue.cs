@@ -5,7 +5,7 @@ public partial class TutoDialogue : Tuto_details
 {
 	[Export] private double _animationSpeed;
 	[Export] private Label _label;
-	[Export] private string _text;
+	[Export(PropertyHint.MultilineText)] private string _text;
 
 	private int _numberChar = 0;
 	private double _currentTimer = 0;
