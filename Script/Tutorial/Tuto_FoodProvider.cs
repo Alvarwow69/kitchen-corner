@@ -15,9 +15,6 @@ public partial class Tuto_FoodProvider : VisualTarget
 	private void OnFoodCreated(Ingredient ingredient)
 	{
 		if (ingredient.Name == _targetIngredient && TutorialManager.GetCurrentStep() == _targetStep)
-		{
 			TargetEvent.PerformTargetReached();
-			FoodEvent.OnFoodCreated -= OnFoodCreated;
-		}
 	}
 }

@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://jj6w4f15tcej"]
+
+[ext_resource type="Script" path="res://Script/Furniture/Trash.cs" id="1_m2l25"]
+[ext_resource type="ArrayMesh" uid="uid://bxy080xc7k0cb" path="res://Asset/Kitchen/obj/crate.obj" id="1_n5lcl"]
+[ext_resource type="Material" uid="uid://buw721hn78rq4" path="res://Selection.tres" id="3_na388"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a8o43"]
+size = Vector3(2, 0.8, 2)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ftx5l"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wijso"]
+specular_mode = 2
+albedo_color = Color(0.164706, 0.164706, 0.164706, 1)
+metallic_specular = 0.0
+roughness = 0.0
+
+[node name="Trash" type="Node3D" node_paths=PackedStringArray("_mesh")]
+script = ExtResource("1_m2l25")
+_mesh = NodePath("MeshInstance3D")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 12
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+shape = SubResource("BoxShape3D_a8o43")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_n5lcl")
+surface_material_override/0 = ExtResource("3_na388")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 0, 0.563066, 0)
+mesh = SubResource("PlaneMesh_ftx5l")
+surface_material_override/0 = SubResource("StandardMaterial3D_wijso")

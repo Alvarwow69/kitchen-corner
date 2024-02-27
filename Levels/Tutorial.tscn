@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://cs4ioojstmsns"]
+[gd_scene load_steps=36 format=3 uid="uid://cs4ioojstmsns"]
 
 [ext_resource type="ArrayMesh" uid="uid://cys0na8igqcpx" path="res://Asset/Kitchen/obj/floor_kitchen.obj" id="1_r8go5"]
 [ext_resource type="PackedScene" uid="uid://cnehf3jphwdje" path="res://Asset/Prefabs/Creates/Create_Carrot.tscn" id="2_8a2k1"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://dnkgd6nbuk5v7" path="res://Asset/Prefabs/Furniture/Counter_Straight.tscn" id="12_bo578"]
 [ext_resource type="ArrayMesh" uid="uid://chi8c0424ro2b" path="res://Asset/City/road_straight.obj" id="13_dym55"]
 [ext_resource type="ArrayMesh" uid="uid://cx3oyv55d10ba" path="res://Asset/City/road_corner_curved.obj" id="14_d1x3t"]
+[ext_resource type="PackedScene" uid="uid://jj6w4f15tcej" path="res://Asset/Prefabs/Furniture/Trash.tscn" id="14_g0g5u"]
 [ext_resource type="ArrayMesh" uid="uid://cxvjujj714pk3" path="res://Asset/City/building_E.obj" id="15_2xxrn"]
 [ext_resource type="ArrayMesh" uid="uid://bg4qe8yk3ty2u" path="res://Asset/City/base.obj" id="15_fcldi"]
 [ext_resource type="PackedScene" uid="uid://k5io6bxv6534" path="res://Asset/Prefabs/Player.tscn" id="18_xwriv"]
@@ -32,6 +33,7 @@
 [ext_resource type="PackedScene" uid="uid://cb2qoo4hpc36l" path="res://Asset/Prefabs/Tutorial/Target_plate.tscn" id="30_qx8jr"]
 [ext_resource type="PackedScene" uid="uid://ds3hj73fjg5rs" path="res://Asset/Prefabs/Tutorial/VisualTarget_DirtyPlate.tscn" id="31_4fanm"]
 [ext_resource type="PackedScene" uid="uid://bux5h7k245hrx" path="res://Asset/Prefabs/Tutorial/VisualTarget_Sink.tscn" id="32_pw4sb"]
+[ext_resource type="PackedScene" uid="uid://di1bkd00tmash" path="res://Asset/Prefabs/Tutorial/VisualTarget_Trash.tscn" id="34_t35pu"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_icw0q"]
 size = Vector3(8.48229, 0.181755, 12.1253)
@@ -114,8 +116,8 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3, 0,
 [node name="CounterStraightB5" parent="Kitchen/Furniture" instance=ExtResource("5_0nbvd")]
 transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 5, 0, -1)
 
-[node name="CounterStraight3" parent="Kitchen/Furniture" instance=ExtResource("12_bo578")]
-transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 7, 0, 1)
+[node name="Trash" parent="Kitchen/Furniture" instance=ExtResource("14_g0g5u")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7, 0, 1)
 
 [node name="Ground" type="StaticBody3D" parent="Kitchen"]
 collision_layer = 4
@@ -449,7 +451,8 @@ offset_top = -58.0
 offset_right = 2.0
 offset_bottom = -58.0
 grow_vertical = 0
-_text = "To get an Ingredients move to the front of a create and press SPACE to take an ingredient. (SPACE is used to place/remove an object)"
+_text = "To get an Ingredients move to the front of a create and press SPACE to take an ingredient.
+(SPACE is used to place/remove an object)"
 
 [node name="Step03" parent="Steps" instance=ExtResource("22_tlcxp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 2, -4)
@@ -475,6 +478,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 2, -2)
 visible = false
 _targetStep = 4
 _targetCounter = NodePath("../../Kitchen/Furniture/CounterStraightB2")
+_delay = 0.2
 
 [node name="TutoDialogue3" parent="Steps/Step04" instance=ExtResource("26_vyhns")]
 visible = false
@@ -495,6 +499,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 2, -4)
 visible = false
 _targetStep = 5
 _targetCounter = NodePath("../../Kitchen/Furniture/CounterCuttingboard")
+_delay = 0.1
 
 [node name="TutoDialogue4" parent="Steps/Step05" instance=ExtResource("26_vyhns")]
 visible = false
@@ -507,7 +512,7 @@ offset_top = -58.0
 offset_right = 2.0
 offset_bottom = -58.0
 grow_vertical = 0
-_text = "Move to the frnt of the cutting board.
+_text = "Move to the front of the cutting board.
 Then press SPACE to move the carrots to the Plate."
 
 [node name="Step06" parent="Steps" instance=ExtResource("27_65lqn")]
@@ -536,6 +541,49 @@ Cook a ham and put it in the plate. (Ham doesn't need to be sliced)"
 [node name="Step08" parent="Steps" instance=ExtResource("28_q1fbk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 2, 6)
 _targetStep = 8
+_OptionalStep = ["Step08a", "Step08b"]
+
+[node name="Step08a" parent="Steps/Step08" instance=ExtResource("34_t35pu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+visible = false
+_targetStep = 8
+_resetStep = 7
+_delay = 0.0
+
+[node name="TutoDialogue6" parent="Steps/Step08/Step08a" instance=ExtResource("26_vyhns")]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+offset_left = 2.0
+offset_top = -58.0
+offset_right = 2.0
+offset_bottom = -58.0
+grow_vertical = 0
+_text = "Opps... It seems that the command is not correct...
+Don't worry if you made a mistake you can throw ingredients to the trash."
+
+[node name="Step08b" parent="Steps/Step08" instance=ExtResource("34_t35pu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+visible = false
+_targetStep = 8
+_resetStep = 7
+_delay = 0.0
+
+[node name="TutoDialogue5" parent="Steps/Step08/Step08b" instance=ExtResource("26_vyhns")]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+offset_left = 2.0
+offset_top = -58.0
+offset_right = 2.0
+offset_bottom = -58.0
+grow_vertical = 0
+_text = "Opps... It seems that the ham burned.
+Don't worry if you made a mistake you can throw ingredients to the trash."
 
 [node name="Step09" parent="Steps" instance=ExtResource("19_nyga6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.27626, -0.337361, 0.926615)
