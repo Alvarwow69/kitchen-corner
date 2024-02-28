@@ -2,21 +2,21 @@ using Godot;
 using System;
 using KitchenCorner.Script.Event;
 
-public partial class TutoOrder : VisualTarget
+public partial class StepSlice : VisualTarget
 {
 	[Export] private int _targetStep;
 
 	public override void _Ready()
 	{
-		OrderEvent.OnOrderPlaced += OnOrderPlaced;
+		FoodEvent.OnFoodSliced += OnFoodSliced;
 	}
 
-	private void OnOrderPlaced(Plate plate)
+	private void OnFoodSliced(Ingredient ingredient)
 	{
 		if (TutorialManager.GetCurrentStep() == _targetStep)
 		{
 			TargetEvent.PerformTargetReached();
-			OrderEvent.OnOrderPlaced -= OnOrderPlaced;
+			FoodEvent.OnFoodSliced -= OnFoodSliced;
 		}
 	}
 }

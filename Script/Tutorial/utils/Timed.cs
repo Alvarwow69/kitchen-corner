@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class TimedTuto : Target
+public partial class Timed : Target
 {
 	[Export] private double _timer = 2;
 

@@ -22,19 +22,19 @@
 [ext_resource type="PackedScene" uid="uid://k5io6bxv6534" path="res://Asset/Prefabs/Player.tscn" id="18_xwriv"]
 [ext_resource type="PackedScene" uid="uid://cqhd3ht4yxttr" path="res://Asset/Prefabs/Plate.tscn" id="19_a848l"]
 [ext_resource type="Script" path="res://Script/Tutorial/TutorialManager.cs" id="19_kx51e"]
-[ext_resource type="PackedScene" uid="uid://bropny34wmx8" path="res://Asset/Prefabs/Tutorial/TargetPad.tscn" id="19_nyga6"]
-[ext_resource type="PackedScene" uid="uid://1kg13m432mra" path="res://Asset/Prefabs/Tutorial/VisualTarget_food.tscn" id="21_q5qad"]
-[ext_resource type="PackedScene" uid="uid://dscbk7q0dios1" path="res://Asset/Prefabs/Tutorial/VisualTarget_slice.tscn" id="22_tlcxp"]
-[ext_resource type="PackedScene" uid="uid://b7khvydb54eld" path="res://Asset/Prefabs/Tutorial/VisualTarget_counter.tscn" id="25_vegxw"]
-[ext_resource type="PackedScene" uid="uid://s1ybm2rlfs5k" path="res://Asset/Prefabs/Tutorial/TutoDialogue.tscn" id="26_vyhns"]
-[ext_resource type="PackedScene" uid="uid://ev22p436jiee" path="res://Asset/Prefabs/Tutorial/TimerStep.tscn" id="27_65lqn"]
-[ext_resource type="PackedScene" path="res://Asset/Prefabs/Tutorial/CommandTuto.tscn" id="28_q1fbk"]
-[ext_resource type="PackedScene" path="res://Asset/Prefabs/Tutorial/VisualTarget_Order.tscn" id="29_7hqi6"]
-[ext_resource type="PackedScene" path="res://Asset/Prefabs/Tutorial/Target_plate.tscn" id="30_qx8jr"]
-[ext_resource type="PackedScene" path="res://Asset/Prefabs/Tutorial/VisualTarget_DirtyPlate.tscn" id="31_4fanm"]
-[ext_resource type="PackedScene" uid="uid://bux5h7k245hrx" path="res://Asset/Prefabs/Tutorial/VisualTarget_Sink.tscn" id="32_pw4sb"]
-[ext_resource type="PackedScene" uid="uid://di1bkd00tmash" path="res://Asset/Prefabs/Tutorial/VisualTarget_Trash.tscn" id="34_t35pu"]
-[ext_resource type="PackedScene" uid="uid://ytscjs0cvjus" path="res://Asset/Prefabs/Tutorial/StepEmpty.tscn" id="35_0phn1"]
+[ext_resource type="PackedScene" uid="uid://bropny34wmx8" path="res://Asset/Prefabs/Tutorial/steps/StepPad.tscn" id="19_nyga6"]
+[ext_resource type="PackedScene" uid="uid://1kg13m432mra" path="res://Asset/Prefabs/Tutorial/steps/StepFood.tscn" id="21_q5qad"]
+[ext_resource type="PackedScene" uid="uid://dscbk7q0dios1" path="res://Asset/Prefabs/Tutorial/steps/StepSlice.tscn" id="22_tlcxp"]
+[ext_resource type="PackedScene" uid="uid://b7khvydb54eld" path="res://Asset/Prefabs/Tutorial/steps/StepCounter.tscn" id="25_vegxw"]
+[ext_resource type="PackedScene" uid="uid://s1ybm2rlfs5k" path="res://Asset/Prefabs/Tutorial/utils/TutoDialogue.tscn" id="26_vyhns"]
+[ext_resource type="PackedScene" uid="uid://ev22p436jiee" path="res://Asset/Prefabs/Tutorial/steps/StepTimer.tscn" id="27_65lqn"]
+[ext_resource type="PackedScene" uid="uid://8sexw4n54xm2" path="res://Asset/Prefabs/Tutorial/steps/StepTuto.tscn" id="28_q1fbk"]
+[ext_resource type="PackedScene" uid="uid://c0ihibet3g3xy" path="res://Asset/Prefabs/Tutorial/steps/StepOrder.tscn" id="29_7hqi6"]
+[ext_resource type="PackedScene" uid="uid://cb2qoo4hpc36l" path="res://Asset/Prefabs/Tutorial/steps/StepPlate.tscn" id="30_qx8jr"]
+[ext_resource type="PackedScene" uid="uid://ds3hj73fjg5rs" path="res://Asset/Prefabs/Tutorial/steps/StepDirtyPlate.tscn" id="31_4fanm"]
+[ext_resource type="PackedScene" uid="uid://bux5h7k245hrx" path="res://Asset/Prefabs/Tutorial/steps/StepSink.tscn" id="32_pw4sb"]
+[ext_resource type="PackedScene" uid="uid://di1bkd00tmash" path="res://Asset/Prefabs/Tutorial/steps/StepTrash.tscn" id="34_t35pu"]
+[ext_resource type="PackedScene" uid="uid://ytscjs0cvjus" path="res://Asset/Prefabs/Tutorial/steps/StepFinal.tscn" id="35_0phn1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_icw0q"]
 size = Vector3(8.48229, 0.181755, 12.1253)
@@ -60,11 +60,11 @@ _defaultInteractable = NodePath("Pan")
 [node name="Pan" parent="Kitchen/Furniture/CounterStraightB3" instance=ExtResource("3_uy8ab")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
-[node name="CounterStraightB2" parent="Kitchen/Furniture" node_paths=PackedStringArray("_defaultInteractable") instance=ExtResource("5_0nbvd")]
+[node name="CounterStep04" parent="Kitchen/Furniture" node_paths=PackedStringArray("_defaultInteractable") instance=ExtResource("5_0nbvd")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 11)
 _defaultInteractable = NodePath("Plate")
 
-[node name="Plate" parent="Kitchen/Furniture/CounterStraightB2" instance=ExtResource("19_a848l")]
+[node name="Plate" parent="Kitchen/Furniture/CounterStep04" instance=ExtResource("19_a848l")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4.76837e-07, 1.3, 0)
 
 [node name="CounterInnercorner" parent="Kitchen/Furniture" instance=ExtResource("4_yc4vw")]
@@ -89,7 +89,7 @@ _plateManager = NodePath("../PlateManager")
 [node name="CreateHam" parent="Kitchen/Furniture" instance=ExtResource("7_yshn6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 5)
 
-[node name="CounterCuttingboard" parent="Kitchen/Furniture" instance=ExtResource("8_iu5vr")]
+[node name="CounterStep5" parent="Kitchen/Furniture" instance=ExtResource("8_iu5vr")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3, 0, 9)
 
 [node name="CounterCuttingboard2" parent="Kitchen/Furniture" instance=ExtResource("8_iu5vr")]
@@ -105,7 +105,7 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3, 0, 
 [node name="Stove" parent="Kitchen/Furniture" instance=ExtResource("11_gvb47")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7, 0, 3)
 
-[node name="CounterStraightB4" parent="Kitchen/Furniture" instance=ExtResource("5_0nbvd")]
+[node name="CounterStraightStep15" parent="Kitchen/Furniture" instance=ExtResource("5_0nbvd")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 5, 0, 11)
 
 [node name="CounterStraight" parent="Kitchen/Furniture" instance=ExtResource("12_bo578")]
@@ -414,9 +414,8 @@ PlayerNumber = 0
 transform = Transform3D(0.965926, 0.12941, -0.224144, -1.7824e-08, 0.866025, 0.500001, 0.258819, -0.482964, 0.836516, 0, 8, 0)
 shadow_enabled = true
 
-[node name="Steps" type="Node" parent="." node_paths=PackedStringArray("_player")]
+[node name="Steps" type="Node" parent="."]
 script = ExtResource("19_kx51e")
-_player = NodePath("../Player")
 
 [node name="Step01" parent="Steps" instance=ExtResource("19_nyga6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, -0.337361, 0)
@@ -479,7 +478,7 @@ To slice them bring it to a cuttingboard and press ALT to start slicing."
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 2, -2)
 visible = false
 _targetStep = 4
-_targetCounter = NodePath("../../Kitchen/Furniture/CounterStraightB2")
+_targetCounter = NodePath("../../Kitchen/Furniture/CounterStep04")
 _delay = 0.2
 
 [node name="TutoDialogue3" parent="Steps/Step04" instance=ExtResource("26_vyhns")]
@@ -500,7 +499,7 @@ Take a Plate."
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 2, -4)
 visible = false
 _targetStep = 5
-_targetCounter = NodePath("../../Kitchen/Furniture/CounterCuttingboard")
+_targetCounter = NodePath("../../Kitchen/Furniture/CounterStep5")
 _delay = 0.1
 
 [node name="TutoDialogue4" parent="Steps/Step05" instance=ExtResource("26_vyhns")]
@@ -694,7 +693,7 @@ _text = "Once the plate is clean you can take it from here and start using again
 transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, -14, 2, 4)
 visible = false
 _targetStep = 15
-_targetCounter = NodePath("../../Kitchen/Furniture/CounterStraightB4")
+_targetCounter = NodePath("../../Kitchen/Furniture/CounterStraightStep15")
 _add = true
 
 [node name="Step16" parent="Steps" instance=ExtResource("35_0phn1")]

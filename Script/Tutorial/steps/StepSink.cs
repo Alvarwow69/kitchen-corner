@@ -2,7 +2,7 @@ using Godot;
 using System;
 using KitchenCorner.Script.Event;
 
-public partial class TutoSink : VisualTarget
+public partial class StepSink : VisualTarget
 {
 	[Export] private int _targetStep;
 

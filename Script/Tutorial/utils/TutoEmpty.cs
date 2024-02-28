@@ -19,14 +19,14 @@ public partial class TutoEmpty : Target
 		_activate = false;
 		Visible = true;
 		foreach (var child in GetChildren())
-			(child as Tuto_details)?.EnableDetail();
+			(child as StepDetails)?.EnableDetail();
 	}
 
 	public override void DisableTarget()
 	{
 		Visible = false;
 		foreach (var child in GetChildren())
-			(child as Tuto_details)?.DisableDetail();
+			(child as StepDetails)?.DisableDetail();
 	}
 
 	#endregion

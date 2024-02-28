@@ -1,14 +1,14 @@
 [gd_scene load_steps=6 format=3 uid="uid://bropny34wmx8"]
 
-[ext_resource type="Script" path="res://Script/Tutorial/PadTarget.cs" id="1_isrbs"]
-[ext_resource type="Shader" path="res://Levels/Target.gdshader" id="1_k1otr"]
+[ext_resource type="Script" path="res://Script/Tutorial/utils/Pad.cs" id="1_qpuos"]
+[ext_resource type="Shader" path="res://Levels/Target.gdshader" id="2_kvnqw"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_q61xo"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rdt7c"]
 resource_local_to_scene = true
 render_priority = 0
-shader = ExtResource("1_k1otr")
+shader = ExtResource("2_kvnqw")
 shader_parameter/selectColor = Color(0, 0.576471, 0.992157, 1)
 shader_parameter/speed = 5.0
 shader_parameter/height = 1.0
@@ -16,8 +16,8 @@ shader_parameter/height = 1.0
 [sub_resource type="BoxShape3D" id="BoxShape3D_a608f"]
 size = Vector3(1, 2.51278, 1)
 
-[node name="PadTarget" type="Node3D" node_paths=PackedStringArray("_collision")]
-script = ExtResource("1_isrbs")
+[node name="StepPad" type="Node3D" node_paths=PackedStringArray("_collision")]
+script = ExtResource("1_qpuos")
 _collision = NodePath("Area3D/CollisionShape3D")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]

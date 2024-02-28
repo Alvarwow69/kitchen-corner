@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class TutoDialogue : Tuto_details
+public partial class TutoDialogue : StepDetails
 {
 	[Export] private double _animationSpeed;
 	[Export] private Label _label;

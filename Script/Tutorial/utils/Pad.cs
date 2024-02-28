@@ -2,7 +2,7 @@ using Godot;
 using System;
 using System.Diagnostics;
 
-public partial class PadTarget : Target
+public partial class Pad : Target
 {
     [Export] private CollisionShape3D _collision;
 
@@ -18,7 +18,7 @@ public partial class PadTarget : Target
         Visible = true;
         foreach (var child in GetChildren())
         {
-            (child as Tuto_details)?.EnableDetail();
+            (child as StepDetails)?.EnableDetail();
         }
     }
     
@@ -28,7 +28,7 @@ public partial class PadTarget : Target
         Visible = false;
         foreach (var child in GetChildren())
         {
-            (child as Tuto_details)?.DisableDetail();
+            (child as StepDetails)?.DisableDetail();
         }
     }
 }

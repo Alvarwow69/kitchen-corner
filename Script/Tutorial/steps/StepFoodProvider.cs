@@ -2,7 +2,7 @@ using Godot;
 using System;
 using KitchenCorner.Script.Event;
 
-public partial class Tuto_FoodProvider : VisualTarget
+public partial class StepFoodProvider : VisualTarget
 {
 	[Export] private string _targetIngredient;
 	[Export] private int _targetStep;

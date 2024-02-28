@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://ds3hj73fjg5rs"]
+[gd_scene load_steps=6 format=3 uid="uid://dscbk7q0dios1"]
 
-[ext_resource type="Script" path="res://Script/Tutorial/Tuto_DirtyPlate.cs" id="1_2dfuj"]
-[ext_resource type="ArrayMesh" uid="uid://cfp6l2by1536h" path="res://Asset/Kitchen/obj/knife.obj" id="2_8v8aj"]
+[ext_resource type="Script" path="res://Script/Tutorial/steps/StepSlice.cs" id="1_lgso6"]
+[ext_resource type="ArrayMesh" uid="uid://cfp6l2by1536h" path="res://Asset/Kitchen/obj/knife.obj" id="2_nsk7k"]
 
 [sub_resource type="Animation" id="Animation_b12vc"]
 length = 0.001
@@ -40,14 +40,15 @@ _data = {
 "VisualTarget": SubResource("Animation_kh7la")
 }
 
-[node name="VisualTarget" type="Node3D" node_paths=PackedStringArray("_animationPlayer")]
+[node name="StepSlice" type="Node3D" node_paths=PackedStringArray("_animationPlayer")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-script = ExtResource("1_2dfuj")
+script = ExtResource("1_lgso6")
 _animationPlayer = NodePath("AnimationPlayer")
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0, 0)
-mesh = ExtResource("2_8v8aj")
+cast_shadow = 0
+mesh = ExtResource("2_nsk7k")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

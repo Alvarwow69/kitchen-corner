@@ -3,7 +3,7 @@ using System;
 using Godot.Collections;
 using KitchenCorner.Script.Event;
 
-public partial class TutoPlate : Target
+public partial class StepPlate : Target
 {
 	[Export] private int _targetStep;
 	[Export] private Array<string> _OptionalStep = new Array<string>();

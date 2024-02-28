@@ -28,7 +28,7 @@ public partial class VisualTarget : Target
 		Visible = true;
 		foreach (var child in GetChildren())
 		{
-			(child as Tuto_details)?.EnableDetail();
+			(child as StepDetails)?.EnableDetail();
 		}
 	}
 
@@ -47,7 +47,7 @@ public partial class VisualTarget : Target
 		Visible = false;
 		foreach (var child in GetChildren())
 		{
-			(child as Tuto_details)?.DisableDetail();
+			(child as StepDetails)?.DisableDetail();
 		}
 	}
 

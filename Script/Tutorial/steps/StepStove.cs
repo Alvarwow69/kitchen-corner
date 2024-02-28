@@ -2,7 +2,7 @@ using Godot;
 using System;
 using KitchenCorner.Script.Event;
 
-public partial class Tuto_Stove : VisualTarget
+public partial class StepStove : VisualTarget
 {
 	[Export] private int _targetStep;
 

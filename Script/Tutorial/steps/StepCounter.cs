@@ -2,7 +2,7 @@ using Godot;
 using System;
 using KitchenCorner.Script.Event;
 
-public partial class Tuto_Counter : VisualTarget
+public partial class StepCounter : VisualTarget
 {
 	[Export] private int _targetStep;
 	[Export] private CounterInteractable _targetCounter;

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://s1ybm2rlfs5k"]
 
-[ext_resource type="Script" path="res://Script/Tutorial/TutoDialogue.cs" id="1_mloq7"]
+[ext_resource type="Script" path="res://Script/Tutorial/utils/TutoDialogue.cs" id="1_mloq7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t3hla"]
 bg_color = Color(0.313726, 0.768627, 0.929412, 0.733333)
