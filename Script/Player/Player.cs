@@ -16,6 +16,7 @@ public partial class Player : CharacterBody3D
     private RigidInteractable _interactable = null;
     private Node3D _anchor;
     private bool _freeze = false;
+    public bool IsProcessAction { get; set; } = true;
 
     public override void _Ready()
     {
@@ -34,7 +35,7 @@ public partial class Player : CharacterBody3D
 
     private void ProcessInteractable()
     {
-        if (_raycast.IsColliding())
+        if (_raycast.IsColliding() && IsProcessAction)
         {
             if ((_raycast.GetCollider() as Node3D)?.GetParent() is Interactable)
             {
@@ -54,6 +55,8 @@ public partial class Player : CharacterBody3D
 
     private void ProcessAction()
     {
+        if (!IsProcessAction)
+            return;
         if (Input.IsActionJustPressed("player" + PlayerNumber + "_grab"))
         {
             if (_interactable != null)

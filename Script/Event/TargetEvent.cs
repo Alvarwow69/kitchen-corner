@@ -10,6 +10,7 @@ public static class TargetEvent
 	public static event TargetReachedHandler TargetReached;
 	public static event NewCustomStep OnStartCustomStep;
 	public static event ResetStep OnResetToStep;
+	public static event TargetReachedHandler OnTutorialFinished;
 
 	public static void PerformTargetReached()
 	{
@@ -24,5 +25,10 @@ public static class TargetEvent
 	public static void PerformResetToStep(int stepIndex)
 	{
 		OnResetToStep?.Invoke(stepIndex);
+	}
+
+	public static void PerformTutorialFinished()
+	{
+		OnTutorialFinished?.Invoke();
 	}
 }

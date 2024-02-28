@@ -6,19 +6,29 @@ public partial class Tuto_Counter : VisualTarget
 {
 	[Export] private int _targetStep;
 	[Export] private CounterInteractable _targetCounter;
+	[Export] private bool _add = false;
 
 	public override void _Ready()
 	{
-		CounterEvent.OnInteractableRemoved += OnFoodCooked;
+		CounterEvent.OnInteractableRemoved += OnInteractableRemoved;
+		CounterEvent.OnInteractablePlaced += OnInteractablePlaced;
 	}
 
-	private void OnFoodCooked(CounterInteractable counter)
+	private void OnInteractableRemoved(CounterInteractable counter)
 	{
 		if (TutorialManager.GetCurrentStep() == _targetStep &&
-		    _targetCounter == counter)
+		    _targetCounter == counter && !_add)
 		{
 			TargetEvent.PerformTargetReached();
-			CounterEvent.OnInteractableRemoved -= OnFoodCooked;
+		}
+	}
+
+	private void OnInteractablePlaced(CounterInteractable counter)
+	{
+		if (TutorialManager.GetCurrentStep() == _targetStep &&
+		    _targetCounter == counter && _add)
+		{
+			TargetEvent.PerformTargetReached();
 		}
 	}
 }

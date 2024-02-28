@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://ytscjs0cvjus"]
+
+[ext_resource type="Script" path="res://Script/Tutorial/TutoEmpty.cs" id="1_khh1w"]
+
+[node name="VisualTarget" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+script = ExtResource("1_khh1w")

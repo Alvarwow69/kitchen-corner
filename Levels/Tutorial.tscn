@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://cs4ioojstmsns"]
+[gd_scene load_steps=37 format=3 uid="uid://cs4ioojstmsns"]
 
 [ext_resource type="ArrayMesh" uid="uid://cys0na8igqcpx" path="res://Asset/Kitchen/obj/floor_kitchen.obj" id="1_r8go5"]
 [ext_resource type="PackedScene" uid="uid://cnehf3jphwdje" path="res://Asset/Prefabs/Creates/Create_Carrot.tscn" id="2_8a2k1"]
@@ -28,12 +28,13 @@
 [ext_resource type="PackedScene" uid="uid://b7khvydb54eld" path="res://Asset/Prefabs/Tutorial/VisualTarget_counter.tscn" id="25_vegxw"]
 [ext_resource type="PackedScene" uid="uid://s1ybm2rlfs5k" path="res://Asset/Prefabs/Tutorial/TutoDialogue.tscn" id="26_vyhns"]
 [ext_resource type="PackedScene" uid="uid://ev22p436jiee" path="res://Asset/Prefabs/Tutorial/TimerStep.tscn" id="27_65lqn"]
-[ext_resource type="PackedScene" uid="uid://8sexw4n54xm2" path="res://Asset/Prefabs/Tutorial/CommandTuto.tscn" id="28_q1fbk"]
-[ext_resource type="PackedScene" uid="uid://c0ihibet3g3xy" path="res://Asset/Prefabs/Tutorial/VisualTarget_Order.tscn" id="29_7hqi6"]
-[ext_resource type="PackedScene" uid="uid://cb2qoo4hpc36l" path="res://Asset/Prefabs/Tutorial/Target_plate.tscn" id="30_qx8jr"]
-[ext_resource type="PackedScene" uid="uid://ds3hj73fjg5rs" path="res://Asset/Prefabs/Tutorial/VisualTarget_DirtyPlate.tscn" id="31_4fanm"]
+[ext_resource type="PackedScene" path="res://Asset/Prefabs/Tutorial/CommandTuto.tscn" id="28_q1fbk"]
+[ext_resource type="PackedScene" path="res://Asset/Prefabs/Tutorial/VisualTarget_Order.tscn" id="29_7hqi6"]
+[ext_resource type="PackedScene" path="res://Asset/Prefabs/Tutorial/Target_plate.tscn" id="30_qx8jr"]
+[ext_resource type="PackedScene" path="res://Asset/Prefabs/Tutorial/VisualTarget_DirtyPlate.tscn" id="31_4fanm"]
 [ext_resource type="PackedScene" uid="uid://bux5h7k245hrx" path="res://Asset/Prefabs/Tutorial/VisualTarget_Sink.tscn" id="32_pw4sb"]
 [ext_resource type="PackedScene" uid="uid://di1bkd00tmash" path="res://Asset/Prefabs/Tutorial/VisualTarget_Trash.tscn" id="34_t35pu"]
+[ext_resource type="PackedScene" uid="uid://ytscjs0cvjus" path="res://Asset/Prefabs/Tutorial/StepEmpty.tscn" id="35_0phn1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_icw0q"]
 size = Vector3(8.48229, 0.181755, 12.1253)
@@ -413,8 +414,9 @@ PlayerNumber = 0
 transform = Transform3D(0.965926, 0.12941, -0.224144, -1.7824e-08, 0.866025, 0.500001, 0.258819, -0.482964, 0.836516, 0, 8, 0)
 shadow_enabled = true
 
-[node name="Steps" type="Node" parent="."]
+[node name="Steps" type="Node" parent="." node_paths=PackedStringArray("_player")]
 script = ExtResource("19_kx51e")
+_player = NodePath("../Player")
 
 [node name="Step01" parent="Steps" instance=ExtResource("19_nyga6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, -0.337361, 0)
@@ -591,6 +593,7 @@ Don't worry if you made a mistake you can throw ingredients to the trash."
 
 [node name="Step09" parent="Steps" instance=ExtResource("19_nyga6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2.49551, -2.27626, -0.337361, 0.926615)
+visible = false
 
 [node name="TutoDialogue" parent="Steps/Step09" instance=ExtResource("26_vyhns")]
 visible = false
@@ -610,6 +613,7 @@ Now go to the order window to give your command."
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.434, 2, 1)
 visible = false
 _targetStep = 10
+_delay = 0.0
 
 [node name="TutoDialogue4" parent="Steps/Step10" instance=ExtResource("26_vyhns")]
 visible = false
@@ -685,3 +689,27 @@ offset_right = 2.0
 offset_bottom = -58.0
 grow_vertical = 0
 _text = "Once the plate is clean you can take it from here and start using again."
+
+[node name="Step15" parent="Steps" node_paths=PackedStringArray("_targetCounter") instance=ExtResource("25_vegxw")]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, -14, 2, 4)
+visible = false
+_targetStep = 15
+_targetCounter = NodePath("../../Kitchen/Furniture/CounterStraightB4")
+_add = true
+
+[node name="Step16" parent="Steps" instance=ExtResource("35_0phn1")]
+
+[node name="TutoDialogue8" parent="Steps/Step16" instance=ExtResource("26_vyhns")]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+offset_left = 2.0
+offset_top = -58.0
+offset_right = 2.0
+offset_bottom = -58.0
+grow_vertical = 0
+_text = "Greate you complete the tutorial.
+You're now ready to feed the world.
+Good luck on the kitchen chief. (You can Close the game)"
