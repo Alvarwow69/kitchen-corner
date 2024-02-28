@@ -124,18 +124,16 @@ public partial class Player : CharacterBody3D
         return _interactable != null;
     }
 
-    public void AddInteractable(RigidInteractable interactable)
+    public bool AddInteractable(RigidInteractable interactable)
     {
         if (_interactable is Container)
-        {
-            (_interactable as Container)?.AddFood(interactable as Ingredient);
-            return;
-        }
+            return (_interactable as Container).AddFood(interactable as Ingredient);
         _interactable = interactable;
         _interactable.Freeze();
         _interactable.Reparent(_anchor);
         _interactable.GlobalPosition = _anchor.GlobalPosition;
         _interactable.Player = this;
+        return true;
     }
 
     public RigidInteractable RemoveInteractable()

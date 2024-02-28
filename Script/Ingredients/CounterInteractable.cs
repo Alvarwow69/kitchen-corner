@@ -59,9 +59,10 @@ public partial class CounterInteractable : SelectionInteractable
 	{
 		if (_interactable == null)
 			return;
+		var isFoodRemoved = false;
 		if (!player.HasInteractable())
 		{
-			player.AddInteractable(_interactable);
+			isFoodRemoved = player.AddInteractable(_interactable);
 			_interactable.Player = player;
 			_interactable = null;
 		}
@@ -70,16 +71,18 @@ public partial class CounterInteractable : SelectionInteractable
 			if (_interactable is Container)
 			{
 				var ingredient = (_interactable as Cooker)?.RemoveIngredient();
-				(player.GetInteractable() as Ingredient)?.AddFood(ingredient);
+				if ((player.GetInteractable() as Ingredient).AddFood(ingredient))
+					CounterEvent.PerformFoodRemoved(this);
 				return;
 			}
 
 			if (player.GetInteractable() is Container)
-				player.AddInteractable(_interactable);
+				isFoodRemoved = player.AddInteractable(_interactable);
 			else
-				(player.GetInteractable() as Ingredient)?.AddFood(_interactable as Ingredient);
-			_interactable = null;
+				isFoodRemoved = (player.GetInteractable() as Ingredient).AddFood(_interactable as Ingredient);
+			_interactable = isFoodRemoved ? null : _interactable;
 		}
-		CounterEvent.PerformFoodRemoved(this);
+		if (isFoodRemoved)
+			CounterEvent.PerformFoodRemoved(this);
 	}
 }

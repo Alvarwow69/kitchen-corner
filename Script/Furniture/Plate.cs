@@ -33,10 +33,10 @@ public partial class Plate : Container
         return _state == PlateState.Clean;
     }
 
-    public override void AddFood(Ingredient ingredient)
+    public override bool AddFood(Ingredient ingredient)
     {
         if (_state == PlateState.Dirty || ingredient is Container)
-            return;
+            return false;
         if (Player == null && ingredient.Player != null)
         {
             if (ingredient.Player.GetInteractable() is not Container)
@@ -56,10 +56,11 @@ public partial class Plate : Container
         }
         else
         {
-            base.AddFood(ingredient);
+            if (!base.AddFood(ingredient))
+                return false;
         }
-
         PlateEvent.PerformFoodAddedPlateEvent(this, ingredient);
+        return true;
     }
 
     public override bool CanGetFood()

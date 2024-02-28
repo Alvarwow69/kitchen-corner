@@ -16,7 +16,7 @@ height = 1.05076
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.275252, 0)
 script = ExtResource("1_0o0n5")
 IngredientName = "Carrot"
-Compatibility = Array[String](["Ham_Cooked"])
+Compatibility = Array[String](["Ham"])
 Height = 0.0
 
 [node name="HitBox" type="Area3D" parent="."]

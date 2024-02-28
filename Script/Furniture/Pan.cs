@@ -3,13 +3,14 @@ using System;
 
 public partial class Pan : Cooker
 {
-    public override void AddFood(Ingredient ingredient)
+    public override bool AddFood(Ingredient ingredient)
     {
         if (ingredient is not CookIngredient || Foods.Count >= 1)
-            return;
-        base.AddFood(ingredient);
-        if (GetParent().GetParent().GetParent() is Stove)
+            return false;
+        var isAdded = base.AddFood(ingredient);
+        if (isAdded && GetParent().GetParent().GetParent() is Stove)
             StartCooking();
+        return isAdded;
     }
 
     protected override void Cooking(double time)

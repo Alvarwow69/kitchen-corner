@@ -7,6 +7,7 @@ public partial class TutoPlate : Target
 {
 	[Export] private int _targetStep;
 	[Export] private Array<string> _OptionalStep = new Array<string>();
+	[Export] private Dictionary<string, Ingredient.FoodState> _IngredientList = new Dictionary<string, Ingredient.FoodState>();
 
 	public override void EnableTarget()
 	{
@@ -20,11 +21,19 @@ public partial class TutoPlate : Target
 		FoodEvent.OnFoodBurned -= OnFoodBurned;
 	}
 
+	private bool CheckList(Array<Ingredient> list)
+	{
+		foreach (var ingredient in list)
+			if (!_IngredientList.ContainsKey(ingredient.Name) || _IngredientList[ingredient.Name] != ingredient.GetState())
+				return false;
+		return true;
+	}
+
 	private void OnFoodAddedPlateEvent(Plate plate, Ingredient newIngredient)
 	{
 		if (TutorialManager.GetCurrentStep() != _targetStep)
 			return;
-		if (newIngredient.GetNameState() == "Ham_Cooked" && plate.GetIngredients().Count >= 1 && plate.GetIngredients()[0].GetNameState() == "Carrot_Sliced")
+		if (CheckList(plate.GetIngredients()))
 			TargetEvent.PerformTargetReached();
 		else
 			TargetEvent.PerformNewCustomStep(_OptionalStep[0]);

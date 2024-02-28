@@ -10,11 +10,11 @@ public partial class Pot : Cooker
     [Export] private MeshInstance3D _stew;
     [Export] private PackedScene _stewScene;
 
-    public override void AddFood(Ingredient ingredient)
+    public override bool AddFood(Ingredient ingredient)
     {
         if (ingredient is not CookIngredient || Foods.Count >= 3 || _cooked)
-            return;
-        base.AddFood(ingredient);
+            return false;
+        return base.AddFood(ingredient);
     }
 
     public override bool IsCompatible(Ingredient food)

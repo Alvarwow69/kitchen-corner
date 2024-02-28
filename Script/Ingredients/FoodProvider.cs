@@ -16,9 +16,9 @@ public partial class FoodProvider : SelectionInteractable
 		if (player.HasInteractable() && player.GetInteractable() is not Container)
 			return;
 		var newIngredient = GD.Load<PackedScene>(_ingredient.ResourcePath).Instantiate();
+		FoodEvent.PerformFoodCreated(newIngredient as Ingredient);
 		AddChild(newIngredient);
 		player.AddInteractable(newIngredient as RigidInteractable);
 		_animation.Play("Create_provider");
-		FoodEvent.PerformFoodCreated(newIngredient as Ingredient);
 	}
 }

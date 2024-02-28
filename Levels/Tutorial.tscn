@@ -470,7 +470,7 @@ offset_top = -58.0
 offset_right = 2.0
 offset_bottom = -58.0
 grow_vertical = 0
-_text = "Before any action for most od Ingredients you need to slice them.
+_text = "Before any action for most of Ingredients you need to slice them.
 To slice them bring it to a cuttingboard and press ALT to start slicing."
 
 [node name="Step04" parent="Steps" node_paths=PackedStringArray("_targetCounter") instance=ExtResource("25_vegxw")]
@@ -542,6 +542,10 @@ Cook a ham and put it in the plate. (Ham doesn't need to be sliced)"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 2, 6)
 _targetStep = 8
 _OptionalStep = ["Step08a", "Step08b"]
+_IngredientList = {
+"Carrot": 1,
+"Ham": 2
+}
 
 [node name="Step08a" parent="Steps/Step08" instance=ExtResource("34_t35pu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
@@ -586,8 +590,7 @@ _text = "Opps... It seems that the ham burned.
 Don't worry if you made a mistake you can throw ingredients to the trash."
 
 [node name="Step09" parent="Steps" instance=ExtResource("19_nyga6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.27626, -0.337361, 0.926615)
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2.49551, -2.27626, -0.337361, 0.926615)
 
 [node name="TutoDialogue" parent="Steps/Step09" instance=ExtResource("26_vyhns")]
 visible = false
@@ -668,6 +671,7 @@ transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 
 visible = false
 _targetStep = 14
 _targetCounter = NodePath("../../Kitchen/Furniture/DishRack")
+_delay = 0.0
 
 [node name="TutoDialogue7" parent="Steps/Step14" instance=ExtResource("26_vyhns")]
 visible = false
