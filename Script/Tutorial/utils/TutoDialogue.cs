@@ -31,7 +31,7 @@ public partial class TutoDialogue : StepDetails
 		_currentTimer += delta;
 		if (_currentTimer >= _animationSpeed)
 		{
-			_numberChar += 1;
+			_numberChar += 2;
 			_label.VisibleCharacters = _numberChar;
 			_currentTimer = 0;
 		}

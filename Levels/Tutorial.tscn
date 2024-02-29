@@ -518,9 +518,10 @@ Then press SPACE to move the carrots to the Plate."
 
 [node name="Step06" parent="Steps" instance=ExtResource("27_65lqn")]
 visible = false
+_timer = 1.0
 
 [node name="Step07" parent="Steps" instance=ExtResource("21_q5qad")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 2, 6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 2, 6)
 visible = false
 _targetIngredient = "Ham"
 _targetStep = 7
@@ -589,6 +590,20 @@ offset_bottom = -58.0
 grow_vertical = 0
 _text = "Opps... It seems that the ham burned.
 Don't worry if you made a mistake you can throw ingredients to the trash."
+
+[node name="TutoDialogue7" parent="Steps/Step08" instance=ExtResource("26_vyhns")]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+offset_left = 2.0
+offset_top = -58.0
+offset_right = 2.0
+offset_bottom = -58.0
+grow_vertical = 0
+_text = "Cook an Ham.
+Be sure to have carrots with the cooked ham."
 
 [node name="Step09" parent="Steps" instance=ExtResource("19_nyga6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2.49551, -2.27626, -0.337361, 0.926615)
