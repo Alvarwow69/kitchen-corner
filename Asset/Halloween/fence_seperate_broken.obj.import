@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b7vt180iar543"
+path="res://.godot/imported/fence_seperate_broken.obj-88c2c9db19acad81dfad614ed9c5cdc0.mesh"
+
+[deps]
+
+files=["res://.godot/imported/fence_seperate_broken.obj-88c2c9db19acad81dfad614ed9c5cdc0.mesh"]
+
+source_file="res://Asset/Halloween/fence_seperate_broken.obj"
+dest_files=["res://.godot/imported/fence_seperate_broken.obj-88c2c9db19acad81dfad614ed9c5cdc0.mesh", "res://.godot/imported/fence_seperate_broken.obj-88c2c9db19acad81dfad614ed9c5cdc0.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

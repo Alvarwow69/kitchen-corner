@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bcldohaehrthu"
+path="res://.godot/imported/post_lantern_lantern.obj-412ed08e1c0ef009f191f3ee9f6d9ca0.mesh"
+
+[deps]
+
+files=["res://.godot/imported/post_lantern_lantern.obj-412ed08e1c0ef009f191f3ee9f6d9ca0.mesh"]
+
+source_file="res://Asset/Halloween/post_lantern_lantern.obj"
+dest_files=["res://.godot/imported/post_lantern_lantern.obj-412ed08e1c0ef009f191f3ee9f6d9ca0.mesh", "res://.godot/imported/post_lantern_lantern.obj-412ed08e1c0ef009f191f3ee9f6d9ca0.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

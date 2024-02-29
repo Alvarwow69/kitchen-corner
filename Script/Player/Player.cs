@@ -7,6 +7,8 @@ public partial class Player : CharacterBody3D
     [Export] public float DashDuration = .2f;
     [Export] public float DashSpeed = 10.0f;
     [Export] public int PlayerNumber { get; set; } = -1;
+    [Export] private bool _invertX = false;
+    [Export] private bool _invertY = false;
 
     private float _gravity = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle();
     private Dash _dash;
@@ -102,7 +104,7 @@ public partial class Player : CharacterBody3D
 
         Vector2 inputDir = Input.GetVector("player" + PlayerNumber + "_left", "player" + PlayerNumber + "_right",
             "player" + PlayerNumber + "_forward", "player" + PlayerNumber + "_backward");
-        Vector3 direction = (Transform.Basis * new Vector3(inputDir.X, 0, inputDir.Y)).Normalized();
+        Vector3 direction = (Transform.Basis * new Vector3(inputDir.X * (_invertX ? -1.0f : 1.0f), 0, inputDir.Y * (_invertY ? -1.0f : 1.0f))).Normalized();
         if (direction != Vector3.Zero)
         {
             velocity.X = direction.X * speed * (_freeze ? 0 : 1);

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://biuhp4a15q1wy"
+path="res://.godot/imported/skull.obj-e6a1da747f4312dc5bdc8a62ee2cec6d.mesh"
+
+[deps]
+
+files=["res://.godot/imported/skull.obj-e6a1da747f4312dc5bdc8a62ee2cec6d.mesh"]
+
+source_file="res://Asset/Halloween/skull.obj"
+dest_files=["res://.godot/imported/skull.obj-e6a1da747f4312dc5bdc8a62ee2cec6d.mesh", "res://.godot/imported/skull.obj-e6a1da747f4312dc5bdc8a62ee2cec6d.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

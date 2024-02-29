@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dc1ts77cq2ou6"
+path="res://.godot/imported/fence_gate.obj-fec3eb89850676139f33a5aca3d88e38.mesh"
+
+[deps]
+
+files=["res://.godot/imported/fence_gate.obj-fec3eb89850676139f33a5aca3d88e38.mesh"]
+
+source_file="res://Asset/Halloween/fence_gate.obj"
+dest_files=["res://.godot/imported/fence_gate.obj-fec3eb89850676139f33a5aca3d88e38.mesh", "res://.godot/imported/fence_gate.obj-fec3eb89850676139f33a5aca3d88e38.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

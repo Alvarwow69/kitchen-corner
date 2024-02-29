@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bhayamctmpqbd"
+path="res://.godot/imported/floor_dirt_grave.obj-e440ee7d914d02bb444ecaf6af6baa93.mesh"
+
+[deps]
+
+files=["res://.godot/imported/floor_dirt_grave.obj-e440ee7d914d02bb444ecaf6af6baa93.mesh"]
+
+source_file="res://Asset/Halloween/floor_dirt_grave.obj"
+dest_files=["res://.godot/imported/floor_dirt_grave.obj-e440ee7d914d02bb444ecaf6af6baa93.mesh", "res://.godot/imported/floor_dirt_grave.obj-e440ee7d914d02bb444ecaf6af6baa93.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dh6w6cs6llax4"
+path="res://.godot/imported/pumpkin_orange_small.obj-3db39b0c55dc3215f7c6c62b8aaa2a5e.mesh"
+
+[deps]
+
+files=["res://.godot/imported/pumpkin_orange_small.obj-3db39b0c55dc3215f7c6c62b8aaa2a5e.mesh"]
+
+source_file="res://Asset/Halloween/pumpkin_orange_small.obj"
+dest_files=["res://.godot/imported/pumpkin_orange_small.obj-3db39b0c55dc3215f7c6c62b8aaa2a5e.mesh", "res://.godot/imported/pumpkin_orange_small.obj-3db39b0c55dc3215f7c6c62b8aaa2a5e.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

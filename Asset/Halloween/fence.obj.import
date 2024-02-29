@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dndt05cf4r01w"
+path="res://.godot/imported/fence.obj-472d984d9cdbb5a1abb7b63c32dd4807.mesh"
+
+[deps]
+
+files=["res://.godot/imported/fence.obj-472d984d9cdbb5a1abb7b63c32dd4807.mesh"]
+
+source_file="res://Asset/Halloween/fence.obj"
+dest_files=["res://.godot/imported/fence.obj-472d984d9cdbb5a1abb7b63c32dd4807.mesh", "res://.godot/imported/fence.obj-472d984d9cdbb5a1abb7b63c32dd4807.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

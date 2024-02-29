@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bdoqgg86ujp2u"
+path="res://.godot/imported/coffin_decorated.obj-b0c75dacb9330a4b1385638ab78ddfec.mesh"
+
+[deps]
+
+files=["res://.godot/imported/coffin_decorated.obj-b0c75dacb9330a4b1385638ab78ddfec.mesh"]
+
+source_file="res://Asset/Halloween/coffin_decorated.obj"
+dest_files=["res://.godot/imported/coffin_decorated.obj-b0c75dacb9330a4b1385638ab78ddfec.mesh", "res://.godot/imported/coffin_decorated.obj-b0c75dacb9330a4b1385638ab78ddfec.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
