@@ -5,7 +5,8 @@
 [ext_resource type="Shader" path="res://Selection.gdshader" id="3_k5om8"]
 [ext_resource type="Texture2D" uid="uid://c8jvxgl2348ht" path="res://Asset/Kitchen/obj/restaurantbits_texture.png" id="4_afk7c"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_aga35"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e51h2"]
+resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("3_k5om8")
 shader_parameter/selectColor = Color(0.94902, 0.964706, 0, 1)
@@ -15,8 +16,10 @@ shader_parameter/tex = ExtResource("4_afk7c")
 [sub_resource type="BoxShape3D" id="BoxShape3D_05mc7"]
 size = Vector3(2.01516, 1, 1.98592)
 
-[node name="CounterStraight" type="Node3D"]
+[node name="CounterStraight" type="Node3D" node_paths=PackedStringArray("_anchor", "_mesh")]
 script = ExtResource("1_oja1q")
+_anchor = NodePath("StaticBody3D/Anchor")
+_mesh = NodePath("StaticBody3D/Mesh")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 collision_layer = 12
@@ -24,7 +27,7 @@ collision_mask = 0
 
 [node name="Mesh" type="MeshInstance3D" parent="StaticBody3D"]
 mesh = ExtResource("2_8vwqo")
-surface_material_override/0 = SubResource("ShaderMaterial_aga35")
+surface_material_override/0 = SubResource("ShaderMaterial_e51h2")
 
 [node name="MeshCollider" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)

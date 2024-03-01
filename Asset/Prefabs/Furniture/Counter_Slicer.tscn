@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c7028uon8wrot" path="res://Asset/Prefabs/utils/ProgressBar.tscn" id="7_cs025"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_aga35"]
+resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("3_24vx1")
 shader_parameter/selectColor = Color(0.94902, 0.964706, 0, 1)
