@@ -41,168 +41,6 @@ size = Vector3(8.48229, 0.181755, 12.1253)
 
 [node name="Tutorial" type="Node3D"]
 
-[node name="Kitchen" type="Node3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, -0.3, 1)
-
-[node name="Furniture" type="Node3D" parent="Kitchen"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
-
-[node name="CreateCarrot" parent="Kitchen/Furniture" instance=ExtResource("2_8a2k1")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3, 0, 3)
-
-[node name="CounterStraightB" parent="Kitchen/Furniture" instance=ExtResource("5_0nbvd")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3, 0, 1)
-
-[node name="CounterStraightB3" parent="Kitchen/Furniture" node_paths=PackedStringArray("_defaultInteractable") instance=ExtResource("5_0nbvd")]
-transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 7, 0, 7)
-_defaultInteractable = NodePath("Pan")
-
-[node name="Pan" parent="Kitchen/Furniture/CounterStraightB3" instance=ExtResource("3_uy8ab")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-
-[node name="CounterStep04" parent="Kitchen/Furniture" node_paths=PackedStringArray("_defaultInteractable") instance=ExtResource("5_0nbvd")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 11)
-_defaultInteractable = NodePath("Plate")
-
-[node name="Plate" parent="Kitchen/Furniture/CounterStep04" instance=ExtResource("19_a848l")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4.76837e-07, 1.3, 0)
-
-[node name="CounterInnercorner" parent="Kitchen/Furniture" instance=ExtResource("4_yc4vw")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3, 0, -1)
-
-[node name="CounterInnercorner2" parent="Kitchen/Furniture" instance=ExtResource("4_yc4vw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -1)
-
-[node name="CounterInnercorner3" parent="Kitchen/Furniture" instance=ExtResource("4_yc4vw")]
-transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 7, 0, 11)
-
-[node name="CounterInnercorner4" parent="Kitchen/Furniture" instance=ExtResource("4_yc4vw")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3, 0, 11)
-
-[node name="PlateManager" parent="Kitchen/Furniture" instance=ExtResource("3_0c06x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1)
-
-[node name="OrderWindow" parent="Kitchen/Furniture" node_paths=PackedStringArray("_plateManager") instance=ExtResource("2_802ie")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -2)
-_plateManager = NodePath("../PlateManager")
-
-[node name="CreateHam" parent="Kitchen/Furniture" instance=ExtResource("7_yshn6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 5)
-
-[node name="CounterStep5" parent="Kitchen/Furniture" instance=ExtResource("8_iu5vr")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3, 0, 9)
-
-[node name="CounterCuttingboard2" parent="Kitchen/Furniture" instance=ExtResource("8_iu5vr")]
-transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 7, 0, 9)
-
-[node name="CounterSink" parent="Kitchen/Furniture" node_paths=PackedStringArray("_dishRack") instance=ExtResource("8_rmft5")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1, 0, 11)
-_dishRack = NodePath("../DishRack")
-
-[node name="DishRack" parent="Kitchen/Furniture" instance=ExtResource("10_hcka6")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3, 0, 11)
-
-[node name="Stove" parent="Kitchen/Furniture" instance=ExtResource("11_gvb47")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7, 0, 3)
-
-[node name="CounterStraightStep15" parent="Kitchen/Furniture" instance=ExtResource("5_0nbvd")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 5, 0, 11)
-
-[node name="CounterStraight" parent="Kitchen/Furniture" instance=ExtResource("12_bo578")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3, 0, 5)
-
-[node name="CounterStraight2" parent="Kitchen/Furniture" instance=ExtResource("12_bo578")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3, 0, 7)
-
-[node name="CounterStraightB5" parent="Kitchen/Furniture" instance=ExtResource("5_0nbvd")]
-transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 5, 0, -1)
-
-[node name="Trash" parent="Kitchen/Furniture" instance=ExtResource("14_g0g5u")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7, 0, 1)
-
-[node name="Ground" type="StaticBody3D" parent="Kitchen"]
-collision_layer = 4
-collision_mask = 0
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Kitchen/Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
-shape = SubResource("BoxShape3D_icw0q")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Kitchen/Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
-mesh = ExtResource("1_r8go5")
-skeleton = NodePath("../../..")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Kitchen/Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -0.5, 0)
-mesh = ExtResource("1_r8go5")
-skeleton = NodePath("../../..")
-
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="Kitchen/Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 4)
-mesh = ExtResource("1_r8go5")
-skeleton = NodePath("../../..")
-
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="Kitchen/Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -0.5, 4)
-mesh = ExtResource("1_r8go5")
-skeleton = NodePath("../../..")
-
-[node name="MeshInstance3D6" type="MeshInstance3D" parent="Kitchen/Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -0.5, 0)
-mesh = ExtResource("1_r8go5")
-skeleton = NodePath("../../..")
-
-[node name="MeshInstance3D8" type="MeshInstance3D" parent="Kitchen/Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -0.5, 4)
-mesh = ExtResource("1_r8go5")
-skeleton = NodePath("../../..")
-
-[node name="MeshInstance3D9" type="MeshInstance3D" parent="Kitchen/Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 8)
-mesh = ExtResource("1_r8go5")
-skeleton = NodePath("../../..")
-
-[node name="MeshInstance3D10" type="MeshInstance3D" parent="Kitchen/Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -0.5, 8)
-mesh = ExtResource("1_r8go5")
-skeleton = NodePath("../../..")
-
-[node name="MeshInstance3D11" type="MeshInstance3D" parent="Kitchen/Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.5, 11)
-mesh = ExtResource("2_nt3cx")
-skeleton = NodePath("../../..")
-
-[node name="MeshInstance3D12" type="MeshInstance3D" parent="Kitchen/Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -0.5, 11)
-mesh = ExtResource("2_nt3cx")
-skeleton = NodePath("../../..")
-
-[node name="MeshInstance3D14" type="MeshInstance3D" parent="Kitchen/Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -0.5, 8)
-mesh = ExtResource("1_r8go5")
-skeleton = NodePath("../../..")
-
-[node name="MeshInstance3D16" type="MeshInstance3D" parent="Kitchen/Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -0.5, 11)
-mesh = ExtResource("2_nt3cx")
-skeleton = NodePath("../../..")
-
-[node name="MeshInstance3D13" type="MeshInstance3D" parent="Kitchen/Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.5, 11)
-mesh = ExtResource("2_nt3cx")
-skeleton = NodePath("../../..")
-
-[node name="MeshInstance3D15" type="MeshInstance3D" parent="Kitchen/Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -0.5, 11)
-mesh = ExtResource("2_nt3cx")
-skeleton = NodePath("../../..")
-
-[node name="MeshInstance3D17" type="MeshInstance3D" parent="Kitchen/Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -0.5, 11)
-mesh = ExtResource("2_nt3cx")
-skeleton = NodePath("../../..")
-
 [node name="City" type="Node3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 
@@ -402,6 +240,168 @@ transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -18, -0.5, 6)
 [node name="MeshInstance3D" type="MeshInstance3D" parent="City/Street"]
 mesh = ExtResource("15_fcldi")
 
+[node name="Kitchen" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, -0.3, 1)
+
+[node name="Furniture" type="Node3D" parent="Kitchen"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+
+[node name="CreateCarrot" parent="Kitchen/Furniture" instance=ExtResource("2_8a2k1")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3, 0, 3)
+
+[node name="CounterStraightB" parent="Kitchen/Furniture" instance=ExtResource("5_0nbvd")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3, 0, 1)
+
+[node name="CounterStraightB3" parent="Kitchen/Furniture" node_paths=PackedStringArray("_defaultInteractable") instance=ExtResource("5_0nbvd")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 7, 0, 7)
+_defaultInteractable = NodePath("Pan")
+
+[node name="Pan" parent="Kitchen/Furniture/CounterStraightB3" instance=ExtResource("3_uy8ab")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="CounterStep04" parent="Kitchen/Furniture" node_paths=PackedStringArray("_defaultInteractable") instance=ExtResource("5_0nbvd")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 11)
+_defaultInteractable = NodePath("Plate")
+
+[node name="Plate" parent="Kitchen/Furniture/CounterStep04" instance=ExtResource("19_a848l")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4.76837e-07, 1.3, 0)
+
+[node name="CounterInnercorner" parent="Kitchen/Furniture" instance=ExtResource("4_yc4vw")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3, 0, -1)
+
+[node name="CounterInnercorner2" parent="Kitchen/Furniture" instance=ExtResource("4_yc4vw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -1)
+
+[node name="CounterInnercorner3" parent="Kitchen/Furniture" instance=ExtResource("4_yc4vw")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 7, 0, 11)
+
+[node name="CounterInnercorner4" parent="Kitchen/Furniture" instance=ExtResource("4_yc4vw")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3, 0, 11)
+
+[node name="PlateManager" parent="Kitchen/Furniture" instance=ExtResource("3_0c06x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1)
+
+[node name="OrderWindow" parent="Kitchen/Furniture" node_paths=PackedStringArray("_plateManager") instance=ExtResource("2_802ie")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -2)
+_plateManager = NodePath("../PlateManager")
+
+[node name="CreateHam" parent="Kitchen/Furniture" instance=ExtResource("7_yshn6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 5)
+
+[node name="CounterStep5" parent="Kitchen/Furniture" instance=ExtResource("8_iu5vr")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3, 0, 9)
+
+[node name="CounterCuttingboard2" parent="Kitchen/Furniture" instance=ExtResource("8_iu5vr")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 7, 0, 9)
+
+[node name="CounterSink" parent="Kitchen/Furniture" node_paths=PackedStringArray("_dishRack") instance=ExtResource("8_rmft5")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1, 0, 11)
+_dishRack = NodePath("../DishRack")
+
+[node name="DishRack" parent="Kitchen/Furniture" instance=ExtResource("10_hcka6")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3, 0, 11)
+
+[node name="Stove" parent="Kitchen/Furniture" instance=ExtResource("11_gvb47")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7, 0, 3)
+
+[node name="CounterStraightStep15" parent="Kitchen/Furniture" instance=ExtResource("5_0nbvd")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 5, 0, 11)
+
+[node name="CounterStraight" parent="Kitchen/Furniture" instance=ExtResource("12_bo578")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3, 0, 5)
+
+[node name="CounterStraight2" parent="Kitchen/Furniture" instance=ExtResource("12_bo578")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3, 0, 7)
+
+[node name="CounterStraightB5" parent="Kitchen/Furniture" instance=ExtResource("5_0nbvd")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 5, 0, -1)
+
+[node name="Trash" parent="Kitchen/Furniture" instance=ExtResource("14_g0g5u")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7, 0, 1)
+
+[node name="Ground" type="StaticBody3D" parent="Kitchen"]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Kitchen/Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+shape = SubResource("BoxShape3D_icw0q")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Kitchen/Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+mesh = ExtResource("1_r8go5")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Kitchen/Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -0.5, 0)
+mesh = ExtResource("1_r8go5")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Kitchen/Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 4)
+mesh = ExtResource("1_r8go5")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Kitchen/Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -0.5, 4)
+mesh = ExtResource("1_r8go5")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Kitchen/Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -0.5, 0)
+mesh = ExtResource("1_r8go5")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="Kitchen/Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -0.5, 4)
+mesh = ExtResource("1_r8go5")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="Kitchen/Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 8)
+mesh = ExtResource("1_r8go5")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="Kitchen/Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -0.5, 8)
+mesh = ExtResource("1_r8go5")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="Kitchen/Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.5, 11)
+mesh = ExtResource("2_nt3cx")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D12" type="MeshInstance3D" parent="Kitchen/Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -0.5, 11)
+mesh = ExtResource("2_nt3cx")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D14" type="MeshInstance3D" parent="Kitchen/Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -0.5, 8)
+mesh = ExtResource("1_r8go5")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D16" type="MeshInstance3D" parent="Kitchen/Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -0.5, 11)
+mesh = ExtResource("2_nt3cx")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D13" type="MeshInstance3D" parent="Kitchen/Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.5, 11)
+mesh = ExtResource("2_nt3cx")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D15" type="MeshInstance3D" parent="Kitchen/Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -0.5, 11)
+mesh = ExtResource("2_nt3cx")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D17" type="MeshInstance3D" parent="Kitchen/Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -0.5, 11)
+mesh = ExtResource("2_nt3cx")
+skeleton = NodePath("../../..")
+
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 3.09086e-08, 1.28028e-08, -3.09086e-08, 0.707107, 0.707107, 1.28028e-08, -0.707107, 0.707107, -7, 8, 10)
 current = true
@@ -433,7 +433,7 @@ offset_right = 2.0
 offset_bottom = -58.0
 grow_vertical = 0
 _text = "The basic control is moving.
-To move your player use ZQSD and walk to the highlight zone."
+To move your player uses WASD and walk to the highlight zone."
 
 [node name="Step02" parent="Steps" instance=ExtResource("21_q5qad")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 2, -4)
@@ -452,7 +452,7 @@ offset_top = -58.0
 offset_right = 2.0
 offset_bottom = -58.0
 grow_vertical = 0
-_text = "To get an Ingredients move to the front of a create and press SPACE to take an ingredient.
+_text = "To get an Ingredients move to the front of a crate and press SPACE to take an ingredient.
 (SPACE is used to place/remove an object)"
 
 [node name="Step03" parent="Steps" instance=ExtResource("22_tlcxp")]
@@ -472,7 +472,7 @@ offset_right = 2.0
 offset_bottom = -58.0
 grow_vertical = 0
 _text = "Before any action for most of Ingredients you need to slice them.
-To slice them bring it to a cuttingboard and press ALT to start slicing."
+To slice them bring it to a cutting board and hold ALT to start slicing."
 
 [node name="Step04" parent="Steps" node_paths=PackedStringArray("_targetCounter") instance=ExtResource("25_vegxw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 2, -2)
@@ -492,7 +492,7 @@ offset_top = -58.0
 offset_right = 2.0
 offset_bottom = -58.0
 grow_vertical = 0
-_text = "All command must be served on a Plate.
+_text = "All commands must be served on a Plate.
 Take a Plate."
 
 [node name="Step05" parent="Steps" node_paths=PackedStringArray("_targetCounter") instance=ExtResource("25_vegxw")]
@@ -514,7 +514,8 @@ offset_right = 2.0
 offset_bottom = -58.0
 grow_vertical = 0
 _text = "Move to the front of the cutting board.
-Then press SPACE to move the carrots to the Plate."
+Then press SPACE to move the carrots to the Plate.
+Then put the plate on a counter."
 
 [node name="Step06" parent="Steps" instance=ExtResource("27_65lqn")]
 visible = false
@@ -537,7 +538,7 @@ offset_top = -58.0
 offset_right = 2.0
 offset_bottom = -58.0
 grow_vertical = 0
-_text = "Now you knows the basic I let you finish the command.
+_text = "Now you know the basic I let you finish the command.
 Cook a ham and put it in the plate. (Ham doesn't need to be sliced)"
 
 [node name="Step08" parent="Steps" instance=ExtResource("28_q1fbk")]
@@ -602,7 +603,7 @@ offset_top = -58.0
 offset_right = 2.0
 offset_bottom = -58.0
 grow_vertical = 0
-_text = "Cook an Ham.
+_text = "Cook a Ham.
 Be sure to have carrots with the cooked ham."
 
 [node name="Step09" parent="Steps" instance=ExtResource("19_nyga6")]
@@ -641,7 +642,7 @@ offset_right = 2.0
 offset_bottom = -58.0
 grow_vertical = 0
 _text = "Press SPACE to give the plate.
-Then wait for the client to finished the delisiouce food."
+Then wait for the client to finish the delicious food."
 
 [node name="Step11" parent="Steps" instance=ExtResource("30_qx8jr")]
 _targetStep = 11
@@ -662,7 +663,7 @@ offset_top = -58.0
 offset_right = 2.0
 offset_bottom = -58.0
 grow_vertical = 0
-_text = "Clients loves your foods. Once they finished they return the plate but it's dirty. 
+_text = "Clients love your foods. Once they finished, they return the plate, but it's dirty. 
 To use it again you have to clean the plate. 
 Take the plate."
 
@@ -702,7 +703,7 @@ offset_top = -58.0
 offset_right = 2.0
 offset_bottom = -58.0
 grow_vertical = 0
-_text = "Once the plate is clean you can take it from here and start using again."
+_text = "Once the plate is clean, you can take it from here and start using again."
 
 [node name="Step15" parent="Steps" node_paths=PackedStringArray("_targetCounter") instance=ExtResource("25_vegxw")]
 transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, -14, 2, 4)
@@ -724,6 +725,6 @@ offset_top = -58.0
 offset_right = 2.0
 offset_bottom = -58.0
 grow_vertical = 0
-_text = "Greate you complete the tutorial.
+_text = "Great you complete the tutorial.
 You're now ready to feed the world.
 Good luck on the kitchen chief. (You can Close the game)"
