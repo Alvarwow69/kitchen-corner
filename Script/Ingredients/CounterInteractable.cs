@@ -38,10 +38,11 @@ public partial class CounterInteractable : SelectionInteractable
 
 	protected virtual void PlaceOnInteractable(Player player)
 	{
-		if (player.GetInteractable() is not Container)
-			(_interactable as Container)?.AddFood(player.RemoveInteractable() as Ingredient);
-		else
-			(_interactable as Container)?.AddFood(player.RemoveFromInteractable() as Ingredient);
+		var ingredient = player.GetInteractable() is not Container
+			? player.RemoveInteractable() as Ingredient
+			: player.RemoveFromInteractable() as Ingredient;
+		if (!(_interactable as Container).AddFood(ingredient))
+			player.AddInteractable(ingredient);
 	}
 
 	protected virtual void PlaceInteractable(Player player)

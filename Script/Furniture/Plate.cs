@@ -39,9 +39,9 @@ public partial class Plate : Container
             return false;
         if (Player == null && ingredient.Player != null)
         {
-            if (ingredient.Player.GetInteractable() is not Container)
+            if (ingredient.Player.HasInteractable() && ingredient.Player.GetInteractable() is not Container)
                 ingredient.Player.RemoveInteractable();
-            base.PerformAction(ingredient.Player);
+            //base.PerformAction(ingredient.Player);
             ingredient.Reparent(GetNode("RigidBody3D"));
             ingredient.GlobalPosition = GlobalPosition;
             ingredient.GlobalRotation = GlobalRotation;

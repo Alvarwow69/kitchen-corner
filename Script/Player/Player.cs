@@ -63,8 +63,8 @@ public partial class Player : CharacterBody3D
             {
                 if (_selectionInteractable is Ingredient && _interactable is Ingredient)
                 {
-                    if (_selectionInteractable is Plate)
-                        (_selectionInteractable as Plate)?.AddFood(_interactable as Ingredient);
+                    if (_selectionInteractable is Container)
+                        (_selectionInteractable as Container)?.AddFood(_interactable as Ingredient);
                     else
                         (_interactable as Ingredient)?.AddFood(_selectionInteractable as Ingredient);
                 }

@@ -13,10 +13,12 @@ config_version=5
 config/name="KitchenCorner"
 run/main_scene="res://Levels/Tutorial.tscn"
 config/features=PackedStringArray("4.1", "C#", "Forward Plus")
+run/max_fps=60
 boot_splash/bg_color=Color(0.537255, 0.219608, 0.537255, 1)
 boot_splash/image="res://KC_icon_big.png"
 boot_splash/fullsize=false
 config/icon="res://KC_icon.png"
+config/windows_native_icon="res://KC_icon.ico"
 
 [display]
 
