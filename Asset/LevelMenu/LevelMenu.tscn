@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://hi46t3r2tcox"]
+[gd_scene load_steps=32 format=3 uid="uid://hi46t3r2tcox"]
 
 [ext_resource type="ArrayMesh" uid="uid://bvnw6wb1vn4qf" path="res://Asset/LevelMenu/obj/hex_forest.obj" id="1_7pqwd"]
 [ext_resource type="ArrayMesh" uid="uid://3i71crb28hq2" path="res://Asset/LevelMenu/obj/hex_forest_detail.obj" id="2_jx02h"]
@@ -21,15 +21,21 @@
 [ext_resource type="ArrayMesh" uid="uid://b66ovlbg1gpay" path="res://Asset/LevelMenu/obj/farm_wheat.obj" id="23_5tb6m"]
 [ext_resource type="ArrayMesh" uid="uid://dhpgfkf2gq0fi" path="res://Asset/LevelMenu/obj/farm_plot.obj" id="24_ssdjr"]
 [ext_resource type="ArrayMesh" uid="uid://bfq5b28xbl4sd" path="res://Asset/LevelMenu/obj/mountain.obj" id="25_1ipmf"]
+[ext_resource type="PackedScene" uid="uid://2srn8qk2e34b" path="res://Asset/Prefabs/Player_selection.tscn" id="25_1r0p8"]
+[ext_resource type="PackedScene" uid="uid://b57jlr3ny32s0" path="res://Asset/Prefabs/LevelSelection.tscn" id="25_dyi6p"]
 [ext_resource type="ArrayMesh" uid="uid://bg2huttolmnuc" path="res://Asset/LevelMenu/obj/detail_treeC.obj" id="25_ta08b"]
 [ext_resource type="ArrayMesh" uid="uid://bnipqc6rv38ij" path="res://Asset/LevelMenu/obj/detail_treeB.obj" id="26_0bxmv"]
+[ext_resource type="PackedScene" uid="uid://dr3p8o02b47o3" path="res://Levels/Kitchen_test.tscn" id="26_a0a6s"]
 [ext_resource type="ArrayMesh" uid="uid://d1do8y6lmjpyn" path="res://Asset/LevelMenu/obj/hex_forest_roadE_detail.obj" id="28_0lwvo"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_83ofx"]
-size = Vector3(60, 2, 60)
+[sub_resource type="BoxShape3D" id="BoxShape3D_iyn7v"]
+size = Vector3(3.5, 3, 6)
 
-[sub_resource type="BoxMesh" id="BoxMesh_25pcu"]
-size = Vector3(60, 2, 60)
+[sub_resource type="BoxShape3D" id="BoxShape3D_kad1a"]
+size = Vector3(4.00365, 3, 6.92764)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o8pun"]
+size = Vector3(73.0762, 3.04277, 50.0948)
 
 [sub_resource type="Environment" id="Environment_osaiu"]
 background_mode = 1
@@ -39,67 +45,56 @@ ambient_light_color = Color(0.705882, 0.933333, 0.878431, 1)
 
 [node name="Node" type="Node"]
 
-[node name="Ground" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00777388, 4.76837e-07, 0.0100927)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
-shape = SubResource("BoxShape3D_83ofx")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
-transform = Transform3D(0.999999, -0.000394441, -0.00143186, 0.000394126, 1, -0.000217434, 0.00143194, 0.000216861, 0.999999, 0.00814152, 2.10321e-12, 0)
-mesh = SubResource("BoxMesh_25pcu")
-
-[node name="road" type="MultiMeshInstance3D" parent="."]
-transform = Transform3D(0.930947, 0, 0.365154, 0, 1, 0, -0.365154, 0, 0.930947, 16.1205, 3.04088, -1.84974)
+[node name="road" type="Node3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 
 [node name="HexForestRoadD4" type="MeshInstance3D" parent="road"]
-transform = Transform3D(-0.997776, 0, -0.0666912, 0, 1, 0, 0.0666912, 0, -0.997776, -14.8622, -2.08079, -0.410737)
+transform = Transform3D(-1, 0, -1.49012e-07, 0, 1, 0, 1.49012e-07, 0, -1, 0, 0, 0)
 mesh = ExtResource("7_mi4k5")
 skeleton = NodePath("../..")
 
 [node name="HexForestRoadF" type="MeshInstance3D" parent="road"]
-transform = Transform3D(-0.997395, 0.00182373, -0.0721449, 0.00216902, 0.999987, -0.00470798, 0.0721353, -0.00485219, -0.997385, -16.8536, -2.07269, -0.261186)
+transform = Transform3D(-1, 0, -8.9407e-08, 0, 1, 0, 1.19209e-07, 0, -1, -2, 0, 4.76837e-07)
 mesh = ExtResource("8_peh8j")
 skeleton = NodePath("../..")
 
 [node name="HexForestRoadD" type="MeshInstance3D" parent="road"]
-transform = Transform3D(0.584549, -1.76769e-16, -0.811362, 4.76958e-16, 1, 1.2576e-16, 0.811362, -4.60498e-16, 0.584549, -8.12599, -2.05687, -2.78415)
+transform = Transform3D(-1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, -1, 6.98893, 0, -1.7301)
 mesh = ExtResource("7_mi4k5")
 skeleton = NodePath("../..")
 
 [node name="HexForestRoadD2" type="MeshInstance3D" parent="road"]
-transform = Transform3D(-0.604868, 0.00145818, 0.79633, -0.00307918, 0.999987, -0.00416995, -0.796326, -0.0049743, -0.604854, -6.94419, -2.05413, -1.20407)
+transform = Transform3D(1, 0, 8.9407e-08, 0, 1, 0, -2.98023e-08, 0, 1, 7.98542, 0, -3.45554)
 mesh = ExtResource("7_mi4k5")
 skeleton = NodePath("../..")
 
 [node name="RoadToLevel3" type="MeshInstance3D" parent="road"]
-transform = Transform3D(0.99491, 0.000379006, 0.100786, -0.00037013, 1, -0.000106706, -0.100786, 6.88753e-05, 0.994912, -20.796, -2.05964, 0.0511818)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0)
 mesh = ExtResource("9_8xdl5")
-skeleton = NodePath("../HexForestRoadB3")
 
 [node name="HexForestRoadB4" type="MeshInstance3D" parent="road"]
-transform = Transform3D(-0.997564, 0.00137584, -0.0697556, 0.00174531, 0.999985, -0.00523597, 0.0697473, -0.00534495, -0.997552, -18.8466, -2.05045, -0.120686)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
 mesh = ExtResource("9_8xdl5")
 skeleton = NodePath("../RoadToLevel2")
 
 [node name="RoadToLevel2" type="MeshInstance3D" parent="road"]
-transform = Transform3D(0.429783, 0.00182373, 0.902932, -0.00516501, 0.999987, 0.000438705, -0.90292, -0.00485219, 0.429785, -17.6997, -2.05755, 1.52173)
+transform = Transform3D(0.500001, 0, 0.866026, 0, 1, 0, -0.866027, 0, 0.5, -3, 0, 1.7)
 mesh = ExtResource("9_8xdl5")
 
 [node name="HexForestRoadB2" type="MeshInstance3D" parent="road"]
-transform = Transform3D(0.99327, -3.06036e-16, 0.115839, 3.48787e-16, 1, -3.48787e-16, -0.115839, 3.86842e-16, 0.993269, -10.0956, -2.0497, -2.57115)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.99618, 3.59827e-16, -1.7318)
 mesh = ExtResource("9_8xdl5")
 skeleton = NodePath("../..")
 
 [node name="HexForestRoadD3" type="MeshInstance3D" parent="road"]
-transform = Transform3D(0.996264, 0.00182373, 0.0863591, -0.00223593, 0.999986, 0.00467659, -0.0863493, -0.00485219, 0.996255, -14.0103, -2.09613, -2.17565)
+transform = Transform3D(1, 0, 0, 0, 0.999999, 0, 0, 0, 1, 1, 0, -1.73)
 mesh = ExtResource("7_mi4k5")
 skeleton = NodePath("../..")
 
-[node name="Levels" type="MultiMeshInstance3D" parent="road"]
+[node name="Levels" type="Node3D" parent="road"]
 
 [node name="Level3HouseGround" type="MeshInstance3D" parent="road/Levels"]
-transform = Transform3D(-0.568604, 0, 0.822611, 0, 1, 0, -0.822612, 0, -0.568605, -22.7785, -2.05508, 0.218203)
+transform = Transform3D(-0.5, 0, 0.866026, 0, 1, 0, -0.866026, 0, -0.5, -8, 0, 0)
 mesh = ExtResource("2_jx02h")
 skeleton = NodePath("")
 
@@ -109,17 +104,17 @@ mesh = ExtResource("9_i156v")
 skeleton = NodePath("../../../..")
 
 [node name="Level1Ground" type="MeshInstance3D" parent="road/Levels"]
-transform = Transform3D(0.992339, -1.55363e-07, 0.123566, -1.01697e-07, 1, 3.52451e-07, -0.123567, 3.56969e-07, 0.99234, -13.2309, -2.10361, -3.95399)
+transform = Transform3D(1, 0, 8.9407e-08, 0, 1, 0, 0, 0, 1, 2, 0, -3.45)
 mesh = ExtResource("2_jx02h")
 skeleton = NodePath("../../../MountainSidePart/chateau/HexFieldWithForest")
 
 [node name="Market2" type="MeshInstance3D" parent="road/Levels/Level1Ground"]
-transform = Transform3D(0.852774, 1.98281e-07, 0.522274, 2.708e-07, 1, -2.47448e-07, -0.522273, -3.35034e-07, 0.852775, 0.150439, 1.09085, 0.0412497)
+transform = Transform3D(0.852774, 1.98281e-07, 0.522274, 2.708e-07, 1, -2.47448e-07, -0.522273, -3.35034e-07, 0.852775, 0.073, 1.091, 0)
 mesh = ExtResource("9_7t5bn")
 skeleton = NodePath("../../../..")
 
 [node name="Level2HouseGround" type="MeshInstance3D" parent="road/Levels"]
-transform = Transform3D(-0.997728, 0, -0.0674717, 0, 1, 0, 0.0674717, 0, -0.997728, -18.5119, -2.06778, 3.3045)
+transform = Transform3D(1.00001, 0, 0, 0, 1, 0, 0, 0, 1.00001, -3.987, 0, 3.4)
 mesh = ExtResource("2_jx02h")
 skeleton = NodePath("")
 
@@ -129,56 +124,157 @@ mesh = ExtResource("3_vxvm7")
 skeleton = NodePath("../../..")
 
 [node name="BeginHouseTowerGround" type="MeshInstance3D" parent="road/Levels"]
-transform = Transform3D(-0.418053, 0, -0.90847, 0, 1, 0, 0.908471, 0, -0.418054, -4.20794, -1.90127, -3.23217)
+transform = Transform3D(1.00004, 0, 0, 0, 1, 0, 0, 0, 1.00004, 9.96753, 0, -3.46373)
 mesh = ExtResource("1_7pqwd")
 skeleton = NodePath("../../../LakeSidePart/LakeSideGround/FarmPlotGround")
 
 [node name="Watchtower" type="MeshInstance3D" parent="road/Levels/BeginHouseTowerGround"]
-transform = Transform3D(0.920767, 0, 0.390001, 0, 1, 0, -0.39, 0, 0.920768, 0.0179443, 1.01, 0.614115)
+transform = Transform3D(-0.0454557, 0, -0.998924, 0, 1, 0, 0.998923, 0, -0.0454552, -0.0222921, 1.01, 0.101103)
 mesh = ExtResource("19_lcgei")
 skeleton = NodePath("../../../..")
 
 [node name="BeginHouseGround" type="MeshInstance3D" parent="road/Levels"]
-transform = Transform3D(-0.58174, 0, 0.8134, 0, 1, 0, -0.813401, 0, -0.58174, -5.01082, -2.09239, -1.4378)
+transform = Transform3D(1.00002, 0, 0, 0, 1, 0, 0, 0, 1.00002, 8.97424, 0, -1.73069)
 mesh = ExtResource("1_7pqwd")
 skeleton = NodePath("../../../LakeSidePart/LakeSideGround/FarmPlotGround")
 
 [node name="BeginHouse" type="MeshInstance3D" parent="road/Levels/BeginHouseGround"]
-transform = Transform3D(-0.549591, 0, 0.835409, 0, 1, 0, -0.835409, 0, -0.549592, 0.408901, 1.08414, 0.371504)
+transform = Transform3D(-0.92763, 0, -0.373446, 0, 1, 0, 0.373445, 0, -0.92763, -0.0743561, 1.08414, -0.0900414)
 mesh = ExtResource("7_vnbdh")
 skeleton = NodePath("../../../..")
 
 [node name="RoadToLevel1" type="MeshInstance3D" parent="road"]
-transform = Transform3D(-0.994524, 0, -0.10451, 0, 1, 0, 0.10451, 0, -0.994524, -12.1121, -2.10662, -2.35423)
+transform = Transform3D(-1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -1, 3, 0, -1.72974)
 mesh = ExtResource("28_0lwvo")
 skeleton = NodePath("../..")
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-0.86648, -0.298966, 0.399791, -0.0141986, 0.815278, 0.578896, -0.499011, 0.495925, -0.710667, 7.27008, 6.39852, -3.19099)
-environment = SubResource("Environment_osaiu")
-current = true
-fov = 92.2176
+[node name="MountainSidePart" type="Node3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 2.9, 0)
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.788166, 0.498068, -0.361557, 0.54957, -0.305079, 0.777753, 0.277071, -0.811699, -0.514176, 3.87874, 10.4568, -5.49196)
-light_energy = 1.204
-light_indirect_energy = 1.068
-light_volumetric_fog_energy = 0.932
+[node name="floor-down-chateau5" type="Node3D" parent="MountainSidePart"]
+transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
-[node name="MountainSidePart" type="MultiMeshInstance3D" parent="."]
+[node name="HexForestDetail3" type="MeshInstance3D" parent="MountainSidePart/floor-down-chateau5"]
+transform = Transform3D(1, 8.52651e-14, -2.98023e-08, 8.52651e-13, 0.999996, -1.93268e-12, 8.9407e-08, 5.68434e-14, 1, -7, 0, 1.7)
+mesh = ExtResource("2_jx02h")
+skeleton = NodePath("../HexForestDetail2")
+
+[node name="FarmWheat2" type="MeshInstance3D" parent="MountainSidePart/floor-down-chateau5/HexForestDetail3"]
+transform = Transform3D(0.992565, 1.86732e-07, -0.12173, 2.61266e-07, 1, -4.76258e-07, 0.12173, -3.41522e-07, 0.992564, 0.0108414, 1, -0.173217)
+mesh = ExtResource("23_5tb6m")
+skeleton = NodePath("../../../../LakeSidePart/LakeSideGround/FarmWheatGround/FarmWheat")
+
+[node name="HexForestDetail4" type="MeshInstance3D" parent="MountainSidePart/floor-down-chateau5"]
+transform = Transform3D(0.999666, -1.14936e-08, 0.0258279, 1.12826e-08, 0.999996, 8.3416e-09, -0.0258281, -8.048e-09, 0.999666, -6, 0, 3.4)
+mesh = ExtResource("2_jx02h")
+skeleton = NodePath("../HexForestDetail2")
+
+[node name="HexForestDetail2" type="MeshInstance3D" parent="MountainSidePart/floor-down-chateau5"]
+transform = Transform3D(1, 0, -2.98023e-08, 3.97904e-13, 0.999999, -2.27374e-13, 5.96046e-08, -5.68434e-14, 1, -5, 0, 1.7)
+mesh = ExtResource("2_jx02h")
+
+[node name="HexForestDetail8" type="MeshInstance3D" parent="MountainSidePart/floor-down-chateau5"]
+transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, -2, 0, 3.4)
+mesh = ExtResource("2_jx02h")
+skeleton = NodePath("")
+
+[node name="Mill" type="MeshInstance3D" parent="MountainSidePart/floor-down-chateau5/HexForestDetail8"]
+transform = Transform3D(-0.999997, -1.24946e-12, -0.00322974, -5.49344e-13, 0.999999, -5.38716e-13, 0.00322926, -2.99975e-12, -0.999996, -0.0542259, 1.04403, 0.0095067)
+mesh = ExtResource("6_l0eeu")
+skeleton = NodePath("../../../..")
+
+[node name="MillBlades" type="MeshInstance3D" parent="MountainSidePart/floor-down-chateau5/HexForestDetail8/Mill"]
+transform = Transform3D(-0.995425, 0, -0.0955504, 0, 1, 0, 0.0955503, 0, -0.995425, 0.0228717, -0.0066638, 0.429553)
+mesh = ExtResource("7_igmhm")
+skeleton = NodePath("../../../../..")
+
+[node name="chateau-1" type="Node3D" parent="MountainSidePart"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+
+[node name="DetailHill" type="MeshInstance3D" parent="MountainSidePart/chateau-1"]
+transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 2, 1, 3.4)
+mesh = ExtResource("6_db2xq")
+skeleton = NodePath("../../HexFieldHill")
+
+[node name="Forest" type="MeshInstance3D" parent="MountainSidePart/chateau-1"]
+transform = Transform3D(0.999997, 0, 0, 0, 0.999998, 0, 0, 0, 0.999998, 6, 1, 3.4)
+mesh = ExtResource("5_q4mki")
+skeleton = NodePath("../../chateau")
+
+[node name="HexForest6" type="MeshInstance3D" parent="MountainSidePart/chateau-1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999997, 0, 0, 3.4)
+mesh = ExtResource("1_7pqwd")
+skeleton = NodePath("../../HexForest2")
+
+[node name="HexForest5" type="MeshInstance3D" parent="MountainSidePart/chateau-1"]
+transform = Transform3D(1, 0, 0, 0, 0.999999, 0, 0, 0, 0.999998, 6, 0, 3.4)
+mesh = ExtResource("1_7pqwd")
+skeleton = NodePath("../../HexForest2")
+
+[node name="HexForest7" type="MeshInstance3D" parent="MountainSidePart/chateau-1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 3.4)
+mesh = ExtResource("1_7pqwd")
+skeleton = NodePath("")
+
+[node name="HexForest4" type="MeshInstance3D" parent="MountainSidePart/chateau-1"]
+transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 4, 0, 3.4)
+mesh = ExtResource("1_7pqwd")
+skeleton = NodePath("")
+
+[node name="HexForestDetail7" type="MeshInstance3D" parent="MountainSidePart/chateau-1"]
+transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, -1, 0, 5.1)
+mesh = ExtResource("2_jx02h")
+skeleton = NodePath("")
+
+[node name="Forest" type="MeshInstance3D" parent="MountainSidePart/chateau-1/HexForestDetail7"]
+transform = Transform3D(0.488113, 0.00382896, 0.872771, -0.00238699, 0.999992, -0.00305159, -0.872777, -0.000594577, 0.488118, 0.009, 1, -0.089)
+mesh = ExtResource("5_q4mki")
+skeleton = NodePath("../../../chateau")
+
+[node name="chateau" type="Node3D" parent="MountainSidePart"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
+
+[node name="HexFieldWithForest" type="MeshInstance3D" parent="MountainSidePart/chateau"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 5.1)
+mesh = ExtResource("2_jx02h")
+skeleton = NodePath("../../..")
+
+[node name="Forest" type="MeshInstance3D" parent="MountainSidePart/chateau/HexFieldWithForest"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = ExtResource("5_q4mki")
+skeleton = NodePath("../../../..")
+
+[node name="HexFieldWithCastle2" type="MeshInstance3D" parent="MountainSidePart/chateau"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 5.1)
+mesh = ExtResource("2_jx02h")
+skeleton = NodePath("")
+
+[node name="Castle" type="MeshInstance3D" parent="MountainSidePart/chateau/HexFieldWithCastle2"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1, 0)
+mesh = ExtResource("7_vnbdh")
+
+[node name="HexFieldWithCastle3" type="MeshInstance3D" parent="MountainSidePart/chateau"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 5.1)
+mesh = ExtResource("2_jx02h")
+skeleton = NodePath("")
+
+[node name="Mountain" type="MeshInstance3D" parent="MountainSidePart/chateau/HexFieldWithCastle3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = ExtResource("25_1ipmf")
+skeleton = NodePath("../../../..")
 
 [node name="HexForest3" type="MeshInstance3D" parent="MountainSidePart"]
-transform = Transform3D(0.896766, 0, 0.442526, 0, 1, 0, -0.442526, 0, 0.896766, 3.91945, 1.14798, 2.33224)
+transform = Transform3D(1.00001, 0, 0, 0, 1, 0, 0, 0, 1.00001, 2, 0, 0)
 mesh = ExtResource("1_7pqwd")
 skeleton = NodePath("../HexForest2")
 
 [node name="HexForest2" type="MeshInstance3D" parent="MountainSidePart"]
-transform = Transform3D(0.896111, 0, 0.443839, 0, 1, 0, -0.443839, 0, 0.896112, 1.97051, 1.05661, 5.08571)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 1.7)
 mesh = ExtResource("1_7pqwd")
 skeleton = NodePath("../../road")
 
 [node name="HexFieldHill" type="MeshInstance3D" parent="MountainSidePart"]
-transform = Transform3D(0.899411, 0, 0.437119, 0, 1, 0, -0.437119, 0, 0.899411, 9.03078, 1.2244, 1.54778)
+transform = Transform3D(1.00001, 0, 0, 0, 1, 0, 0, 0, 1.00001, 8, 0, 0)
 mesh = ExtResource("1_7pqwd")
 skeleton = NodePath("../..")
 
@@ -188,139 +284,37 @@ mesh = ExtResource("6_db2xq")
 skeleton = NodePath("../../..")
 
 [node name="HexForest8" type="MeshInstance3D" parent="MountainSidePart"]
-transform = Transform3D(0.878293, -0.0382704, 0.476596, 0.0436193, 0.999047, -0.000159875, -0.476137, 0.020929, 0.879127, 7.45213, 1.05349, 0.494105)
+transform = Transform3D(1, 0, 0, 0, 0.999999, 0, 0, 0, 1, 6, 0, 0)
 mesh = ExtResource("1_7pqwd")
 skeleton = NodePath(".")
 
 [node name="HexForest9" type="MeshInstance3D" parent="MountainSidePart"]
-transform = Transform3D(0.896223, 0.00709891, 0.443548, -0.00654522, 0.999974, -0.00277935, -0.443557, -0.000412223, 0.896248, 3.74984, 0.97543, 4.22322)
+transform = Transform3D(1, 0, 0, 0, 0.999999, 0, 0, 0, 1, 3, 0, 1.7)
 mesh = ExtResource("1_7pqwd")
 skeleton = NodePath("../HexForest10")
 
 [node name="HexForest10" type="MeshInstance3D" parent="MountainSidePart"]
-transform = Transform3D(0.885306, 0.0070523, 0.46496, -0.00669649, 0.999974, -0.0024168, -0.464966, -0.000974004, 0.885331, 5.69632, 1.109, 1.45035)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
 mesh = ExtResource("1_7pqwd")
 skeleton = NodePath(".")
 
 [node name="HexForest11" type="MeshInstance3D" parent="MountainSidePart"]
-transform = Transform3D(0.906662, 0.00710005, 0.421801, -0.00634505, 0.999975, -0.00319359, -0.421813, 0.000219159, 0.906684, 1.83685, 0.91918, 7.0648)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1.7)
 mesh = ExtResource("1_7pqwd")
 skeleton = NodePath("../..")
 
 [node name="HexForest12" type="MeshInstance3D" parent="MountainSidePart"]
-transform = Transform3D(-0.903014, 2.93236e-07, -0.429612, -6.90644e-07, 1, -7.99386e-07, 0.429614, 8.73988e-07, -0.903012, 5.59746, 1.67622, 3.40956)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 1.7)
 mesh = ExtResource("1_7pqwd")
 skeleton = NodePath("../HexForest2")
 
 [node name="House2" type="MeshInstance3D" parent="MountainSidePart/HexForest12"]
-transform = Transform3D(0.637273, 6.785e-05, -0.77064, 0.0017325, 0.999993, 0.00151813, 0.770638, -0.00230192, 0.637269, -0.10062, 1.04845, 0.197892)
+transform = Transform3D(-1, 0.00174532, -8.74224e-08, 0.00174533, 0.999993, 0.00174533, 3.1336e-06, 0.00174532, -0.999999, 0.00665617, 1.04845, -0.0993195)
 mesh = ExtResource("3_vxvm7")
 skeleton = NodePath("")
 
-[node name="floor-down-chateau5" type="MultiMeshInstance3D" parent="MountainSidePart"]
-transform = Transform3D(0.891006, -1.13319e-08, 0.453989, -3.17297e-07, 1, 4.40913e-07, -0.453989, 3.89073e-07, 0.891007, 14.9954, 2.84282, 7.62081)
-
-[node name="HexForestDetail3" type="MeshInstance3D" parent="MountainSidePart/floor-down-chateau5"]
-transform = Transform3D(1, 8.6972e-14, 6.18629e-09, 6.77423e-13, 0.999996, -1.94226e-12, -1.99508e-08, 8.28241e-14, 1, -16.3469, -1.74701, -8.15363)
-mesh = ExtResource("2_jx02h")
-skeleton = NodePath("../HexForestDetail2")
-
-[node name="HexForestDetail4" type="MeshInstance3D" parent="MountainSidePart/floor-down-chateau5"]
-transform = Transform3D(0.999666, -1.14936e-08, 0.025828, 1.12825e-08, 0.999996, 8.34171e-09, -0.0258281, -8.04798e-09, 0.999666, -15.3146, -1.72287, -6.4809)
-mesh = ExtResource("2_jx02h")
-skeleton = NodePath("../HexForestDetail2")
-
-[node name="HexForestDetail2" type="MeshInstance3D" parent="MountainSidePart/floor-down-chateau5"]
-transform = Transform3D(1, 6.15132e-15, 6.18629e-09, 3.11522e-13, 0.999999, -2.36961e-13, -1.34543e-08, -2.73829e-16, 1, -14.3563, -1.84907, -8.222)
-mesh = ExtResource("2_jx02h")
-
-[node name="HexForestDetail8" type="MeshInstance3D" parent="MountainSidePart/floor-down-chateau5"]
-transform = Transform3D(0.516309, 1.86732e-07, -0.856401, -2.13775e-07, 0.999999, -4.99382e-07, 0.856401, -3.41519e-07, 0.516309, -12.5517, -1.31137, -4.93761)
-mesh = ExtResource("2_jx02h")
-skeleton = NodePath("")
-
-[node name="Mill" type="MeshInstance3D" parent="MountainSidePart/floor-down-chateau5/HexForestDetail8"]
-transform = Transform3D(-0.848835, -2.02646e-12, -0.528662, 4.68799e-14, 1, -3.34849e-13, 0.528662, -2.03643e-12, -0.848834, -0.205578, 1.04403, -0.0149894)
-mesh = ExtResource("6_l0eeu")
-skeleton = NodePath("../../../..")
-
-[node name="MillBlades" type="MeshInstance3D" parent="MountainSidePart/floor-down-chateau5/HexForestDetail8/Mill"]
-transform = Transform3D(-0.995425, 0, -0.0955504, 0, 1, 0, 0.0955503, 0, -0.995425, 0.0228717, -0.0066638, 0.429553)
-mesh = ExtResource("7_igmhm")
-skeleton = NodePath("../../../../..")
-
-[node name="chateau-1" type="MultiMeshInstance3D" parent="MountainSidePart"]
-transform = Transform3D(0.891007, -1.13329e-08, 0.45399, -3.17297e-07, 1, 4.40913e-07, -0.45399, 3.89071e-07, 0.891008, 17.0104, 2.63562, 5.23604)
-
-[node name="DetailHill" type="MeshInstance3D" parent="MountainSidePart/chateau-1"]
-transform = Transform3D(0.886098, -6.63302e-07, 0.463497, 4.85518e-07, 0.999999, -2.43626e-07, -0.463496, -4.23104e-07, 0.886097, -8.47608, 0.33553, -5.27449)
-mesh = ExtResource("6_db2xq")
-skeleton = NodePath("../../HexFieldHill")
-
-[node name="Forest" type="MeshInstance3D" parent="MountainSidePart/chateau-1"]
-transform = Transform3D(0.605595, -0.00313397, -0.795765, -0.00213206, 0.99998, -0.00556351, 0.795767, 0.0050697, 0.605576, -6.37217, 0.446763, -5.30681)
-mesh = ExtResource("5_q4mki")
-skeleton = NodePath("../../chateau")
-
-[node name="HexForest6" type="MeshInstance3D" parent="MountainSidePart/chateau-1"]
-transform = Transform3D(-0.999264, -4.5745e-07, -0.0383718, -1.02463e-06, 1, -3.70974e-07, 0.0383699, 6.94574e-07, -0.999261, -6.47939, -0.55288, -5.23949)
-mesh = ExtResource("1_7pqwd")
-skeleton = NodePath("../../HexForest2")
-
-[node name="HexForest5" type="MeshInstance3D" parent="MountainSidePart/chateau-1"]
-transform = Transform3D(0.999855, -2.27285e-07, 0.0171054, -1.52943e-07, 0.999999, -2.00072e-07, -0.0171013, -7.96347e-07, 0.999852, -8.4769, -0.839841, -5.14307)
-mesh = ExtResource("1_7pqwd")
-skeleton = NodePath("../../HexForest2")
-
-[node name="HexForest7" type="MeshInstance3D" parent="MountainSidePart/chateau-1"]
-transform = Transform3D(-0.523185, 1.86732e-07, 0.852219, 2.09749e-07, 1, 5.01086e-07, -0.852219, -3.4152e-07, -0.523186, -12.3284, -0.926969, -5.23308)
-mesh = ExtResource("1_7pqwd")
-skeleton = NodePath("")
-
-[node name="HexForest4" type="MeshInstance3D" parent="MountainSidePart/chateau-1"]
-transform = Transform3D(0.533598, 1.86732e-07, 0.845738, 5.42206e-07, 1, 3.30799e-08, -0.845737, -3.4152e-07, 0.533597, -10.4662, -0.407561, -5.39848)
-mesh = ExtResource("1_7pqwd")
-skeleton = NodePath("")
-
-[node name="HexForestDetail7" type="MeshInstance3D" parent="MountainSidePart/chateau-1"]
-transform = Transform3D(0.999865, -9.19457e-15, -0.016388, 1.77136e-08, 1, 1.07325e-08, 0.016388, 2.21944e-12, 0.999865, -13.4761, -0.773123, -3.72919)
-mesh = ExtResource("2_jx02h")
-skeleton = NodePath("")
-
-[node name="Forest" type="MeshInstance3D" parent="MountainSidePart/chateau-1/HexForestDetail7"]
-transform = Transform3D(0.488113, 0.00382896, 0.872771, -0.00238699, 0.999992, -0.00305159, -0.872777, -0.000594577, 0.488118, 0.00918293, 1.05937, -0.0893164)
-mesh = ExtResource("5_q4mki")
-skeleton = NodePath("../../../chateau")
-
-[node name="chateau" type="MultiMeshInstance3D" parent="MountainSidePart"]
-transform = Transform3D(0.991729, 0, 0.128346, 0, 1, 0, -0.128346, 0, 0.991729, 18.5549, 3.74683, 5.70454)
-
-[node name="HexFieldWithForest" type="MeshInstance3D" parent="MountainSidePart/chateau"]
-transform = Transform3D(0.20186, 0.00343655, 0.979408, -0.00244651, 0.999992, -0.00300454, -0.979411, -0.00178964, 0.201867, -13.5438, -1.13336, -0.274415)
-mesh = ExtResource("2_jx02h")
-skeleton = NodePath("../../..")
-
-[node name="Forest" type="MeshInstance3D" parent="MountainSidePart/chateau/HexFieldWithForest"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0347099, 0.806161, -0.0124402)
-mesh = ExtResource("5_q4mki")
-skeleton = NodePath("../../../..")
-
-[node name="HexFieldWithCastle2" type="MeshInstance3D" parent="MountainSidePart/chateau"]
-transform = Transform3D(0.951202, 0, 0.308568, 0, 1, 0, -0.308568, 0, 0.951203, -11.6542, -1.29848, -0.91432)
-mesh = ExtResource("2_jx02h")
-skeleton = NodePath("")
-
-[node name="Castle" type="MeshInstance3D" parent="MountainSidePart/chateau/HexFieldWithCastle2"]
-transform = Transform3D(-0.997413, 0, -0.0718804, 0, 1, 0, 0.0718805, 0, -0.997413, 0.0627067, 0.962553, 0.0359879)
-mesh = ExtResource("7_vnbdh")
-
-[node name="Mountain" type="MeshInstance3D" parent="MountainSidePart/chateau"]
-transform = Transform3D(0.220306, 0, 0.975431, 0, 1, 0, -0.975431, 0, 0.220306, -10.001, -0.976045, -1.59477)
-mesh = ExtResource("25_1ipmf")
-skeleton = NodePath("../../..")
-
 [node name="HexFieldWithForest5" type="MeshInstance3D" parent="MountainSidePart"]
-transform = Transform3D(-0.835717, 0.00387125, 0.549153, 0.000567769, 0.999985, -0.00618536, -0.549166, -0.00485737, -0.835704, 10.5161, 1.58774, 2.56893)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 1.7)
 mesh = ExtResource("2_jx02h")
 skeleton = NodePath("../chateau")
 
@@ -330,7 +324,7 @@ mesh = ExtResource("5_q4mki")
 skeleton = NodePath("../../chateau")
 
 [node name="HexFieldWithForest3" type="MeshInstance3D" parent="MountainSidePart"]
-transform = Transform3D(-0.0742082, -0.00228127, -0.997242, 0.00500071, 0.999986, -0.00265968, 0.997231, -0.00518425, -0.0741944, 10.8094, 1.30625, 0.62518)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
 mesh = ExtResource("2_jx02h")
 skeleton = NodePath("../chateau")
 
@@ -340,28 +334,23 @@ mesh = ExtResource("5_q4mki")
 skeleton = NodePath("../../chateau")
 
 [node name="WellGround" type="MeshInstance3D" parent="MountainSidePart"]
-transform = Transform3D(0.838801, -0.00567407, -0.544422, 0.00533459, 0.999992, -0.00220304, 0.544426, -0.00105636, 0.838818, 7.31999, 1.29816, 2.51393)
+transform = Transform3D(1.00001, 0, 0, 0, 1.00001, 0, 0, 0, 1.00001, 7, 0, 1.7)
 mesh = ExtResource("2_jx02h")
 skeleton = NodePath("../chateau")
 
 [node name="Well" type="MeshInstance3D" parent="MountainSidePart/WellGround"]
-transform = Transform3D(-0.663485, 0.00533451, -0.74816, 0.00518769, 0.999973, 0.00252943, 0.74816, -0.00220301, -0.663501, -0.0475726, 1.05791, -0.165343)
+transform = Transform3D(-0.663485, 0.00533451, -0.74816, 0.00518769, 0.999973, 0.00252943, 0.74816, -0.00220301, -0.663501, -0.048, 0, -0.165)
 mesh = ExtResource("19_0iw55")
 skeleton = NodePath("../../..")
 
-[node name="FarmWheat2" type="MeshInstance3D" parent="MountainSidePart"]
-transform = Transform3D(0.939645, 0, 0.342151, 0, 1, 0, -0.342151, 0, 0.939645, -3.43256, 2.0805, 7.65121)
-mesh = ExtResource("23_5tb6m")
-skeleton = NodePath("../../LakeSidePart/LakeSideGround/FarmWheatGround/FarmWheat")
+[node name="LakeSidePart" type="Node3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 
-[node name="LakeSidePart" type="MultiMeshInstance3D" parent="."]
-transform = Transform3D(0.930947, 0, 0.365154, 0, 1, 0, -0.365154, 0, 0.930947, 2.50867, 3.04088, -3.38127)
-
-[node name="LakeSideForest" type="MultiMeshInstance3D" parent="LakeSidePart"]
-transform = Transform3D(0.996304, 0, 0.0875523, 0, 1, 0, -0.0875456, 0, 0.99629, -5.31463, -1.91913, -0.635253)
+[node name="LakeSideForest" type="Node3D" parent="LakeSidePart"]
+transform = Transform3D(1.00014, 0, 0, 0, 1, 0, 0, 0, 1.00013, 0, 0, 0)
 
 [node name="HexForest20" type="MeshInstance3D" parent="LakeSidePart/LakeSideForest"]
-transform = Transform3D(1, 0, -1.60953e-08, 0, 1, 0, 6.197e-09, 0, 1, 2.38419e-07, 0, -4.76837e-07)
+transform = Transform3D(1, 0, -1.60953e-08, 0, 1, 0, 6.197e-09, 0, 1, -5.99914, 0, -6.9)
 mesh = ExtResource("1_7pqwd")
 skeleton = NodePath("../../LakeSideGround/TreeGround")
 
@@ -371,7 +360,7 @@ mesh = ExtResource("5_q4mki")
 skeleton = NodePath("../../../../MountainSidePart/chateau")
 
 [node name="HexForest19" type="MeshInstance3D" parent="LakeSidePart/LakeSideForest"]
-transform = Transform3D(0.999919, 0, -0.00438199, 0, 1, 0, 0.00437778, 0, 0.999926, 0.989377, 0.227029, -1.70989)
+transform = Transform3D(0.999929, 0, 0, 0, 1, 0, 0, 0, 0.999936, -3.99943, 0, -6.9)
 mesh = ExtResource("1_7pqwd")
 skeleton = NodePath("../../LakeSideGround/TreeGround")
 
@@ -381,7 +370,7 @@ mesh = ExtResource("5_q4mki")
 skeleton = NodePath("../../../../MountainSidePart/chateau")
 
 [node name="HexForest18" type="MeshInstance3D" parent="LakeSidePart/LakeSideForest"]
-transform = Transform3D(0.999889, 0, -0.00299518, 0, 1, 0, 0.00298885, 0, 0.999898, 4.90023, -0.0709338, -1.77687)
+transform = Transform3D(0.999893, 0, 0, 0, 1, 0, 0, 0, 0.999902, 0, 0, -6.9)
 mesh = ExtResource("1_7pqwd")
 skeleton = NodePath("../../LakeSideGround/TreeGround")
 
@@ -390,8 +379,38 @@ transform = Transform3D(-0.464352, 0.00529539, 0.885632, 3.81919e-05, 0.999983, 
 mesh = ExtResource("5_q4mki")
 skeleton = NodePath("../../../../MountainSidePart/chateau")
 
+[node name="HexForest22" type="MeshInstance3D" parent="LakeSidePart/LakeSideForest"]
+transform = Transform3D(0.999893, 0, 0, 0, 1, 0, 0, 0, 0.999902, 7.99886, 0, -6.9)
+mesh = ExtResource("1_7pqwd")
+skeleton = NodePath("../../LakeSideGround/TreeGround")
+
+[node name="Forest" type="MeshInstance3D" parent="LakeSidePart/LakeSideForest/HexForest22"]
+transform = Transform3D(-0.464352, 0.00529539, 0.885632, 3.81919e-05, 0.999983, -0.00595912, -0.885646, -0.00273331, -0.464345, 0.0799704, 0.995169, -0.0433626)
+mesh = ExtResource("5_q4mki")
+skeleton = NodePath("../../../../MountainSidePart/chateau")
+
+[node name="HexForest23" type="MeshInstance3D" parent="LakeSidePart/LakeSideForest"]
+transform = Transform3D(0.999893, 0, 0, 0, 1, 0, 0, 0, 0.999902, 9.99857, 0, -6.9)
+mesh = ExtResource("1_7pqwd")
+skeleton = NodePath("../../LakeSideGround/TreeGround")
+
+[node name="Forest" type="MeshInstance3D" parent="LakeSidePart/LakeSideForest/HexForest23"]
+transform = Transform3D(-0.464352, 0.00529539, 0.885632, 3.81919e-05, 0.999983, -0.00595912, -0.885646, -0.00273331, -0.464345, 0.0799704, 0.995169, -0.0433626)
+mesh = ExtResource("5_q4mki")
+skeleton = NodePath("../../../../MountainSidePart/chateau")
+
+[node name="HexForest25" type="MeshInstance3D" parent="LakeSidePart/LakeSideForest"]
+transform = Transform3D(0.999893, 0, 0, 0, 1, 0, 0, 0, 0.999902, 10.998, 0, -5.17)
+mesh = ExtResource("1_7pqwd")
+skeleton = NodePath("../../LakeSideGround/TreeGround")
+
+[node name="Forest" type="MeshInstance3D" parent="LakeSidePart/LakeSideForest/HexForest25"]
+transform = Transform3D(-0.464352, 0.00529539, 0.885632, 3.81919e-05, 0.999983, -0.00595912, -0.885646, -0.00273331, -0.464345, 0.0799704, 0.995169, -0.0433626)
+mesh = ExtResource("5_q4mki")
+skeleton = NodePath("../../../../MountainSidePart/chateau")
+
 [node name="HexForest17" type="MeshInstance3D" parent="LakeSidePart/LakeSideForest"]
-transform = Transform3D(0.999757, 0, 0.0153668, 0, 1, 0, -0.015374, 0, 0.999768, 2.94738, -0.161104, -1.68252)
+transform = Transform3D(0.999875, 0, 0, 0, 1, 0, 0, 0, 0.999886, -1.99971, 0, -6.9)
 mesh = ExtResource("1_7pqwd")
 skeleton = NodePath("../../LakeSideGround/TreeGround")
 
@@ -401,7 +420,7 @@ mesh = ExtResource("5_q4mki")
 skeleton = NodePath("../../../../MountainSidePart/chateau")
 
 [node name="HexForest" type="MeshInstance3D" parent="LakeSidePart/LakeSideForest"]
-transform = Transform3D(0.999813, 0, 0.0097859, 0, 1, 0, -0.00979386, 0, 0.999826, 1.91757, -0.394121, 3.46311)
+transform = Transform3D(0.999861, 0, 0, 0, 1, 0, 0, 0, 0.999874, -0.999857, 0, -1.7)
 mesh = ExtResource("1_7pqwd")
 skeleton = NodePath("../../..")
 
@@ -411,7 +430,7 @@ mesh = ExtResource("5_q4mki")
 skeleton = NodePath("../../../../MountainSidePart/chateau")
 
 [node name="HexFieldWithForest2" type="MeshInstance3D" parent="LakeSidePart/LakeSideForest"]
-transform = Transform3D(-0.498597, -0.000663314, -0.866669, 0.00257817, 0.999996, -0.00224857, 0.866682, -0.00335558, -0.498593, -1.03988, 0.0971333, 5.09311)
+transform = Transform3D(0.999872, 0, 0, 0, 1, 0, 0, 0, 0.999858, -6.999, 0, -1.7)
 mesh = ExtResource("2_jx02h")
 skeleton = NodePath("../../../MountainSidePart/chateau")
 
@@ -421,7 +440,7 @@ mesh = ExtResource("5_q4mki")
 skeleton = NodePath("../../../../MountainSidePart/chateau")
 
 [node name="HexForest24" type="MeshInstance3D" parent="LakeSidePart/LakeSideForest"]
-transform = Transform3D(-0.498788, 0, -0.866598, 0, 1, 0, 0.866614, 0, -0.498788, -1.84714, 0.207513, -0.0681179)
+transform = Transform3D(0.999905, 0, 0, 0, 1, 0, 0, 0, 0.999891, -6.999, 0, -5.17)
 mesh = ExtResource("1_7pqwd")
 skeleton = NodePath("../../../MountainSidePart/HexForest3")
 
@@ -431,7 +450,7 @@ mesh = ExtResource("5_q4mki")
 skeleton = NodePath("../../../..")
 
 [node name="HexForest21" type="MeshInstance3D" parent="LakeSidePart/LakeSideForest"]
-transform = Transform3D(-0.999281, 0, -0.0346843, 0, 1, 0, 0.0346925, 0, -0.999295, -2.85474, -0.194408, 1.63255)
+transform = Transform3D(0.999883, 0, 0, 0, 1, 0, 0, 0, 0.999897, -8, 0, -3.44)
 mesh = ExtResource("1_7pqwd")
 skeleton = NodePath("../../../MountainSidePart/HexForest3")
 
@@ -440,10 +459,10 @@ transform = Transform3D(0.546742, 0, -0.837239, 0, 1, 0, 0.837238, 0, 0.546743, 
 mesh = ExtResource("5_q4mki")
 skeleton = NodePath("../../../../road")
 
-[node name="LakeSideGround" type="MultiMeshInstance3D" parent="LakeSidePart"]
+[node name="LakeSideGround" type="Node3D" parent="LakeSidePart"]
 
 [node name="FarmWheatGround" type="MeshInstance3D" parent="LakeSidePart/LakeSideGround"]
-transform = Transform3D(0.995225, -1.52768e-07, 0.0975976, -3.17296e-07, 0.999998, 4.40912e-07, -0.0975979, 3.57982e-07, 0.995226, -9.84596, -2.04314, 4.82055)
+transform = Transform3D(0.999999, 0, 0, 0, 0.999998, 0, 0, 0, 1, -11, 0, -1.7)
 mesh = ExtResource("2_jx02h")
 skeleton = NodePath("../../../MountainSidePart/floor-down-chateau5/HexForestDetail2")
 
@@ -452,68 +471,23 @@ transform = Transform3D(0.890865, -0.00491538, -0.454243, 8.23753e-08, 0.999943,
 mesh = ExtResource("23_5tb6m")
 skeleton = NodePath("../../../..")
 
-[node name="MountainGround" type="MeshInstance3D" parent="LakeSidePart/LakeSideGround"]
-transform = Transform3D(0.575721, 0, -0.817712, 0, 1, 0, 0.817713, 0, 0.57572, 6.78504, -1.87132, 1.59863)
-mesh = ExtResource("1_7pqwd")
-skeleton = NodePath("../FarmPlotGround")
-
-[node name="Mountain2" type="MeshInstance3D" parent="LakeSidePart/LakeSideGround/MountainGround"]
-transform = Transform3D(0.834466, 0, 0.550961, 0, 1, 0, -0.550961, 0, 0.834467, -0.122392, 0.458889, 0.0705986)
-mesh = ExtResource("25_1ipmf")
-skeleton = NodePath("../../../..")
-
-[node name="HexForest13" type="MeshInstance3D" parent="LakeSidePart/LakeSideGround"]
-transform = Transform3D(-0.995543, 0, -0.0946458, 0, 1, 0, 0.0946461, 0, -0.995543, 5.9688, -1.94096, 3.38723)
-mesh = ExtResource("1_7pqwd")
-skeleton = NodePath("../FarmPlotGround")
-
-[node name="HexForest17" type="MeshInstance3D" parent="LakeSidePart/LakeSideGround"]
-transform = Transform3D(-0.401943, 0, -0.91571, 0, 1, 0, 0.915709, 0, -0.401944, 5.58683, -1.79629, 0.0439367)
-mesh = ExtResource("1_7pqwd")
-skeleton = NodePath("../FarmPlotGround")
-
-[node name="HexForest16" type="MeshInstance3D" parent="LakeSidePart/LakeSideGround"]
-transform = Transform3D(-0.583173, 0, 0.812373, 0, 1, 0, -0.812374, 0, -0.583171, 4.79109, -1.90564, 1.82368)
-mesh = ExtResource("1_7pqwd")
-skeleton = NodePath("../FarmPlotGround")
-
-[node name="SmallForestGround" type="MeshInstance3D" parent="LakeSidePart/LakeSideGround"]
-transform = Transform3D(0.411302, 0, 0.911509, 0, 1, 0, -0.91151, 0, 0.411303, 2.82459, -1.84611, 1.99417)
-mesh = ExtResource("1_7pqwd")
-skeleton = NodePath("../FarmPlotGround")
-
-[node name="DetailForestB" type="MeshInstance3D" parent="LakeSidePart/LakeSideGround/SmallForestGround"]
-transform = Transform3D(0.685309, 0, -0.728239, 0, 1, 0, 0.728241, 0, 0.685308, 0.782971, 1.13587, 0.323669)
-mesh = ExtResource("4_373g2")
-skeleton = NodePath("../../../..")
-
 [node name="HexForest22" type="MeshInstance3D" parent="LakeSidePart/LakeSideGround"]
-transform = Transform3D(-0.593294, 0, 0.805007, 0, 1, 0, -0.805007, 0, -0.593294, -7.8415, -2.0164, 4.6224)
+transform = Transform3D(1.00002, 0, 0, 0, 1, 0, 0, 0, 1.00002, -10, 0, -3.44)
 mesh = ExtResource("1_7pqwd")
 skeleton = NodePath("../../../MountainSidePart/HexForest3")
 
 [node name="WellGround" type="MeshInstance3D" parent="LakeSidePart/LakeSideGround"]
-transform = Transform3D(0.583967, 0, -0.811827, 0, 1, 0, 0.811828, 0, 0.583967, -8.85484, -2.00236, 3.06733)
+transform = Transform3D(1.00004, 0, 0, 0, 1, 0, 0, 0, 1.00004, -9, 0, -1.7)
 mesh = ExtResource("1_7pqwd")
 skeleton = NodePath("../../../MountainSidePart/HexForest3")
 
 [node name="Well" type="MeshInstance3D" parent="LakeSidePart/LakeSideGround/WellGround"]
-transform = Transform3D(0.840016, 0, 0.542486, 0, 1, 0, -0.542486, 0, 0.840016, -0.308759, 1.08565, -0.132783)
+transform = Transform3D(0.840016, 0, 0.542486, 0, 1, 0, -0.542486, 0, 0.840016, -0.308759, 1.00073, -0.132783)
 mesh = ExtResource("19_0iw55")
 skeleton = NodePath("../../../..")
 
-[node name="FarmPlotGround" type="MeshInstance3D" parent="LakeSidePart/LakeSideGround"]
-transform = Transform3D(0.410393, 0, 0.911918, 0, 1, 0, -0.911918, 0, 0.410393, 0.870555, -1.88853, 2.22814)
-mesh = ExtResource("1_7pqwd")
-skeleton = NodePath("../../../MountainSidePart/HexForest3")
-
-[node name="FarmPlot" type="MeshInstance3D" parent="LakeSidePart/LakeSideGround/FarmPlotGround"]
-transform = Transform3D(-0.433919, 0, -0.900943, 0, 1, 0, 0.900943, 0, -0.433919, 0.0199162, 0.981575, -0.0124073)
-mesh = ExtResource("24_ssdjr")
-skeleton = NodePath("../../../..")
-
 [node name="MillGround" type="MeshInstance3D" parent="LakeSidePart/LakeSideGround"]
-transform = Transform3D(0.99797, 0, 0.0638165, 0, 1, 0, -0.0638165, 0, 0.997971, -5.04804, -2.12823, 2.74152)
+transform = Transform3D(1.00001, 0, 0, 0, 1, 0, 0, 0, 1.00001, -4, 0, -3.44)
 mesh = ExtResource("1_7pqwd")
 skeleton = NodePath("../../../road")
 
@@ -522,13 +496,63 @@ transform = Transform3D(0.504824, 1.84431e-09, 0.863213, 3.62582e-10, 1, -4.3863
 mesh = ExtResource("6_l0eeu")
 skeleton = NodePath("../../../..")
 
+[node name="FarmPlotGround" type="MeshInstance3D" parent="LakeSidePart/LakeSideGround"]
+transform = Transform3D(1.00001, 0, 0, 0, 1, 0, 0, 0, 1.00001, -3, 0, -1.7)
+mesh = ExtResource("1_7pqwd")
+skeleton = NodePath("../../../MountainSidePart/HexForest3")
+
+[node name="FarmPlot" type="MeshInstance3D" parent="LakeSidePart/LakeSideGround/FarmPlotGround"]
+transform = Transform3D(-0.433919, 0, -0.900943, 0, 1, 0, 0.900943, 0, -0.433919, 0.0199162, 0.981575, -0.0124073)
+mesh = ExtResource("24_ssdjr")
+skeleton = NodePath("../../../..")
+
+[node name="MountainGround" type="MeshInstance3D" parent="LakeSidePart/LakeSideGround"]
+transform = Transform3D(1.00005, 0, 0, 0, 1, 0, 0, 0, 1.00005, 4, 0, -6.9)
+mesh = ExtResource("1_7pqwd")
+skeleton = NodePath("../FarmPlotGround")
+
+[node name="Mountain2" type="MeshInstance3D" parent="LakeSidePart/LakeSideGround/MountainGround"]
+transform = Transform3D(0.834466, 0, 0.550961, 0, 1, 0, -0.550961, 0, 0.834467, -0.122392, 0.959627, 0.0705986)
+mesh = ExtResource("25_1ipmf")
+skeleton = NodePath("../../../..")
+
+[node name="HexForest13" type="MeshInstance3D" parent="LakeSidePart/LakeSideGround"]
+transform = Transform3D(1.00003, 0, 0, 0, 1, 0, 0, 0, 1.00003, 6, 0, -6.9)
+mesh = ExtResource("1_7pqwd")
+skeleton = NodePath("../FarmPlotGround")
+
+[node name="Forest2" type="MeshInstance3D" parent="LakeSidePart/LakeSideGround/HexForest13"]
+transform = Transform3D(-0.464352, 0.00529539, 0.885632, 3.81919e-05, 0.999983, -0.00595912, -0.885646, -0.00273331, -0.464345, 0.0799794, 0.995169, -0.0433626)
+mesh = ExtResource("5_q4mki")
+skeleton = NodePath("../../../../MountainSidePart/chateau")
+
+[node name="HexForest17" type="MeshInstance3D" parent="LakeSidePart/LakeSideGround"]
+transform = Transform3D(1.00004, 0, 0, 0, 1, 0, 0, 0, 1.00004, 5, 0, -5.17)
+mesh = ExtResource("1_7pqwd")
+skeleton = NodePath("../FarmPlotGround")
+
+[node name="HexForest16" type="MeshInstance3D" parent="LakeSidePart/LakeSideGround"]
+transform = Transform3D(1.00002, 0, 0, 0, 1, 0, 0, 0, 1.00002, 6, 0, -3.44)
+mesh = ExtResource("1_7pqwd")
+skeleton = NodePath("../FarmPlotGround")
+
+[node name="SmallForestGround" type="MeshInstance3D" parent="LakeSidePart/LakeSideGround"]
+transform = Transform3D(1.00001, 0, 0, 0, 1, 0, 0, 0, 1.00001, 4, 0, -3.44)
+mesh = ExtResource("1_7pqwd")
+skeleton = NodePath("../FarmPlotGround")
+
+[node name="DetailForestB" type="MeshInstance3D" parent="LakeSidePart/LakeSideGround/SmallForestGround"]
+transform = Transform3D(0.999992, 0, 0, 0, 1, 0, 0, 0, 0.99999, 0.0432258, 1, -0.0121906)
+mesh = ExtResource("4_373g2")
+skeleton = NodePath("../../../..")
+
 [node name="HexForest14" type="MeshInstance3D" parent="LakeSidePart/LakeSideGround"]
-transform = Transform3D(0.997059, 0, 0.0768723, 0, 1, 0, -0.076872, 0, 0.997058, 3.67496, -1.88996, 0.230094)
+transform = Transform3D(1.00002, 0, 0, 0, 1, 0, 0, 0, 1.00002, 7, 0, -5.17)
 mesh = ExtResource("1_7pqwd")
 skeleton = NodePath("../TreeGround")
 
 [node name="TreeGround" type="MeshInstance3D" parent="LakeSidePart/LakeSideGround"]
-transform = Transform3D(0.997308, 0, 0.0734454, 0, 1, 0, -0.0734452, 0, 0.997307, 1.71106, -1.9341, 0.421702)
+transform = Transform3D(1.00001, 0, 0, 0, 1, 0, 0, 0, 1.00001, 9, 0, -5.17)
 mesh = ExtResource("1_7pqwd")
 skeleton = NodePath("../../../road")
 
@@ -538,64 +562,426 @@ mesh = ExtResource("25_ta08b")
 skeleton = NodePath("../../../..")
 
 [node name="DetailTreeB" type="MeshInstance3D" parent="LakeSidePart/LakeSideGround/TreeGround"]
-transform = Transform3D(0.901606, 0, -0.432537, 0, 1, 0, 0.432537, 0, 0.901607, 0.451193, 1.40865, 0.513521)
+transform = Transform3D(0.901606, 0, -0.432537, 0, 1, 0, 0.432537, 0, 0.901607, -0.548991, 1, 0.513998)
 mesh = ExtResource("26_0bxmv")
 skeleton = NodePath("../../../..")
 
-[node name="HexFieldWithForest" type="MeshInstance3D" parent="LakeSidePart/LakeSideGround"]
-transform = Transform3D(-0.573982, 0.00490164, 0.818855, 3.81921e-05, 0.999983, -0.00595912, -0.818868, -0.00338915, -0.573973, -3.90904, -2.05149, 4.33533)
-mesh = ExtResource("2_jx02h")
-skeleton = NodePath("../../../MountainSidePart/chateau")
+[node name="Lake" type="Node3D" parent="LakeSidePart"]
+transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0, 0)
 
-[node name="Lake" type="MultiMeshInstance3D" parent="LakeSidePart"]
-transform = Transform3D(0.99637, -3.17832e-16, 0.0851202, 3.48787e-16, 1, -3.48787e-16, -0.0851202, 3.7721e-16, 0.99637, -2.23351, -2.05816, 0.824254)
+[node name="HexWaterDetail" type="MeshInstance3D" parent="LakeSidePart/Lake"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.66893e-06, 0, -3.44)
+mesh = ExtResource("19_1tkf2")
+skeleton = NodePath("../../..")
 
 [node name="HexWaterDetail2" type="MeshInstance3D" parent="LakeSidePart/Lake"]
-transform = Transform3D(1, 8.59694e-24, 3.37369e-09, -1.61249e-25, 1, -1.64375e-23, 8.30608e-09, -1.35077e-23, 1, 0, 0, 0)
+transform = Transform3D(1, 8.59694e-24, 3.37369e-09, -1.61249e-25, 1, -1.64375e-23, 8.30608e-09, -1.35077e-23, 1, -2, 0, -3.44)
 mesh = ExtResource("19_1tkf2")
 skeleton = NodePath("../HexWaterDetail3")
 
+[node name="HexWaterDetail3" type="MeshInstance3D" parent="LakeSidePart/Lake"]
+transform = Transform3D(1, 8.59694e-24, 3.37369e-09, -1.61249e-25, 1, -1.64375e-23, 8.30608e-09, -1.35077e-23, 1, -1, 0, -5.17)
+mesh = ExtResource("19_1tkf2")
+skeleton = NodePath("../HexWaterDetail")
+
 [node name="HexWaterDetail4" type="MeshInstance3D" parent="LakeSidePart/Lake"]
-transform = Transform3D(1, 8.59694e-24, 3.37369e-09, -1.61249e-25, 1, -1.64375e-23, 8.30608e-09, -1.35077e-23, 1, 2.95304, 0.00228, -1.76498)
-mesh = ExtResource("19_1tkf2")
-skeleton = NodePath("../HexWaterDetail")
-
-[node name="HexWaterDetail6" type="MeshInstance3D" parent="LakeSidePart/Lake"]
-transform = Transform3D(0.999933, -4.7695e-16, -0.0116582, 4.75331e-16, 1, -1.41687e-16, 0.0116585, 1.36135e-16, 0.999932, -0.939109, 0.0365574, -1.71301)
-mesh = ExtResource("19_1tkf2")
-skeleton = NodePath("../HexWaterDetail")
-
-[node name="HexWaterDetail8" type="MeshInstance3D" parent="LakeSidePart/Lake"]
-transform = Transform3D(0.999997, -9.38704e-16, -0.00322831, 9.37714e-16, 1, -3.08186e-16, 0.00322858, 3.05157e-16, 0.999996, -3.93704, 0.045588, -0.0608636)
-mesh = ExtResource("19_1tkf2")
-skeleton = NodePath("../HexWaterDetail")
-
-[node name="HexWaterDetail7" type="MeshInstance3D" parent="LakeSidePart/Lake"]
-transform = Transform3D(0.999393, -4.53492e-16, 0.0348824, 4.59286e-16, 1, -1.58108e-16, -0.0348825, 1.74032e-16, 0.999393, -4.93991, 0.0261556, 1.63757)
+transform = Transform3D(1, 8.59694e-24, 3.37369e-09, -1.61249e-25, 1, -1.64375e-23, 8.30608e-09, -1.35077e-23, 1, 1, 0, -5.17)
 mesh = ExtResource("19_1tkf2")
 skeleton = NodePath("../HexWaterDetail")
 
 [node name="HexWaterDetail5" type="MeshInstance3D" parent="LakeSidePart/Lake"]
-transform = Transform3D(0.999651, 9.34962e-18, 0.0264563, -9.10585e-18, 1, -9.34938e-18, -0.0264563, 9.10504e-18, 0.999651, -1.95626, 0.017125, -0.0230969)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -5.17)
 mesh = ExtResource("19_1tkf2")
 skeleton = NodePath("../HexWaterDetail")
 
-[node name="HexWaterDetail3" type="MeshInstance3D" parent="LakeSidePart/Lake"]
-transform = Transform3D(1, 8.59694e-24, 3.37369e-09, -1.61249e-25, 1, -1.64375e-23, 8.30608e-09, -1.35077e-23, 1, 1.01633, 0.00240201, -1.70898)
+[node name="HexWaterDetail6" type="MeshInstance3D" parent="LakeSidePart/Lake"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -1.7)
 mesh = ExtResource("19_1tkf2")
 skeleton = NodePath("../HexWaterDetail")
 
-[node name="HexWaterDetail" type="MeshInstance3D" parent="LakeSidePart/Lake"]
-transform = Transform3D(1, 3.48787e-16, -8.72407e-05, -3.48757e-16, 1, 3.48818e-16, 8.72398e-05, -3.48787e-16, 1, 1.98986, 0.07064, -0.0194131)
+[node name="HexWaterDetail7" type="MeshInstance3D" parent="LakeSidePart/Lake"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -3.44)
 mesh = ExtResource("19_1tkf2")
-skeleton = NodePath("../../..")
+skeleton = NodePath("../HexWaterDetail")
+
+[node name="HexWaterDetail8" type="MeshInstance3D" parent="LakeSidePart/Lake"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -5.17)
+mesh = ExtResource("19_1tkf2")
+skeleton = NodePath("../HexWaterDetail")
 
 [node name="HexForestWaterBDetail2" type="MeshInstance3D" parent="LakeSidePart/Lake"]
-transform = Transform3D(0.999989, 3.48787e-16, 0.00471236, -3.50427e-16, 1, 3.4714e-16, -0.00471234, -3.48787e-16, 0.999989, 4.94614, 0.102964, -1.80984)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -5.17)
 mesh = ExtResource("22_llhuq")
 skeleton = NodePath("../../..")
 
 [node name="HexForestWaterBDetail" type="MeshInstance3D" parent="LakeSidePart/Lake"]
-transform = Transform3D(0.445417, 3.48787e-16, 0.895324, -4.67633e-16, 1, -1.56922e-16, -0.895324, -3.48787e-16, 0.445417, 3.91261, 0.0987074, -3.40313)
+transform = Transform3D(0.5, 0, 0.866026, 0, 1, 0, -0.866026, 0, 0.5, 2, 0, -6.9)
 mesh = ExtResource("22_llhuq")
 skeleton = NodePath("../../..")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.788166, 0.498068, -0.361557, 0.54957, -0.305079, 0.777753, 0.277071, -0.811699, -0.514176, 3.87874, 10.4568, -5.49196)
+light_energy = 1.204
+light_indirect_energy = 1.068
+light_volumetric_fog_energy = 0.932
+
+[node name="Collisions" type="Node3D" parent="."]
+
+[node name="Limits" type="StaticBody3D" parent="Collisions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 4, -5.1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collisions/Limits"]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 0, 0, 0)
+shape = SubResource("BoxShape3D_iyn7v")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Collisions/Limits"]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 0, 0, 0)
+shape = SubResource("BoxShape3D_iyn7v")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Collisions/Limits"]
+transform = Transform3D(-5.96046e-08, 0, -1, 0, 1, 0, 1, 0, -5.96046e-08, 0, 0, 0)
+shape = SubResource("BoxShape3D_iyn7v")
+
+[node name="Limits13" type="StaticBody3D" parent="Collisions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -10.4)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collisions/Limits13"]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 0, 0, 0)
+shape = SubResource("BoxShape3D_iyn7v")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Collisions/Limits13"]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 0, 0, 0)
+shape = SubResource("BoxShape3D_iyn7v")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Collisions/Limits13"]
+transform = Transform3D(-5.96046e-08, 0, -1, 0, 1, 0, 1, 0, -5.96046e-08, 0, 0, 0)
+shape = SubResource("BoxShape3D_iyn7v")
+
+[node name="Limits6" type="StaticBody3D" parent="Collisions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 4, -20.7)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collisions/Limits6"]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 0, 0, 0)
+shape = SubResource("BoxShape3D_iyn7v")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Collisions/Limits6"]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 0, 0, 0)
+shape = SubResource("BoxShape3D_iyn7v")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Collisions/Limits6"]
+transform = Transform3D(-5.96046e-08, 0, -1, 0, 1, 0, 1, 0, -5.96046e-08, 0, 0, 0)
+shape = SubResource("BoxShape3D_iyn7v")
+
+[node name="Limits7" type="StaticBody3D" parent="Collisions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 4, -20.7)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collisions/Limits7"]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 0, 0, 0)
+shape = SubResource("BoxShape3D_iyn7v")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Collisions/Limits7"]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 0, 0, 0)
+shape = SubResource("BoxShape3D_iyn7v")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Collisions/Limits7"]
+transform = Transform3D(-5.96046e-08, 0, -1, 0, 1, 0, 1, 0, -5.96046e-08, 0, 0, 0)
+shape = SubResource("BoxShape3D_iyn7v")
+
+[node name="Limits8" type="StaticBody3D" parent="Collisions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 4, -20.7)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collisions/Limits8"]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 0, 0, 0)
+shape = SubResource("BoxShape3D_iyn7v")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Collisions/Limits8"]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 0, 0, 0)
+shape = SubResource("BoxShape3D_iyn7v")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Collisions/Limits8"]
+transform = Transform3D(-5.96046e-08, 0, -1, 0, 1, 0, 1, 0, -5.96046e-08, 0, 0, 0)
+shape = SubResource("BoxShape3D_iyn7v")
+
+[node name="Limits9" type="StaticBody3D" parent="Collisions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 4, -20.7)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collisions/Limits9"]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 0, 0, 0)
+shape = SubResource("BoxShape3D_iyn7v")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Collisions/Limits9"]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 0, 0, 0)
+shape = SubResource("BoxShape3D_iyn7v")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Collisions/Limits9"]
+transform = Transform3D(-5.96046e-08, 0, -1, 0, 1, 0, 1, 0, -5.96046e-08, 0, 0, 0)
+shape = SubResource("BoxShape3D_iyn7v")
+
+[node name="Limits10" type="StaticBody3D" parent="Collisions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 4, -20.7)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collisions/Limits10"]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 0, 0, 0)
+shape = SubResource("BoxShape3D_iyn7v")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Collisions/Limits10"]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 0, 0, 0)
+shape = SubResource("BoxShape3D_iyn7v")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Collisions/Limits10"]
+transform = Transform3D(-5.96046e-08, 0, -1, 0, 1, 0, 1, 0, -5.96046e-08, 0, 0, 0)
+shape = SubResource("BoxShape3D_iyn7v")
+
+[node name="Limits11" type="StaticBody3D" parent="Collisions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33, 4, -15.5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collisions/Limits11"]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 0, 0, 0)
+shape = SubResource("BoxShape3D_iyn7v")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Collisions/Limits11"]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 0, 0, 0)
+shape = SubResource("BoxShape3D_iyn7v")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Collisions/Limits11"]
+transform = Transform3D(-5.96046e-08, 0, -1, 0, 1, 0, 1, 0, -5.96046e-08, 0, 0, 0)
+shape = SubResource("BoxShape3D_iyn7v")
+
+[node name="Limits23" type="StaticBody3D" parent="Collisions"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8, 4, -15.5)
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Collisions/Limits23"]
+transform = Transform3D(-5.96046e-08, 0, -1, 0, 1, 0, 1, 0, -5.96046e-08, 0, 0, -1)
+shape = SubResource("BoxShape3D_kad1a")
+
+[node name="Limits12" type="StaticBody3D" parent="Collisions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27, 4, -5.2)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collisions/Limits12"]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 0, 0, 0)
+shape = SubResource("BoxShape3D_iyn7v")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Collisions/Limits12"]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 0, 0, 0)
+shape = SubResource("BoxShape3D_iyn7v")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Collisions/Limits12"]
+transform = Transform3D(-5.96046e-08, 0, -1, 0, 1, 0, 1, 0, -5.96046e-08, 0, 0, 0)
+shape = SubResource("BoxShape3D_iyn7v")
+
+[node name="Limits14" type="StaticBody3D" parent="Collisions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 4, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collisions/Limits14"]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 0, 0, 0)
+shape = SubResource("BoxShape3D_iyn7v")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Collisions/Limits14"]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 0, 0, 0)
+shape = SubResource("BoxShape3D_iyn7v")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Collisions/Limits14"]
+transform = Transform3D(-5.96046e-08, 0, -1, 0, 1, 0, 1, 0, -5.96046e-08, 0, 0, 0)
+shape = SubResource("BoxShape3D_iyn7v")
+
+[node name="Limits15" type="StaticBody3D" parent="Collisions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 4, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collisions/Limits15"]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 0, 0, 0)
+shape = SubResource("BoxShape3D_iyn7v")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Collisions/Limits15"]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 0, 0, 0)
+shape = SubResource("BoxShape3D_iyn7v")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Collisions/Limits15"]
+transform = Transform3D(-5.96046e-08, 0, -1, 0, 1, 0, 1, 0, -5.96046e-08, 0, 0, 0)
+shape = SubResource("BoxShape3D_iyn7v")
+
+[node name="Limits16" type="StaticBody3D" parent="Collisions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 4, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collisions/Limits16"]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 0, 0, 0)
+shape = SubResource("BoxShape3D_iyn7v")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Collisions/Limits16"]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 0, 0, 0)
+shape = SubResource("BoxShape3D_iyn7v")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Collisions/Limits16"]
+transform = Transform3D(-5.96046e-08, 0, -1, 0, 1, 0, 1, 0, -5.96046e-08, 0, 0, 0)
+shape = SubResource("BoxShape3D_iyn7v")
+
+[node name="Limits17" type="StaticBody3D" parent="Collisions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 4, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collisions/Limits17"]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 0, 0, 0)
+shape = SubResource("BoxShape3D_iyn7v")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Collisions/Limits17"]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 0, 0, 0)
+shape = SubResource("BoxShape3D_iyn7v")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Collisions/Limits17"]
+transform = Transform3D(-5.96046e-08, 0, -1, 0, 1, 0, 1, 0, -5.96046e-08, 0, 0, 0)
+shape = SubResource("BoxShape3D_iyn7v")
+
+[node name="Limits18" type="StaticBody3D" parent="Collisions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 4, 5.1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collisions/Limits18"]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 0, 0, 0)
+shape = SubResource("BoxShape3D_iyn7v")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Collisions/Limits18"]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 0, 0, 0)
+shape = SubResource("BoxShape3D_iyn7v")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Collisions/Limits18"]
+transform = Transform3D(-5.96046e-08, 0, -1, 0, 1, 0, 1, 0, -5.96046e-08, 0, 0, 0)
+shape = SubResource("BoxShape3D_iyn7v")
+
+[node name="Limits19" type="StaticBody3D" parent="Collisions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 4, 5.1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collisions/Limits19"]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 0, 0, 0)
+shape = SubResource("BoxShape3D_iyn7v")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Collisions/Limits19"]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 0, 0, 0)
+shape = SubResource("BoxShape3D_iyn7v")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Collisions/Limits19"]
+transform = Transform3D(-5.96046e-08, 0, -1, 0, 1, 0, 1, 0, -5.96046e-08, 0, 0, 0)
+shape = SubResource("BoxShape3D_iyn7v")
+
+[node name="Limits22" type="StaticBody3D" parent="Collisions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 4, 10.2)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collisions/Limits22"]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 0, 0, 0)
+shape = SubResource("BoxShape3D_iyn7v")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Collisions/Limits22"]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 0, 0, 0)
+shape = SubResource("BoxShape3D_iyn7v")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Collisions/Limits22"]
+transform = Transform3D(-5.96046e-08, 0, -1, 0, 1, 0, 1, 0, -5.96046e-08, 0, 0, 0)
+shape = SubResource("BoxShape3D_iyn7v")
+
+[node name="Limits20" type="StaticBody3D" parent="Collisions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 4, 5.1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collisions/Limits20"]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 0, 0, 0)
+shape = SubResource("BoxShape3D_iyn7v")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Collisions/Limits20"]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 0, 0, 0)
+shape = SubResource("BoxShape3D_iyn7v")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Collisions/Limits20"]
+transform = Transform3D(-5.96046e-08, 0, -1, 0, 1, 0, 1, 0, -5.96046e-08, 0, 0, 0)
+shape = SubResource("BoxShape3D_iyn7v")
+
+[node name="Limits21" type="StaticBody3D" parent="Collisions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 4, 5.1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collisions/Limits21"]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 0, 0, 0)
+shape = SubResource("BoxShape3D_iyn7v")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Collisions/Limits21"]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 0, 0, 0)
+shape = SubResource("BoxShape3D_iyn7v")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Collisions/Limits21"]
+transform = Transform3D(-5.96046e-08, 0, -1, 0, 1, 0, 1, 0, -5.96046e-08, 0, 0, 0)
+shape = SubResource("BoxShape3D_iyn7v")
+
+[node name="Limits2" type="StaticBody3D" parent="Collisions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 4, -5.1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collisions/Limits2"]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 0, 0, 0)
+shape = SubResource("BoxShape3D_iyn7v")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Collisions/Limits2"]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 0, 0, 0)
+shape = SubResource("BoxShape3D_iyn7v")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Collisions/Limits2"]
+transform = Transform3D(-5.96046e-08, 0, -1, 0, 1, 0, 1, 0, -5.96046e-08, 0, 0, 0)
+shape = SubResource("BoxShape3D_iyn7v")
+
+[node name="Limits3" type="StaticBody3D" parent="Collisions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 4, -5.1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collisions/Limits3"]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 0, 0, 0)
+shape = SubResource("BoxShape3D_iyn7v")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Collisions/Limits3"]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 0, 0, 0)
+shape = SubResource("BoxShape3D_iyn7v")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Collisions/Limits3"]
+transform = Transform3D(-5.96046e-08, 0, -1, 0, 1, 0, 1, 0, -5.96046e-08, 0, 0, 0)
+shape = SubResource("BoxShape3D_iyn7v")
+
+[node name="Limits4" type="StaticBody3D" parent="Collisions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 4, -5.1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collisions/Limits4"]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 0, 0, 0)
+shape = SubResource("BoxShape3D_iyn7v")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Collisions/Limits4"]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 0, 0, 0)
+shape = SubResource("BoxShape3D_iyn7v")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Collisions/Limits4"]
+transform = Transform3D(-5.96046e-08, 0, -1, 0, 1, 0, 1, 0, -5.96046e-08, 0, 0, 0)
+shape = SubResource("BoxShape3D_iyn7v")
+
+[node name="Ground" type="StaticBody3D" parent="Collisions"]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collisions/Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.48354, 0)
+shape = SubResource("BoxShape3D_o8pun")
+
+[node name="Level1" parent="." instance=ExtResource("25_dyi6p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 4, -10.3273)
+_newLevel = ExtResource("26_a0a6s")
+
+[node name="Level2" parent="." instance=ExtResource("25_dyi6p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 4, 10.3137)
+_newLevel = ExtResource("26_a0a6s")
+
+[node name="Level3" parent="." instance=ExtResource("25_dyi6p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 4, 0)
+_newLevel = ExtResource("26_a0a6s")
+
+[node name="Level4" parent="." instance=ExtResource("25_dyi6p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 4, -10.4)
+_newLevel = ExtResource("26_a0a6s")
+
+[node name="Player" parent="." instance=ExtResource("25_1r0p8")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6, 4, -5)
+NormalSpeed = 8.0
+PlayerNumber = 0
+
+[node name="Camera3D" type="Camera3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 5, 9)
+environment = SubResource("Environment_osaiu")
+current = true
+fov = 92.2176
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
