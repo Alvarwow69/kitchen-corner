@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://btnjc64hsawsy"
+path="res://.godot/imported/hex_water_detail.obj-10d1c7ee5f6b6ff3049d41bc4594eef1.mesh"
+
+[deps]
+
+files=["res://.godot/imported/hex_water_detail.obj-10d1c7ee5f6b6ff3049d41bc4594eef1.mesh"]
+
+source_file="res://Asset/LevelMenu/obj/hex_water_detail.obj"
+dest_files=["res://.godot/imported/hex_water_detail.obj-10d1c7ee5f6b6ff3049d41bc4594eef1.mesh", "res://.godot/imported/hex_water_detail.obj-10d1c7ee5f6b6ff3049d41bc4594eef1.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

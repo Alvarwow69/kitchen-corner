@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://2srn8qk2e34b"]
+
+[ext_resource type="Script" path="res://Script/Player.cs" id="1_rtgrc"]
+[ext_resource type="PackedScene" uid="uid://k6e3wnp4najl" path="res://Asset/Prefabs/Dash.tscn" id="2_rtvmr"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_h6d47"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_vbd4q"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_chfg1"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_8a4hn"]
+
+[node name="Player" type="CharacterBody3D"]
+collision_mask = 7
+script = ExtResource("1_rtgrc")
+
+[node name="Pivot" type="Node3D" parent="."]
+
+[node name="RayCast3D" type="RayCast3D" parent="Pivot"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -0.512384, 0)
+target_position = Vector3(2, 0, 0)
+collision_mask = 20
+collide_with_areas = true
+debug_shape_custom_color = Color(1, 0, 0, 1)
+debug_shape_thickness = 5
+
+[node name="playerMesh" type="MeshInstance3D" parent="Pivot"]
+mesh = SubResource("CapsuleMesh_h6d47")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Pivot"]
+transform = Transform3D(-9.92923e-08, 0, 0.142084, 0, 0.139996, 0, -2.27154, 0, -6.21071e-09, 0.00988919, -0.457, -1.05536)
+mesh = SubResource("BoxMesh_vbd4q")
+
+[node name="Anchor" type="Node3D" parent="Pivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.933548)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Pivot/Anchor"]
+transform = Transform3D(0.277071, 0, 0, 0, 0.277071, 0, 0, 0, 0.277071, 0, 0, 0)
+mesh = SubResource("SphereMesh_chfg1")
+
+[node name="Dash" parent="." instance=ExtResource("2_rtvmr")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_8a4hn")

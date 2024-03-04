@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://b57jlr3ny32s0"]
+
+[ext_resource type="Script" path="res://Script/Level/NodeLevelSelector.cs" id="1_3hjjh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_p0y77"]
+size = Vector3(3.5, 3, 6)
+
+[node name="LevelSelection" type="Node3D"]
+script = ExtResource("1_3hjjh")
+
+[node name="Limits" type="StaticBody3D" parent="."]
+collision_layer = 12
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Limits"]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 0, 0, 0)
+shape = SubResource("BoxShape3D_p0y77")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Limits"]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 0, 0, 0)
+shape = SubResource("BoxShape3D_p0y77")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Limits"]
+transform = Transform3D(-5.96046e-08, 0, -1, 0, 1, 0, 1, 0, -5.96046e-08, 0, 0, 0)
+shape = SubResource("BoxShape3D_p0y77")
