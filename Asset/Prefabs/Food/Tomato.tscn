@@ -14,8 +14,7 @@ radius = 0.37898
 
 [node name="Tomato" type="Node3D"]
 script = ExtResource("1_ep8fq")
-Name = "Tomato"
-Compatibility = Array[String](["Bun_Raw", "Steak_Cooked", "Lettuce_Sliced", "Cheese_Sliced"])
+Compatibility = Array[String](["Bun", "Steak", "Lettuce", "Cheese"])
 Weight = 4
 Height = 0.075
 

@@ -16,8 +16,7 @@ size = Vector3(1, 0.246327, 1)
 
 [node name="Steack" type="Node3D"]
 script = ExtResource("1_rfylu")
-Name = "Steak"
-Compatibility = Array[String](["Bun_Raw", "Lettuce_Sliced", "Tomato_Sliced", "Cheese_Sliced"])
+Compatibility = Array[String](["Bun", "Lettuce", "Tomato", "Cheese"])
 Weight = 1
 
 [node name="HitBox" type="Area3D" parent="."]

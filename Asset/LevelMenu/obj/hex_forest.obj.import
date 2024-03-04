@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bvnw6wb1vn4qf"
+path="res://.godot/imported/hex_forest.obj-a607a01af70edae8e179d5c115c23bd7.mesh"
+
+[deps]
+
+files=["res://.godot/imported/hex_forest.obj-a607a01af70edae8e179d5c115c23bd7.mesh"]
+
+source_file="res://Asset/LevelMenu/obj/hex_forest.obj"
+dest_files=["res://.godot/imported/hex_forest.obj-a607a01af70edae8e179d5c115c23bd7.mesh", "res://.godot/imported/hex_forest.obj-a607a01af70edae8e179d5c115c23bd7.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

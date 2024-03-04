@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using KitchenCorner.Script.Event;
 
 public partial class DishRack : CounterInteractable
 {
@@ -12,12 +13,7 @@ public partial class DishRack : CounterInteractable
 		plate.GlobalRotation = _anchor.GlobalRotation;
 		_anchor.Reparent(plate);
 		_plates.Push(plate);
-	}
-	
-	public void RemovePlatePlate(Player player)
-	{
-		Plate plate = _plates.Pop();
-		player.AddInteractable(plate);
+		PlateEvent.PerformMovePlateOnDishRack(plate);
 	}
 
 	public override void PerformAction(Player player)
@@ -31,5 +27,6 @@ public partial class DishRack : CounterInteractable
 		if (_plates.Count == 0 || player.HasInteractable())
 			return;
 		player.AddInteractable(_plates.Pop());
+		CounterEvent.PerformFoodRemoved(this);
 	}
 }

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dv5enonleanlb"
+path="res://.godot/imported/hex_rock.obj-615a39f76b66d49e9dd3692f5bd8911d.mesh"
+
+[deps]
+
+files=["res://.godot/imported/hex_rock.obj-615a39f76b66d49e9dd3692f5bd8911d.mesh"]
+
+source_file="res://Asset/LevelMenu/obj/hex_rock.obj"
+dest_files=["res://.godot/imported/hex_rock.obj-615a39f76b66d49e9dd3692f5bd8911d.mesh", "res://.godot/imported/hex_rock.obj-615a39f76b66d49e9dd3692f5bd8911d.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

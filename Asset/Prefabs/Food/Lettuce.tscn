@@ -15,8 +15,7 @@ height = 1.04513
 
 [node name="Lettuce" type="Node3D"]
 script = ExtResource("1_uwv0b")
-Name = "Lettuce"
-Compatibility = Array[String](["Bun_Raw", "Steak_Cooked", "Tomato_Sliced", "Cheese_Sliced"])
+Compatibility = Array[String](["Bun", "Steak", "Tomato", "Cheese"])
 Weight = 3
 Height = 0.05
 

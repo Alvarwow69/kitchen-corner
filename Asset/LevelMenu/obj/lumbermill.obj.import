@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c63hrwf6vmbwk"
+path="res://.godot/imported/lumbermill.obj-5bcf383207bb4e890bed5bacc8af5333.mesh"
+
+[deps]
+
+files=["res://.godot/imported/lumbermill.obj-5bcf383207bb4e890bed5bacc8af5333.mesh"]
+
+source_file="res://Asset/LevelMenu/obj/lumbermill.obj"
+dest_files=["res://.godot/imported/lumbermill.obj-5bcf383207bb4e890bed5bacc8af5333.mesh", "res://.godot/imported/lumbermill.obj-5bcf383207bb4e890bed5bacc8af5333.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

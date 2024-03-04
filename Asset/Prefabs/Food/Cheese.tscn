@@ -14,8 +14,7 @@ size = Vector3(1, 0.523866, 0.736964)
 
 [node name="Cheese" type="Node3D"]
 script = ExtResource("1_m0o46")
-Name = "Cheese"
-Compatibility = Array[String](["Bun_Raw", "Steak_Cooked", "Tomato_Sliced", "Lettuce_Sliced"])
+Compatibility = Array[String](["Bun", "Steak", "Tomato", "Lettuce"])
 
 [node name="HitBox" type="Area3D" parent="."]
 process_mode = 3

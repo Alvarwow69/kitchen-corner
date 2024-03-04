@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://boi7g10ip6fge"]
 
-[ext_resource type="Script" path="res://Script/Ingredients/CounterInteractable.cs" id="1_xoric"]
+[ext_resource type="Script" path="res://Script/Ingredients/CounterInteractable.cs" id="1_w5gyo"]
 [ext_resource type="Texture2D" uid="uid://c8jvxgl2348ht" path="res://Asset/Kitchen/obj/restaurantbits_texture.png" id="2_o1dpt"]
 [ext_resource type="Shader" path="res://Selection.gdshader" id="3_jvsm4"]
 
@@ -24,6 +24,7 @@ _surfaces = [{
 }]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gvj4w"]
+resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("3_jvsm4")
 shader_parameter/selectColor = Color(0.94902, 0.964706, 0, 1)
@@ -34,7 +35,7 @@ shader_parameter/tex = ExtResource("2_o1dpt")
 size = Vector3(2.01516, 1, 1.98592)
 
 [node name="CounterOutercorner" type="Node3D"]
-script = ExtResource("1_xoric")
+script = ExtResource("1_w5gyo")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 collision_layer = 12

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://8sexw4n54xm2"]
+
+[ext_resource type="Script" path="res://Script/Tutorial/steps/StepPlate.cs" id="1_nefpj"]
+
+[node name="StepTuto" type="Node3D"]
+script = ExtResource("1_nefpj")

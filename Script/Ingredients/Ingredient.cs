@@ -30,7 +30,7 @@ public partial class Ingredient : RigidInteractable
 
 	public virtual bool IsCompatible(Ingredient food)
 	{
-		return Compatibility == null || Compatibility.Contains(food.GetNameState());
+		return (food.State == FoodState.Raw && Foods.Count > 0) || Compatibility == null || Compatibility.Contains(food.Name);
 	}
 
 	public string GetNameState()
@@ -50,11 +50,11 @@ public partial class Ingredient : RigidInteractable
 		GetNode<Node3D>("RigidBody3D/" + State).Visible = true;
 	}
 
-	public virtual void AddFood(Ingredient ingredient)
+	public virtual bool AddFood(Ingredient ingredient)
 	{
 		foreach (var element in Foods)
 			if (!element.IsCompatible(ingredient) || !ingredient.IsCompatible(element) )
-				return;
+				return false;
 		ingredient.Reparent(GetNode("RigidBody3D"));
 		ingredient.Freeze();
 		ingredient.GlobalPosition = GlobalPosition;
@@ -67,6 +67,7 @@ public partial class Ingredient : RigidInteractable
 				continue;
 			UpdateVisual(element, ingredient);
 		}
+		return true;
 	}
 
 	private void UpdateVisual(Ingredient element, Ingredient ingredient)

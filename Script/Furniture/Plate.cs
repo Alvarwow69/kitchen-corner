@@ -1,4 +1,5 @@
 using Godot;
+using KitchenCorner.Script.Event;
 
 public partial class Plate : Container
 {
@@ -32,15 +33,15 @@ public partial class Plate : Container
         return _state == PlateState.Clean;
     }
 
-    public override void AddFood(Ingredient ingredient)
+    public override bool AddFood(Ingredient ingredient)
     {
         if (_state == PlateState.Dirty || ingredient is Container)
-            return;
+            return false;
         if (Player == null && ingredient.Player != null)
         {
-            if (ingredient.Player.GetInteractable() is not Container)
+            if (ingredient.Player.HasInteractable() && ingredient.Player.GetInteractable() is not Container)
                 ingredient.Player.RemoveInteractable();
-            base.PerformAction(ingredient.Player);
+            //base.PerformAction(ingredient.Player);
             ingredient.Reparent(GetNode("RigidBody3D"));
             ingredient.GlobalPosition = GlobalPosition;
             ingredient.GlobalRotation = GlobalRotation;
@@ -55,8 +56,11 @@ public partial class Plate : Container
         }
         else
         {
-            base.AddFood(ingredient);
+            if (!base.AddFood(ingredient))
+                return false;
         }
+        PlateEvent.PerformFoodAddedPlateEvent(this, ingredient);
+        return true;
     }
 
     public override bool CanGetFood()
