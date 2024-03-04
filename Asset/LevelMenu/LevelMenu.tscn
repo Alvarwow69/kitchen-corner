@@ -22,7 +22,7 @@
 [ext_resource type="ArrayMesh" uid="uid://dhpgfkf2gq0fi" path="res://Asset/LevelMenu/obj/farm_plot.obj" id="24_ssdjr"]
 [ext_resource type="ArrayMesh" uid="uid://bfq5b28xbl4sd" path="res://Asset/LevelMenu/obj/mountain.obj" id="25_1ipmf"]
 [ext_resource type="PackedScene" uid="uid://2srn8qk2e34b" path="res://Asset/Prefabs/Player_selection.tscn" id="25_1r0p8"]
-[ext_resource type="PackedScene" uid="uid://b57jlr3ny32s0" path="res://Asset/Prefabs/LevelSelection.tscn" id="25_dyi6p"]
+[ext_resource type="PackedScene" path="res://Asset/Prefabs/LevelSelection.tscn" id="25_dyi6p"]
 [ext_resource type="ArrayMesh" uid="uid://bg2huttolmnuc" path="res://Asset/LevelMenu/obj/detail_treeC.obj" id="25_ta08b"]
 [ext_resource type="ArrayMesh" uid="uid://bnipqc6rv38ij" path="res://Asset/LevelMenu/obj/detail_treeB.obj" id="26_0bxmv"]
 [ext_resource type="PackedScene" uid="uid://dr3p8o02b47o3" path="res://Levels/Kitchen_test.tscn" id="26_a0a6s"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://2srn8qk2e34b"]
 
-[ext_resource type="Script" path="res://Script/Player.cs" id="1_rtgrc"]
+[ext_resource type="Script" path="res://Script/Player/Player.cs" id="1_rtgrc"]
 [ext_resource type="PackedScene" uid="uid://k6e3wnp4najl" path="res://Asset/Prefabs/Dash.tscn" id="2_rtvmr"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_h6d47"]
