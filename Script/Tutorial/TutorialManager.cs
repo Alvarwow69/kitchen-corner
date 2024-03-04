@@ -16,22 +16,18 @@ public sealed partial class TutorialManager : Node
 		TargetEvent.TargetReached += NewStep;
 		TargetEvent.OnStartCustomStep += ActiveCustomStep;
 		TargetEvent.OnResetToStep += ResetToStep;
-		TargetEvent.OnTutorialFinished += OnTutoFinished;
 		GetNode<Target>("Step" + AddZero() + _currentStep).EnableTarget();
 		_currentStepName = "Step" + AddZero() + _currentStep;
 	}
 
 	public void NewStep()
 	{
-		if (_currentStep >= _maxStep)
-		{
-			TargetEvent.PerformTutorialFinished();
-			return;
-		}
 		GetNode<Target>(_currentStepName).DisableTarget();
 		_currentStep += 1;
 		GetNode<Target>("Step" + AddZero() + _currentStep).EnableTarget();
 		_currentStepName = "Step" + AddZero() + _currentStep;
+		if (_currentStep >= _maxStep)
+			TargetEvent.PerformTutorialFinished();
 	}
 
 	public static int GetCurrentStep()
@@ -62,11 +58,6 @@ public sealed partial class TutorialManager : Node
 	private string AddZero()
 	{
 		return _currentStep < 10 ? "0" : "";
-	}
-
-	private void OnTutoFinished()
-	{
-		_player.IsProcessAction = false;
 	}
 
 }

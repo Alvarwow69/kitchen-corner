@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://ciygwkfbpkmod"]
+[gd_scene load_steps=49 format=3 uid="uid://ciygwkfbpkmod"]
 
 [ext_resource type="ArrayMesh" uid="uid://tf2shsqcvqr2" path="res://Asset/Halloween/arch_gate_right.obj" id="5_5ipvt"]
 [ext_resource type="ArrayMesh" uid="uid://d0cnrprh042ni" path="res://Asset/Halloween/arch_gate_left.obj" id="6_sg4mv"]
@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cpl53s0o03r5r" path="res://Asset/Prefabs/Furniture/Counter_Sink.tscn" id="17_lnums"]
 [ext_resource type="PackedScene" uid="uid://d312hlyms7td0" path="res://Asset/Prefabs/Furniture/DishRack.tscn" id="18_2y3sc"]
 [ext_resource type="PackedScene" uid="uid://b6g4ge1u682o6" path="res://Asset/Prefabs/Furniture/Counter_StraightB.tscn" id="19_l62em"]
-[ext_resource type="PackedScene" uid="uid://dnkgd6nbuk5v7" path="res://Asset/Prefabs/Furniture/Counter_Straight.tscn" id="19_ph8j3"]
+[ext_resource type="PackedScene" uid="uid://1qorlx8set1o" path="res://Asset/Prefabs/Furniture/Counter_Straight.tscn" id="19_ph8j3"]
 [ext_resource type="PackedScene" uid="uid://cxwj8f2fdxofd" path="res://Asset/Prefabs/Creates/Create_Cheese.tscn" id="19_uc3ny"]
 [ext_resource type="PackedScene" uid="uid://4nx7c3hblfj3" path="res://Asset/Prefabs/Creates/Create_Steak.tscn" id="20_aqnjm"]
 [ext_resource type="PackedScene" uid="uid://cx0bsuv6fm6ec" path="res://Asset/Prefabs/Furniture/Counter_Innercorner.tscn" id="20_rjcox"]
@@ -42,6 +42,7 @@
 [ext_resource type="Environment" uid="uid://cxgswh2bhdqjl" path="res://Levels/Halloween_Env.tres" id="39_sex74"]
 [ext_resource type="ArrayMesh" uid="uid://m8a3fed2tlgq" path="res://Asset/Halloween/lantern_standing.obj" id="40_cyebk"]
 [ext_resource type="ArrayMesh" uid="uid://dtgqll2c04qw8" path="res://Asset/Halloween/bench.obj" id="41_arqsv"]
+[ext_resource type="PackedScene" uid="uid://dh24ddwlra6qp" path="res://Asset/Prefabs/GameManager.tscn" id="43_rddyo"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pou7l"]
 size = Vector3(19.7711, 0.497987, 16.1707)
@@ -1860,6 +1861,9 @@ shape = SubResource("BoxShape3D_js2ij")
 transform = Transform3D(-4.37114e-08, -4.37114e-08, -1, 4.37114e-08, 1, -4.37114e-08, 1, -4.37114e-08, -4.37114e-08, 8.01447, 0.416175, -14.5847)
 shape = SubResource("BoxShape3D_js2ij")
 
+[node name="GameManager" parent="." instance=ExtResource("43_rddyo")]
+_timeUpScene = "res://Levels/LevelMenu.tscn"
+
 [node name="Player" parent="." instance=ExtResource("28_8axgi")]
 transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 8, 1, -5)
 PlayerNumber = 0
@@ -1880,6 +1884,7 @@ offset_bottom = 40.0
 grow_horizontal = 0
 theme = SubResource("Theme_3ma7n")
 script = ExtResource("33_ebvcc")
+_time = 10.0
 _text = NodePath("Panel/Label")
 
 [node name="Panel" type="Panel" parent="Timer"]

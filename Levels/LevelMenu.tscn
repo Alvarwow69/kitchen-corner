@@ -1,33 +1,32 @@
-[gd_scene load_steps=33 format=3 uid="uid://hi46t3r2tcox"]
+[gd_scene load_steps=32 format=3 uid="uid://hi46t3r2tcox"]
 
-[ext_resource type="ArrayMesh" uid="uid://bvnw6wb1vn4qf" path="res://Asset/LevelMenu/obj/hex_forest.obj" id="1_7pqwd"]
-[ext_resource type="ArrayMesh" uid="uid://3i71crb28hq2" path="res://Asset/LevelMenu/obj/hex_forest_detail.obj" id="2_jx02h"]
-[ext_resource type="ArrayMesh" uid="uid://46fsnqk6oy1k" path="res://Asset/LevelMenu/obj/house.obj" id="3_vxvm7"]
-[ext_resource type="ArrayMesh" uid="uid://dudjjxvty0ijl" path="res://Asset/LevelMenu/obj/detail_forestB.obj" id="4_373g2"]
-[ext_resource type="ArrayMesh" uid="uid://cucsjjd1c6k20" path="res://Asset/LevelMenu/obj/forest.obj" id="5_q4mki"]
-[ext_resource type="ArrayMesh" uid="uid://d4lxl8fo7e0pa" path="res://Asset/LevelMenu/obj/detail_hill.obj" id="6_db2xq"]
-[ext_resource type="ArrayMesh" uid="uid://dpskyypcqs7gq" path="res://Asset/LevelMenu/obj/mill.obj" id="6_l0eeu"]
-[ext_resource type="ArrayMesh" uid="uid://c6werk48qbvc2" path="res://Asset/LevelMenu/obj/mill_blades.obj" id="7_igmhm"]
-[ext_resource type="ArrayMesh" uid="uid://ccb1fco8siu45" path="res://Asset/LevelMenu/obj/hex_forest_roadD.obj" id="7_mi4k5"]
-[ext_resource type="ArrayMesh" uid="uid://l8d3qmudnbtm" path="res://Asset/LevelMenu/obj/castle.obj" id="7_vnbdh"]
-[ext_resource type="ArrayMesh" uid="uid://cvt3134p2xwsd" path="res://Asset/LevelMenu/obj/hex_forest_roadF.obj" id="8_peh8j"]
-[ext_resource type="ArrayMesh" uid="uid://csbswphi6wbi4" path="res://Asset/LevelMenu/obj/market.obj" id="9_7t5bn"]
-[ext_resource type="ArrayMesh" uid="uid://bgeokg2aj1i2j" path="res://Asset/LevelMenu/obj/hex_forest_roadB.obj" id="9_8xdl5"]
-[ext_resource type="ArrayMesh" uid="uid://c63hrwf6vmbwk" path="res://Asset/LevelMenu/obj/lumbermill.obj" id="9_i156v"]
-[ext_resource type="ArrayMesh" uid="uid://mtc1sum5bir" path="res://Asset/LevelMenu/obj/well.obj" id="19_0iw55"]
-[ext_resource type="ArrayMesh" uid="uid://btnjc64hsawsy" path="res://Asset/LevelMenu/obj/hex_water_detail.obj" id="19_1tkf2"]
-[ext_resource type="ArrayMesh" uid="uid://dlss3pa0gh6e0" path="res://Asset/LevelMenu/obj/watchtower.obj" id="19_lcgei"]
-[ext_resource type="ArrayMesh" uid="uid://1xq8ap01tbk3" path="res://Asset/LevelMenu/obj/hex_forest_waterB_detail.obj" id="22_llhuq"]
-[ext_resource type="ArrayMesh" uid="uid://b66ovlbg1gpay" path="res://Asset/LevelMenu/obj/farm_wheat.obj" id="23_5tb6m"]
-[ext_resource type="ArrayMesh" uid="uid://dhpgfkf2gq0fi" path="res://Asset/LevelMenu/obj/farm_plot.obj" id="24_ssdjr"]
-[ext_resource type="ArrayMesh" uid="uid://bfq5b28xbl4sd" path="res://Asset/LevelMenu/obj/mountain.obj" id="25_1ipmf"]
-[ext_resource type="PackedScene" uid="uid://2srn8qk2e34b" path="res://Asset/Prefabs/Player_selection.tscn" id="25_1r0p8"]
-[ext_resource type="PackedScene" uid="uid://b57jlr3ny32s0" path="res://Asset/Prefabs/LevelSelection.tscn" id="25_dyi6p"]
-[ext_resource type="ArrayMesh" uid="uid://bg2huttolmnuc" path="res://Asset/LevelMenu/obj/detail_treeC.obj" id="25_ta08b"]
-[ext_resource type="ArrayMesh" uid="uid://bnipqc6rv38ij" path="res://Asset/LevelMenu/obj/detail_treeB.obj" id="26_0bxmv"]
-[ext_resource type="PackedScene" uid="uid://dr3p8o02b47o3" path="res://Levels/Kitchen_test.tscn" id="26_a0a6s"]
-[ext_resource type="PackedScene" uid="uid://cs4ioojstmsns" path="res://Levels/Tutorial.tscn" id="27_mjlm4"]
-[ext_resource type="ArrayMesh" uid="uid://d1do8y6lmjpyn" path="res://Asset/LevelMenu/obj/hex_forest_roadE_detail.obj" id="28_0lwvo"]
+[ext_resource type="ArrayMesh" uid="uid://ccb1fco8siu45" path="res://Asset/LevelMenu/obj/hex_forest_roadD.obj" id="1_lcu1y"]
+[ext_resource type="ArrayMesh" uid="uid://cvt3134p2xwsd" path="res://Asset/LevelMenu/obj/hex_forest_roadF.obj" id="2_5t0p3"]
+[ext_resource type="ArrayMesh" uid="uid://bgeokg2aj1i2j" path="res://Asset/LevelMenu/obj/hex_forest_roadB.obj" id="3_e723o"]
+[ext_resource type="ArrayMesh" uid="uid://3i71crb28hq2" path="res://Asset/LevelMenu/obj/hex_forest_detail.obj" id="4_cnmbi"]
+[ext_resource type="ArrayMesh" uid="uid://c63hrwf6vmbwk" path="res://Asset/LevelMenu/obj/lumbermill.obj" id="5_x11qu"]
+[ext_resource type="ArrayMesh" uid="uid://csbswphi6wbi4" path="res://Asset/LevelMenu/obj/market.obj" id="6_d6g4c"]
+[ext_resource type="ArrayMesh" uid="uid://46fsnqk6oy1k" path="res://Asset/LevelMenu/obj/house.obj" id="7_kahsi"]
+[ext_resource type="ArrayMesh" uid="uid://bvnw6wb1vn4qf" path="res://Asset/LevelMenu/obj/hex_forest.obj" id="8_5lddr"]
+[ext_resource type="ArrayMesh" uid="uid://dlss3pa0gh6e0" path="res://Asset/LevelMenu/obj/watchtower.obj" id="9_px6xs"]
+[ext_resource type="ArrayMesh" uid="uid://l8d3qmudnbtm" path="res://Asset/LevelMenu/obj/castle.obj" id="10_g2d0s"]
+[ext_resource type="ArrayMesh" uid="uid://d1do8y6lmjpyn" path="res://Asset/LevelMenu/obj/hex_forest_roadE_detail.obj" id="11_hqxue"]
+[ext_resource type="ArrayMesh" uid="uid://b66ovlbg1gpay" path="res://Asset/LevelMenu/obj/farm_wheat.obj" id="12_ue7cv"]
+[ext_resource type="ArrayMesh" uid="uid://dpskyypcqs7gq" path="res://Asset/LevelMenu/obj/mill.obj" id="13_q7yrs"]
+[ext_resource type="ArrayMesh" uid="uid://c6werk48qbvc2" path="res://Asset/LevelMenu/obj/mill_blades.obj" id="14_sdgr0"]
+[ext_resource type="ArrayMesh" uid="uid://d4lxl8fo7e0pa" path="res://Asset/LevelMenu/obj/detail_hill.obj" id="15_g5etf"]
+[ext_resource type="ArrayMesh" uid="uid://cucsjjd1c6k20" path="res://Asset/LevelMenu/obj/forest.obj" id="16_ybdu2"]
+[ext_resource type="ArrayMesh" uid="uid://bfq5b28xbl4sd" path="res://Asset/LevelMenu/obj/mountain.obj" id="17_tbul5"]
+[ext_resource type="ArrayMesh" uid="uid://mtc1sum5bir" path="res://Asset/LevelMenu/obj/well.obj" id="18_0pulr"]
+[ext_resource type="ArrayMesh" uid="uid://dhpgfkf2gq0fi" path="res://Asset/LevelMenu/obj/farm_plot.obj" id="19_bdocd"]
+[ext_resource type="ArrayMesh" uid="uid://dudjjxvty0ijl" path="res://Asset/LevelMenu/obj/detail_forestB.obj" id="20_tbfgq"]
+[ext_resource type="ArrayMesh" uid="uid://bg2huttolmnuc" path="res://Asset/LevelMenu/obj/detail_treeC.obj" id="21_vp68p"]
+[ext_resource type="ArrayMesh" uid="uid://bnipqc6rv38ij" path="res://Asset/LevelMenu/obj/detail_treeB.obj" id="22_bg7i1"]
+[ext_resource type="ArrayMesh" uid="uid://btnjc64hsawsy" path="res://Asset/LevelMenu/obj/hex_water_detail.obj" id="23_xa7pr"]
+[ext_resource type="ArrayMesh" uid="uid://1xq8ap01tbk3" path="res://Asset/LevelMenu/obj/hex_forest_waterB_detail.obj" id="24_3amyh"]
+[ext_resource type="PackedScene" uid="uid://bgjxdbqjt8ota" path="res://Asset/Prefabs/LevelSelection.tscn" id="25_26p5f"]
+[ext_resource type="PackedScene" uid="uid://2srn8qk2e34b" path="res://Asset/Prefabs/Player_selection.tscn" id="26_xvx2l"]
+[ext_resource type="PackedScene" uid="uid://dh24ddwlra6qp" path="res://Asset/Prefabs/GameManager.tscn" id="27_q88wq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_iyn7v"]
 size = Vector3(3.5, 3, 6)
@@ -51,102 +50,102 @@ transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 
 [node name="HexForestRoadD4" type="MeshInstance3D" parent="road"]
 transform = Transform3D(-1, 0, -1.49012e-07, 0, 1, 0, 1.49012e-07, 0, -1, 0, 0, 0)
-mesh = ExtResource("7_mi4k5")
+mesh = ExtResource("1_lcu1y")
 skeleton = NodePath("../..")
 
 [node name="HexForestRoadF" type="MeshInstance3D" parent="road"]
 transform = Transform3D(-1, 0, -8.9407e-08, 0, 1, 0, 1.19209e-07, 0, -1, -2, 0, 4.76837e-07)
-mesh = ExtResource("8_peh8j")
+mesh = ExtResource("2_5t0p3")
 skeleton = NodePath("../..")
 
 [node name="HexForestRoadD" type="MeshInstance3D" parent="road"]
 transform = Transform3D(-1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, -1, 6.98893, 0, -1.7301)
-mesh = ExtResource("7_mi4k5")
+mesh = ExtResource("1_lcu1y")
 skeleton = NodePath("../..")
 
 [node name="HexForestRoadD2" type="MeshInstance3D" parent="road"]
 transform = Transform3D(1, 0, 8.9407e-08, 0, 1, 0, -2.98023e-08, 0, 1, 7.98542, 0, -3.45554)
-mesh = ExtResource("7_mi4k5")
+mesh = ExtResource("1_lcu1y")
 skeleton = NodePath("../..")
 
 [node name="RoadToLevel3" type="MeshInstance3D" parent="road"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0)
-mesh = ExtResource("9_8xdl5")
+mesh = ExtResource("3_e723o")
 
 [node name="HexForestRoadB4" type="MeshInstance3D" parent="road"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
-mesh = ExtResource("9_8xdl5")
+mesh = ExtResource("3_e723o")
 skeleton = NodePath("../RoadToLevel2")
 
 [node name="RoadToLevel2" type="MeshInstance3D" parent="road"]
 transform = Transform3D(0.500001, 0, 0.866026, 0, 1, 0, -0.866027, 0, 0.5, -3, 0, 1.7)
-mesh = ExtResource("9_8xdl5")
+mesh = ExtResource("3_e723o")
 
 [node name="HexForestRoadB2" type="MeshInstance3D" parent="road"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.99618, 3.59827e-16, -1.7318)
-mesh = ExtResource("9_8xdl5")
+mesh = ExtResource("3_e723o")
 skeleton = NodePath("../..")
 
 [node name="HexForestRoadD3" type="MeshInstance3D" parent="road"]
 transform = Transform3D(1, 0, 0, 0, 0.999999, 0, 0, 0, 1, 1, 0, -1.73)
-mesh = ExtResource("7_mi4k5")
+mesh = ExtResource("1_lcu1y")
 skeleton = NodePath("../..")
 
 [node name="Levels" type="Node3D" parent="road"]
 
 [node name="Level3HouseGround" type="MeshInstance3D" parent="road/Levels"]
 transform = Transform3D(-0.5, 0, 0.866026, 0, 1, 0, -0.866026, 0, -0.5, -8, 0, 0)
-mesh = ExtResource("2_jx02h")
+mesh = ExtResource("4_cnmbi")
 skeleton = NodePath("")
 
 [node name="Lumbermill" type="MeshInstance3D" parent="road/Levels/Level3HouseGround"]
 transform = Transform3D(0.874036, 0.00379393, -0.485847, -0.00434585, 0.999992, -9.32951e-06, 0.485843, 0.00211958, 0.874044, 0.00320783, 0.997423, 0.0278006)
-mesh = ExtResource("9_i156v")
+mesh = ExtResource("5_x11qu")
 skeleton = NodePath("../../../..")
 
 [node name="Level1Ground" type="MeshInstance3D" parent="road/Levels"]
 transform = Transform3D(1, 0, 8.9407e-08, 0, 1, 0, 0, 0, 1, 2, 0, -3.45)
-mesh = ExtResource("2_jx02h")
+mesh = ExtResource("4_cnmbi")
 skeleton = NodePath("../../../MountainSidePart/chateau/HexFieldWithForest")
 
 [node name="Market2" type="MeshInstance3D" parent="road/Levels/Level1Ground"]
 transform = Transform3D(0.852774, 1.98281e-07, 0.522274, 2.708e-07, 1, -2.47448e-07, -0.522273, -3.35034e-07, 0.852775, 0.073, 1.091, 0)
-mesh = ExtResource("9_7t5bn")
+mesh = ExtResource("6_d6g4c")
 skeleton = NodePath("../../../..")
 
 [node name="Level2HouseGround" type="MeshInstance3D" parent="road/Levels"]
 transform = Transform3D(1.00001, 0, 0, 0, 1, 0, 0, 0, 1.00001, -3.987, 0, 3.4)
-mesh = ExtResource("2_jx02h")
+mesh = ExtResource("4_cnmbi")
 skeleton = NodePath("")
 
 [node name="House" type="MeshInstance3D" parent="road/Levels/Level2HouseGround"]
 transform = Transform3D(0.5425, 0, -0.840056, 0, 1, 0, 0.840055, 0, 0.5425, -0.0537868, 1.02447, 0.238329)
-mesh = ExtResource("3_vxvm7")
+mesh = ExtResource("7_kahsi")
 skeleton = NodePath("../../..")
 
 [node name="BeginHouseTowerGround" type="MeshInstance3D" parent="road/Levels"]
 transform = Transform3D(1.00004, 0, 0, 0, 1, 0, 0, 0, 1.00004, 9.96753, 0, -3.46373)
-mesh = ExtResource("1_7pqwd")
+mesh = ExtResource("8_5lddr")
 skeleton = NodePath("../../../LakeSidePart/LakeSideGround/FarmPlotGround")
 
 [node name="Watchtower" type="MeshInstance3D" parent="road/Levels/BeginHouseTowerGround"]
 transform = Transform3D(-0.0454557, 0, -0.998924, 0, 1, 0, 0.998923, 0, -0.0454552, -0.0222921, 1.01, 0.101103)
-mesh = ExtResource("19_lcgei")
+mesh = ExtResource("9_px6xs")
 skeleton = NodePath("../../../..")
 
 [node name="BeginHouseGround" type="MeshInstance3D" parent="road/Levels"]
 transform = Transform3D(1.00002, 0, 0, 0, 1, 0, 0, 0, 1.00002, 8.97424, 0, -1.73069)
-mesh = ExtResource("1_7pqwd")
+mesh = ExtResource("8_5lddr")
 skeleton = NodePath("../../../LakeSidePart/LakeSideGround/FarmPlotGround")
 
 [node name="BeginHouse" type="MeshInstance3D" parent="road/Levels/BeginHouseGround"]
 transform = Transform3D(-0.92763, 0, -0.373446, 0, 1, 0, 0.373445, 0, -0.92763, -0.0743561, 1.08414, -0.0900414)
-mesh = ExtResource("7_vnbdh")
+mesh = ExtResource("10_g2d0s")
 skeleton = NodePath("../../../..")
 
 [node name="RoadToLevel1" type="MeshInstance3D" parent="road"]
 transform = Transform3D(-1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -1, 3, 0, -1.72974)
-mesh = ExtResource("28_0lwvo")
+mesh = ExtResource("11_hqxue")
 skeleton = NodePath("../..")
 
 [node name="MountainSidePart" type="Node3D" parent="."]
@@ -157,36 +156,36 @@ transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="HexForestDetail3" type="MeshInstance3D" parent="MountainSidePart/floor-down-chateau5"]
 transform = Transform3D(1, 8.52651e-14, -2.98023e-08, 8.52651e-13, 0.999996, -1.93268e-12, 8.9407e-08, 5.68434e-14, 1, -7, 0, 1.7)
-mesh = ExtResource("2_jx02h")
+mesh = ExtResource("4_cnmbi")
 skeleton = NodePath("../HexForestDetail2")
 
 [node name="FarmWheat2" type="MeshInstance3D" parent="MountainSidePart/floor-down-chateau5/HexForestDetail3"]
 transform = Transform3D(0.992565, 1.86732e-07, -0.12173, 2.61266e-07, 1, -4.76258e-07, 0.12173, -3.41522e-07, 0.992564, 0.0108414, 1, -0.173217)
-mesh = ExtResource("23_5tb6m")
+mesh = ExtResource("12_ue7cv")
 skeleton = NodePath("../../../../LakeSidePart/LakeSideGround/FarmWheatGround/FarmWheat")
 
 [node name="HexForestDetail4" type="MeshInstance3D" parent="MountainSidePart/floor-down-chateau5"]
 transform = Transform3D(0.999666, -1.14936e-08, 0.0258279, 1.12826e-08, 0.999996, 8.3416e-09, -0.0258281, -8.048e-09, 0.999666, -6, 0, 3.4)
-mesh = ExtResource("2_jx02h")
+mesh = ExtResource("4_cnmbi")
 skeleton = NodePath("../HexForestDetail2")
 
 [node name="HexForestDetail2" type="MeshInstance3D" parent="MountainSidePart/floor-down-chateau5"]
 transform = Transform3D(1, 0, -2.98023e-08, 3.97904e-13, 0.999999, -2.27374e-13, 5.96046e-08, -5.68434e-14, 1, -5, 0, 1.7)
-mesh = ExtResource("2_jx02h")
+mesh = ExtResource("4_cnmbi")
 
 [node name="HexForestDetail8" type="MeshInstance3D" parent="MountainSidePart/floor-down-chateau5"]
 transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, -2, 0, 3.4)
-mesh = ExtResource("2_jx02h")
+mesh = ExtResource("4_cnmbi")
 skeleton = NodePath("")
 
 [node name="Mill" type="MeshInstance3D" parent="MountainSidePart/floor-down-chateau5/HexForestDetail8"]
 transform = Transform3D(-0.999997, -1.24946e-12, -0.00322974, -5.49344e-13, 0.999999, -5.38716e-13, 0.00322926, -2.99975e-12, -0.999996, -0.0542259, 1.04403, 0.0095067)
-mesh = ExtResource("6_l0eeu")
+mesh = ExtResource("13_q7yrs")
 skeleton = NodePath("../../../..")
 
 [node name="MillBlades" type="MeshInstance3D" parent="MountainSidePart/floor-down-chateau5/HexForestDetail8/Mill"]
 transform = Transform3D(-0.995425, 0, -0.0955504, 0, 1, 0, 0.0955503, 0, -0.995425, 0.0228717, -0.0066638, 0.429553)
-mesh = ExtResource("7_igmhm")
+mesh = ExtResource("14_sdgr0")
 skeleton = NodePath("../../../../..")
 
 [node name="chateau-1" type="Node3D" parent="MountainSidePart"]
@@ -194,42 +193,42 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 
 [node name="DetailHill" type="MeshInstance3D" parent="MountainSidePart/chateau-1"]
 transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 2, 1, 3.4)
-mesh = ExtResource("6_db2xq")
+mesh = ExtResource("15_g5etf")
 skeleton = NodePath("../../HexFieldHill")
 
 [node name="Forest" type="MeshInstance3D" parent="MountainSidePart/chateau-1"]
 transform = Transform3D(0.999997, 0, 0, 0, 0.999998, 0, 0, 0, 0.999998, 6, 1, 3.4)
-mesh = ExtResource("5_q4mki")
+mesh = ExtResource("16_ybdu2")
 skeleton = NodePath("../../chateau")
 
 [node name="HexForest6" type="MeshInstance3D" parent="MountainSidePart/chateau-1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999997, 0, 0, 3.4)
-mesh = ExtResource("1_7pqwd")
+mesh = ExtResource("8_5lddr")
 skeleton = NodePath("../../HexForest2")
 
 [node name="HexForest5" type="MeshInstance3D" parent="MountainSidePart/chateau-1"]
 transform = Transform3D(1, 0, 0, 0, 0.999999, 0, 0, 0, 0.999998, 6, 0, 3.4)
-mesh = ExtResource("1_7pqwd")
+mesh = ExtResource("8_5lddr")
 skeleton = NodePath("../../HexForest2")
 
 [node name="HexForest7" type="MeshInstance3D" parent="MountainSidePart/chateau-1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 3.4)
-mesh = ExtResource("1_7pqwd")
+mesh = ExtResource("8_5lddr")
 skeleton = NodePath("")
 
 [node name="HexForest4" type="MeshInstance3D" parent="MountainSidePart/chateau-1"]
 transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 4, 0, 3.4)
-mesh = ExtResource("1_7pqwd")
+mesh = ExtResource("8_5lddr")
 skeleton = NodePath("")
 
 [node name="HexForestDetail7" type="MeshInstance3D" parent="MountainSidePart/chateau-1"]
 transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, -1, 0, 5.1)
-mesh = ExtResource("2_jx02h")
+mesh = ExtResource("4_cnmbi")
 skeleton = NodePath("")
 
 [node name="Forest" type="MeshInstance3D" parent="MountainSidePart/chateau-1/HexForestDetail7"]
 transform = Transform3D(0.488113, 0.00382896, 0.872771, -0.00238699, 0.999992, -0.00305159, -0.872777, -0.000594577, 0.488118, 0.009, 1, -0.089)
-mesh = ExtResource("5_q4mki")
+mesh = ExtResource("16_ybdu2")
 skeleton = NodePath("../../../chateau")
 
 [node name="chateau" type="Node3D" parent="MountainSidePart"]
@@ -237,111 +236,111 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
 
 [node name="HexFieldWithForest" type="MeshInstance3D" parent="MountainSidePart/chateau"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 5.1)
-mesh = ExtResource("2_jx02h")
+mesh = ExtResource("4_cnmbi")
 skeleton = NodePath("../../..")
 
 [node name="Forest" type="MeshInstance3D" parent="MountainSidePart/chateau/HexFieldWithForest"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-mesh = ExtResource("5_q4mki")
+mesh = ExtResource("16_ybdu2")
 skeleton = NodePath("../../../..")
 
 [node name="HexFieldWithCastle2" type="MeshInstance3D" parent="MountainSidePart/chateau"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 5.1)
-mesh = ExtResource("2_jx02h")
+mesh = ExtResource("4_cnmbi")
 skeleton = NodePath("")
 
 [node name="Castle" type="MeshInstance3D" parent="MountainSidePart/chateau/HexFieldWithCastle2"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1, 0)
-mesh = ExtResource("7_vnbdh")
+mesh = ExtResource("10_g2d0s")
 
 [node name="HexFieldWithCastle3" type="MeshInstance3D" parent="MountainSidePart/chateau"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 5.1)
-mesh = ExtResource("2_jx02h")
+mesh = ExtResource("4_cnmbi")
 skeleton = NodePath("")
 
 [node name="Mountain" type="MeshInstance3D" parent="MountainSidePart/chateau/HexFieldWithCastle3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-mesh = ExtResource("25_1ipmf")
+mesh = ExtResource("17_tbul5")
 skeleton = NodePath("../../../..")
 
 [node name="HexForest3" type="MeshInstance3D" parent="MountainSidePart"]
 transform = Transform3D(1.00001, 0, 0, 0, 1, 0, 0, 0, 1.00001, 2, 0, 0)
-mesh = ExtResource("1_7pqwd")
+mesh = ExtResource("8_5lddr")
 skeleton = NodePath("../HexForest2")
 
 [node name="HexForest2" type="MeshInstance3D" parent="MountainSidePart"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 1.7)
-mesh = ExtResource("1_7pqwd")
+mesh = ExtResource("8_5lddr")
 skeleton = NodePath("../../road")
 
 [node name="HexFieldHill" type="MeshInstance3D" parent="MountainSidePart"]
 transform = Transform3D(1.00001, 0, 0, 0, 1, 0, 0, 0, 1.00001, 8, 0, 0)
-mesh = ExtResource("1_7pqwd")
+mesh = ExtResource("8_5lddr")
 skeleton = NodePath("../..")
 
 [node name="DetailHill" type="MeshInstance3D" parent="MountainSidePart/HexFieldHill"]
 transform = Transform3D(1, 0, 4.92463e-08, 0, 1, 0, -2.31059e-08, 0, 1, -0.0541935, 1.03225, -0.114418)
-mesh = ExtResource("6_db2xq")
+mesh = ExtResource("15_g5etf")
 skeleton = NodePath("../../..")
 
 [node name="HexForest8" type="MeshInstance3D" parent="MountainSidePart"]
 transform = Transform3D(1, 0, 0, 0, 0.999999, 0, 0, 0, 1, 6, 0, 0)
-mesh = ExtResource("1_7pqwd")
+mesh = ExtResource("8_5lddr")
 skeleton = NodePath(".")
 
 [node name="HexForest9" type="MeshInstance3D" parent="MountainSidePart"]
 transform = Transform3D(1, 0, 0, 0, 0.999999, 0, 0, 0, 1, 3, 0, 1.7)
-mesh = ExtResource("1_7pqwd")
+mesh = ExtResource("8_5lddr")
 skeleton = NodePath("../HexForest10")
 
 [node name="HexForest10" type="MeshInstance3D" parent="MountainSidePart"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
-mesh = ExtResource("1_7pqwd")
+mesh = ExtResource("8_5lddr")
 skeleton = NodePath(".")
 
 [node name="HexForest11" type="MeshInstance3D" parent="MountainSidePart"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1.7)
-mesh = ExtResource("1_7pqwd")
+mesh = ExtResource("8_5lddr")
 skeleton = NodePath("../..")
 
 [node name="HexForest12" type="MeshInstance3D" parent="MountainSidePart"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 1.7)
-mesh = ExtResource("1_7pqwd")
+mesh = ExtResource("8_5lddr")
 skeleton = NodePath("../HexForest2")
 
 [node name="House2" type="MeshInstance3D" parent="MountainSidePart/HexForest12"]
 transform = Transform3D(-1, 0.00174532, -8.74224e-08, 0.00174533, 0.999993, 0.00174533, 3.1336e-06, 0.00174532, -0.999999, 0.00665617, 1.04845, -0.0993195)
-mesh = ExtResource("3_vxvm7")
+mesh = ExtResource("7_kahsi")
 skeleton = NodePath("")
 
 [node name="HexFieldWithForest5" type="MeshInstance3D" parent="MountainSidePart"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 1.7)
-mesh = ExtResource("2_jx02h")
+mesh = ExtResource("4_cnmbi")
 skeleton = NodePath("../chateau")
 
 [node name="Forest" type="MeshInstance3D" parent="MountainSidePart/HexFieldWithForest5"]
 transform = Transform3D(1, -4.05703e-11, -5.92494e-09, -1.63758e-10, 1, -5.75303e-10, -3.62296e-09, -4.25025e-10, 1, 0.0347099, 0.806161, -0.0124402)
-mesh = ExtResource("5_q4mki")
+mesh = ExtResource("16_ybdu2")
 skeleton = NodePath("../../chateau")
 
 [node name="HexFieldWithForest3" type="MeshInstance3D" parent="MountainSidePart"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
-mesh = ExtResource("2_jx02h")
+mesh = ExtResource("4_cnmbi")
 skeleton = NodePath("../chateau")
 
 [node name="Forest" type="MeshInstance3D" parent="MountainSidePart/HexFieldWithForest3"]
 transform = Transform3D(1, -4.05703e-11, -5.92494e-09, -1.63758e-10, 1, -5.75303e-10, -3.62296e-09, -4.25025e-10, 1, 0.0347099, 0.806161, -0.0124402)
-mesh = ExtResource("5_q4mki")
+mesh = ExtResource("16_ybdu2")
 skeleton = NodePath("../../chateau")
 
 [node name="WellGround" type="MeshInstance3D" parent="MountainSidePart"]
 transform = Transform3D(1.00001, 0, 0, 0, 1.00001, 0, 0, 0, 1.00001, 7, 0, 1.7)
-mesh = ExtResource("2_jx02h")
+mesh = ExtResource("4_cnmbi")
 skeleton = NodePath("../chateau")
 
 [node name="Well" type="MeshInstance3D" parent="MountainSidePart/WellGround"]
 transform = Transform3D(-0.663485, 0.00533451, -0.74816, 0.00518769, 0.999973, 0.00252943, 0.74816, -0.00220301, -0.663501, -0.048, 0, -0.165)
-mesh = ExtResource("19_0iw55")
+mesh = ExtResource("18_0pulr")
 skeleton = NodePath("../../..")
 
 [node name="LakeSidePart" type="Node3D" parent="."]
@@ -352,219 +351,219 @@ transform = Transform3D(1.00014, 0, 0, 0, 1, 0, 0, 0, 1.00013, 0, 0, 0)
 
 [node name="HexForest20" type="MeshInstance3D" parent="LakeSidePart/LakeSideForest"]
 transform = Transform3D(1, 0, -1.60953e-08, 0, 1, 0, 6.197e-09, 0, 1, -5.99914, 0, -6.9)
-mesh = ExtResource("1_7pqwd")
+mesh = ExtResource("8_5lddr")
 skeleton = NodePath("../../LakeSideGround/TreeGround")
 
 [node name="Forest" type="MeshInstance3D" parent="LakeSidePart/LakeSideForest/HexForest20"]
 transform = Transform3D(-0.464352, 0.00529539, 0.885632, 3.81919e-05, 0.999983, -0.00595912, -0.885646, -0.00273331, -0.464345, 0.0799704, 0.995169, -0.0433626)
-mesh = ExtResource("5_q4mki")
+mesh = ExtResource("16_ybdu2")
 skeleton = NodePath("../../../../MountainSidePart/chateau")
 
 [node name="HexForest19" type="MeshInstance3D" parent="LakeSidePart/LakeSideForest"]
 transform = Transform3D(0.999929, 0, 0, 0, 1, 0, 0, 0, 0.999936, -3.99943, 0, -6.9)
-mesh = ExtResource("1_7pqwd")
+mesh = ExtResource("8_5lddr")
 skeleton = NodePath("../../LakeSideGround/TreeGround")
 
 [node name="Forest" type="MeshInstance3D" parent="LakeSidePart/LakeSideForest/HexForest19"]
 transform = Transform3D(-0.464352, 0.00529539, 0.885632, 3.81919e-05, 0.999983, -0.00595912, -0.885646, -0.00273331, -0.464345, 0.0799704, 0.995169, -0.0433626)
-mesh = ExtResource("5_q4mki")
+mesh = ExtResource("16_ybdu2")
 skeleton = NodePath("../../../../MountainSidePart/chateau")
 
 [node name="HexForest18" type="MeshInstance3D" parent="LakeSidePart/LakeSideForest"]
 transform = Transform3D(0.999893, 0, 0, 0, 1, 0, 0, 0, 0.999902, 0, 0, -6.9)
-mesh = ExtResource("1_7pqwd")
+mesh = ExtResource("8_5lddr")
 skeleton = NodePath("../../LakeSideGround/TreeGround")
 
 [node name="Forest" type="MeshInstance3D" parent="LakeSidePart/LakeSideForest/HexForest18"]
 transform = Transform3D(-0.464352, 0.00529539, 0.885632, 3.81919e-05, 0.999983, -0.00595912, -0.885646, -0.00273331, -0.464345, 0.0799704, 0.995169, -0.0433626)
-mesh = ExtResource("5_q4mki")
+mesh = ExtResource("16_ybdu2")
 skeleton = NodePath("../../../../MountainSidePart/chateau")
 
 [node name="HexForest22" type="MeshInstance3D" parent="LakeSidePart/LakeSideForest"]
 transform = Transform3D(0.999893, 0, 0, 0, 1, 0, 0, 0, 0.999902, 7.99886, 0, -6.9)
-mesh = ExtResource("1_7pqwd")
+mesh = ExtResource("8_5lddr")
 skeleton = NodePath("../../LakeSideGround/TreeGround")
 
 [node name="Forest" type="MeshInstance3D" parent="LakeSidePart/LakeSideForest/HexForest22"]
 transform = Transform3D(-0.464352, 0.00529539, 0.885632, 3.81919e-05, 0.999983, -0.00595912, -0.885646, -0.00273331, -0.464345, 0.0799704, 0.995169, -0.0433626)
-mesh = ExtResource("5_q4mki")
+mesh = ExtResource("16_ybdu2")
 skeleton = NodePath("../../../../MountainSidePart/chateau")
 
 [node name="HexForest23" type="MeshInstance3D" parent="LakeSidePart/LakeSideForest"]
 transform = Transform3D(0.999893, 0, 0, 0, 1, 0, 0, 0, 0.999902, 9.99857, 0, -6.9)
-mesh = ExtResource("1_7pqwd")
+mesh = ExtResource("8_5lddr")
 skeleton = NodePath("../../LakeSideGround/TreeGround")
 
 [node name="Forest" type="MeshInstance3D" parent="LakeSidePart/LakeSideForest/HexForest23"]
 transform = Transform3D(-0.464352, 0.00529539, 0.885632, 3.81919e-05, 0.999983, -0.00595912, -0.885646, -0.00273331, -0.464345, 0.0799704, 0.995169, -0.0433626)
-mesh = ExtResource("5_q4mki")
+mesh = ExtResource("16_ybdu2")
 skeleton = NodePath("../../../../MountainSidePart/chateau")
 
 [node name="HexForest25" type="MeshInstance3D" parent="LakeSidePart/LakeSideForest"]
 transform = Transform3D(0.999893, 0, 0, 0, 1, 0, 0, 0, 0.999902, 10.998, 0, -5.17)
-mesh = ExtResource("1_7pqwd")
+mesh = ExtResource("8_5lddr")
 skeleton = NodePath("../../LakeSideGround/TreeGround")
 
 [node name="Forest" type="MeshInstance3D" parent="LakeSidePart/LakeSideForest/HexForest25"]
 transform = Transform3D(-0.464352, 0.00529539, 0.885632, 3.81919e-05, 0.999983, -0.00595912, -0.885646, -0.00273331, -0.464345, 0.0799704, 0.995169, -0.0433626)
-mesh = ExtResource("5_q4mki")
+mesh = ExtResource("16_ybdu2")
 skeleton = NodePath("../../../../MountainSidePart/chateau")
 
 [node name="HexForest17" type="MeshInstance3D" parent="LakeSidePart/LakeSideForest"]
 transform = Transform3D(0.999875, 0, 0, 0, 1, 0, 0, 0, 0.999886, -1.99971, 0, -6.9)
-mesh = ExtResource("1_7pqwd")
+mesh = ExtResource("8_5lddr")
 skeleton = NodePath("../../LakeSideGround/TreeGround")
 
 [node name="Forest" type="MeshInstance3D" parent="LakeSidePart/LakeSideForest/HexForest17"]
 transform = Transform3D(-0.464352, 0.00529539, 0.885632, 3.81919e-05, 0.999983, -0.00595912, -0.885646, -0.00273331, -0.464345, 0.0799704, 0.995169, -0.0433626)
-mesh = ExtResource("5_q4mki")
+mesh = ExtResource("16_ybdu2")
 skeleton = NodePath("../../../../MountainSidePart/chateau")
 
 [node name="HexForest" type="MeshInstance3D" parent="LakeSidePart/LakeSideForest"]
 transform = Transform3D(0.999861, 0, 0, 0, 1, 0, 0, 0, 0.999874, -0.999857, 0, -1.7)
-mesh = ExtResource("1_7pqwd")
+mesh = ExtResource("8_5lddr")
 skeleton = NodePath("../../..")
 
 [node name="Forest" type="MeshInstance3D" parent="LakeSidePart/LakeSideForest/HexForest"]
 transform = Transform3D(-0.464352, 0.00529539, 0.885632, 3.81919e-05, 0.999983, -0.00595912, -0.885646, -0.00273331, -0.464345, 0.0799704, 0.995169, -0.0433626)
-mesh = ExtResource("5_q4mki")
+mesh = ExtResource("16_ybdu2")
 skeleton = NodePath("../../../../MountainSidePart/chateau")
 
 [node name="HexFieldWithForest2" type="MeshInstance3D" parent="LakeSidePart/LakeSideForest"]
 transform = Transform3D(0.999872, 0, 0, 0, 1, 0, 0, 0, 0.999858, -6.999, 0, -1.7)
-mesh = ExtResource("2_jx02h")
+mesh = ExtResource("4_cnmbi")
 skeleton = NodePath("../../../MountainSidePart/chateau")
 
 [node name="Forest" type="MeshInstance3D" parent="LakeSidePart/LakeSideForest/HexFieldWithForest2"]
 transform = Transform3D(1, 8.94542e-11, -9.25276e-09, 2.81586e-11, 1, -7.36564e-10, -5.9556e-09, -5.48958e-10, 1, 0.0347097, 0.806161, -0.0124402)
-mesh = ExtResource("5_q4mki")
+mesh = ExtResource("16_ybdu2")
 skeleton = NodePath("../../../../MountainSidePart/chateau")
 
 [node name="HexForest24" type="MeshInstance3D" parent="LakeSidePart/LakeSideForest"]
 transform = Transform3D(0.999905, 0, 0, 0, 1, 0, 0, 0, 0.999891, -6.999, 0, -5.17)
-mesh = ExtResource("1_7pqwd")
+mesh = ExtResource("8_5lddr")
 skeleton = NodePath("../../../MountainSidePart/HexForest3")
 
 [node name="Forest" type="MeshInstance3D" parent="LakeSidePart/LakeSideForest/HexForest24"]
 transform = Transform3D(-0.0607715, 0, 0.998118, 0, 1, 0, -0.998118, 0, -0.0607715, 0.0200294, 0.729058, -0.0715437)
-mesh = ExtResource("5_q4mki")
+mesh = ExtResource("16_ybdu2")
 skeleton = NodePath("../../../..")
 
 [node name="HexForest21" type="MeshInstance3D" parent="LakeSidePart/LakeSideForest"]
 transform = Transform3D(0.999883, 0, 0, 0, 1, 0, 0, 0, 0.999897, -8, 0, -3.44)
-mesh = ExtResource("1_7pqwd")
+mesh = ExtResource("8_5lddr")
 skeleton = NodePath("../../../MountainSidePart/HexForest3")
 
 [node name="Forest" type="MeshInstance3D" parent="LakeSidePart/LakeSideForest/HexForest21"]
 transform = Transform3D(0.546742, 0, -0.837239, 0, 1, 0, 0.837238, 0, 0.546743, 0.0378971, 0.957108, -0.151356)
-mesh = ExtResource("5_q4mki")
+mesh = ExtResource("16_ybdu2")
 skeleton = NodePath("../../../../road")
 
 [node name="LakeSideGround" type="Node3D" parent="LakeSidePart"]
 
 [node name="FarmWheatGround" type="MeshInstance3D" parent="LakeSidePart/LakeSideGround"]
 transform = Transform3D(0.999999, 0, 0, 0, 0.999998, 0, 0, 0, 1, -11, 0, -1.7)
-mesh = ExtResource("2_jx02h")
+mesh = ExtResource("4_cnmbi")
 skeleton = NodePath("../../../MountainSidePart/floor-down-chateau5/HexForestDetail2")
 
 [node name="FarmWheat" type="MeshInstance3D" parent="LakeSidePart/LakeSideGround/FarmWheatGround"]
 transform = Transform3D(0.890865, -0.00491538, -0.454243, 8.23753e-08, 0.999943, -0.0108214, 0.454269, 0.00963955, 0.890812, 0.125506, 0.917359, -0.0393046)
-mesh = ExtResource("23_5tb6m")
+mesh = ExtResource("12_ue7cv")
 skeleton = NodePath("../../../..")
 
 [node name="HexForest22" type="MeshInstance3D" parent="LakeSidePart/LakeSideGround"]
 transform = Transform3D(1.00002, 0, 0, 0, 1, 0, 0, 0, 1.00002, -10, 0, -3.44)
-mesh = ExtResource("1_7pqwd")
+mesh = ExtResource("8_5lddr")
 skeleton = NodePath("../../../MountainSidePart/HexForest3")
 
 [node name="WellGround" type="MeshInstance3D" parent="LakeSidePart/LakeSideGround"]
 transform = Transform3D(1.00004, 0, 0, 0, 1, 0, 0, 0, 1.00004, -9, 0, -1.7)
-mesh = ExtResource("1_7pqwd")
+mesh = ExtResource("8_5lddr")
 skeleton = NodePath("../../../MountainSidePart/HexForest3")
 
 [node name="Well" type="MeshInstance3D" parent="LakeSidePart/LakeSideGround/WellGround"]
 transform = Transform3D(0.840016, 0, 0.542486, 0, 1, 0, -0.542486, 0, 0.840016, -0.308759, 1.00073, -0.132783)
-mesh = ExtResource("19_0iw55")
+mesh = ExtResource("18_0pulr")
 skeleton = NodePath("../../../..")
 
 [node name="MillGround" type="MeshInstance3D" parent="LakeSidePart/LakeSideGround"]
 transform = Transform3D(1.00001, 0, 0, 0, 1, 0, 0, 0, 1.00001, -4, 0, -3.44)
-mesh = ExtResource("1_7pqwd")
+mesh = ExtResource("8_5lddr")
 skeleton = NodePath("../../../road")
 
 [node name="Mill" type="MeshInstance3D" parent="LakeSidePart/LakeSideGround/MillGround"]
 transform = Transform3D(0.504824, 1.84431e-09, 0.863213, 3.62582e-10, 1, -4.38631e-09, -0.863212, 1.11109e-09, 0.504824, 0.0636882, 1.02249, -0.0542066)
-mesh = ExtResource("6_l0eeu")
+mesh = ExtResource("13_q7yrs")
 skeleton = NodePath("../../../..")
 
 [node name="FarmPlotGround" type="MeshInstance3D" parent="LakeSidePart/LakeSideGround"]
 transform = Transform3D(1.00001, 0, 0, 0, 1, 0, 0, 0, 1.00001, -3, 0, -1.7)
-mesh = ExtResource("1_7pqwd")
+mesh = ExtResource("8_5lddr")
 skeleton = NodePath("../../../MountainSidePart/HexForest3")
 
 [node name="FarmPlot" type="MeshInstance3D" parent="LakeSidePart/LakeSideGround/FarmPlotGround"]
 transform = Transform3D(-0.433919, 0, -0.900943, 0, 1, 0, 0.900943, 0, -0.433919, 0.0199162, 0.981575, -0.0124073)
-mesh = ExtResource("24_ssdjr")
+mesh = ExtResource("19_bdocd")
 skeleton = NodePath("../../../..")
 
 [node name="MountainGround" type="MeshInstance3D" parent="LakeSidePart/LakeSideGround"]
 transform = Transform3D(1.00005, 0, 0, 0, 1, 0, 0, 0, 1.00005, 4, 0, -6.9)
-mesh = ExtResource("1_7pqwd")
+mesh = ExtResource("8_5lddr")
 skeleton = NodePath("../FarmPlotGround")
 
 [node name="Mountain2" type="MeshInstance3D" parent="LakeSidePart/LakeSideGround/MountainGround"]
 transform = Transform3D(0.834466, 0, 0.550961, 0, 1, 0, -0.550961, 0, 0.834467, -0.122392, 0.959627, 0.0705986)
-mesh = ExtResource("25_1ipmf")
+mesh = ExtResource("17_tbul5")
 skeleton = NodePath("../../../..")
 
 [node name="HexForest13" type="MeshInstance3D" parent="LakeSidePart/LakeSideGround"]
 transform = Transform3D(1.00003, 0, 0, 0, 1, 0, 0, 0, 1.00003, 6, 0, -6.9)
-mesh = ExtResource("1_7pqwd")
+mesh = ExtResource("8_5lddr")
 skeleton = NodePath("../FarmPlotGround")
 
 [node name="Forest2" type="MeshInstance3D" parent="LakeSidePart/LakeSideGround/HexForest13"]
 transform = Transform3D(-0.464352, 0.00529539, 0.885632, 3.81919e-05, 0.999983, -0.00595912, -0.885646, -0.00273331, -0.464345, 0.0799794, 0.995169, -0.0433626)
-mesh = ExtResource("5_q4mki")
+mesh = ExtResource("16_ybdu2")
 skeleton = NodePath("../../../../MountainSidePart/chateau")
 
 [node name="HexForest17" type="MeshInstance3D" parent="LakeSidePart/LakeSideGround"]
 transform = Transform3D(1.00004, 0, 0, 0, 1, 0, 0, 0, 1.00004, 5, 0, -5.17)
-mesh = ExtResource("1_7pqwd")
+mesh = ExtResource("8_5lddr")
 skeleton = NodePath("../FarmPlotGround")
 
 [node name="HexForest16" type="MeshInstance3D" parent="LakeSidePart/LakeSideGround"]
 transform = Transform3D(1.00002, 0, 0, 0, 1, 0, 0, 0, 1.00002, 6, 0, -3.44)
-mesh = ExtResource("1_7pqwd")
+mesh = ExtResource("8_5lddr")
 skeleton = NodePath("../FarmPlotGround")
 
 [node name="SmallForestGround" type="MeshInstance3D" parent="LakeSidePart/LakeSideGround"]
 transform = Transform3D(1.00001, 0, 0, 0, 1, 0, 0, 0, 1.00001, 4, 0, -3.44)
-mesh = ExtResource("1_7pqwd")
+mesh = ExtResource("8_5lddr")
 skeleton = NodePath("../FarmPlotGround")
 
 [node name="DetailForestB" type="MeshInstance3D" parent="LakeSidePart/LakeSideGround/SmallForestGround"]
 transform = Transform3D(0.999992, 0, 0, 0, 1, 0, 0, 0, 0.99999, 0.0432258, 1, -0.0121906)
-mesh = ExtResource("4_373g2")
+mesh = ExtResource("20_tbfgq")
 skeleton = NodePath("../../../..")
 
 [node name="HexForest14" type="MeshInstance3D" parent="LakeSidePart/LakeSideGround"]
 transform = Transform3D(1.00002, 0, 0, 0, 1, 0, 0, 0, 1.00002, 7, 0, -5.17)
-mesh = ExtResource("1_7pqwd")
+mesh = ExtResource("8_5lddr")
 skeleton = NodePath("../TreeGround")
 
 [node name="TreeGround" type="MeshInstance3D" parent="LakeSidePart/LakeSideGround"]
 transform = Transform3D(1.00001, 0, 0, 0, 1, 0, 0, 0, 1.00001, 9, 0, -5.17)
-mesh = ExtResource("1_7pqwd")
+mesh = ExtResource("8_5lddr")
 skeleton = NodePath("../../../road")
 
 [node name="DetailTreeC" type="MeshInstance3D" parent="LakeSidePart/LakeSideGround/TreeGround"]
 transform = Transform3D(0.901606, 0, -0.432537, 0, 1, 0, 0.432537, 0, 0.901607, 0.386494, 0.916962, -0.187985)
-mesh = ExtResource("25_ta08b")
+mesh = ExtResource("21_vp68p")
 skeleton = NodePath("../../../..")
 
 [node name="DetailTreeB" type="MeshInstance3D" parent="LakeSidePart/LakeSideGround/TreeGround"]
 transform = Transform3D(0.901606, 0, -0.432537, 0, 1, 0, 0.432537, 0, 0.901607, -0.548991, 1, 0.513998)
-mesh = ExtResource("26_0bxmv")
+mesh = ExtResource("22_bg7i1")
 skeleton = NodePath("../../../..")
 
 [node name="Lake" type="Node3D" parent="LakeSidePart"]
@@ -572,52 +571,52 @@ transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0, 0)
 
 [node name="HexWaterDetail" type="MeshInstance3D" parent="LakeSidePart/Lake"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.66893e-06, 0, -3.44)
-mesh = ExtResource("19_1tkf2")
+mesh = ExtResource("23_xa7pr")
 skeleton = NodePath("../../..")
 
 [node name="HexWaterDetail2" type="MeshInstance3D" parent="LakeSidePart/Lake"]
 transform = Transform3D(1, 8.59694e-24, 3.37369e-09, -1.61249e-25, 1, -1.64375e-23, 8.30608e-09, -1.35077e-23, 1, -2, 0, -3.44)
-mesh = ExtResource("19_1tkf2")
+mesh = ExtResource("23_xa7pr")
 skeleton = NodePath("../HexWaterDetail3")
 
 [node name="HexWaterDetail3" type="MeshInstance3D" parent="LakeSidePart/Lake"]
 transform = Transform3D(1, 8.59694e-24, 3.37369e-09, -1.61249e-25, 1, -1.64375e-23, 8.30608e-09, -1.35077e-23, 1, -1, 0, -5.17)
-mesh = ExtResource("19_1tkf2")
+mesh = ExtResource("23_xa7pr")
 skeleton = NodePath("../HexWaterDetail")
 
 [node name="HexWaterDetail4" type="MeshInstance3D" parent="LakeSidePart/Lake"]
 transform = Transform3D(1, 8.59694e-24, 3.37369e-09, -1.61249e-25, 1, -1.64375e-23, 8.30608e-09, -1.35077e-23, 1, 1, 0, -5.17)
-mesh = ExtResource("19_1tkf2")
+mesh = ExtResource("23_xa7pr")
 skeleton = NodePath("../HexWaterDetail")
 
 [node name="HexWaterDetail5" type="MeshInstance3D" parent="LakeSidePart/Lake"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -5.17)
-mesh = ExtResource("19_1tkf2")
+mesh = ExtResource("23_xa7pr")
 skeleton = NodePath("../HexWaterDetail")
 
 [node name="HexWaterDetail6" type="MeshInstance3D" parent="LakeSidePart/Lake"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -1.7)
-mesh = ExtResource("19_1tkf2")
+mesh = ExtResource("23_xa7pr")
 skeleton = NodePath("../HexWaterDetail")
 
 [node name="HexWaterDetail7" type="MeshInstance3D" parent="LakeSidePart/Lake"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -3.44)
-mesh = ExtResource("19_1tkf2")
+mesh = ExtResource("23_xa7pr")
 skeleton = NodePath("../HexWaterDetail")
 
 [node name="HexWaterDetail8" type="MeshInstance3D" parent="LakeSidePart/Lake"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -5.17)
-mesh = ExtResource("19_1tkf2")
+mesh = ExtResource("23_xa7pr")
 skeleton = NodePath("../HexWaterDetail")
 
 [node name="HexForestWaterBDetail2" type="MeshInstance3D" parent="LakeSidePart/Lake"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -5.17)
-mesh = ExtResource("22_llhuq")
+mesh = ExtResource("24_3amyh")
 skeleton = NodePath("../../..")
 
 [node name="HexForestWaterBDetail" type="MeshInstance3D" parent="LakeSidePart/Lake"]
 transform = Transform3D(0.5, 0, 0.866026, 0, 1, 0, -0.866026, 0, 0.5, 2, 0, -6.9)
-mesh = ExtResource("22_llhuq")
+mesh = ExtResource("24_3amyh")
 skeleton = NodePath("../../..")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -958,23 +957,21 @@ collision_mask = 0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.48354, 0)
 shape = SubResource("BoxShape3D_o8pun")
 
-[node name="Level1" parent="." instance=ExtResource("25_dyi6p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 4, -10.3273)
-_newLevel = ExtResource("26_a0a6s")
-
-[node name="Level2" parent="." instance=ExtResource("25_dyi6p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 4, 10.3137)
-_newLevel = ExtResource("26_a0a6s")
-
-[node name="Level3" parent="." instance=ExtResource("25_dyi6p")]
+[node name="Level1" parent="." instance=ExtResource("25_26p5f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 4, 0)
-_newLevel = ExtResource("27_mjlm4")
+_newLevel = "res://Levels/Tutorial.tscn"
 
-[node name="Level4" parent="." instance=ExtResource("25_dyi6p")]
+[node name="Level2" parent="." instance=ExtResource("25_26p5f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 4, 10.3137)
+_newLevel = "res://Levels/Halloween.tscn"
+
+[node name="Level3" parent="." instance=ExtResource("25_26p5f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 4, -10.4)
-_newLevel = ExtResource("26_a0a6s")
 
-[node name="Player" parent="." instance=ExtResource("25_1r0p8")]
+[node name="Level4" parent="." instance=ExtResource("25_26p5f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 4, -10.3273)
+
+[node name="Player" parent="." instance=ExtResource("26_xvx2l")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6, 4, -5)
 NormalSpeed = 8.0
 PlayerNumber = 0
@@ -985,4 +982,5 @@ environment = SubResource("Environment_osaiu")
 current = true
 fov = 92.2176
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="GameManager" parent="." instance=ExtResource("27_q88wq")]
+_defaultState = 1

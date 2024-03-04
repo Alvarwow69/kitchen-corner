@@ -5,11 +5,12 @@ public partial class NodeLevelSelector : Interactable
 {
 	#region Properties
 
-	[Export] private PackedScene _newLevel;
+	[Export(PropertyHint.File, "*.tscn")] private string _newLevel;
 
 	#endregion
+
 	public override void PerformAction(Player player)
 	{
-		GetTree().ChangeSceneToPacked(_newLevel);
+		GetTree().ChangeSceneToFile(_newLevel);
 	}
 }

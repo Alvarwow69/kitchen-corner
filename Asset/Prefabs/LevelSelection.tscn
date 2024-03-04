@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://b57jlr3ny32s0"]
+[gd_scene load_steps=3 format=3 uid="uid://bgjxdbqjt8ota"]
 
 [ext_resource type="Script" path="res://Script/Level/NodeLevelSelector.cs" id="1_3hjjh"]
 

@@ -2,6 +2,7 @@ using Godot;
 using System;
 using System.Diagnostics;
 using Godot.Collections;
+using KitchenCorner.Script.Event;
 
 public partial class CommandManager : Node
 {
@@ -28,12 +29,18 @@ public partial class CommandManager : Node
 
     public override void _Ready()
     {
-        CreateCommand();
+        GameEvent.onGameStateChange += OnGameStarted;
+    }
+
+    private void OnGameStarted(GameManager.GameState newGameState)
+    {
+        if (newGameState == GameManager.GameState.InGame)
+            CreateCommand();
     }
 
     public override void _Process(double delta)
     {
-        if (_currentCommand >= _maxCommand)
+        if (GameManager.GetGameState() != GameManager.GameState.InGame || _currentCommand >= _maxCommand)
             return;
         _timer += delta;
         if (_timer >= _timeBetweenCommand || (_currentCommand == 0 && _timer >= _timeBetweenCommand / 2))

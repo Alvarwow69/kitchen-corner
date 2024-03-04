@@ -34,6 +34,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_i3lh8")
 script = ExtResource("1_4jq6k")
+_waitingTime = 40.0
 _progressBar = NodePath("AspectRatioContainer/VBoxContainer/ProgressBar")
 _styleBox = SubResource("StyleBoxFlat_f43a3")
 Title = NodePath("AspectRatioContainer/VBoxContainer/HBoxContainer/Label")
