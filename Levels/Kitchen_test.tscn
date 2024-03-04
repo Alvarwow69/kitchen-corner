@@ -142,7 +142,6 @@ transform = Transform3D(0.782456, -0.234005, -0.577065, 0.622706, 0.294037, 0.72
 
 [node name="Player" parent="." instance=ExtResource("13_8oirm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.93549, 1.89814, 0)
-collision_mask = 7
 PlayerNumber = 0
 
 [node name="Plate2" parent="." instance=ExtResource("14_k8bnr")]

@@ -9,6 +9,8 @@ public abstract partial class Container : Ingredient
 
     public Ingredient GetIngredient(int index)
     {
+        if (index >= Foods.Count)
+            return null;
         return Foods[index];
     }
 

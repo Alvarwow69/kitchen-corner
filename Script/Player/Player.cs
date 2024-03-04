@@ -16,6 +16,7 @@ public partial class Player : CharacterBody3D
     private RigidInteractable _interactable = null;
     private Node3D _anchor;
     private bool _freeze = false;
+    public bool IsProcessAction { get; set; } = true;
 
     public override void _Ready()
     {
@@ -34,7 +35,7 @@ public partial class Player : CharacterBody3D
 
     private void ProcessInteractable()
     {
-        if (_raycast.IsColliding())
+        if (_raycast.IsColliding() && IsProcessAction)
         {
             if ((_raycast.GetCollider() as Node3D)?.GetParent() is Interactable)
             {
@@ -54,14 +55,16 @@ public partial class Player : CharacterBody3D
 
     private void ProcessAction()
     {
+        if (!IsProcessAction)
+            return;
         if (Input.IsActionJustPressed("player" + PlayerNumber + "_grab"))
         {
             if (_interactable != null)
             {
                 if (_selectionInteractable is Ingredient && _interactable is Ingredient)
                 {
-                    if (_selectionInteractable is Plate)
-                        (_selectionInteractable as Plate)?.AddFood(_interactable as Ingredient);
+                    if (_selectionInteractable is Container)
+                        (_selectionInteractable as Container)?.AddFood(_interactable as Ingredient);
                     else
                         (_interactable as Ingredient)?.AddFood(_selectionInteractable as Ingredient);
                 }
@@ -124,18 +127,16 @@ public partial class Player : CharacterBody3D
         return _interactable != null;
     }
 
-    public void AddInteractable(RigidInteractable interactable)
+    public bool AddInteractable(RigidInteractable interactable)
     {
         if (_interactable is Container)
-        {
-            (_interactable as Container)?.AddFood(interactable as Ingredient);
-            return;
-        }
+            return (_interactable as Container).AddFood(interactable as Ingredient);
         _interactable = interactable;
         _interactable.Freeze();
         _interactable.Reparent(_anchor);
         _interactable.GlobalPosition = _anchor.GlobalPosition;
         _interactable.Player = this;
+        return true;
     }
 
     public RigidInteractable RemoveInteractable()

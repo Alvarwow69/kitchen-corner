@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using KitchenCorner.Script.Event;
 
 public partial class SliceIngredients : Ingredient
 {
@@ -12,7 +13,10 @@ public partial class SliceIngredients : Ingredient
 			return;
 		_sliceTime += addTime;
 		if (_sliceTime >= _slicedTime)
+		{
 			SetState(FoodState.Sliced);
+			FoodEvent.PerformFoodSliced(this);
+		}
 	}
 
 	public double GetProgress()

@@ -1,11 +1,12 @@
 [gd_scene load_steps=7 format=3 uid="uid://dnkgd6nbuk5v7"]
 
-[ext_resource type="Script" path="res://Script/Ingredients/CounterInteractable.cs" id="1_oja1q"]
+[ext_resource type="Script" path="res://Script/Ingredients/CounterInteractable.cs" id="1_46gew"]
 [ext_resource type="ArrayMesh" uid="uid://cu45ixuvntftg" path="res://Asset/Kitchen/obj/kitchencounter_straight_A.obj" id="2_8vwqo"]
 [ext_resource type="Shader" path="res://Selection.gdshader" id="3_k5om8"]
 [ext_resource type="Texture2D" uid="uid://c8jvxgl2348ht" path="res://Asset/Kitchen/obj/restaurantbits_texture.png" id="4_afk7c"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_aga35"]
+resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("3_k5om8")
 shader_parameter/selectColor = Color(0.94902, 0.964706, 0, 1)
@@ -16,7 +17,7 @@ shader_parameter/tex = ExtResource("4_afk7c")
 size = Vector3(2.01516, 1, 1.98592)
 
 [node name="CounterStraight" type="Node3D"]
-script = ExtResource("1_oja1q")
+script = ExtResource("1_46gew")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 collision_layer = 12

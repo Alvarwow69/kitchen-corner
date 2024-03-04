@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://c11cm5a88t5w0"]
 
-[ext_resource type="Script" path="res://Script/Furniture/Cuttingboard.cs" id="1_u7ori"]
+[ext_resource type="Script" path="res://Script/Furniture/Cuttingboard.cs" id="1_wxbso"]
 [ext_resource type="ArrayMesh" uid="uid://bwtlv07oyl0wn" path="res://Asset/Kitchen/obj/kitchencounter_straight_B.obj" id="2_wt7pu"]
 [ext_resource type="Shader" path="res://Selection.gdshader" id="3_24vx1"]
 [ext_resource type="Texture2D" uid="uid://c8jvxgl2348ht" path="res://Asset/Kitchen/obj/restaurantbits_texture.png" id="4_onn8s"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c7028uon8wrot" path="res://Asset/Prefabs/utils/ProgressBar.tscn" id="7_cs025"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_aga35"]
+resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("3_24vx1")
 shader_parameter/selectColor = Color(0.94902, 0.964706, 0, 1)
@@ -84,7 +85,7 @@ _data = {
 viewport_path = NodePath("SubViewport")
 
 [node name="CounterCuttingboard" type="Node3D" node_paths=PackedStringArray("_animation", "_progressBar")]
-script = ExtResource("1_u7ori")
+script = ExtResource("1_wxbso")
 _animation = NodePath("AnimationPlayer")
 _progressBar = NodePath("SubViewport/ProgressBar")
 
