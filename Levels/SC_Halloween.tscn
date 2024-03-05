@@ -63,7 +63,7 @@ border_width_top = 1
 border_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 5
 
-[node name="Halloween" type="Node3D"]
+[node name="Level01" type="Node3D"]
 
 [node name="World" type="Node3D" parent="."]
 
@@ -1870,10 +1870,11 @@ shape = SubResource("BoxShape3D_js2ij")
 transform = Transform3D(-4.37114e-08, -4.37114e-08, -1, 4.37114e-08, 1, -4.37114e-08, 1, -4.37114e-08, -4.37114e-08, 8.01447, 0.416175, -14.5847)
 shape = SubResource("BoxShape3D_js2ij")
 
-[node name="GameManager" parent="." node_paths=PackedStringArray("_uiCountDown") instance=ExtResource("43_rddyo")]
-_timeUpScene = "res://Levels/LevelMenu.tscn"
+[node name="GameManager" parent="." node_paths=PackedStringArray("_uiCountDown", "_scoreManager") instance=ExtResource("43_rddyo")]
+_timeUpScene = "res://Levels/SC_LevelMenu.tscn"
 _timeBeforeStart = 4.0
 _uiCountDown = NodePath("../UI_CountDown")
+_scoreManager = NodePath("../ScoreManager")
 
 [node name="Player" parent="." instance=ExtResource("28_8axgi")]
 transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 8, 1, -5)

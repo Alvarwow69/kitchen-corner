@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Diagnostics;
 using KitchenCorner.Script.Event;
 
 public partial class GameManager : Node3D
@@ -18,6 +19,7 @@ public partial class GameManager : Node3D
 	[Export] private double _timeBeforeChange = 3.0f;
 	[Export] private double _timeBeforeStart = 3.0f;
 	[Export] private Label _uiCountDown;
+	[Export] private ScoreManager _scoreManager;
 
 	private double _timer = 0.0;
 	private static GameState _gameState;
@@ -39,7 +41,7 @@ public partial class GameManager : Node3D
 		else
 			_timer = 0;
 		if (_gameState == GameState.EndGame && _timer >= _timeBeforeChange)
-			GetTree().ChangeSceneToFile(_timeUpScene);
+			ChangeScene();
 		if (_gameState == GameState.Starting)
 		{
 			_uiCountDown.Text = "" + (int)(_timeBeforeStart - _timer + 1) % 60;
@@ -57,6 +59,13 @@ public partial class GameManager : Node3D
 	{
 		_gameState = GameState.EndGame;
 		GameEvent.PerformanceOnGameStateChange(_gameState);
+	}
+
+	private void ChangeScene()
+	{
+		var scoreInfo = GetNode<info_score>("/root/InfoScore");
+		scoreInfo.UpdateScore(GetParent().Name, _scoreManager.GetScore());
+		GetTree().ChangeSceneToFile(_timeUpScene);
 	}
 
 	public static GameState GetGameState()

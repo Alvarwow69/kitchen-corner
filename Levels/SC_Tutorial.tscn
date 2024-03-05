@@ -404,6 +404,7 @@ mesh = ExtResource("2_nt3cx")
 skeleton = NodePath("../../..")
 
 [node name="GameManager" parent="." instance=ExtResource("22_au5ku")]
+_defaultState = 1
 _timeUpScene = "res://Levels/LevelMenu.tscn"
 
 [node name="Camera3D" type="Camera3D" parent="."]
@@ -420,6 +421,7 @@ shadow_enabled = true
 
 [node name="Steps" type="Node" parent="."]
 script = ExtResource("19_kx51e")
+_selectionScene = "res://Levels/SC_LevelMenu.tscn"
 
 [node name="Step01" parent="Steps" instance=ExtResource("19_nyga6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, -0.337361, 0)

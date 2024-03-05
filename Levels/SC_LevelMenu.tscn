@@ -26,7 +26,7 @@
 [ext_resource type="ArrayMesh" uid="uid://1xq8ap01tbk3" path="res://Asset/LevelMenu/obj/hex_forest_waterB_detail.obj" id="24_3amyh"]
 [ext_resource type="PackedScene" uid="uid://bgjxdbqjt8ota" path="res://Asset/Prefabs/LevelSelection.tscn" id="25_26p5f"]
 [ext_resource type="PackedScene" uid="uid://2srn8qk2e34b" path="res://Asset/Prefabs/Player_selection.tscn" id="26_xvx2l"]
-[ext_resource type="PackedScene" uid="uid://dh24ddwlra6qp" path="res://Asset/Prefabs/GameManager.tscn" id="27_q88wq"]
+[ext_resource type="PackedScene" uid="uid://bbw6nxxu8ml8f" path="res://Asset/Prefabs/SelectionManager.tscn" id="27_shbuw"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_iyn7v"]
 size = Vector3(3.5, 3, 6)
@@ -957,18 +957,19 @@ collision_mask = 0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.48354, 0)
 shape = SubResource("BoxShape3D_o8pun")
 
-[node name="Level1" parent="." instance=ExtResource("25_26p5f")]
+[node name="Tutorial" parent="." instance=ExtResource("25_26p5f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 4, 0)
-_newLevel = "res://Levels/Tutorial.tscn"
+_newLevel = "res://Levels/SC_Tutorial.tscn"
+Activated = true
 
-[node name="Level2" parent="." instance=ExtResource("25_26p5f")]
+[node name="Level01" parent="." instance=ExtResource("25_26p5f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 4, 10.3137)
-_newLevel = "res://Levels/Halloween.tscn"
+_newLevel = "res://Levels/SC_Halloween.tscn"
 
-[node name="Level3" parent="." instance=ExtResource("25_26p5f")]
+[node name="Level02" parent="." instance=ExtResource("25_26p5f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 4, -10.4)
 
-[node name="Level4" parent="." instance=ExtResource("25_26p5f")]
+[node name="Level03" parent="." instance=ExtResource("25_26p5f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 4, -10.3273)
 
 [node name="Player" parent="." instance=ExtResource("26_xvx2l")]
@@ -982,5 +983,5 @@ environment = SubResource("Environment_osaiu")
 current = true
 fov = 92.2176
 
-[node name="GameManager" parent="." instance=ExtResource("27_q88wq")]
-_defaultState = 1
+[node name="SelectionManager" parent="." node_paths=PackedStringArray("_listLevel") instance=ExtResource("27_shbuw")]
+_listLevel = [NodePath("../Tutorial"), NodePath("../Level01"), NodePath("../Level02"), NodePath("../Level03")]

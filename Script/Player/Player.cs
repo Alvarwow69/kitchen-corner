@@ -37,7 +37,8 @@ public partial class Player : CharacterBody3D
 
     private void ProcessInteractable()
     {
-        if (_raycast.IsColliding() && GameManager.GetGameState() == GameManager.GameState.InGame)
+        if (_raycast.IsColliding() && (GameManager.GetGameState() == GameManager.GameState.InGame ||
+                                       SelectionManager.GetGameState() == SelectionManager.SelectionState.Waiting))
         {
             if ((_raycast.GetCollider() as Node3D)?.GetParent() is Interactable)
             {
@@ -57,7 +58,7 @@ public partial class Player : CharacterBody3D
 
     private void ProcessAction()
     {
-        if (GameManager.GetGameState() != GameManager.GameState.InGame)
+        if (GameManager.GetGameState() != GameManager.GameState.InGame && SelectionManager.GetGameState() != SelectionManager.SelectionState.Waiting)
             return;
         if (Input.IsActionJustPressed("player" + PlayerNumber + "_grab"))
         {
