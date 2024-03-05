@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bxj30if4c05k1"
+path="res://.godot/imported/pillar.obj-2ff00bfd914a2975562306d0e5d6370e.mesh"
+
+[deps]
+
+files=["res://.godot/imported/pillar.obj-2ff00bfd914a2975562306d0e5d6370e.mesh"]
+
+source_file="res://Asset/Halloween/pillar.obj"
+dest_files=["res://.godot/imported/pillar.obj-2ff00bfd914a2975562306d0e5d6370e.mesh", "res://.godot/imported/pillar.obj-2ff00bfd914a2975562306d0e5d6370e.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

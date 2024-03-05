@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://idohhlbtv1vs"
+path="res://.godot/imported/fence_pillar_broken.obj-c78117e4e9ee051389808ee9cc7e566a.mesh"
+
+[deps]
+
+files=["res://.godot/imported/fence_pillar_broken.obj-c78117e4e9ee051389808ee9cc7e566a.mesh"]
+
+source_file="res://Asset/Halloween/fence_pillar_broken.obj"
+dest_files=["res://.godot/imported/fence_pillar_broken.obj-c78117e4e9ee051389808ee9cc7e566a.mesh", "res://.godot/imported/fence_pillar_broken.obj-c78117e4e9ee051389808ee9cc7e566a.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

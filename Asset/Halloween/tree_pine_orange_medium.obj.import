@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bjo2nucbj5agf"
+path="res://.godot/imported/tree_pine_orange_medium.obj-c5f23903d9bee8ce2a9722ec4990e31e.mesh"
+
+[deps]
+
+files=["res://.godot/imported/tree_pine_orange_medium.obj-c5f23903d9bee8ce2a9722ec4990e31e.mesh"]
+
+source_file="res://Asset/Halloween/tree_pine_orange_medium.obj"
+dest_files=["res://.godot/imported/tree_pine_orange_medium.obj-c5f23903d9bee8ce2a9722ec4990e31e.mesh", "res://.godot/imported/tree_pine_orange_medium.obj-c5f23903d9bee8ce2a9722ec4990e31e.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

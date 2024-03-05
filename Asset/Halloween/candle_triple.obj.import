@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ld0uh3243loh"
+path="res://.godot/imported/candle_triple.obj-788cdf34557fdc3fc8066b9e75e58049.mesh"
+
+[deps]
+
+files=["res://.godot/imported/candle_triple.obj-788cdf34557fdc3fc8066b9e75e58049.mesh"]
+
+source_file="res://Asset/Halloween/candle_triple.obj"
+dest_files=["res://.godot/imported/candle_triple.obj-788cdf34557fdc3fc8066b9e75e58049.mesh", "res://.godot/imported/candle_triple.obj-788cdf34557fdc3fc8066b9e75e58049.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

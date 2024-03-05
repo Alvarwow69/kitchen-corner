@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cpdpn2xwhef1t"
+path="res://.godot/imported/floor_dirt_small.obj-60c56f9c44ce272efba8332644f4311e.mesh"
+
+[deps]
+
+files=["res://.godot/imported/floor_dirt_small.obj-60c56f9c44ce272efba8332644f4311e.mesh"]
+
+source_file="res://Asset/Halloween/floor_dirt_small.obj"
+dest_files=["res://.godot/imported/floor_dirt_small.obj-60c56f9c44ce272efba8332644f4311e.mesh", "res://.godot/imported/floor_dirt_small.obj-60c56f9c44ce272efba8332644f4311e.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

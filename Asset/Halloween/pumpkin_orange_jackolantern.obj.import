@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://wpmb8fauxlge"
+path="res://.godot/imported/pumpkin_orange_jackolantern.obj-20912264ca3b72ddbdbba8d5e7494e6e.mesh"
+
+[deps]
+
+files=["res://.godot/imported/pumpkin_orange_jackolantern.obj-20912264ca3b72ddbdbba8d5e7494e6e.mesh"]
+
+source_file="res://Asset/Halloween/pumpkin_orange_jackolantern.obj"
+dest_files=["res://.godot/imported/pumpkin_orange_jackolantern.obj-20912264ca3b72ddbdbba8d5e7494e6e.mesh", "res://.godot/imported/pumpkin_orange_jackolantern.obj-20912264ca3b72ddbdbba8d5e7494e6e.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
