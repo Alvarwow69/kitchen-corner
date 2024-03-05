@@ -28,10 +28,8 @@ public partial class SelectionManager : Node3D
 	{
 		_gameState = _defaultState;
 		_infoScore = GetNode<info_score>("/root/InfoScore");
-		//TODO Recall every times
 		foreach (var levelSelector in _listLevel)
 			_infoScore.AddLevel(levelSelector.Name, levelSelector.Score, levelSelector.Activated);
-		_gameState = SelectionState.Waiting;
 	}
 
 	public override void _Process(double delta)
