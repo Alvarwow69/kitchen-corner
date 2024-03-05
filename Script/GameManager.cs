@@ -17,6 +17,7 @@ public partial class GameManager : Node3D
 	[Export(PropertyHint.File, "*.tscn")] private string _timeUpScene;
 	[Export] private double _timeBeforeChange = 3.0f;
 	[Export] private double _timeBeforeStart = 3.0f;
+	[Export] private Label _uiCountDown;
 
 	private double _timer = 0.0;
 	private static GameState _gameState;
@@ -39,10 +40,16 @@ public partial class GameManager : Node3D
 			_timer = 0;
 		if (_gameState == GameState.EndGame && _timer >= _timeBeforeChange)
 			GetTree().ChangeSceneToFile(_timeUpScene);
-		if (_gameState == GameState.Starting && _timer >= _timeBeforeStart)
+		if (_gameState == GameState.Starting)
 		{
-			_gameState = GameState.InGame;
-			GameEvent.PerformanceOnGameStateChange(_gameState);
+			_uiCountDown.Text = "" + (int)(_timeBeforeStart - _timer + 1) % 60;
+			if (_timer >= _timeBeforeStart)
+			{
+				_uiCountDown.Visible = false;
+				_gameState = GameState.InGame;
+				GameEvent.PerformanceOnGameStateChange(_gameState);
+			}
+
 		}
 	}
 

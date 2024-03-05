@@ -10,6 +10,6 @@ public class GameEvent
 
     public static void PerformanceOnGameStateChange(GameManager.GameState newGameState)
     {
-        onGameStateChange.Invoke(newGameState);
+        onGameStateChange?.Invoke(newGameState);
     }
 }
