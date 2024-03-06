@@ -8,6 +8,6 @@ public class OrderEvent
 
     public static void PerformOrderPlaced(Plate plate)
     {
-        OnOrderPlaced.Invoke(plate);
+        OnOrderPlaced?.Invoke(plate);
     }
 }

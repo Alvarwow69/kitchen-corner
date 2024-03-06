@@ -46,4 +46,9 @@ public partial class SelectionManager : Node3D
 	{
 		return _gameState;
 	}
+
+	public static void Reset()
+	{
+		_gameState = SelectionState.Computing;
+	}
 }

@@ -70,7 +70,7 @@ public partial class CommandManager : Node
             if (command.IsValidCommand(list))
             {
                 Debug.Print("Command valid");
-                GetNode<ScoreManager>("../ScoreManager").AddScore(50);
+                GetNode<ScoreManager>("../ScoreManager").AddScore(100);
                 command.QueueFree();
                 _currentCommand -= 1;
                 return true;

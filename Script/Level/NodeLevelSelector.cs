@@ -36,5 +36,6 @@ public partial class NodeLevelSelector : Interactable
 		if (!Activated)
 			return;
 		GetTree().ChangeSceneToFile(_newLevel);
+		SelectionManager.Reset();
 	}
 }

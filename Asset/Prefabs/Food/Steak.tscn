@@ -14,7 +14,7 @@ size = Vector3(1.0907, 0.905155, 0.908622)
 [sub_resource type="BoxShape3D" id="BoxShape3D_lmcg3"]
 size = Vector3(1, 0.246327, 1)
 
-[node name="Steack" type="Node3D"]
+[node name="Steak" type="Node3D"]
 script = ExtResource("1_rfylu")
 Compatibility = Array[String](["Bun", "Lettuce", "Tomato", "Cheese"])
 Weight = 1
