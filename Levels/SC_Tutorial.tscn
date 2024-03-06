@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://1qorlx8set1o" path="res://Asset/Prefabs/Furniture/Counter_Straight.tscn" id="12_bo578"]
 [ext_resource type="ArrayMesh" uid="uid://chi8c0424ro2b" path="res://Asset/City/road_straight.obj" id="13_dym55"]
 [ext_resource type="ArrayMesh" uid="uid://cx3oyv55d10ba" path="res://Asset/City/road_corner_curved.obj" id="14_d1x3t"]
-[ext_resource type="PackedScene" path="res://Asset/Prefabs/Furniture/Trash.tscn" id="14_g0g5u"]
+[ext_resource type="PackedScene" uid="uid://jj6w4f15tcej" path="res://Asset/Prefabs/Furniture/Trash.tscn" id="14_g0g5u"]
 [ext_resource type="ArrayMesh" uid="uid://cxvjujj714pk3" path="res://Asset/City/building_E.obj" id="15_2xxrn"]
 [ext_resource type="ArrayMesh" uid="uid://bg4qe8yk3ty2u" path="res://Asset/City/base.obj" id="15_fcldi"]
 [ext_resource type="PackedScene" uid="uid://k5io6bxv6534" path="res://Asset/Prefabs/Player.tscn" id="18_xwriv"]

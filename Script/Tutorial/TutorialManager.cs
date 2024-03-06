@@ -63,7 +63,7 @@ public sealed partial class TutorialManager : Node
 	private void TutorialFinished()
 	{
 		TargetEvent.PerformTutorialFinished();
-		GetNode<info_score>("/root/InfoScore").UpdateScore("Tutorial", 100);
+		GetNode<info_score>("/root/InfoScore").UpdateScore("Tutorial", 300);
 		GetNode<info_score>("/root/InfoScore").ActivateLevel("Level01");
 		GetTree().ChangeSceneToFile(_selectionScene);
 	}
