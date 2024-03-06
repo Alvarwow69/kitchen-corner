@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbw6nxxu8ml8f"]
+
+[ext_resource type="Script" path="res://Script/SelectionManager.cs" id="1_jrywr"]
+
+[node name="GameManager" type="Node3D" node_paths=PackedStringArray("_listLevel")]
+script = ExtResource("1_jrywr")
+_listLevel = []

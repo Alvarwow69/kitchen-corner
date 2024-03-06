@@ -8,6 +8,6 @@ public class TimeEvent
 
     public static void PerformOnTimeUp()
     {
-        OnTimeUp.Invoke();
+        OnTimeUp?.Invoke();
     }
 }

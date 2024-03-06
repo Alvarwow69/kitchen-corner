@@ -4,7 +4,7 @@ using System.Diagnostics;
 
 public sealed partial class TutorialManager : Node
 {
-	[Export] private Player _player;
+	[Export(PropertyHint.File)] private string _selectionScene;
 
 	private static int _currentStep = 1;
 	private int _maxStep;
@@ -27,7 +27,7 @@ public sealed partial class TutorialManager : Node
 		GetNode<Target>("Step" + AddZero() + _currentStep).EnableTarget();
 		_currentStepName = "Step" + AddZero() + _currentStep;
 		if (_currentStep >= _maxStep)
-			TargetEvent.PerformTutorialFinished();
+			TutorialFinished();
 	}
 
 	public static int GetCurrentStep()
@@ -58,6 +58,14 @@ public sealed partial class TutorialManager : Node
 	private string AddZero()
 	{
 		return _currentStep < 10 ? "0" : "";
+	}
+
+	private void TutorialFinished()
+	{
+		TargetEvent.PerformTutorialFinished();
+		GetNode<info_score>("/root/InfoScore").UpdateScore("Tutorial", 300);
+		GetNode<info_score>("/root/InfoScore").ActivateLevel("Level01");
+		GetTree().ChangeSceneToFile(_selectionScene);
 	}
 
 }

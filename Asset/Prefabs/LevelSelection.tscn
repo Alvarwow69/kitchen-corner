@@ -1,12 +1,45 @@
-[gd_scene load_steps=3 format=3 uid="uid://bgjxdbqjt8ota"]
+[gd_scene load_steps=10 format=3 uid="uid://bgjxdbqjt8ota"]
 
 [ext_resource type="Script" path="res://Script/Level/NodeLevelSelector.cs" id="1_3hjjh"]
+[ext_resource type="Script" path="res://Script/Ui/StarManager.cs" id="2_5k4wl"]
+[ext_resource type="PackedScene" uid="uid://codvm0rtsmwt7" path="res://Asset/Ui/star.tscn" id="3_74k1g"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_p0y77"]
 size = Vector3(3.5, 3, 6)
 
-[node name="LevelSelection" type="Node3D"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vwsxp"]
+resource_local_to_scene = true
+lifetime_randomness = 0.3
+emission_shape = 3
+emission_box_extents = Vector3(2.5, 0, 2.5)
+direction = Vector3(0, 0, 0)
+gravity = Vector3(0, 1, 0)
+linear_accel_max = 20.0
+angle_min = -471.6
+angle_max = 530.5
+scale_min = 0.1
+scale_max = 0.2
+color = Color(1, 1, 0.498039, 0.839216)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m8r2v"]
+transparency = 1
+albedo_color = Color(1, 1, 0.384314, 0.533333)
+
+[sub_resource type="SphereMesh" id="SphereMesh_a8w3g"]
+material = SubResource("StandardMaterial3D_m8r2v")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_sok8l"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qlecq"]
+bg_color = Color(1, 1, 1, 1)
+
+[node name="LevelSelection" type="Node3D" node_paths=PackedStringArray("_particles", "_title", "_starManager", "_sprite3D")]
 script = ExtResource("1_3hjjh")
+_particles = NodePath("GPUParticles3D")
+_title = NodePath("SubViewport/PanelContainer/Panel/VFlowContainer/Title")
+_starManager = NodePath("SubViewport/PanelContainer/Panel/VFlowContainer/HFlowContainer")
+_sprite3D = NodePath("Sprite3D")
 
 [node name="Limits" type="StaticBody3D" parent="."]
 collision_layer = 12
@@ -23,3 +56,85 @@ shape = SubResource("BoxShape3D_p0y77")
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="Limits"]
 transform = Transform3D(-5.96046e-08, 0, -1, 0, 1, 0, 1, 0, -5.96046e-08, 0, 0, 0)
 shape = SubResource("BoxShape3D_p0y77")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.51048, 0)
+emitting = false
+amount = 10
+process_material = SubResource("ParticleProcessMaterial_vwsxp")
+draw_pass_1 = SubResource("SphereMesh_a8w3g")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.28151, 0)
+visible = false
+billboard = 1
+texture_filter = 4
+texture = SubResource("ViewportTexture_sok8l")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+disable_3d = true
+transparent_bg = true
+
+[node name="PanelContainer" type="Control" parent="SubViewport"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="SubViewport/PanelContainer"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -50.0
+offset_right = 100.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+theme_override_styles/panel = SubResource("StyleBoxFlat_qlecq")
+
+[node name="VFlowContainer" type="HFlowContainer" parent="SubViewport/PanelContainer/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.0
+offset_top = -31.0
+offset_right = 52.0
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Title" type="Label" parent="SubViewport/PanelContainer/Panel/VFlowContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "[TITLE]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HFlowContainer" type="VFlowContainer" parent="SubViewport/PanelContainer/Panel/VFlowContainer"]
+layout_mode = 2
+alignment = 1
+script = ExtResource("2_5k4wl")
+
+[node name="Star" parent="SubViewport/PanelContainer/Panel/VFlowContainer/HFlowContainer" instance=ExtResource("3_74k1g")]
+layout_mode = 2
+
+[node name="Star2" parent="SubViewport/PanelContainer/Panel/VFlowContainer/HFlowContainer" instance=ExtResource("3_74k1g")]
+layout_mode = 2
+
+[node name="Star3" parent="SubViewport/PanelContainer/Panel/VFlowContainer/HFlowContainer" instance=ExtResource("3_74k1g")]
+layout_mode = 2

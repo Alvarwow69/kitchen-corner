@@ -8,6 +8,6 @@ public class TrashEvent
 
     public static void PerformOnIngredientThrow(Ingredient ingredient)
     {
-        OnIngredientThrow.Invoke(ingredient);
+        OnIngredientThrow?.Invoke(ingredient);
     }
 }
