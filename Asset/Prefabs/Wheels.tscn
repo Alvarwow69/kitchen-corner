@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://jaro7kq6huur"]
+
+[ext_resource type="ArrayMesh" uid="uid://cnil1oahypa52" path="res://Asset/City/car_hatchback_wheel_front_left.obj" id="1_evyuk"]
+[ext_resource type="ArrayMesh" uid="uid://bg2x1uq0kfdbd" path="res://Asset/City/car_hatchback_wheel_front_right.obj" id="2_fa1so"]
+[ext_resource type="ArrayMesh" uid="uid://6trn8vk6304q" path="res://Asset/City/car_hatchback_wheel_rear_right.obj" id="3_12tkj"]
+[ext_resource type="ArrayMesh" uid="uid://dppwt5jeddjtd" path="res://Asset/City/car_hatchback_wheel_rear_left.obj" id="4_h6rkv"]
+
+[node name="Wheels" type="Node3D"]
+
+[node name="Wheel_Right_F" type="MeshInstance3D" parent="."]
+mesh = ExtResource("2_fa1so")
+
+[node name="Wheel_Left_F" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_evyuk")
+
+[node name="Wheel_Right_B" type="MeshInstance3D" parent="."]
+mesh = ExtResource("3_12tkj")
+
+[node name="Wheel_Left_B" type="MeshInstance3D" parent="."]
+mesh = ExtResource("4_h6rkv")
