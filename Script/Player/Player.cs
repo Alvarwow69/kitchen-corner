@@ -3,12 +3,15 @@ using Godot;
 
 public partial class Player : CharacterBody3D
 {
+    #region Properties
+
     [Export] public float NormalSpeed = 5.0f;
     [Export] public float DashDuration = .2f;
     [Export] public float DashSpeed = 10.0f;
     [Export] public int PlayerNumber { get; set; } = -1;
     [Export] private bool _invertX = false;
     [Export] private bool _invertY = false;
+    [Export] private bool _enabled = false;
 
     private float _gravity = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle();
     private Dash _dash;
@@ -20,6 +23,10 @@ public partial class Player : CharacterBody3D
     private bool _freeze = false;
     public bool IsProcessAction { get; set; } = true;
 
+    #endregion
+
+    #region Methodes
+
     public override void _Ready()
     {
         _dash = GetNode<Dash>("Dash");
@@ -28,10 +35,18 @@ public partial class Player : CharacterBody3D
         _anchor = GetNode<Node3D>("Pivot/Anchor");
     }
 
-    public override void _PhysicsProcess(double delta)
+    public override void _Process(double delta)
     {
+        if (!_enabled)
+            return;
         ProcessInteractable();
         ProcessAction();
+    }
+
+    public override void _PhysicsProcess(double delta)
+    {
+        if (!_enabled)
+            return;
         MovePlayer(delta);
     }
 
@@ -158,9 +173,24 @@ public partial class Player : CharacterBody3D
         tmp.Reparent(GetTree().Root.GetChild(0));
         return tmp;
     }
-    
+
     public RigidInteractable GetInteractable()
     {
         return _interactable;
     }
+
+    public void EnablePlayer()
+    {
+        _enabled = true;
+        Visible = true;
+    }
+
+    public void DisablePlayer()
+    {
+        _enabled = false;
+        Visible = false;
+    }
+
+    #endregion
+
 }

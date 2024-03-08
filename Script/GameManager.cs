@@ -1,6 +1,8 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
+using Godot.Collections;
 using KitchenCorner.Script.Event;
 
 public partial class GameManager : Node3D
@@ -20,9 +22,12 @@ public partial class GameManager : Node3D
 	[Export] private double _timeBeforeStart = 3.0f;
 	[Export] private Label _uiCountDown;
 	[Export] private ScoreManager _scoreManager;
+	[Export] private Array<Node3D> _spawnPoints = new Array<Node3D>();
 
 	private double _timer = 0.0;
 	private static GameState _gameState;
+	private Godot.Collections.Dictionary<Player, double> _disabledPlayer = new Godot.Collections.Dictionary<Player, double>();
+
 
 	#endregion
 
@@ -30,6 +35,9 @@ public partial class GameManager : Node3D
 	{
 		TimeEvent.OnTimeUp += OnTimeUp;
 		TargetEvent.OnTutorialFinished += OnTimeUp;
+		PlayerEvent.OnPlayerHitByCar += OnPlayerHitByCar;
+		for (int i = 0; i < 2; i++)
+			SpawnPlayers(i);
 		_gameState = _defaultState;
 		GameEvent.PerformanceOnGameStateChange(_gameState);
 	}
@@ -53,6 +61,15 @@ public partial class GameManager : Node3D
 			}
 
 		}
+		foreach (var player in _disabledPlayer)
+		{
+			_disabledPlayer[player.Key] += delta;
+			if (player.Value >= 2)
+			{
+				ReSpawnPlayer(player.Key);
+				_disabledPlayer.Remove(player.Key);
+			}
+		}
 	}
 
 	private void OnTimeUp()
@@ -71,5 +88,35 @@ public partial class GameManager : Node3D
 	public static GameState GetGameState()
 	{
 		return _gameState;
+	}
+
+	private void OnPlayerHitByCar(Player player)
+	{
+		if (player.HasInteractable())
+			player.GetInteractable().Drop(player);
+		player.DisablePlayer();
+		CollectionExtensions.TryAdd(_disabledPlayer, player, 0);
+		Debug.Print("Player added!");
+	}
+
+	private void SpawnPlayers(int index)
+	{
+		var player = GetNode<Player>("/root/SC_City/Player" + index);
+		var sPoint = _spawnPoints[index];
+
+		player.PlayerNumber = index;
+		player.GlobalPosition = sPoint.GlobalPosition;
+		player.GlobalRotation = sPoint.GlobalRotation;
+		player.EnablePlayer();
+		Debug.Print("Player" + index + " spawned.");
+	}
+
+	private void ReSpawnPlayer(Player player)
+	{
+		var sPoint = _spawnPoints[player.PlayerNumber];
+		player.GlobalPosition = sPoint.GlobalPosition;
+		player.GlobalRotation = sPoint.GlobalRotation;
+		player.EnablePlayer();
+		Debug.Print("Player respawned!");
 	}
 }

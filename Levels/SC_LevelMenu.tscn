@@ -972,6 +972,7 @@ _levelName = "Level01"
 [node name="Level02" parent="." instance=ExtResource("25_26p5f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 4, -10.4)
 _newLevel = "res://Levels/SC_City.tscn"
+Activated = true
 _levelName = "Level02"
 
 [node name="Level03" parent="." instance=ExtResource("25_26p5f")]
@@ -982,6 +983,7 @@ _levelName = "Level03"
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6, 4, -5)
 NormalSpeed = 8.0
 PlayerNumber = 0
+_enabled = true
 
 [node name="Camera3D" type="Camera3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 5, 9)
