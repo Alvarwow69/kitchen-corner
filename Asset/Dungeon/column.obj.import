@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dhpc0locuesot"
+path="res://.godot/imported/column.obj-ea209a31a50a46d8ff749ec5b28a599c.mesh"
+
+[deps]
+
+files=["res://.godot/imported/column.obj-ea209a31a50a46d8ff749ec5b28a599c.mesh"]
+
+source_file="res://Asset/Dungeon/column.obj"
+dest_files=["res://.godot/imported/column.obj-ea209a31a50a46d8ff749ec5b28a599c.mesh", "res://.godot/imported/column.obj-ea209a31a50a46d8ff749ec5b28a599c.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

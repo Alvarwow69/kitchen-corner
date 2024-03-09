@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://l16eswwrhm00"
+path="res://.godot/imported/plate_small.obj-a8c8f59d760723d9c50a8a9e1ddd3eec.mesh"
+
+[deps]
+
+files=["res://.godot/imported/plate_small.obj-a8c8f59d760723d9c50a8a9e1ddd3eec.mesh"]
+
+source_file="res://Asset/Dungeon/plate_small.obj"
+dest_files=["res://.godot/imported/plate_small.obj-a8c8f59d760723d9c50a8a9e1ddd3eec.mesh", "res://.godot/imported/plate_small.obj-a8c8f59d760723d9c50a8a9e1ddd3eec.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

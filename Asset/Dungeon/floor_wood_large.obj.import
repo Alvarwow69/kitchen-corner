@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bapfscxh1m6bc"
+path="res://.godot/imported/floor_wood_large.obj-b72922b6d1482cd4b8741d3856f25157.mesh"
+
+[deps]
+
+files=["res://.godot/imported/floor_wood_large.obj-b72922b6d1482cd4b8741d3856f25157.mesh"]
+
+source_file="res://Asset/Dungeon/floor_wood_large.obj"
+dest_files=["res://.godot/imported/floor_wood_large.obj-b72922b6d1482cd4b8741d3856f25157.mesh", "res://.godot/imported/floor_wood_large.obj-b72922b6d1482cd4b8741d3856f25157.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

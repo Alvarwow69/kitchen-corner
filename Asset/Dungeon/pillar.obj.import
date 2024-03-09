@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cky36i7jo8top"
+path="res://.godot/imported/pillar.obj-a8bc641022cdfb36a312624167e875e0.mesh"
+
+[deps]
+
+files=["res://.godot/imported/pillar.obj-a8bc641022cdfb36a312624167e875e0.mesh"]
+
+source_file="res://Asset/Dungeon/pillar.obj"
+dest_files=["res://.godot/imported/pillar.obj-a8bc641022cdfb36a312624167e875e0.mesh", "res://.godot/imported/pillar.obj-a8bc641022cdfb36a312624167e875e0.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://hi46t3r2tcox"]
+[gd_scene load_steps=44 format=3 uid="uid://hi46t3r2tcox"]
 
 [ext_resource type="ArrayMesh" uid="uid://ccb1fco8siu45" path="res://Asset/LevelMenu/obj/hex_forest_roadD.obj" id="1_lcu1y"]
 [ext_resource type="ArrayMesh" uid="uid://cvt3134p2xwsd" path="res://Asset/LevelMenu/obj/hex_forest_roadF.obj" id="2_5t0p3"]
@@ -27,6 +27,85 @@
 [ext_resource type="PackedScene" uid="uid://bgjxdbqjt8ota" path="res://Asset/Prefabs/LevelSelection.tscn" id="25_26p5f"]
 [ext_resource type="PackedScene" path="res://Asset/Prefabs/Player_selection.tscn" id="26_xvx2l"]
 [ext_resource type="PackedScene" uid="uid://bbw6nxxu8ml8f" path="res://Asset/Prefabs/SelectionManager.tscn" id="27_shbuw"]
+
+[sub_resource type="Gradient" id="Gradient_jkki1"]
+offsets = PackedFloat32Array(0.771318, 1)
+colors = PackedColorArray(0.317647, 0.317647, 0.317647, 0.784314, 0.317647, 0.317647, 0.317647, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_otx8q"]
+gradient = SubResource("Gradient_jkki1")
+
+[sub_resource type="Curve" id="Curve_nh1ks"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_888as"]
+curve = SubResource("Curve_nh1ks")
+
+[sub_resource type="Curve" id="Curve_f4kn0"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.415225, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_dqn4q"]
+curve = SubResource("Curve_f4kn0")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jqeqf"]
+lifetime_randomness = 0.3
+gravity = Vector3(0, 1.5, 0)
+scale_min = 0.2
+scale_max = 0.7
+scale_curve = SubResource("CurveTexture_888as")
+color_ramp = SubResource("GradientTexture1D_otx8q")
+turbulence_enabled = true
+turbulence_noise_strength = 0.5
+turbulence_noise_scale = 3.0
+turbulence_influence_over_life = SubResource("CurveTexture_dqn4q")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ync0y"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.317647, 0.317647, 0.317647, 0.658824)
+
+[sub_resource type="SphereMesh" id="SphereMesh_i03b1"]
+material = SubResource("StandardMaterial3D_ync0y")
+
+[sub_resource type="Animation" id="Animation_2nq75"]
+resource_name = "BladesTurn"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 6.28319)]
+}
+
+[sub_resource type="Animation" id="Animation_0vvw0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v5oi8"]
+_data = {
+"BladesTurn": SubResource("Animation_2nq75"),
+"RESET": SubResource("Animation_0vvw0")
+}
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_iyn7v"]
 size = Vector3(3.5, 3, 6)
@@ -114,14 +193,22 @@ mesh = ExtResource("6_d6g4c")
 skeleton = NodePath("../../../..")
 
 [node name="Level2HouseGround" type="MeshInstance3D" parent="road/Levels"]
-transform = Transform3D(1.00001, 0, 0, 0, 1, 0, 0, 0, 1.00001, -3.987, 0, 3.4)
+transform = Transform3D(-1.00001, 0, -8.74236e-08, 0, 1, 0, 8.74236e-08, 0, -1.00001, -3.987, 0, 3.4)
 mesh = ExtResource("4_cnmbi")
 skeleton = NodePath("")
 
 [node name="House" type="MeshInstance3D" parent="road/Levels/Level2HouseGround"]
-transform = Transform3D(0.5425, 0, -0.840056, 0, 1, 0, 0.840055, 0, 0.5425, -0.0537868, 1.02447, 0.238329)
+transform = Transform3D(0.5425, 0, -0.840055, 0, 1, 0, 0.840054, 0, 0.5425, -0.0598695, 1.00169, 0.120622)
 mesh = ExtResource("7_kahsi")
 skeleton = NodePath("../../..")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="road/Levels/Level2HouseGround/House"]
+transform = Transform3D(0.999999, 0, 5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 0.999999, 0.3744, 0.854675, -0.411412)
+lifetime = 4.0
+randomness = 1.0
+visibility_aabb = AABB(-0.758128, -2.13503, -0.481253, 1.51626, 4.27006, 0.962505)
+process_material = SubResource("ParticleProcessMaterial_jqeqf")
+draw_pass_1 = SubResource("SphereMesh_i03b1")
 
 [node name="BeginHouseTowerGround" type="MeshInstance3D" parent="road/Levels"]
 transform = Transform3D(1.00004, 0, 0, 0, 1, 0, 0, 0, 1.00004, 9.96753, 0, -3.46373)
@@ -183,10 +270,19 @@ transform = Transform3D(-0.999997, -1.24946e-12, -0.00322974, -5.49344e-13, 0.99
 mesh = ExtResource("13_q7yrs")
 skeleton = NodePath("../../../..")
 
-[node name="MillBlades" type="MeshInstance3D" parent="MountainSidePart/floor-down-chateau5/HexForestDetail8/Mill"]
-transform = Transform3D(-0.995425, 0, -0.0955504, 0, 1, 0, 0.0955503, 0, -0.995425, 0.0228717, -0.0066638, 0.429553)
+[node name="Anchor" type="Node3D" parent="MountainSidePart/floor-down-chateau5/HexForestDetail8/Mill"]
+transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, -0.00115228, 1.27767, 0.356786)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MountainSidePart/floor-down-chateau5/HexForestDetail8/Mill/Anchor"]
+autoplay = "BladesTurn"
+libraries = {
+"": SubResource("AnimationLibrary_v5oi8")
+}
+
+[node name="MillBlades" type="MeshInstance3D" parent="MountainSidePart/floor-down-chateau5/HexForestDetail8/Mill/Anchor"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74229e-08, 0, -1, 0, -1.28, 0.153)
 mesh = ExtResource("14_sdgr0")
-skeleton = NodePath("../../../../..")
+skeleton = NodePath("../../../../../..")
 
 [node name="chateau-1" type="Node3D" parent="MountainSidePart"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
@@ -312,6 +408,14 @@ skeleton = NodePath("../HexForest2")
 transform = Transform3D(-1, 0.00174532, -8.74224e-08, 0.00174533, 0.999993, 0.00174533, 3.1336e-06, 0.00174532, -0.999999, 0.00665617, 1.04845, -0.0993195)
 mesh = ExtResource("7_kahsi")
 skeleton = NodePath("")
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="MountainSidePart/HexForest12/House2"]
+transform = Transform3D(0.999999, 0, 5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 0.999999, 0.3744, 0.854675, -0.411412)
+lifetime = 4.0
+randomness = 1.0
+visibility_aabb = AABB(-0.758128, -2.13503, -0.481253, 1.51626, 4.27006, 0.962505)
+process_material = SubResource("ParticleProcessMaterial_jqeqf")
+draw_pass_1 = SubResource("SphereMesh_i03b1")
 
 [node name="HexFieldWithForest5" type="MeshInstance3D" parent="MountainSidePart"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 1.7)
@@ -495,6 +599,19 @@ skeleton = NodePath("../../../road")
 transform = Transform3D(0.504824, 1.84431e-09, 0.863213, 3.62582e-10, 1, -4.38631e-09, -0.863212, 1.11109e-09, 0.504824, 0.0636882, 1.02249, -0.0542066)
 mesh = ExtResource("13_q7yrs")
 skeleton = NodePath("../../../..")
+
+[node name="Anchor2" type="Node3D" parent="LakeSidePart/LakeSideGround/MillGround/Mill"]
+transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, -0.00115192, 1.26828, 0.325179)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="LakeSidePart/LakeSideGround/MillGround/Mill/Anchor2"]
+autoplay = "BladesTurn"
+libraries = {
+"": SubResource("AnimationLibrary_v5oi8")
+}
+
+[node name="MillBlades" type="MeshInstance3D" parent="LakeSidePart/LakeSideGround/MillGround/Mill/Anchor2"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74229e-08, 0, -1, 0, -1.28, 0.153)
+mesh = ExtResource("14_sdgr0")
 
 [node name="FarmPlotGround" type="MeshInstance3D" parent="LakeSidePart/LakeSideGround"]
 transform = Transform3D(1.00001, 0, 0, 0, 1, 0, 0, 0, 1.00001, -3, 0, -1.7)
@@ -966,18 +1083,23 @@ _levelName = "Tutorial"
 [node name="Level01" parent="." instance=ExtResource("25_26p5f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 4, 10.3137)
 _newLevel = "res://Levels/SC_Halloween.tscn"
-Activated = true
 _levelName = "Level01"
 
 [node name="Level02" parent="." instance=ExtResource("25_26p5f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 4, -10.4)
 _newLevel = "res://Levels/SC_City.tscn"
-Activated = true
 _levelName = "Level02"
 
 [node name="Level03" parent="." instance=ExtResource("25_26p5f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 4, -10.3273)
+_newLevel = "res://Levels/SC_Dungeon.tscn"
 _levelName = "Level03"
+
+[node name="Camera3D2" type="Camera3D" parent="."]
+transform = Transform3D(-0.707107, -0.353553, 0.612372, 2.26267e-08, 0.866025, 0.5, -0.707107, 0.353553, -0.612373, -4, 11, 4)
+environment = SubResource("Environment_osaiu")
+current = true
+fov = 92.2176
 
 [node name="Player" parent="." instance=ExtResource("26_xvx2l")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6, 4, -5)
@@ -986,9 +1108,8 @@ PlayerNumber = 0
 _enabled = true
 
 [node name="Camera3D" type="Camera3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 5, 9)
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 7, 9)
 environment = SubResource("Environment_osaiu")
-current = true
 fov = 92.2176
 
 [node name="SelectionManager" parent="." node_paths=PackedStringArray("_listLevel") instance=ExtResource("27_shbuw")]

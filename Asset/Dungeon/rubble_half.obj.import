@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cuyxsv1xkpijc"
+path="res://.godot/imported/rubble_half.obj-17e394239aedcde0d1101c5b60d58995.mesh"
+
+[deps]
+
+files=["res://.godot/imported/rubble_half.obj-17e394239aedcde0d1101c5b60d58995.mesh"]
+
+source_file="res://Asset/Dungeon/rubble_half.obj"
+dest_files=["res://.godot/imported/rubble_half.obj-17e394239aedcde0d1101c5b60d58995.mesh", "res://.godot/imported/rubble_half.obj-17e394239aedcde0d1101c5b60d58995.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

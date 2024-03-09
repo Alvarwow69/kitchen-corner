@@ -101,7 +101,7 @@ public partial class GameManager : Node3D
 
 	private void SpawnPlayers(int index)
 	{
-		var player = GetNode<Player>("/root/SC_City/Player" + index);
+		var player = GetNode<Player>("/root/SC_Dungeon/Player" + index);
 		var sPoint = _spawnPoints[index];
 
 		player.PlayerNumber = index;

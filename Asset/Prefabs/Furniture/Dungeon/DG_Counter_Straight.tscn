@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=3 uid="uid://bwdwiva5m6kv"]
+
+[ext_resource type="Script" path="res://Script/Ingredients/CounterInteractable.cs" id="1_jpsfc"]
+[ext_resource type="ArrayMesh" uid="uid://n5w4fnpum1ax" path="res://Asset/Dungeon/table_medium.obj" id="2_wawuy"]
+[ext_resource type="Texture2D" uid="uid://7ut2pdspduml" path="res://Asset/Dungeon/dungeon_texture.png" id="3_le8lt"]
+
+[sub_resource type="Shader" id="Shader_p77h8"]
+code = "shader_type spatial;
+
+uniform vec3 selectColor : source_color;
+uniform sampler2D tex : source_color;
+uniform bool selected = false;
+//uniform float speed = 2.0;
+//uniform float height = 1.0;
+
+void fragment() {
+	vec3 color = texture(tex, UV).rgb;
+	if (selected) {
+		vec3 selectAnim = vec3(1, 1, 1);
+		//selectAnim *= clamp(sin(speed * -TIME + UV.y * 10.0) * height + 0.5, 0.0, 1.0);
+		selectAnim *= selectColor;
+		color *= selectAnim;
+	}
+	ALBEDO = color;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8l21a"]
+resource_local_to_scene = true
+render_priority = 0
+shader = SubResource("Shader_p77h8")
+shader_parameter/selectColor = Color(0.94902, 0.964706, 0, 1)
+shader_parameter/selected = false
+shader_parameter/tex = ExtResource("3_le8lt")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_05mc7"]
+size = Vector3(2.01516, 1, 1.98592)
+
+[node name="DG_CounterStraight" type="Node3D" node_paths=PackedStringArray("_anchor", "_mesh")]
+script = ExtResource("1_jpsfc")
+_anchor = NodePath("StaticBody3D/Anchor")
+_mesh = NodePath("StaticBody3D/Mesh")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 12
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = ExtResource("2_wawuy")
+surface_material_override/0 = SubResource("ShaderMaterial_8l21a")
+
+[node name="MeshCollider" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_05mc7")
+
+[node name="Anchor" type="Node3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
