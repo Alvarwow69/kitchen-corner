@@ -89,4 +89,13 @@ public partial class Ingredient : RigidInteractable
 	{
 		return Foods;
 	}
+
+	public virtual Array<Ingredient> RemoveAllIngredient()
+	{
+		var newList = new Array<Ingredient>();
+		foreach (var food in Foods)
+			newList.Add(food);
+		Foods.Clear();
+		return newList;
+	}
 }

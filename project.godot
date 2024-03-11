@@ -26,7 +26,6 @@ InfoScore="*res://info_score.cs"
 
 [display]
 
-window/size/mode=3
 window/size/initial_position_type=2
 window/size/initial_screen=2
 mouse_cursor/custom_image="res://Cursor.png"

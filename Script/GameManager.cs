@@ -23,6 +23,7 @@ public partial class GameManager : Node3D
 	[Export] private Label _uiCountDown;
 	[Export] private ScoreManager _scoreManager;
 	[Export] private Array<Node3D> _spawnPoints = new Array<Node3D>();
+	[Export(PropertyHint.Range, "1, 4")] private int _numberPlayer = 2;
 
 	private double _timer = 0.0;
 	private static GameState _gameState;
@@ -36,9 +37,9 @@ public partial class GameManager : Node3D
 		TimeEvent.OnTimeUp += OnTimeUp;
 		TargetEvent.OnTutorialFinished += OnTimeUp;
 		PlayerEvent.OnPlayerHitByCar += OnPlayerHitByCar;
-		for (int i = 0; i < 2; i++)
-			SpawnPlayers(i);
 		_gameState = _defaultState;
+		for (int i = 0; i < _numberPlayer; i++)
+			SpawnPlayers(i);
 		GameEvent.PerformanceOnGameStateChange(_gameState);
 	}
 
@@ -101,7 +102,7 @@ public partial class GameManager : Node3D
 
 	private void SpawnPlayers(int index)
 	{
-		var player = GetNode<Player>("/root/SC_Dungeon/Player" + index);
+		var player = GetNode<Player>("/root/" + GetTree().Root.GetChild<Node>(1).Name + "/Player" + index);
 		var sPoint = _spawnPoints[index];
 
 		player.PlayerNumber = index;

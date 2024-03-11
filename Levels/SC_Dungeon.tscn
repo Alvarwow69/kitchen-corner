@@ -1,7 +1,8 @@
-[gd_scene load_steps=39 format=3 uid="uid://dkrmcdsqhuhss"]
+[gd_scene load_steps=43 format=3 uid="uid://dkrmcdsqhuhss"]
 
 [ext_resource type="ArrayMesh" uid="uid://bi6xqy4gbju5r" path="res://Asset/Dungeon/floor_dirt_large.obj" id="1_1wllr"]
 [ext_resource type="ArrayMesh" uid="uid://b5lrr8y3b6j3r" path="res://Asset/Dungeon/stairs_wall_left.obj" id="2_8wmpp"]
+[ext_resource type="ArrayMesh" uid="uid://hinwmvgs86g4" path="res://Asset/Dungeon/floor_tile_big_grate.obj" id="2_a35br"]
 [ext_resource type="ArrayMesh" uid="uid://dmvb0l33u7l11" path="res://Asset/Dungeon/wall.obj" id="3_fli0a"]
 [ext_resource type="ArrayMesh" uid="uid://dhpc0locuesot" path="res://Asset/Dungeon/column.obj" id="3_mmq5r"]
 [ext_resource type="ArrayMesh" uid="uid://c5c6w2qgivril" path="res://Asset/Dungeon/floor_tile_large.obj" id="4_3b51f"]
@@ -15,12 +16,13 @@
 [ext_resource type="PackedScene" uid="uid://ca72728kboj3a" path="res://Asset/Prefabs/Creates/Create_Tomatoes.tscn" id="11_diilb"]
 [ext_resource type="PackedScene" uid="uid://0kny5tbt5xst" path="res://Asset/Prefabs/Furniture/Dungeon/DG_Counter_Slicer.tscn" id="12_02du3"]
 [ext_resource type="PackedScene" uid="uid://dkk2yqn7fqrcl" path="res://Asset/Prefabs/Furniture/Dungeon/DG_DishRack.tscn" id="14_kxjgg"]
-[ext_resource type="PackedScene" path="res://Asset/Prefabs/Furniture/Trash.tscn" id="15_mo6wy"]
+[ext_resource type="PackedScene" uid="uid://jj6w4f15tcej" path="res://Asset/Prefabs/Furniture/Trash.tscn" id="15_mo6wy"]
 [ext_resource type="PackedScene" uid="uid://v4q4k83rovpw" path="res://Asset/Prefabs/Furniture/Stove.tscn" id="16_jfd0a"]
 [ext_resource type="PackedScene" uid="uid://cdcg8p7vas3ix" path="res://Asset/Prefabs/Furniture/PlateManager.tscn" id="17_sm0un"]
 [ext_resource type="PackedScene" uid="uid://dh24ddwlra6qp" path="res://Asset/Prefabs/GameManager.tscn" id="18_mp1nw"]
 [ext_resource type="PackedScene" uid="uid://k5io6bxv6534" path="res://Asset/Prefabs/Player.tscn" id="19_t4eqb"]
 [ext_resource type="Script" path="res://Script/TimerManager.cs" id="20_34rvw"]
+[ext_resource type="Script" path="res://Levels/OutOfBound.cs" id="20_ji8gj"]
 [ext_resource type="StyleBox" uid="uid://2ay566iyxb45" path="res://Levels/Tab.tres" id="21_ksq1h"]
 [ext_resource type="Texture2D" uid="uid://c5dshwlfeeod7" path="res://icon.svg" id="22_88xdp"]
 [ext_resource type="Script" path="res://Script/ScoreManager.cs" id="23_wd33q"]
@@ -28,9 +30,10 @@
 [ext_resource type="PackedScene" uid="uid://bqoe4qgir527x" path="res://Asset/Prefabs/Ui/UI_Command_Stew.tscn" id="25_1ayid"]
 [ext_resource type="PackedScene" uid="uid://c3qgdnrjem5wl" path="res://Asset/Prefabs/Ui/UI_CountDown.tscn" id="26_oab2w"]
 [ext_resource type="PackedScene" uid="uid://c6vhdvaujvtsv" path="res://Asset/Prefabs/Bowl.tscn" id="28_ohfbk"]
+[ext_resource type="PackedScene" uid="uid://dwts3jnp3g332" path="res://Asset/Prefabs/Enemy.tscn" id="31_6qptb"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0d0fo"]
-size = Vector3(11.8915, 0.181187, 20.8935)
+size = Vector3(11.8915, 0.181187, 23.1959)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xvycv"]
 size = Vector3(11.8915, 0.181187, 4.99699)
@@ -39,7 +42,7 @@ size = Vector3(11.8915, 0.181187, 4.99699)
 size = Vector3(10.3103, 4.14174, 0.937034)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lo1bu"]
-size = Vector3(20.8378, 8.15908, 0.937034)
+size = Vector3(25.6223, 8.15908, 0.937034)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mqhm7"]
 size = Vector3(12.9915, 8.15908, 0.937034)
@@ -52,6 +55,9 @@ size = Vector3(0.489065, 1.87528, 2.83702)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_avuaj"]
 size = Vector3(0.489065, 1.87528, 2.37909)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nkq2q"]
+size = Vector3(37.3052, 3, 51.9981)
 
 [sub_resource type="Theme" id="Theme_ydykt"]
 
@@ -135,9 +141,25 @@ mesh = ExtResource("1_1wllr")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -8)
 mesh = ExtResource("1_1wllr")
 
+[node name="Floor19" type="MeshInstance3D" parent="World/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.74846e-07, 0, -12)
+mesh = ExtResource("1_1wllr")
+
+[node name="Floor20" type="MeshInstance3D" parent="World/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -12)
+mesh = ExtResource("1_1wllr")
+
+[node name="Floor21" type="MeshInstance3D" parent="World/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -12)
+mesh = ExtResource("1_1wllr")
+
 [node name="Floor18" type="MeshInstance3D" parent="World/Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -4)
 mesh = ExtResource("1_1wllr")
+
+[node name="Floor22" type="MeshInstance3D" parent="World/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -4)
+mesh = ExtResource("2_a35br")
 
 [node name="Floor1" type="Node3D" parent="World"]
 
@@ -171,22 +193,22 @@ skeleton = NodePath("../..")
 [node name="Walls" type="Node3D" parent="World/Floor1"]
 
 [node name="Wall" type="MeshInstance3D" parent="World/Floor1/Walls"]
-transform = Transform3D(-1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -1, 0, 0, 6)
+transform = Transform3D(-1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -1, -1.00659, 0, 6)
 mesh = ExtResource("3_fli0a")
 skeleton = NodePath("../..")
 
 [node name="Wall3" type="MeshInstance3D" parent="World/Floor1/Walls"]
-transform = Transform3D(-1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -1, 0, 4, 10)
+transform = Transform3D(-1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -1, -1.00249, 4, 10)
 mesh = ExtResource("3_fli0a")
 skeleton = NodePath("../..")
 
 [node name="Wall4" type="MeshInstance3D" parent="World/Floor1/Walls"]
-transform = Transform3D(-1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -1, 4, 4, 10)
+transform = Transform3D(-1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -1, 2.99751, 4, 10)
 mesh = ExtResource("3_fli0a")
 skeleton = NodePath("../..")
 
 [node name="Wall5" type="MeshInstance3D" parent="World/Floor1/Walls"]
-transform = Transform3D(-1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -1, -4, 4, 10)
+transform = Transform3D(-1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -1, -5.00249, 4, 10)
 mesh = ExtResource("3_fli0a")
 skeleton = NodePath("../..")
 
@@ -216,36 +238,36 @@ mesh = ExtResource("3_fli0a")
 skeleton = NodePath("../..")
 
 [node name="Wall11" type="MeshInstance3D" parent="World/Floor1/Walls"]
-transform = Transform3D(1, 0, 1.98419e-09, 0, 1, 0, -1.98419e-09, 0, 1, -4, 4, -10)
+transform = Transform3D(1, 0, 1.98419e-09, 0, 1, 0, -1.98419e-09, 0, 1, -4, 4, -14)
 mesh = ExtResource("3_fli0a")
 skeleton = NodePath("../..")
 
 [node name="Wall12" type="MeshInstance3D" parent="World/Floor1/Walls"]
-transform = Transform3D(1, 0, 1.98419e-09, 0, 1, 0, -1.98419e-09, 0, 1, 0, 4, -10)
+transform = Transform3D(1, 0, 1.98419e-09, 0, 1, 0, -1.98419e-09, 0, 1, -1.74846e-07, 4, -14)
 mesh = ExtResource("3_fli0a")
 skeleton = NodePath("../..")
 
 [node name="Wall13" type="MeshInstance3D" parent="World/Floor1/Walls"]
-transform = Transform3D(1, 0, 1.98419e-09, 0, 1, 0, -1.98419e-09, 0, 1, 4, 4, -10)
+transform = Transform3D(1, 0, 1.98419e-09, 0, 1, 0, -1.98419e-09, 0, 1, 4, 4, -14)
 mesh = ExtResource("3_fli0a")
 skeleton = NodePath("../..")
 
 [node name="Wall2" type="MeshInstance3D" parent="World/Floor1/Walls"]
-transform = Transform3D(-1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -1, 4, 0, 6)
+transform = Transform3D(-1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -1, 2.99341, 0, 6)
 mesh = ExtResource("3_fli0a")
 skeleton = NodePath("../..")
 
 [node name="Wall14" type="MeshInstance3D" parent="World/Floor1/Walls"]
-transform = Transform3D(-4.56956e-08, 0, 1, 0, 1, 0, -1, 0, -4.56956e-08, 7, 0, 9)
+transform = Transform3D(-4.56956e-08, 0, 1, 0, 1, 0, -1, 0, -4.56956e-08, 5.99341, 0, 9)
 mesh = ExtResource("3_fli0a")
 skeleton = NodePath("../..")
 
 [node name="fence" type="MeshInstance3D" parent="World/Floor1"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6, 4, 6)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5.66057, 4, 6.22079)
 mesh = ExtResource("5_7pow6")
 
 [node name="fence2" type="MeshInstance3D" parent="World/Floor1"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6, 4, 8)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5.661, 4, 8)
 mesh = ExtResource("6_uljc6")
 
 [node name="Walls" type="Node3D" parent="World"]
@@ -255,47 +277,223 @@ transform = Transform3D(-4.56956e-08, 0, 1, 0, 1, 0, -1, 0, -4.56956e-08, -6, 0,
 mesh = ExtResource("3_fli0a")
 skeleton = NodePath("../../Floor1")
 
+[node name="Wall8" type="MeshInstance3D" parent="World/Walls"]
+transform = Transform3D(-1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -1, -8, 0, -1.5249)
+mesh = ExtResource("3_fli0a")
+skeleton = NodePath("../../Floor1")
+
+[node name="Wall47" type="MeshInstance3D" parent="World/Walls"]
+transform = Transform3D(-1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -1, -8, 0, -6.5249)
+mesh = ExtResource("3_fli0a")
+skeleton = NodePath("../../Floor1")
+
+[node name="Wall48" type="MeshInstance3D" parent="World/Walls"]
+transform = Transform3D(-4.56956e-08, 0, 1, 0, 1, 0, -1, 0, -4.56956e-08, -10, 0, -2.5249)
+mesh = ExtResource("3_fli0a")
+skeleton = NodePath("../../Floor1")
+
+[node name="Wall49" type="MeshInstance3D" parent="World/Walls"]
+transform = Transform3D(-4.56956e-08, 0, 1, 0, 1, 0, -1, 0, -4.56956e-08, -10, 0, -6.5249)
+mesh = ExtResource("3_fli0a")
+skeleton = NodePath("../../Floor1")
+
 [node name="Wall9" type="MeshInstance3D" parent="World/Walls"]
 transform = Transform3D(-4.56956e-08, 0, 1, 0, 1, 0, -1, 0, -4.56956e-08, -6, 0, -8)
 mesh = ExtResource("3_fli0a")
 skeleton = NodePath("../../Floor1")
 
+[node name="Wall17" type="MeshInstance3D" parent="World/Walls"]
+transform = Transform3D(-4.56956e-08, 0, 1, 0, 1, 0, -1, 0, -4.56956e-08, -6, 4, -12)
+mesh = ExtResource("3_fli0a")
+skeleton = NodePath("../..")
+
+[node name="Wall19" type="MeshInstance3D" parent="World/Walls"]
+transform = Transform3D(-4.56956e-08, 0, 1, 0, 1, 0, -1, 0, -4.56956e-08, 6, -4, 4)
+mesh = ExtResource("3_fli0a")
+skeleton = NodePath("../..")
+
+[node name="Wall24" type="MeshInstance3D" parent="World/Walls"]
+transform = Transform3D(-4.56956e-08, 0, 1, 0, 1, 0, -1, 0, -4.56956e-08, 6, -4, 8)
+mesh = ExtResource("3_fli0a")
+skeleton = NodePath("../..")
+
+[node name="Wall25" type="MeshInstance3D" parent="World/Walls"]
+transform = Transform3D(-4.56956e-08, 0, 1, 0, 1, 0, -1, 0, -4.56956e-08, 6, -4, 12)
+mesh = ExtResource("3_fli0a")
+skeleton = NodePath("../..")
+
+[node name="Wall20" type="MeshInstance3D" parent="World/Walls"]
+transform = Transform3D(-4.56956e-08, 0, 1, 0, 1, 0, -1, 0, -4.56956e-08, 6, -4, -5.24537e-07)
+mesh = ExtResource("3_fli0a")
+skeleton = NodePath("../..")
+
+[node name="Wall21" type="MeshInstance3D" parent="World/Walls"]
+transform = Transform3D(-4.56956e-08, 0, 1, 0, 1, 0, -1, 0, -4.56956e-08, 6, -4, -4)
+mesh = ExtResource("3_fli0a")
+skeleton = NodePath("../..")
+
+[node name="Wall22" type="MeshInstance3D" parent="World/Walls"]
+transform = Transform3D(-4.56956e-08, 0, 1, 0, 1, 0, -1, 0, -4.56956e-08, 6, -4, -8)
+mesh = ExtResource("3_fli0a")
+skeleton = NodePath("../..")
+
+[node name="Wall23" type="MeshInstance3D" parent="World/Walls"]
+transform = Transform3D(-4.56956e-08, 0, 1, 0, 1, 0, -1, 0, -4.56956e-08, 6, -4, -12)
+mesh = ExtResource("3_fli0a")
+skeleton = NodePath("../..")
+
+[node name="Wall26" type="MeshInstance3D" parent="World/Walls"]
+transform = Transform3D(-4.56956e-08, 0, 1, 0, 1, 0, -1, 0, -4.56956e-08, 6, -4, -16)
+mesh = ExtResource("3_fli0a")
+skeleton = NodePath("../..")
+
+[node name="Wall27" type="MeshInstance3D" parent="World/Walls"]
+transform = Transform3D(-4.56956e-08, 0, 1, 0, 1, 0, -1, 0, -4.56956e-08, 6, -8, 4)
+mesh = ExtResource("3_fli0a")
+skeleton = NodePath("../..")
+
+[node name="Wall28" type="MeshInstance3D" parent="World/Walls"]
+transform = Transform3D(-4.56956e-08, 0, 1, 0, 1, 0, -1, 0, -4.56956e-08, 6, -8, 8)
+mesh = ExtResource("3_fli0a")
+skeleton = NodePath("../..")
+
+[node name="Wall29" type="MeshInstance3D" parent="World/Walls"]
+transform = Transform3D(-4.56956e-08, 0, 1, 0, 1, 0, -1, 0, -4.56956e-08, 6, -8, 12)
+mesh = ExtResource("3_fli0a")
+skeleton = NodePath("../..")
+
+[node name="Wall45" type="MeshInstance3D" parent="World/Walls"]
+transform = Transform3D(-4.56956e-08, 0, 1, 0, 1, 0, -1, 0, -4.56956e-08, 6, -4, 16)
+mesh = ExtResource("3_fli0a")
+skeleton = NodePath("../..")
+
+[node name="Wall46" type="MeshInstance3D" parent="World/Walls"]
+transform = Transform3D(-4.56956e-08, 0, 1, 0, 1, 0, -1, 0, -4.56956e-08, 6, -8, 16)
+mesh = ExtResource("3_fli0a")
+skeleton = NodePath("../..")
+
+[node name="Wall30" type="MeshInstance3D" parent="World/Walls"]
+transform = Transform3D(-4.56956e-08, 0, 1, 0, 1, 0, -1, 0, -4.56956e-08, 6, -8, -5.24537e-07)
+mesh = ExtResource("3_fli0a")
+skeleton = NodePath("../..")
+
+[node name="Wall31" type="MeshInstance3D" parent="World/Walls"]
+transform = Transform3D(-4.56956e-08, 0, 1, 0, 1, 0, -1, 0, -4.56956e-08, 6, -8, -4)
+mesh = ExtResource("3_fli0a")
+skeleton = NodePath("../..")
+
+[node name="Wall32" type="MeshInstance3D" parent="World/Walls"]
+transform = Transform3D(-4.56956e-08, 0, 1, 0, 1, 0, -1, 0, -4.56956e-08, 6, -8, -8)
+mesh = ExtResource("3_fli0a")
+skeleton = NodePath("../..")
+
+[node name="Wall33" type="MeshInstance3D" parent="World/Walls"]
+transform = Transform3D(-4.56956e-08, 0, 1, 0, 1, 0, -1, 0, -4.56956e-08, 6, -8, -12)
+mesh = ExtResource("3_fli0a")
+skeleton = NodePath("../..")
+
+[node name="Wall34" type="MeshInstance3D" parent="World/Walls"]
+transform = Transform3D(-4.56956e-08, 0, 1, 0, 1, 0, -1, 0, -4.56956e-08, 6, -8, -16)
+mesh = ExtResource("3_fli0a")
+skeleton = NodePath("../..")
+
+[node name="Wall43" type="MeshInstance3D" parent="World/Walls"]
+transform = Transform3D(-4.56956e-08, 0, 1, 0, 1, 0, -1, 0, -4.56956e-08, 6, -4, -20)
+mesh = ExtResource("3_fli0a")
+skeleton = NodePath("../..")
+
+[node name="Wall44" type="MeshInstance3D" parent="World/Walls"]
+transform = Transform3D(-4.56956e-08, 0, 1, 0, 1, 0, -1, 0, -4.56956e-08, 6, -8, -20)
+mesh = ExtResource("3_fli0a")
+skeleton = NodePath("../..")
+
+[node name="Wall35" type="MeshInstance3D" parent="World/Walls"]
+transform = Transform3D(-4.56956e-08, 0, 1, 0, 1, 0, -1, 0, -4.56956e-08, 6, -12, 4)
+mesh = ExtResource("3_fli0a")
+skeleton = NodePath("../..")
+
+[node name="Wall36" type="MeshInstance3D" parent="World/Walls"]
+transform = Transform3D(-4.56956e-08, 0, 1, 0, 1, 0, -1, 0, -4.56956e-08, 6, -12, 8)
+mesh = ExtResource("3_fli0a")
+skeleton = NodePath("../..")
+
+[node name="Wall37" type="MeshInstance3D" parent="World/Walls"]
+transform = Transform3D(-4.56956e-08, 0, 1, 0, 1, 0, -1, 0, -4.56956e-08, 6, -12, 12)
+mesh = ExtResource("3_fli0a")
+skeleton = NodePath("../..")
+
+[node name="Wall38" type="MeshInstance3D" parent="World/Walls"]
+transform = Transform3D(-4.56956e-08, 0, 1, 0, 1, 0, -1, 0, -4.56956e-08, 6, -12, -5.24537e-07)
+mesh = ExtResource("3_fli0a")
+skeleton = NodePath("../..")
+
+[node name="Wall39" type="MeshInstance3D" parent="World/Walls"]
+transform = Transform3D(-4.56956e-08, 0, 1, 0, 1, 0, -1, 0, -4.56956e-08, 6, -12, -4)
+mesh = ExtResource("3_fli0a")
+skeleton = NodePath("../..")
+
+[node name="Wall40" type="MeshInstance3D" parent="World/Walls"]
+transform = Transform3D(-4.56956e-08, 0, 1, 0, 1, 0, -1, 0, -4.56956e-08, 6, -12, -8)
+mesh = ExtResource("3_fli0a")
+skeleton = NodePath("../..")
+
+[node name="Wall41" type="MeshInstance3D" parent="World/Walls"]
+transform = Transform3D(-4.56956e-08, 0, 1, 0, 1, 0, -1, 0, -4.56956e-08, 6, -12, -12)
+mesh = ExtResource("3_fli0a")
+skeleton = NodePath("../..")
+
+[node name="Wall42" type="MeshInstance3D" parent="World/Walls"]
+transform = Transform3D(-4.56956e-08, 0, 1, 0, 1, 0, -1, 0, -4.56956e-08, 6, -12, -16)
+mesh = ExtResource("3_fli0a")
+skeleton = NodePath("../..")
+
+[node name="Wall18" type="MeshInstance3D" parent="World/Walls"]
+transform = Transform3D(-4.56956e-08, 0, 1, 0, 1, 0, -1, 0, -4.56956e-08, -6, 0, -12)
+mesh = ExtResource("3_fli0a")
+skeleton = NodePath("../../Floor1")
+
 [node name="Wall10" type="MeshInstance3D" parent="World/Walls"]
-transform = Transform3D(1, 0, 1.98419e-09, 0, 1, 0, -1.98419e-09, 0, 1, -4, 0, -10)
+transform = Transform3D(1, 0, 1.98419e-09, 0, 1, 0, -1.98419e-09, 0, 1, -4, 0, -14)
 mesh = ExtResource("3_fli0a")
 skeleton = NodePath("../../Floor1")
 
 [node name="Wall11" type="MeshInstance3D" parent="World/Walls"]
-transform = Transform3D(1, 0, 1.98419e-09, 0, 1, 0, -1.98419e-09, 0, 1, 0, 0, -10)
+transform = Transform3D(1, 0, 1.98419e-09, 0, 1, 0, -1.98419e-09, 0, 1, -1.74846e-07, 0, -14)
 mesh = ExtResource("3_fli0a")
 skeleton = NodePath("../../Floor1")
 
 [node name="Wall12" type="MeshInstance3D" parent="World/Walls"]
-transform = Transform3D(1, 0, 1.98419e-09, 0, 1, 0, -1.98419e-09, 0, 1, 4, 0, -10)
+transform = Transform3D(1, 0, 1.98419e-09, 0, 1, 0, -1.98419e-09, 0, 1, 4, 0, -14)
 mesh = ExtResource("3_fli0a")
 skeleton = NodePath("../../Floor1")
 
 [node name="Wall13" type="MeshInstance3D" parent="World/Walls"]
-transform = Transform3D(1, 0, 1.98419e-09, 0, 1, 0, -1.98419e-09, 0, 1, 7, 4, 10)
+transform = Transform3D(1, 0, 1.98419e-09, 0, 1, 0, -1.98419e-09, 0, 1, 5.99751, 4, 10)
 mesh = ExtResource("7_3m5kv")
 skeleton = NodePath("../../Floor1")
 
 [node name="Wall14" type="MeshInstance3D" parent="World/Walls"]
-transform = Transform3D(-4.17272e-08, 0, -1, 0, 1, 0, 1, 0, -4.17272e-08, 7, 4, -10)
+transform = Transform3D(-4.17272e-08, 0, -1, 0, 1, 0, 1, 0, -4.17272e-08, 7, 4, -14)
 mesh = ExtResource("7_3m5kv")
 skeleton = NodePath("../../Floor1")
 
 [node name="Wall15" type="MeshInstance3D" parent="World/Walls"]
-transform = Transform3D(-4.17272e-08, 0, -1, 0, 1, 0, 1, 0, -4.17272e-08, 7, 0, -10)
+transform = Transform3D(-4.17272e-08, 0, -1, 0, 1, 0, 1, 0, -4.17272e-08, 7, 0, -14)
 mesh = ExtResource("7_3m5kv")
 skeleton = NodePath("../../Floor1")
 
 [node name="Wall16" type="MeshInstance3D" parent="World/Walls"]
-transform = Transform3D(1, 0, 1.98419e-09, 0, 1, 0, -1.98419e-09, 0, 1, 7, 0, 6)
+transform = Transform3D(1, 0, 1.98419e-09, 0, 1, 0, -1.98419e-09, 0, 1, 5.99341, 0, 6)
 mesh = ExtResource("7_3m5kv")
 skeleton = NodePath("../../Floor1")
 
 [node name="Kitchen" type="Node3D" parent="."]
+
+[node name="Bowl" parent="Kitchen" instance=ExtResource("28_ohfbk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.39887, 1.31145, 3.44514)
+
+[node name="Bowl2" parent="Kitchen" instance=ExtResource("28_ohfbk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.39887, 1.31145, 1.44514)
 
 [node name="Limites" type="StaticBody3D" parent="Kitchen"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.0592719, 0, -0.0233755)
@@ -303,7 +501,7 @@ collision_layer = 4
 collision_mask = 0
 
 [node name="Floor" type="CollisionShape3D" parent="Kitchen/Limites"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0802369, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.24797e-07, -0.0802369, -2.96652)
 shape = SubResource("BoxShape3D_0d0fo")
 
 [node name="Floor2" type="CollisionShape3D" parent="Kitchen/Limites"]
@@ -318,12 +516,8 @@ shape = SubResource("BoxShape3D_3gpsm")
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -6, 3.91976, 0)
 shape = SubResource("BoxShape3D_lo1bu")
 
-[node name="Wall5" type="CollisionShape3D" parent="Kitchen/Limites"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7, 3.91976, -5.66244e-07)
-shape = SubResource("BoxShape3D_lo1bu")
-
 [node name="Wall3" type="CollisionShape3D" parent="Kitchen/Limites"]
-transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 0, 3.91976, -10)
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -1.71363e-07, 3.91976, -14)
 shape = SubResource("BoxShape3D_mqhm7")
 
 [node name="Wall4" type="CollisionShape3D" parent="Kitchen/Limites"]
@@ -349,7 +543,13 @@ shape = SubResource("BoxShape3D_avuaj")
 [node name="Furnitures" type="Node3D" parent="Kitchen"]
 
 [node name="DG_CounterStraight" parent="Kitchen/Furnitures" instance=ExtResource("8_7xygu")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4.55927, 0, -0.755093)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 12.4407, 0, 5.24491)
+
+[node name="DG_CounterStraight8" parent="Kitchen/Furnitures" instance=ExtResource("8_7xygu")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 10.4401, 0, -4.43801)
+
+[node name="DG_CounterStraight9" parent="Kitchen/Furnitures" instance=ExtResource("8_7xygu")]
+transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, 12.4401, 0, -4.43801)
 
 [node name="DG_CounterStraight5" parent="Kitchen/Furnitures" instance=ExtResource("8_7xygu")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8.55927, 4, -0.223376)
@@ -361,15 +561,15 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8.559
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8.55927, 4, -4.22338)
 
 [node name="DG_CounterStraight2" parent="Kitchen/Furnitures" node_paths=PackedStringArray("_defaultInteractable") instance=ExtResource("8_7xygu")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4.55927, 0, 1.24491)
-_defaultInteractable = NodePath("../../../Bowl2")
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -4.55927, 0, 1.24491)
+_defaultInteractable = NodePath("../../Bowl2")
 
 [node name="DG_CounterStraight3" parent="Kitchen/Furnitures" node_paths=PackedStringArray("_defaultInteractable") instance=ExtResource("8_7xygu")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4.55927, 0, 3.24491)
-_defaultInteractable = NodePath("../../../Bowl")
+_defaultInteractable = NodePath("../../Bowl")
 
 [node name="DG_CounterStraight4" parent="Kitchen/Furnitures" instance=ExtResource("8_7xygu")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4.55927, 0, 5.24491)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -4.55927, 0, 5.24491)
 
 [node name="OrderWindow" parent="Kitchen/Furnitures" node_paths=PackedStringArray("_commandManager", "_plateManager") instance=ExtResource("9_64ype")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -6)
@@ -383,22 +583,22 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8.559
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8.55927, 4, 3.73625)
 
 [node name="CounterCuttingboard" parent="Kitchen/Furnitures" instance=ExtResource("12_02du3")]
-transform = Transform3D(-4.56956e-08, 0, 1, 0, 1, 0, -1, 0, -4.56956e-08, 8.44073, 0, 4.97662)
+transform = Transform3D(-5.96046e-08, 0, -1, 0, 1, 0, 1, 0, -5.96046e-08, -4.55927, 0, -0.392833)
 
 [node name="DishRack" parent="Kitchen/Furnitures" instance=ExtResource("14_kxjgg")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8.44073, 0, 0.976625)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 12.4407, 0, 1.60717)
 
 [node name="Trash" parent="Kitchen/Furnitures" instance=ExtResource("15_mo6wy")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8.44073, 0, -1.02338)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 12.4407, 0, -0.392833)
 
 [node name="Stove" parent="Kitchen/Furnitures" instance=ExtResource("16_jfd0a")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8.44073, 0, -3.02338)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 12.4407, 0, -2.39283)
 
 [node name="PlateManager" parent="Kitchen/Furnitures" instance=ExtResource("17_sm0un")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.940728, 0, -4.02338)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8.44006, 0, -4.43801)
 
 [node name="CounterSink" parent="Kitchen/Furnitures" instance=ExtResource("8_w0bml")]
-transform = Transform3D(-4.17272e-08, 0, -1, 0, 1, 0, 1, 0, -4.17272e-08, 8.44073, 0, 2.97663)
+transform = Transform3D(-4.17272e-08, 0, -1, 0, 1, 0, 1, 0, -4.17272e-08, 12.4407, 0, 3.60718)
 
 [node name="SpawnPoint" type="Node3D" parent="Kitchen"]
 
@@ -411,8 +611,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 3)
 [node name="SpawnPoint4" type="Node3D" parent="Kitchen"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
 
+[node name="Void" type="Area3D" parent="Kitchen" node_paths=PackedStringArray("_plateManager")]
+script = ExtResource("20_ji8gj")
+_plateManager = NodePath("../Furnitures/PlateManager")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Kitchen/Void"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.96907, -4.76017, 6.17813)
+shape = SubResource("BoxShape3D_nkq2q")
+
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.61056, 0.79197, 0, -0.79197, 0.61056, 1, 12.8775, 9.90553)
+transform = Transform3D(1, 0, 0, 0, 0.794733, 0.60696, 0, -0.60696, 0.794733, 1, 7.8775, 10.9055)
 current = true
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -425,6 +633,9 @@ _timeBeforeStart = 4.0
 _uiCountDown = NodePath("../UI_CountDown")
 _scoreManager = NodePath("../ScoreManager")
 _spawnPoints = [NodePath("../Kitchen/SpawnPoint"), NodePath("../Kitchen/SpawnPoint2"), NodePath("../Kitchen/SpawnPoint3"), NodePath("../Kitchen/SpawnPoint4")]
+
+[node name="Enemy" parent="." instance=ExtResource("31_6qptb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.370326, -7)
 
 [node name="Player0" parent="." instance=ExtResource("19_t4eqb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23, 1, 4)
@@ -548,8 +759,4 @@ _commandType = 2
 
 [node name="UI_CountDown" parent="." instance=ExtResource("26_oab2w")]
 
-[node name="Bowl" parent="." instance=ExtResource("28_ohfbk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.39887, 1.31145, 3.44514)
-
-[node name="Bowl2" parent="." instance=ExtResource("28_ohfbk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.39887, 1.31145, 1.44514)
+[connection signal="body_entered" from="Kitchen/Void" to="Kitchen/Void" method="OnPlayerEnter"]

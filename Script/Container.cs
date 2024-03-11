@@ -20,13 +20,4 @@ public abstract partial class Container : Ingredient
         Foods.Remove(ingredient);
         return ingredient;
     }
-
-    public virtual Array<Ingredient> RemoveAllIngredient()
-    {
-        var newList = new Array<Ingredient>();
-        foreach (var food in Foods)
-            newList.Add(food);
-        Foods.Clear();
-        return newList;
-    }
 }

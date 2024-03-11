@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://ciygwkfbpkmod"]
+[gd_scene load_steps=51 format=3 uid="uid://ciygwkfbpkmod"]
 
 [ext_resource type="ArrayMesh" uid="uid://tf2shsqcvqr2" path="res://Asset/Halloween/arch_gate_right.obj" id="5_5ipvt"]
 [ext_resource type="ArrayMesh" uid="uid://d0cnrprh042ni" path="res://Asset/Halloween/arch_gate_left.obj" id="6_sg4mv"]
@@ -36,6 +36,7 @@
 [ext_resource type="StyleBox" uid="uid://2ay566iyxb45" path="res://Levels/Tab.tres" id="34_des6u"]
 [ext_resource type="Texture2D" uid="uid://c5dshwlfeeod7" path="res://icon.svg" id="35_xypyy"]
 [ext_resource type="Script" path="res://Script/ScoreManager.cs" id="36_qsoqn"]
+[ext_resource type="PackedScene" uid="uid://dwts3jnp3g332" path="res://Asset/Prefabs/Enemy.tscn" id="37_7o1yp"]
 [ext_resource type="Script" path="res://Script/CommandManager.cs" id="37_f7hfq"]
 [ext_resource type="PackedScene" uid="uid://bd70in7lumm2a" path="res://Asset/Prefabs/Ui/UI_Command_Burger.tscn" id="38_3mhx1"]
 [ext_resource type="ArrayMesh" uid="uid://d3pj0dgj7yewk" path="res://Asset/Halloween/lantern_hanging.obj" id="39_m34ca"]
@@ -1870,14 +1871,49 @@ shape = SubResource("BoxShape3D_js2ij")
 transform = Transform3D(-4.37114e-08, -4.37114e-08, -1, 4.37114e-08, 1, -4.37114e-08, 1, -4.37114e-08, -4.37114e-08, 8.01447, 0.416175, -14.5847)
 shape = SubResource("BoxShape3D_js2ij")
 
-[node name="GameManager" parent="." node_paths=PackedStringArray("_uiCountDown", "_scoreManager") instance=ExtResource("43_rddyo")]
+[node name="GameManager" parent="." node_paths=PackedStringArray("_uiCountDown", "_scoreManager", "_spawnPoints") instance=ExtResource("43_rddyo")]
 _timeUpScene = "res://Levels/SC_LevelMenu.tscn"
 _timeBeforeStart = 4.0
 _uiCountDown = NodePath("../UI_CountDown")
 _scoreManager = NodePath("../ScoreManager")
+_spawnPoints = [NodePath("SpawnPoint"), NodePath("SpawnPoint2"), NodePath("SpawnPoint3"), NodePath("SpawnPoint4")]
+_numberPlayer = 1
 
-[node name="Player" parent="." instance=ExtResource("28_8axgi")]
-transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 8, 1, -5)
+[node name="SpawnPoint" type="Node3D" parent="GameManager"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -4)
+
+[node name="SpawnPoint2" type="Node3D" parent="GameManager"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -4)
+
+[node name="SpawnPoint3" type="Node3D" parent="GameManager"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -8)
+
+[node name="SpawnPoint4" type="Node3D" parent="GameManager"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -8)
+
+[node name="Enemy" parent="." instance=ExtResource("37_7o1yp")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 19.2299, 0.718372, -3.45774)
+
+[node name="Player0" parent="." instance=ExtResource("28_8axgi")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 8, -3, -5)
+PlayerNumber = 0
+_invertX = true
+_invertY = true
+
+[node name="Player1" parent="." instance=ExtResource("28_8axgi")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 9, -3, -5)
+PlayerNumber = 0
+_invertX = true
+_invertY = true
+
+[node name="Player2" parent="." instance=ExtResource("28_8axgi")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 10, -3, -5)
+PlayerNumber = 0
+_invertX = true
+_invertY = true
+
+[node name="Player3" parent="." instance=ExtResource("28_8axgi")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 11, -3, -5)
 PlayerNumber = 0
 _invertX = true
 _invertY = true
