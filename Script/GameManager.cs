@@ -24,6 +24,7 @@ public partial class GameManager : Node3D
 	[Export] private ScoreManager _scoreManager;
 	[Export] private Array<Node3D> _spawnPoints = new Array<Node3D>();
 	[Export(PropertyHint.Range, "1, 4")] private int _numberPlayer = 2;
+	[Export] private string _nextLevelName;
 
 	private double _timer = 0.0;
 	private static GameState _gameState;
@@ -83,6 +84,8 @@ public partial class GameManager : Node3D
 	{
 		var scoreInfo = GetNode<info_score>("/root/InfoScore");
 		scoreInfo.UpdateScore(GetParent().Name, _scoreManager.GetScore());
+		if (_scoreManager.GetScore() > 100)
+			scoreInfo.ActivateLevel(_nextLevelName);
 		GetTree().ChangeSceneToFile(_timeUpScene);
 	}
 

@@ -36,6 +36,8 @@ public partial class CommandManager : Node
     {
         if (newGameState == GameManager.GameState.InGame)
             CreateCommand();
+        else if (newGameState == GameManager.GameState.EndGame)
+            GameEvent.onGameStateChange -= OnGameStarted;
     }
 
     public override void _Process(double delta)
@@ -70,7 +72,7 @@ public partial class CommandManager : Node
             if (command.IsValidCommand(list))
             {
                 Debug.Print("Command valid");
-                GetNode<ScoreManager>("../ScoreManager").AddScore(100);
+                GetNode<ScoreManager>("../ScoreManager").AddScore(200);
                 command.QueueFree();
                 _currentCommand -= 1;
                 return true;
@@ -78,6 +80,8 @@ public partial class CommandManager : Node
         Debug.Print("Command Invalid");
         return false;
     }
+
+
 
     #endregion
 }

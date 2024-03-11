@@ -1878,6 +1878,7 @@ _uiCountDown = NodePath("../UI_CountDown")
 _scoreManager = NodePath("../ScoreManager")
 _spawnPoints = [NodePath("SpawnPoint"), NodePath("SpawnPoint2"), NodePath("SpawnPoint3"), NodePath("SpawnPoint4")]
 _numberPlayer = 1
+_nextLevelName = "Level02"
 
 [node name="SpawnPoint" type="Node3D" parent="GameManager"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -4)
@@ -1932,7 +1933,7 @@ offset_bottom = 40.0
 grow_horizontal = 0
 theme = SubResource("Theme_3ma7n")
 script = ExtResource("33_ebvcc")
-_time = 60.0
+_time = 10.0
 _text = NodePath("Panel/Label")
 
 [node name="Panel" type="Panel" parent="Timer"]

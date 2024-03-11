@@ -16,9 +16,9 @@ public partial class info_score : Node
 
 	public void UpdateScore(string levelName, int newScore)
 	{
-		if (!CollectionExtensions.TryAdd(_scores, levelName, newScore))
-			if (_scores[levelName] < newScore)
-				_scores[levelName] = newScore;
+		CollectionExtensions.TryAdd(_scores, levelName, newScore);
+		if (_scores[levelName] < newScore)
+			_scores[levelName] = newScore;
 	}
 
 	public int GetScore(string levelName)
