@@ -410,6 +410,7 @@ _timeUpScene = "res://Levels/LevelMenu.tscn"
 _timeBeforeStart = 0.0
 _spawnPoints = [NodePath("SpawnPoint")]
 _numberPlayer = 1
+_nextLevelName = "Level01"
 
 [node name="SpawnPoint" type="Node3D" parent="GameManager"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)

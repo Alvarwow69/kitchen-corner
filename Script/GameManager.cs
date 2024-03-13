@@ -109,7 +109,7 @@ public partial class GameManager : Node3D
 
 	private void SpawnPlayers(int index)
 	{
-		var player = GetNode<Player>("/root/" + GetTree().Root.GetChild<Node>(2).Name + "/Player" + index);
+		var player = GetNode<Player>("/root/" + GetTree().Root.GetChild<Node>(1).Name + "/Player" + index);
 		var sPoint = _spawnPoints[index];
 
 		player.PlayerNumber = index;
