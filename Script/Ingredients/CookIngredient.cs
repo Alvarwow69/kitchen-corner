@@ -28,7 +28,7 @@ public partial class CookIngredient : SliceIngredients
 
 	}
 
-	public double GetProgress()
+	public override double GetProgress()
 	{
 		return _cookTime / _cookedTime * 100.0;
 	}

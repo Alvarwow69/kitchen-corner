@@ -22,8 +22,8 @@
 [ext_resource type="PackedScene" uid="uid://dh24ddwlra6qp" path="res://Asset/Prefabs/GameManager.tscn" id="18_mp1nw"]
 [ext_resource type="PackedScene" uid="uid://k5io6bxv6534" path="res://Asset/Prefabs/Player.tscn" id="19_t4eqb"]
 [ext_resource type="Script" path="res://Script/TimerManager.cs" id="20_34rvw"]
-[ext_resource type="Script" path="res://Levels/OutOfBound.cs" id="20_ji8gj"]
 [ext_resource type="StyleBox" uid="uid://2ay566iyxb45" path="res://Levels/Tab.tres" id="21_ksq1h"]
+[ext_resource type="Script" path="res://Script/OutOfBound.cs" id="21_pquy1"]
 [ext_resource type="Texture2D" uid="uid://c5dshwlfeeod7" path="res://icon.svg" id="22_88xdp"]
 [ext_resource type="Script" path="res://Script/ScoreManager.cs" id="23_wd33q"]
 [ext_resource type="Script" path="res://Script/CommandManager.cs" id="24_gcg4x"]
@@ -612,7 +612,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 3)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
 
 [node name="Void" type="Area3D" parent="Kitchen" node_paths=PackedStringArray("_plateManager")]
-script = ExtResource("20_ji8gj")
+script = ExtResource("21_pquy1")
 _plateManager = NodePath("../Furnitures/PlateManager")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Kitchen/Void"]

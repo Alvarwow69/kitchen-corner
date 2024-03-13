@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using Godot.Collections;
 using KitchenCorner.Script.Event;
+using KitchenCorner.Script.Save;
 
 public partial class GameManager : Node3D
 {
@@ -42,6 +43,8 @@ public partial class GameManager : Node3D
 		for (int i = 0; i < _numberPlayer; i++)
 			SpawnPlayers(i);
 		GameEvent.PerformanceOnGameStateChange(_gameState);
+		if (_defaultState == GameState.Starting)
+			_scoreManager.AddScore(200);
 	}
 
 	public override void _Process(double delta)
@@ -82,10 +85,11 @@ public partial class GameManager : Node3D
 
 	private void ChangeScene()
 	{
-		var scoreInfo = GetNode<info_score>("/root/InfoScore");
-		scoreInfo.UpdateScore(GetParent().Name, _scoreManager.GetScore());
+		var saveLevel = GetNode<SaveLevel>("/root/SaveLevel");
+		saveLevel.UpdateScore(GetParent().Name, _scoreManager.GetScore());
 		if (_scoreManager.GetScore() > 100)
-			scoreInfo.ActivateLevel(_nextLevelName);
+			saveLevel.UpdateActivation(_nextLevelName, true);
+		saveLevel.Save();
 		GetTree().ChangeSceneToFile(_timeUpScene);
 	}
 
@@ -105,7 +109,7 @@ public partial class GameManager : Node3D
 
 	private void SpawnPlayers(int index)
 	{
-		var player = GetNode<Player>("/root/" + GetTree().Root.GetChild<Node>(1).Name + "/Player" + index);
+		var player = GetNode<Player>("/root/" + GetTree().Root.GetChild<Node>(2).Name + "/Player" + index);
 		var sPoint = _spawnPoints[index];
 
 		player.PlayerNumber = index;

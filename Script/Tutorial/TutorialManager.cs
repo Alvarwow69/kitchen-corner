@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Diagnostics;
+using KitchenCorner.Script.Save;
 
 public sealed partial class TutorialManager : Node
 {
@@ -63,8 +64,10 @@ public sealed partial class TutorialManager : Node
 	private void TutorialFinished()
 	{
 		TargetEvent.PerformTutorialFinished();
-		GetNode<info_score>("/root/InfoScore").UpdateScore("Tutorial", 300);
-		GetNode<info_score>("/root/InfoScore").ActivateLevel("Level01");
+		var saveLevel = GetNode<SaveLevel>("/root/SaveLevel");
+		saveLevel.UpdateScore("Tutorial", 300);
+		saveLevel.UpdateActivation("Level01", true);
+		saveLevel.Save();
 		GetTree().ChangeSceneToFile(_selectionScene);
 	}
 

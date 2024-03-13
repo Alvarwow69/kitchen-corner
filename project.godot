@@ -22,7 +22,7 @@ config/windows_native_icon="res://KC_icon.ico"
 
 [autoload]
 
-InfoScore="*res://info_score.cs"
+SaveLevel="*res://Script/Save/SaveLevel.cs"
 
 [display]
 
