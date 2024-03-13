@@ -1,8 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://cdcg8p7vas3ix"]
+[gd_scene load_steps=7 format=3 uid="uid://cdcg8p7vas3ix"]
 
 [ext_resource type="Script" path="res://Script/Furniture/PlateManager.cs" id="1_7oi1k"]
 [ext_resource type="ArrayMesh" uid="uid://bi8srbcw75v52" path="res://Asset/Kitchen/obj/kitchentable_B.obj" id="1_bipb2"]
-[ext_resource type="Material" uid="uid://buw721hn78rq4" path="res://Selection.tres" id="3_w67dl"]
+[ext_resource type="Shader" path="res://Selection.gdshader" id="3_oq18i"]
+[ext_resource type="Texture2D" uid="uid://c8jvxgl2348ht" path="res://Asset/Kitchen/obj/restaurantbits_texture.png" id="4_wbaee"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sy158"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("3_oq18i")
+shader_parameter/selectColor = Color(0.94902, 0.964706, 0, 1)
+shader_parameter/selected = false
+shader_parameter/tex = ExtResource("4_wbaee")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nv461"]
 size = Vector3(2, 1, 2)
@@ -18,7 +27,7 @@ collision_mask = 0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
 mesh = ExtResource("1_bipb2")
-surface_material_override/0 = ExtResource("3_w67dl")
+surface_material_override/0 = SubResource("ShaderMaterial_sy158")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)

@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://crfuuyh333nfb"]
+
+[ext_resource type="Script" path="res://Script/Furniture/OrderWindow.cs" id="1_8x2dl"]
+[ext_resource type="ArrayMesh" uid="uid://dppggx63t6vt5" path="res://Asset/Dungeon/wall_archedwindow_open.obj" id="2_q1mgp"]
+[ext_resource type="Shader" path="res://Selection.gdshader" id="3_dcuy0"]
+[ext_resource type="Texture2D" uid="uid://7ut2pdspduml" path="res://Asset/Dungeon/dungeon_texture.png" id="4_ou46s"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5rian"]
+render_priority = 0
+shader = ExtResource("3_dcuy0")
+shader_parameter/selectColor = Color(0.94902, 0.964706, 0, 1)
+shader_parameter/selected = false
+shader_parameter/tex = ExtResource("4_ou46s")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_006f7"]
+size = Vector3(4, 4, 0.932303)
+
+[node name="OrderWindow" type="Node3D" node_paths=PackedStringArray("_mesh")]
+script = ExtResource("1_8x2dl")
+_mesh = NodePath("StaticBody3D/MeshInstance3D")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 12
+collision_mask = 0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = ExtResource("2_q1mgp")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_5rian")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="StaticBody3D/MeshInstance3D"]
+mesh = ExtResource("2_q1mgp")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("ShaderMaterial_5rian")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("BoxShape3D_006f7")

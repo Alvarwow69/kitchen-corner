@@ -1,0 +1,45 @@
+[gd_scene load_steps=9 format=3 uid="uid://dkk2yqn7fqrcl"]
+
+[ext_resource type="Script" path="res://Script/Furniture/DishRack.cs" id="1_fsoak"]
+[ext_resource type="ArrayMesh" uid="uid://dnpmpem2rhlps" path="res://Asset/Dungeon/table_medium_tablecloth.obj" id="2_govtt"]
+[ext_resource type="Material" uid="uid://buw721hn78rq4" path="res://Selection.tres" id="3_yqik1"]
+[ext_resource type="ArrayMesh" uid="uid://t1um62k2jdb2" path="res://Asset/Kitchen/obj/dishrack.obj" id="4_qd0w2"]
+[ext_resource type="Shader" path="res://Selection.gdshader" id="5_ht484"]
+[ext_resource type="Texture2D" uid="uid://c8jvxgl2348ht" path="res://Asset/Kitchen/obj/restaurantbits_texture.png" id="6_n01ns"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ra74u"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("5_ht484")
+shader_parameter/selectColor = Color(0.94902, 0.964706, 0, 1)
+shader_parameter/selected = false
+shader_parameter/tex = ExtResource("6_n01ns")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3yypa"]
+size = Vector3(2, 2, 2)
+
+[node name="DishRack" type="Node3D" node_paths=PackedStringArray("_anchor", "_mesh")]
+script = ExtResource("1_fsoak")
+_anchor = NodePath("DishRack/Anchor")
+_mesh = NodePath("DishRack/Mesh")
+
+[node name="DishRack" type="StaticBody3D" parent="."]
+collision_layer = 12
+collision_mask = 0
+
+[node name="Counter" type="MeshInstance3D" parent="DishRack"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+mesh = ExtResource("2_govtt")
+surface_material_override/0 = ExtResource("3_yqik1")
+
+[node name="Mesh" type="MeshInstance3D" parent="DishRack"]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, 1, 0)
+mesh = ExtResource("4_qd0w2")
+surface_material_override/0 = SubResource("ShaderMaterial_ra74u")
+
+[node name="Anchor" type="Node3D" parent="DishRack"]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -0.00221002, 1.29301, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DishRack"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_3yypa")

@@ -6,8 +6,9 @@ using KitchenCorner.Script.Event;
 
 public partial class PlateManager : CounterInteractable
 {
-
 	#region properties
+
+	[Export] private double _cooldown = 2;
 
 	private Dictionary<Plate, double> _waitingPlate = new Dictionary<Plate, double>();
 	private Array<Plate> _plates = new Array<Plate>();
@@ -22,8 +23,8 @@ public partial class PlateManager : CounterInteractable
 			return;
 		foreach (var plate in _waitingPlate)
 		{
-			_waitingPlate[plate.Key] += delta;
-			if (plate.Value >= 2)
+			_waitingPlate[plate.Key] -= delta;
+			if (plate.Value <= 0)
 			{
 				SendPlate(plate.Key);
 				_waitingPlate.Remove(plate.Key);
@@ -31,10 +32,22 @@ public partial class PlateManager : CounterInteractable
 		}
 	}
 
-	public void AddPlate(Plate plate)
+	public void AddPlate(Plate plate, double cooldown = 2)
 	{
-		plate.Visible = false;
-		_waitingPlate.Add(plate, 0);
+		if (cooldown <= 0)
+		{
+			plate.Reparent(_anchor);
+			plate.GlobalPosition = new Vector3(_anchor.GlobalPosition.X, _anchor.GlobalPosition.Y + _plates.Count * 0.13f, _anchor.GlobalPosition.Z);
+			plate.GlobalRotation = _anchor.GlobalRotation;
+			plate.Visible = true;
+			_plates.Add(plate);
+			PlateEvent.PerformDirtyPlateSpawn(plate);
+		}
+		else
+		{
+			plate.Visible = false;
+			_waitingPlate.Add(plate, _cooldown);
+		}
 	}
 
 	private void SendPlate(Plate plate)

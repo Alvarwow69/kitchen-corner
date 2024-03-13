@@ -19,7 +19,7 @@ public partial class SliceIngredients : Ingredient
 		}
 	}
 
-	public double GetProgress()
+	virtual public double GetProgress()
 	{
 		return _sliceTime / _slicedTime * 100;
 	}

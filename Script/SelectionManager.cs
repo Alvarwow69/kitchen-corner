@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using Godot.Collections;
 using KitchenCorner.Script.Event;
+using KitchenCorner.Script.Save;
 
 public partial class SelectionManager : Node3D
 {
@@ -20,16 +21,17 @@ public partial class SelectionManager : Node3D
 
 	private double _timer = 0.0;
 	private static SelectionState _gameState;
-	private info_score _infoScore;
+	private SaveLevel _levels;
 
 	#endregion
 
 	public override void _Ready()
 	{
 		_gameState = _defaultState;
-		_infoScore = GetNode<info_score>("/root/InfoScore");
+		_levels = GetNode<SaveLevel>("/root/SaveLevel");
 		foreach (var levelSelector in _listLevel)
-			_infoScore.AddLevel(levelSelector.Name, levelSelector.Score, levelSelector.Activated);
+			_levels.AddLevel(levelSelector.Name, levelSelector.Activated, levelSelector.Score);
+		_levels.Save();
 	}
 
 	public override void _Process(double delta)
@@ -37,7 +39,7 @@ public partial class SelectionManager : Node3D
 		if (_gameState != SelectionState.Computing)
 			return;
 		foreach (var levelSelector in _listLevel)
-			if (_infoScore.IsActivate(levelSelector.Name))
+			if (_levels.Content[levelSelector.Name].Activated)
 				levelSelector.Activate();
 		_gameState = SelectionState.Waiting;
 	}

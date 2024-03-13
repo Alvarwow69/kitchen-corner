@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://uof8ht2g6dyg"
+path="res://.godot/imported/candle_triple.obj-ba9fcbd9a83e2cdd3bd44846e34aa521.mesh"
+
+[deps]
+
+files=["res://.godot/imported/candle_triple.obj-ba9fcbd9a83e2cdd3bd44846e34aa521.mesh"]
+
+source_file="res://Asset/Dungeon/candle_triple.obj"
+dest_files=["res://.godot/imported/candle_triple.obj-ba9fcbd9a83e2cdd3bd44846e34aa521.mesh", "res://.godot/imported/candle_triple.obj-ba9fcbd9a83e2cdd3bd44846e34aa521.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

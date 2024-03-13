@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dgb6o8k1wbnvn"
+path="res://.godot/imported/candle_thin_lit.obj-a40c33e91754711673be2e13258def79.mesh"
+
+[deps]
+
+files=["res://.godot/imported/candle_thin_lit.obj-a40c33e91754711673be2e13258def79.mesh"]
+
+source_file="res://Asset/Dungeon/candle_thin_lit.obj"
+dest_files=["res://.godot/imported/candle_thin_lit.obj-a40c33e91754711673be2e13258def79.mesh", "res://.godot/imported/candle_thin_lit.obj-a40c33e91754711673be2e13258def79.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

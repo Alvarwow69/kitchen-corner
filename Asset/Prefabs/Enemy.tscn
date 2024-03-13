@@ -1,0 +1,77 @@
+[gd_scene load_steps=6 format=3 uid="uid://dwts3jnp3g332"]
+
+[ext_resource type="ArrayMesh" uid="uid://cnkkco8syy5jo" path="res://Asset/Player/enemy.obj" id="1_h6e16"]
+[ext_resource type="Script" path="res://Script/Enemy.cs" id="2_50g8b"]
+
+[sub_resource type="Animation" id="Animation_gvau4"]
+resource_name = "Jump"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.3, 0), Vector3(0, 0, 0), Vector3(0, 0.3, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(0.8, 1.3, 0.8), Vector3(1, 1, 1), Vector3(0.8, 1.3, 0.8), Vector3(1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ecwgu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jmat7"]
+_data = {
+"Jump": SubResource("Animation_gvau4"),
+"RESET": SubResource("Animation_ecwgu")
+}
+
+[node name="Enemy" type="Node3D"]
+
+[node name="Model" type="MeshInstance3D" parent="." node_paths=PackedStringArray("_animation")]
+mesh = ExtResource("1_h6e16")
+script = ExtResource("2_50g8b")
+_animation = NodePath("AnimationPlayer")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Model"]
+libraries = {
+"": SubResource("AnimationLibrary_jmat7")
+}

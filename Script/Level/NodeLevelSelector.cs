@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using KitchenCorner.Script.Save;
 
 public partial class NodeLevelSelector : Interactable
 {
@@ -20,7 +21,7 @@ public partial class NodeLevelSelector : Interactable
 	{
 		_particles.Emitting = false;
 		_title.Text = _levelName;
-		Score = GetNode<info_score>("/root/InfoScore").GetScore(_levelName);
+		Score = GetNode<SaveLevel>("/root/SaveLevel").Content[_levelName].Score;
 	}
 
 	public void Activate()

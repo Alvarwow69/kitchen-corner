@@ -1,0 +1,33 @@
+[gd_scene load_steps=9 format=3 uid="uid://dfb05e1ruloo8"]
+
+[ext_resource type="Script" path="res://Script/Car.cs" id="1_6e7ou"]
+[ext_resource type="ArrayMesh" uid="uid://vusxlju3wwl2" path="res://Asset/City/car_hatchback.obj" id="1_kk718"]
+[ext_resource type="ArrayMesh" uid="uid://ddbon8ndm6itg" path="res://Asset/City/car_sedan.obj" id="3_0fylh"]
+[ext_resource type="ArrayMesh" uid="uid://dgjjiym37ywqb" path="res://Asset/City/car_police.obj" id="4_xhjo4"]
+[ext_resource type="ArrayMesh" uid="uid://dx8sixtj2cvr0" path="res://Asset/City/car_stationwagon.obj" id="5_xc71t"]
+[ext_resource type="ArrayMesh" uid="uid://dy1t20cl67mcm" path="res://Asset/City/car_taxi.obj" id="6_ij7gd"]
+[ext_resource type="PackedScene" uid="uid://jaro7kq6huur" path="res://Asset/Prefabs/Wheels.tscn" id="7_hju71"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v4eay"]
+size = Vector3(1.25248, 1, 2.4519)
+
+[node name="Car" type="PathFollow3D"]
+rotation_mode = 1
+use_model_front = true
+script = ExtResource("1_6e7ou")
+_meshes = [ExtResource("1_kk718"), ExtResource("3_0fylh"), ExtResource("4_xhjo4"), ExtResource("5_xc71t"), ExtResource("6_ij7gd")]
+_speed = 0.3
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+mesh = ExtResource("1_kk718")
+
+[node name="Wheels" parent="MeshInstance3D" instance=ExtResource("7_hju71")]
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_v4eay")
+
+[connection signal="body_entered" from="Area3D" to="." method="OnCarHitPlayer"]

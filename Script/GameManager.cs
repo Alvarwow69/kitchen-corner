@@ -1,7 +1,10 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
+using Godot.Collections;
 using KitchenCorner.Script.Event;
+using KitchenCorner.Script.Save;
 
 public partial class GameManager : Node3D
 {
@@ -20,9 +23,14 @@ public partial class GameManager : Node3D
 	[Export] private double _timeBeforeStart = 3.0f;
 	[Export] private Label _uiCountDown;
 	[Export] private ScoreManager _scoreManager;
+	[Export] private Array<Node3D> _spawnPoints = new Array<Node3D>();
+	[Export(PropertyHint.Range, "1, 4")] private int _numberPlayer = 2;
+	[Export] private string _nextLevelName;
 
 	private double _timer = 0.0;
 	private static GameState _gameState;
+	private Godot.Collections.Dictionary<Player, double> _disabledPlayer = new Godot.Collections.Dictionary<Player, double>();
+
 
 	#endregion
 
@@ -30,8 +38,13 @@ public partial class GameManager : Node3D
 	{
 		TimeEvent.OnTimeUp += OnTimeUp;
 		TargetEvent.OnTutorialFinished += OnTimeUp;
+		PlayerEvent.OnPlayerHitByCar += OnPlayerHitByCar;
 		_gameState = _defaultState;
+		for (int i = 0; i < _numberPlayer; i++)
+			SpawnPlayers(i);
 		GameEvent.PerformanceOnGameStateChange(_gameState);
+		if (_defaultState == GameState.Starting)
+			_scoreManager.AddScore(200);
 	}
 
 	public override void _Process(double delta)
@@ -53,6 +66,15 @@ public partial class GameManager : Node3D
 			}
 
 		}
+		foreach (var player in _disabledPlayer)
+		{
+			_disabledPlayer[player.Key] += delta;
+			if (player.Value >= 2)
+			{
+				ReSpawnPlayer(player.Key);
+				_disabledPlayer.Remove(player.Key);
+			}
+		}
 	}
 
 	private void OnTimeUp()
@@ -63,13 +85,46 @@ public partial class GameManager : Node3D
 
 	private void ChangeScene()
 	{
-		var scoreInfo = GetNode<info_score>("/root/InfoScore");
-		scoreInfo.UpdateScore(GetParent().Name, _scoreManager.GetScore());
+		var saveLevel = GetNode<SaveLevel>("/root/SaveLevel");
+		saveLevel.UpdateScore(GetParent().Name, _scoreManager.GetScore());
+		if (_scoreManager.GetScore() > 100)
+			saveLevel.UpdateActivation(_nextLevelName, true);
+		saveLevel.Save();
 		GetTree().ChangeSceneToFile(_timeUpScene);
 	}
 
 	public static GameState GetGameState()
 	{
 		return _gameState;
+	}
+
+	private void OnPlayerHitByCar(Player player)
+	{
+		if (player.HasInteractable())
+			player.GetInteractable().Drop(player);
+		player.DisablePlayer();
+		CollectionExtensions.TryAdd(_disabledPlayer, player, 0);
+		Debug.Print("Player added!");
+	}
+
+	private void SpawnPlayers(int index)
+	{
+		var player = GetNode<Player>("/root/" + GetTree().Root.GetChild<Node>(2).Name + "/Player" + index);
+		var sPoint = _spawnPoints[index];
+
+		player.PlayerNumber = index;
+		player.GlobalPosition = sPoint.GlobalPosition;
+		player.GlobalRotation = sPoint.GlobalRotation;
+		player.EnablePlayer();
+		Debug.Print("Player" + index + " spawned.");
+	}
+
+	private void ReSpawnPlayer(Player player)
+	{
+		var sPoint = _spawnPoints[player.PlayerNumber];
+		player.GlobalPosition = sPoint.GlobalPosition;
+		player.GlobalRotation = sPoint.GlobalRotation;
+		player.EnablePlayer();
+		Debug.Print("Player respawned!");
 	}
 }
