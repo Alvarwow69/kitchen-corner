@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://c0e63ifu8dmus"]
+[gd_scene load_steps=48 format=3 uid="uid://c0e63ifu8dmus"]
 
 [ext_resource type="ArrayMesh" uid="uid://c5c6w2qgivril" path="res://Asset/Dungeon/floor_tile_large.obj" id="1_buh2b"]
 [ext_resource type="ArrayMesh" uid="uid://cgxye0tfeapvc" path="res://Asset/Kitchen/obj/wall.obj" id="2_7s3hi"]
@@ -27,7 +27,15 @@
 [ext_resource type="StyleBox" uid="uid://cfak4daicqq2e" path="res://Levels/Button_Hover.tres" id="24_mu17t"]
 [ext_resource type="StyleBox" uid="uid://cff030ofuxttr" path="res://Levels/Button_Pressed.tres" id="25_h7mnm"]
 [ext_resource type="Script" path="res://Script/Option.cs" id="26_b4cni"]
+[ext_resource type="PackedScene" uid="uid://bho3d4w7kvv18" path="res://Asset/Prefabs/Ui/Option/OptionKey.tscn" id="27_5yekv"]
 [ext_resource type="AudioStream" uid="uid://dpgou8wlde68m" path="res://Asset/Audio/Music/1. A World in Bloom FULL.wav" id="27_cp7ge"]
+[ext_resource type="Texture2D" uid="uid://k7wpxwdwq4ad" path="res://Asset/Ui/Gamepad/Xbox/button_xbox_analog_l_direction_1.png" id="28_46nyn"]
+[ext_resource type="Texture2D" uid="uid://560jpx4xgy5h" path="res://Asset/Ui/Gamepad/Xbox/button_xbox_analog_l_direction_3.png" id="29_1dg0c"]
+[ext_resource type="Texture2D" uid="uid://w07ectqhy2lu" path="res://Asset/Ui/Gamepad/Xbox/button_xbox_analog_l_direction_4.png" id="30_yp7if"]
+[ext_resource type="Texture2D" uid="uid://dthmaea4hjwf3" path="res://Asset/Ui/Gamepad/Xbox/button_xbox_analog_l_direction_2.png" id="31_k4odh"]
+[ext_resource type="Texture2D" uid="uid://4uxymm7r62t" path="res://Asset/Ui/Gamepad/Xbox/button_xbox_digital_a_1.png" id="32_hxqh7"]
+[ext_resource type="Texture2D" uid="uid://dd87yd5dvr2d" path="res://Asset/Ui/Gamepad/Xbox/button_xbox_digital_x_1.png" id="33_fswio"]
+[ext_resource type="Texture2D" uid="uid://6ln8xkpj11ap" path="res://Asset/Ui/Gamepad/Xbox/button_xbox_digital_b_1.png" id="34_3b0j1"]
 
 [sub_resource type="Environment" id="Environment_kxx2n"]
 background_mode = 1
@@ -190,10 +198,6 @@ corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yajxx"]
 bg_color = Color(0.670588, 0.34902, 0, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
@@ -201,11 +205,6 @@ corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rlt8n"]
 bg_color = Color(0.478431, 0.243137, 0, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.388235, 0.388235, 0.388235, 1)
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
@@ -622,7 +621,8 @@ theme_override_styles/hover = ExtResource("24_mu17t")
 theme_override_styles/pressed = ExtResource("25_h7mnm")
 text = "Back"
 
-[node name="Option" type="Control" parent="."]
+[node name="Option" type="Control" parent="." node_paths=PackedStringArray("_optionMenu", "_commandMenu")]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -630,6 +630,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("26_b4cni")
+_optionMenu = NodePath("Menu/MarginContainer/Options")
+_commandMenu = NodePath("Menu/MarginContainer/Commands")
 
 [node name="Menu" type="PanelContainer" parent="Option"]
 layout_mode = 1
@@ -653,47 +655,49 @@ theme_override_constants/margin_top = 30
 theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 30
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Option/Menu/MarginContainer"]
+[node name="Options" type="VBoxContainer" parent="Option/Menu/MarginContainer"]
+custom_minimum_size = Vector2(0, 570)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Option/Menu/MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="Option/Menu/MarginContainer/Options"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 75
 text = "Options"
 horizontal_alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="Option/Menu/MarginContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Option/Menu/MarginContainer/Options"]
 layout_mode = 2
 theme_override_constants/margin_top = 50
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Option/Menu/MarginContainer/VBoxContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Option/Menu/MarginContainer/Options/MarginContainer"]
 layout_mode = 2
 
-[node name="ButtonCommand" type="Button" parent="Option/Menu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+[node name="ButtonCommand" type="Button" parent="Option/Menu/MarginContainer/Options/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(300, 70)
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_wj76x")
 theme_override_styles/hover = SubResource("StyleBoxFlat_yajxx")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_rlt8n")
 text = "Command"
 
-[node name="MarginContainer" type="MarginContainer" parent="Option/Menu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Option/Menu/MarginContainer/Options/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_top = 30
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Option/Menu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Option/Menu/MarginContainer/Options/MarginContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Option/Menu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Option/Menu/MarginContainer/Options/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="Option/Menu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="Option/Menu/MarginContainer/Options/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "Music                "
 
-[node name="HSlider" type="HSlider" parent="Option/Menu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="HSlider" type="HSlider" parent="Option/Menu/MarginContainer/Options/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 min_value = -30.0
@@ -701,15 +705,15 @@ max_value = 3.0
 value = -6.0
 rounded = true
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Option/Menu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="Option/Menu/MarginContainer/Options/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="Option/Menu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="Label" type="Label" parent="Option/Menu/MarginContainer/Options/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 text = "Sounds effects"
 
-[node name="HSlider" type="HSlider" parent="Option/Menu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="HSlider" type="HSlider" parent="Option/Menu/MarginContainer/Options/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 min_value = -30.0
@@ -717,11 +721,433 @@ max_value = 3.0
 value = -6.0
 rounded = true
 
-[node name="MarginContainer2" type="MarginContainer" parent="Option/Menu/MarginContainer/VBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="Option/Menu/MarginContainer/Options"]
 layout_mode = 2
 theme_override_constants/margin_top = 100
 
-[node name="ButtonCommand" type="Button" parent="Option/Menu/MarginContainer/VBoxContainer/MarginContainer2"]
+[node name="ButtonCommand" type="Button" parent="Option/Menu/MarginContainer/Options/MarginContainer2"]
+custom_minimum_size = Vector2(100, 70)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_wj76x")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yajxx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rlt8n")
+text = "Back"
+
+[node name="Commands" type="VBoxContainer" parent="Option/Menu/MarginContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 570)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Option/Menu/MarginContainer/Commands"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 75
+text = "Commands"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Option/Menu/MarginContainer/Commands"]
+layout_mode = 2
+theme_override_constants/margin_top = 0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Option/Menu/MarginContainer/Commands/MarginContainer"]
+custom_minimum_size = Vector2(0, 375)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(14.92, 370)
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Player 1"
+
+[node name="MarginContainer" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer" instance=ExtResource("27_5yekv")]
+layout_mode = 2
+
+[node name="ButtonCommand" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/HBoxContainer" index="0"]
+text = "Z"
+
+[node name="ButtonCommand2" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/HBoxContainer" index="1"]
+icon = ExtResource("28_46nyn")
+
+[node name="MarginContainer2" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer" instance=ExtResource("27_5yekv")]
+layout_mode = 2
+
+[node name="Label" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer" index="0"]
+text = "Backward:"
+
+[node name="ButtonCommand" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/HBoxContainer" index="0"]
+text = "S"
+
+[node name="ButtonCommand2" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/HBoxContainer" index="1"]
+icon = ExtResource("29_1dg0c")
+
+[node name="MarginContainer3" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer" instance=ExtResource("27_5yekv")]
+layout_mode = 2
+
+[node name="Label" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer3/HBoxContainer" index="0"]
+text = "Left:"
+
+[node name="ButtonCommand" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer3/HBoxContainer/HBoxContainer" index="0"]
+text = "Q"
+
+[node name="ButtonCommand2" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer3/HBoxContainer/HBoxContainer" index="1"]
+icon = ExtResource("30_yp7if")
+
+[node name="MarginContainer4" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer" instance=ExtResource("27_5yekv")]
+layout_mode = 2
+
+[node name="Label" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer4/HBoxContainer" index="0"]
+text = "Right:"
+
+[node name="ButtonCommand" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer4/HBoxContainer/HBoxContainer" index="0"]
+text = "D"
+
+[node name="ButtonCommand2" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer4/HBoxContainer/HBoxContainer" index="1"]
+icon = ExtResource("31_k4odh")
+
+[node name="MarginContainer5" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer" instance=ExtResource("27_5yekv")]
+layout_mode = 2
+
+[node name="Label" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer5/HBoxContainer" index="0"]
+text = "Grab:"
+
+[node name="ButtonCommand" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer5/HBoxContainer/HBoxContainer" index="0"]
+text = "SPACE"
+
+[node name="ButtonCommand2" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer5/HBoxContainer/HBoxContainer" index="1"]
+icon = ExtResource("32_hxqh7")
+
+[node name="MarginContainer6" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer" instance=ExtResource("27_5yekv")]
+layout_mode = 2
+
+[node name="Label" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer6/HBoxContainer" index="0"]
+text = "Action:"
+
+[node name="ButtonCommand" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer6/HBoxContainer/HBoxContainer" index="0"]
+text = "L. ALT"
+
+[node name="ButtonCommand2" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer6/HBoxContainer/HBoxContainer" index="1"]
+icon = ExtResource("33_fswio")
+
+[node name="MarginContainer7" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer" instance=ExtResource("27_5yekv")]
+layout_mode = 2
+
+[node name="Label" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer7/HBoxContainer" index="0"]
+text = "Dash:"
+
+[node name="ButtonCommand" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer7/HBoxContainer/HBoxContainer" index="0"]
+text = "L. SHIFT"
+
+[node name="ButtonCommand2" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer7/HBoxContainer/HBoxContainer" index="1"]
+icon = ExtResource("34_3b0j1")
+
+[node name="MarginContainer2" type="MarginContainer" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(14.92, 370)
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Player 2"
+
+[node name="MarginContainer" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer2" instance=ExtResource("27_5yekv")]
+layout_mode = 2
+
+[node name="ButtonCommand" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer2/MarginContainer/HBoxContainer/HBoxContainer" index="0"]
+text = "UP"
+
+[node name="ButtonCommand2" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer2/MarginContainer/HBoxContainer/HBoxContainer" index="1"]
+icon = ExtResource("28_46nyn")
+
+[node name="MarginContainer2" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer2" instance=ExtResource("27_5yekv")]
+layout_mode = 2
+
+[node name="Label" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer2/MarginContainer2/HBoxContainer" index="0"]
+text = "Backward:"
+
+[node name="ButtonCommand" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer2/MarginContainer2/HBoxContainer/HBoxContainer" index="0"]
+text = "DOWN"
+
+[node name="ButtonCommand2" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer2/MarginContainer2/HBoxContainer/HBoxContainer" index="1"]
+icon = ExtResource("29_1dg0c")
+
+[node name="MarginContainer3" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer2" instance=ExtResource("27_5yekv")]
+layout_mode = 2
+
+[node name="Label" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer2/MarginContainer3/HBoxContainer" index="0"]
+text = "Left:"
+
+[node name="ButtonCommand" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer2/MarginContainer3/HBoxContainer/HBoxContainer" index="0"]
+text = "LEFT"
+
+[node name="ButtonCommand2" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer2/MarginContainer3/HBoxContainer/HBoxContainer" index="1"]
+icon = ExtResource("30_yp7if")
+
+[node name="MarginContainer4" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer2" instance=ExtResource("27_5yekv")]
+layout_mode = 2
+
+[node name="Label" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer2/MarginContainer4/HBoxContainer" index="0"]
+text = "Right:"
+
+[node name="ButtonCommand" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer2/MarginContainer4/HBoxContainer/HBoxContainer" index="0"]
+text = "RIGHT"
+
+[node name="ButtonCommand2" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer2/MarginContainer4/HBoxContainer/HBoxContainer" index="1"]
+icon = ExtResource("31_k4odh")
+
+[node name="MarginContainer5" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer2" instance=ExtResource("27_5yekv")]
+layout_mode = 2
+
+[node name="Label" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer2/MarginContainer5/HBoxContainer" index="0"]
+text = "Grab:"
+
+[node name="ButtonCommand" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer2/MarginContainer5/HBoxContainer/HBoxContainer" index="0"]
+text = "R. SHIFT"
+
+[node name="ButtonCommand2" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer2/MarginContainer5/HBoxContainer/HBoxContainer" index="1"]
+icon = ExtResource("32_hxqh7")
+
+[node name="MarginContainer6" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer2" instance=ExtResource("27_5yekv")]
+layout_mode = 2
+
+[node name="Label" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer2/MarginContainer6/HBoxContainer" index="0"]
+text = "Action:"
+
+[node name="ButtonCommand" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer2/MarginContainer6/HBoxContainer/HBoxContainer" index="0"]
+text = "R. CTRL"
+
+[node name="ButtonCommand2" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer2/MarginContainer6/HBoxContainer/HBoxContainer" index="1"]
+icon = ExtResource("33_fswio")
+
+[node name="MarginContainer7" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer2" instance=ExtResource("27_5yekv")]
+layout_mode = 2
+
+[node name="Label" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer2/MarginContainer7/HBoxContainer" index="0"]
+text = "Dash:"
+
+[node name="ButtonCommand" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer2/MarginContainer7/HBoxContainer/HBoxContainer" index="0"]
+text = "R. ALT"
+
+[node name="ButtonCommand2" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer2/MarginContainer7/HBoxContainer/HBoxContainer" index="1"]
+icon = ExtResource("34_3b0j1")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Player 3"
+
+[node name="MarginContainer" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer" instance=ExtResource("27_5yekv")]
+layout_mode = 2
+
+[node name="ButtonCommand" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/HBoxContainer" index="0"]
+text = " "
+
+[node name="ButtonCommand2" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/HBoxContainer" index="1"]
+icon = ExtResource("28_46nyn")
+
+[node name="MarginContainer2" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer" instance=ExtResource("27_5yekv")]
+layout_mode = 2
+
+[node name="Label" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer" index="0"]
+text = "Backward:"
+
+[node name="ButtonCommand" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/HBoxContainer" index="0"]
+text = " "
+
+[node name="ButtonCommand2" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/HBoxContainer" index="1"]
+icon = ExtResource("29_1dg0c")
+
+[node name="MarginContainer3" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer" instance=ExtResource("27_5yekv")]
+layout_mode = 2
+
+[node name="Label" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer/MarginContainer3/HBoxContainer" index="0"]
+text = "Left:"
+
+[node name="ButtonCommand" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer/MarginContainer3/HBoxContainer/HBoxContainer" index="0"]
+text = " "
+
+[node name="ButtonCommand2" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer/MarginContainer3/HBoxContainer/HBoxContainer" index="1"]
+icon = ExtResource("30_yp7if")
+
+[node name="MarginContainer4" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer" instance=ExtResource("27_5yekv")]
+layout_mode = 2
+
+[node name="Label" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer/MarginContainer4/HBoxContainer" index="0"]
+text = "Right:"
+
+[node name="ButtonCommand" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer/MarginContainer4/HBoxContainer/HBoxContainer" index="0"]
+text = " "
+
+[node name="ButtonCommand2" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer/MarginContainer4/HBoxContainer/HBoxContainer" index="1"]
+icon = ExtResource("31_k4odh")
+
+[node name="MarginContainer5" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer" instance=ExtResource("27_5yekv")]
+layout_mode = 2
+
+[node name="Label" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer/MarginContainer5/HBoxContainer" index="0"]
+text = "Grab:"
+
+[node name="ButtonCommand" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer/MarginContainer5/HBoxContainer/HBoxContainer" index="0"]
+text = " "
+
+[node name="ButtonCommand2" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer/MarginContainer5/HBoxContainer/HBoxContainer" index="1"]
+icon = ExtResource("32_hxqh7")
+
+[node name="MarginContainer6" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer" instance=ExtResource("27_5yekv")]
+layout_mode = 2
+
+[node name="Label" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer/MarginContainer6/HBoxContainer" index="0"]
+text = "Action:"
+
+[node name="ButtonCommand" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer/MarginContainer6/HBoxContainer/HBoxContainer" index="0"]
+text = " "
+
+[node name="ButtonCommand2" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer/MarginContainer6/HBoxContainer/HBoxContainer" index="1"]
+icon = ExtResource("33_fswio")
+
+[node name="MarginContainer7" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer" instance=ExtResource("27_5yekv")]
+layout_mode = 2
+
+[node name="Label" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer/MarginContainer7/HBoxContainer" index="0"]
+text = "Dash:"
+
+[node name="ButtonCommand" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer/MarginContainer7/HBoxContainer/HBoxContainer" index="0"]
+text = " "
+
+[node name="ButtonCommand2" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer/MarginContainer7/HBoxContainer/HBoxContainer" index="1"]
+icon = ExtResource("34_3b0j1")
+
+[node name="MarginContainer2" type="MarginContainer" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Player 2"
+
+[node name="MarginContainer" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer2" instance=ExtResource("27_5yekv")]
+layout_mode = 2
+
+[node name="ButtonCommand" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer2/MarginContainer/HBoxContainer/HBoxContainer" index="0"]
+text = " "
+
+[node name="ButtonCommand2" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer2/MarginContainer/HBoxContainer/HBoxContainer" index="1"]
+icon = ExtResource("28_46nyn")
+
+[node name="MarginContainer2" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer2" instance=ExtResource("27_5yekv")]
+layout_mode = 2
+
+[node name="Label" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer2/MarginContainer2/HBoxContainer" index="0"]
+text = "Backward:"
+
+[node name="ButtonCommand" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer2/MarginContainer2/HBoxContainer/HBoxContainer" index="0"]
+text = " "
+
+[node name="ButtonCommand2" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer2/MarginContainer2/HBoxContainer/HBoxContainer" index="1"]
+icon = ExtResource("29_1dg0c")
+
+[node name="MarginContainer3" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer2" instance=ExtResource("27_5yekv")]
+layout_mode = 2
+
+[node name="Label" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer2/MarginContainer3/HBoxContainer" index="0"]
+text = "Left:"
+
+[node name="ButtonCommand" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer2/MarginContainer3/HBoxContainer/HBoxContainer" index="0"]
+text = " "
+
+[node name="ButtonCommand2" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer2/MarginContainer3/HBoxContainer/HBoxContainer" index="1"]
+icon = ExtResource("30_yp7if")
+
+[node name="MarginContainer4" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer2" instance=ExtResource("27_5yekv")]
+layout_mode = 2
+
+[node name="Label" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer2/MarginContainer4/HBoxContainer" index="0"]
+text = "Right:"
+
+[node name="ButtonCommand" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer2/MarginContainer4/HBoxContainer/HBoxContainer" index="0"]
+text = " "
+
+[node name="ButtonCommand2" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer2/MarginContainer4/HBoxContainer/HBoxContainer" index="1"]
+icon = ExtResource("31_k4odh")
+
+[node name="MarginContainer5" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer2" instance=ExtResource("27_5yekv")]
+layout_mode = 2
+
+[node name="Label" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer2/MarginContainer5/HBoxContainer" index="0"]
+text = "Grab:"
+
+[node name="ButtonCommand" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer2/MarginContainer5/HBoxContainer/HBoxContainer" index="0"]
+text = " "
+
+[node name="ButtonCommand2" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer2/MarginContainer5/HBoxContainer/HBoxContainer" index="1"]
+icon = ExtResource("32_hxqh7")
+
+[node name="MarginContainer6" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer2" instance=ExtResource("27_5yekv")]
+layout_mode = 2
+
+[node name="Label" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer2/MarginContainer6/HBoxContainer" index="0"]
+text = "Action:"
+
+[node name="ButtonCommand" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer2/MarginContainer6/HBoxContainer/HBoxContainer" index="0"]
+text = " "
+
+[node name="ButtonCommand2" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer2/MarginContainer6/HBoxContainer/HBoxContainer" index="1"]
+icon = ExtResource("33_fswio")
+
+[node name="MarginContainer7" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer2" instance=ExtResource("27_5yekv")]
+layout_mode = 2
+
+[node name="Label" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer2/MarginContainer7/HBoxContainer" index="0"]
+text = "Dash:"
+
+[node name="ButtonCommand" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer2/MarginContainer7/HBoxContainer/HBoxContainer" index="0"]
+text = " "
+
+[node name="ButtonCommand2" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer2/MarginContainer7/HBoxContainer/HBoxContainer" index="1"]
+icon = ExtResource("34_3b0j1")
+
+[node name="MarginContainer2" type="MarginContainer" parent="Option/Menu/MarginContainer/Commands"]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+
+[node name="ButtonCommand" type="Button" parent="Option/Menu/MarginContainer/Commands/MarginContainer2"]
 custom_minimum_size = Vector2(100, 70)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -817,6 +1243,37 @@ bus = &"Music"
 [connection signal="pressed" from="UI/Main/Menu/MarginContainer/VBoxContainer/ButtonCredits" to="UI" method="OnPressCredits"]
 [connection signal="pressed" from="UI/Main/Menu/MarginContainer/VBoxContainer/ButtonExit" to="UI" method="OnPressExit"]
 [connection signal="pressed" from="UI/Back/MarginContainer/ButtonExit" to="UI" method="OnPressCredits"]
-[connection signal="value_changed" from="Option/Menu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/HSlider" to="Option" method="OnSliderMusicChange"]
-[connection signal="value_changed" from="Option/Menu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2/HSlider" to="Option" method="OnSliderSfxChange"]
-[connection signal="pressed" from="Option/Menu/MarginContainer/VBoxContainer/MarginContainer2/ButtonCommand" to="UI" method="OnPressOption"]
+[connection signal="pressed" from="Option/Menu/MarginContainer/Options/MarginContainer/VBoxContainer/ButtonCommand" to="Option" method="OnButtonCommandPressed"]
+[connection signal="value_changed" from="Option/Menu/MarginContainer/Options/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/HSlider" to="Option" method="OnSliderMusicChange"]
+[connection signal="value_changed" from="Option/Menu/MarginContainer/Options/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2/HSlider" to="Option" method="OnSliderSfxChange"]
+[connection signal="pressed" from="Option/Menu/MarginContainer/Options/MarginContainer2/ButtonCommand" to="UI" method="OnPressOption"]
+[connection signal="pressed" from="Option/Menu/MarginContainer/Commands/MarginContainer2/ButtonCommand" to="Option" method="OnButtonCommandPressed"]
+
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer2"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer3"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer4"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer5"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer6"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer7"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer2/MarginContainer"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer2/MarginContainer2"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer2/MarginContainer3"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer2/MarginContainer4"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer2/MarginContainer5"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer2/MarginContainer6"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer2/MarginContainer7"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer/MarginContainer"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer/MarginContainer2"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer/MarginContainer3"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer/MarginContainer4"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer/MarginContainer5"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer/MarginContainer6"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer/MarginContainer7"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer2/MarginContainer"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer2/MarginContainer2"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer2/MarginContainer3"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer2/MarginContainer4"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer2/MarginContainer5"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer2/MarginContainer6"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer2/MarginContainer7"]
