@@ -11,6 +11,7 @@ public partial class SelectionManager : Node3D
 	public enum SelectionState
 	{
 		Computing,
+		Pause,
 		Waiting,
 	}
 
@@ -18,6 +19,7 @@ public partial class SelectionManager : Node3D
 
 	[Export] private SelectionState _defaultState = SelectionState.Computing;
 	[Export] private Array<NodeLevelSelector> _listLevel;
+	[Export] private PauseMenu _pauseMenu;
 
 	private double _timer = 0.0;
 	private static SelectionState _gameState;
@@ -36,12 +38,16 @@ public partial class SelectionManager : Node3D
 
 	public override void _Process(double delta)
 	{
-		if (_gameState != SelectionState.Computing)
+		if (_gameState == SelectionState.Computing)
+		{
+			foreach (var levelSelector in _listLevel)
+				if (_levels.Content[levelSelector.Name].Activated)
+					levelSelector.Activate();
+			_gameState = SelectionState.Waiting;
 			return;
-		foreach (var levelSelector in _listLevel)
-			if (_levels.Content[levelSelector.Name].Activated)
-				levelSelector.Activate();
-		_gameState = SelectionState.Waiting;
+		}
+		if (Input.IsActionJustPressed("player0_pause"))
+			TogglePause();
 	}
 
 	public static SelectionState GetGameState()
@@ -52,5 +58,14 @@ public partial class SelectionManager : Node3D
 	public static void Reset()
 	{
 		_gameState = SelectionState.Computing;
+	}
+
+	public void TogglePause()
+	{
+		_gameState = _gameState == SelectionState.Pause ? SelectionState.Waiting : SelectionState.Pause;
+		if (_gameState == SelectionState.Pause)
+			_pauseMenu.Enable();
+		else
+			_pauseMenu.Disable();
 	}
 }
