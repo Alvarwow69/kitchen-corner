@@ -26,7 +26,7 @@
 [ext_resource type="StyleBox" uid="uid://8d08lcdmispt" path="res://Button.tres" id="23_cf7fc"]
 [ext_resource type="StyleBox" uid="uid://cfak4daicqq2e" path="res://Levels/Button_Hover.tres" id="24_mu17t"]
 [ext_resource type="StyleBox" uid="uid://cff030ofuxttr" path="res://Levels/Button_Pressed.tres" id="25_h7mnm"]
-[ext_resource type="PackedScene" uid="uid://m3203f7nsosi" path="res://Asset/Prefabs/Ui/Option/option.tscn" id="26_aalxg"]
+[ext_resource type="PackedScene" uid="uid://bbefhylvxynv6" path="res://Asset/Prefabs/Ui/Option/option.tscn" id="26_aalxg"]
 [ext_resource type="AudioStream" uid="uid://dpgou8wlde68m" path="res://Asset/Audio/Music/1. A World in Bloom FULL.wav" id="27_cp7ge"]
 
 [sub_resource type="Environment" id="Environment_kxx2n"]
@@ -476,7 +476,7 @@ _nextScene = "res://Levels/SC_LevelMenu.tscn"
 _animationCamera = NodePath("../Camera3D/AnimationPlayer")
 _menu = NodePath("Main")
 _back = NodePath("Back")
-_option = NodePath("")
+_option = NodePath("../Option")
 
 [node name="Main" type="Control" parent="UI"]
 layout_mode = 1
@@ -593,6 +593,7 @@ theme_override_styles/pressed = ExtResource("25_h7mnm")
 text = "Back"
 
 [node name="Option" parent="." instance=ExtResource("26_aalxg")]
+visible = false
 
 [node name="SubViewport" type="SubViewport" parent="."]
 transparent_bg = true
@@ -680,3 +681,34 @@ bus = &"Music"
 [connection signal="pressed" from="UI/Main/Menu/MarginContainer/VBoxContainer/ButtonCredits" to="UI" method="OnPressCredits"]
 [connection signal="pressed" from="UI/Main/Menu/MarginContainer/VBoxContainer/ButtonExit" to="UI" method="OnPressExit"]
 [connection signal="pressed" from="UI/Back/MarginContainer/ButtonExit" to="UI" method="OnPressCredits"]
+[connection signal="pressed" from="Option/Menu/MarginContainer/Options/MarginContainer2/ButtonCommand" to="UI" method="OnPressOption"]
+
+[editable path="Option"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer2"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer3"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer4"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer5"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer6"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer7"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer2/MarginContainer"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer2/MarginContainer2"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer2/MarginContainer3"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer2/MarginContainer4"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer2/MarginContainer5"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer2/MarginContainer6"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer2/MarginContainer7"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer/MarginContainer"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer/MarginContainer2"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer/MarginContainer3"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer/MarginContainer4"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer/MarginContainer5"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer/MarginContainer6"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer/MarginContainer7"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer2/MarginContainer"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer2/MarginContainer2"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer2/MarginContainer3"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer2/MarginContainer4"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer2/MarginContainer5"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer2/MarginContainer6"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer2/MarginContainer7"]

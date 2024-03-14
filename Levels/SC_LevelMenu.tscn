@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://hi46t3r2tcox"]
+[gd_scene load_steps=46 format=3 uid="uid://hi46t3r2tcox"]
 
 [ext_resource type="ArrayMesh" uid="uid://ccb1fco8siu45" path="res://Asset/LevelMenu/obj/hex_forest_roadD.obj" id="1_lcu1y"]
 [ext_resource type="ArrayMesh" uid="uid://cvt3134p2xwsd" path="res://Asset/LevelMenu/obj/hex_forest_roadF.obj" id="2_5t0p3"]
@@ -28,11 +28,7 @@
 [ext_resource type="PackedScene" path="res://Asset/Prefabs/Player_selection.tscn" id="26_xvx2l"]
 [ext_resource type="PackedScene" uid="uid://bbw6nxxu8ml8f" path="res://Asset/Prefabs/SelectionManager.tscn" id="27_shbuw"]
 [ext_resource type="AudioStream" uid="uid://17w5o2tvavfk" path="res://Asset/Audio/Music/2. Swaying Daisies LOOP.wav" id="28_xkvi6"]
-[ext_resource type="StyleBox" uid="uid://8d08lcdmispt" path="res://Button.tres" id="29_bvvie"]
-[ext_resource type="Script" path="res://Script/PauseMenu.cs" id="29_rut8c"]
-[ext_resource type="StyleBox" uid="uid://cfak4daicqq2e" path="res://Levels/Button_Hover.tres" id="30_dpbgp"]
-[ext_resource type="StyleBox" uid="uid://cff030ofuxttr" path="res://Levels/Button_Pressed.tres" id="31_mcmw5"]
-[ext_resource type="PackedScene" uid="uid://m3203f7nsosi" path="res://Asset/Prefabs/Ui/Option/option.tscn" id="33_xnvdw"]
+[ext_resource type="PackedScene" uid="uid://de3nkn5ndw4b2" path="res://Asset/Prefabs/Ui/Option/Pause.tscn" id="29_udsf3"]
 
 [sub_resource type="Gradient" id="Gradient_jkki1"]
 offsets = PackedFloat32Array(0.771318, 1)
@@ -127,18 +123,6 @@ background_mode = 1
 background_color = Color(0.556863, 0.760784, 0.85098, 1)
 ambient_light_source = 2
 ambient_light_color = Color(0.705882, 0.933333, 0.878431, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sppfr"]
-bg_color = Color(1, 1, 1, 0.607843)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color(0.870588, 0.458824, 0, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
 
 [node name="Node" type="Node"]
 
@@ -1105,6 +1089,7 @@ _levelName = "Tutorial"
 [node name="Level01" parent="." instance=ExtResource("25_26p5f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 4, 10.3137)
 _newLevel = "res://Levels/SC_Halloween.tscn"
+Activated = true
 _levelName = "Level01"
 
 [node name="Level02" parent="." instance=ExtResource("25_26p5f")]
@@ -1139,106 +1124,12 @@ volume_db = -6.0
 autoplay = true
 bus = &"Music"
 
-[node name="Pause" type="Control" parent="." node_paths=PackedStringArray("_optionMenu", "_pauseMenu")]
+[node name="Pause" parent="." instance=ExtResource("29_udsf3")]
 visible = false
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("29_rut8c")
-_optionMenu = NodePath("Option")
-_pauseMenu = NodePath("PauseMenu")
-
-[node name="PauseMenu" type="Control" parent="Pause"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Label" type="Label" parent="Pause/PauseMenu"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = 285.0
-offset_right = 827.0
-offset_bottom = 106.0
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 75
-text = "Pause"
-horizontal_alignment = 1
-
-[node name="Menu" type="PanelContainer" parent="Pause/PauseMenu"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = 371.0
-offset_top = 170.0
-offset_right = 741.0
-offset_bottom = 532.0
-grow_horizontal = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_sppfr")
-
-[node name="MarginContainer" type="MarginContainer" parent="Pause/PauseMenu/Menu"]
-layout_mode = 2
-theme_override_constants/margin_left = 30
-theme_override_constants/margin_top = 30
-theme_override_constants/margin_right = 30
-theme_override_constants/margin_bottom = 30
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Pause/PauseMenu/Menu/MarginContainer"]
-layout_mode = 2
-
-[node name="ButtonBack" type="Button" parent="Pause/PauseMenu/Menu/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(300, 70)
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = ExtResource("29_bvvie")
-theme_override_styles/hover = ExtResource("30_dpbgp")
-theme_override_styles/pressed = ExtResource("31_mcmw5")
-text = "Back"
-
-[node name="ButtonOption" type="Button" parent="Pause/PauseMenu/Menu/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(300, 70)
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = ExtResource("29_bvvie")
-theme_override_styles/hover = ExtResource("30_dpbgp")
-theme_override_styles/pressed = ExtResource("31_mcmw5")
-text = "Option"
-
-[node name="ButtonMenu" type="Button" parent="Pause/PauseMenu/Menu/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(300, 70)
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = ExtResource("29_bvvie")
-theme_override_styles/hover = ExtResource("30_dpbgp")
-theme_override_styles/pressed = ExtResource("31_mcmw5")
-text = "Main Menu"
-
-[node name="ButtonExit" type="Button" parent="Pause/PauseMenu/Menu/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(300, 70)
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = ExtResource("29_bvvie")
-theme_override_styles/hover = ExtResource("30_dpbgp")
-theme_override_styles/pressed = ExtResource("31_mcmw5")
-text = "Exit Game"
-
-[node name="Option" parent="Pause" node_paths=PackedStringArray("_optionMenu", "_commandMenu") instance=ExtResource("33_xnvdw")]
-layout_mode = 1
-_optionMenu = NodePath("Menu/MarginContainer/Options")
-_commandMenu = NodePath("Menu/MarginContainer/Commands")
 
 [connection signal="pressed" from="Pause/PauseMenu/Menu/MarginContainer/VBoxContainer/ButtonBack" to="SelectionManager" method="TogglePause"]
-[connection signal="pressed" from="Pause/PauseMenu/Menu/MarginContainer/VBoxContainer/ButtonOption" to="Pause" method="OnButtonOptionPressed"]
-[connection signal="pressed" from="Pause/PauseMenu/Menu/MarginContainer/VBoxContainer/ButtonMenu" to="Pause" method="OnButtonMenuPressed"]
-[connection signal="pressed" from="Pause/PauseMenu/Menu/MarginContainer/VBoxContainer/ButtonExit" to="Pause" method="OnButtonExitPressed"]
-[connection signal="pressed" from="Pause/Option/Menu/MarginContainer/Options/MarginContainer2/ButtonCommand" to="Pause" method="OnButtonOptionPressed"]
 
+[editable path="Pause"]
 [editable path="Pause/Option"]
 [editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer"]
 [editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer2"]

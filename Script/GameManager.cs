@@ -12,6 +12,7 @@ public partial class GameManager : Node3D
 	{
 		Starting,
 		InGame,
+		Pause,
 		EndGame,
 	}
 
@@ -26,6 +27,7 @@ public partial class GameManager : Node3D
 	[Export] private Array<Node3D> _spawnPoints = new Array<Node3D>();
 	[Export(PropertyHint.Range, "1, 4")] private int _numberPlayer = 2;
 	[Export] private string _nextLevelName;
+	[Export] private PauseMenu _pauseMenu;
 
 	private double _timer = 0.0;
 	private static GameState _gameState;
@@ -49,6 +51,8 @@ public partial class GameManager : Node3D
 
 	public override void _Process(double delta)
 	{
+		if (Input.IsActionJustPressed("player0_pause"))
+			TogglePause();
 		if (_gameState != GameState.InGame)
 			_timer += delta;
 		else
@@ -126,5 +130,14 @@ public partial class GameManager : Node3D
 		player.GlobalRotation = sPoint.GlobalRotation;
 		player.EnablePlayer();
 		Debug.Print("Player respawned!");
+	}
+
+	public void TogglePause()
+	{
+		_gameState = _gameState == GameState.Pause ? GameState.InGame : GameState.Pause;
+		if (_gameState == GameState.Pause)
+			_pauseMenu.Enable();
+		else
+			_pauseMenu.Disable();
 	}
 }

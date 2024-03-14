@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://m3203f7nsosi"]
+[gd_scene load_steps=14 format=3 uid="uid://bbefhylvxynv6"]
 
 [ext_resource type="Script" path="res://Script/Option.cs" id="1_n52up"]
 [ext_resource type="PackedScene" uid="uid://bho3d4w7kvv18" path="res://Asset/Prefabs/Ui/Option/OptionKey.tscn" id="2_dc71q"]
@@ -44,7 +44,6 @@ corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
 [node name="Option" type="Control" node_paths=PackedStringArray("_optionMenu", "_commandMenu")]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -52,8 +51,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_n52up")
-_optionMenu = NodePath("")
-_commandMenu = NodePath("")
+_optionMenu = NodePath("Menu/MarginContainer/Options")
+_commandMenu = NodePath("Menu/MarginContainer/Commands")
 
 [node name="Menu" type="PanelContainer" parent="."]
 layout_mode = 1

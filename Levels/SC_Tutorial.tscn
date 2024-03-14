@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://co8dsxjp703h"]
+[gd_scene load_steps=40 format=3 uid="uid://co8dsxjp703h"]
 
 [ext_resource type="ArrayMesh" uid="uid://cys0na8igqcpx" path="res://Asset/Kitchen/obj/floor_kitchen.obj" id="1_r8go5"]
 [ext_resource type="PackedScene" uid="uid://cnehf3jphwdje" path="res://Asset/Prefabs/Creates/Create_Carrot.tscn" id="2_8a2k1"]
@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://1qorlx8set1o" path="res://Asset/Prefabs/Furniture/Counter_Straight.tscn" id="12_bo578"]
 [ext_resource type="ArrayMesh" uid="uid://chi8c0424ro2b" path="res://Asset/City/road_straight.obj" id="13_dym55"]
 [ext_resource type="ArrayMesh" uid="uid://cx3oyv55d10ba" path="res://Asset/City/road_corner_curved.obj" id="14_d1x3t"]
-[ext_resource type="PackedScene" uid="uid://jj6w4f15tcej" path="res://Asset/Prefabs/Furniture/Trash.tscn" id="14_g0g5u"]
+[ext_resource type="PackedScene" path="res://Asset/Prefabs/Furniture/Trash.tscn" id="14_g0g5u"]
 [ext_resource type="ArrayMesh" uid="uid://cxvjujj714pk3" path="res://Asset/City/building_E.obj" id="15_2xxrn"]
 [ext_resource type="ArrayMesh" uid="uid://bg4qe8yk3ty2u" path="res://Asset/City/base.obj" id="15_fcldi"]
 [ext_resource type="PackedScene" uid="uid://k5io6bxv6534" path="res://Asset/Prefabs/Player.tscn" id="18_xwriv"]
@@ -37,6 +37,7 @@
 [ext_resource type="PackedScene" uid="uid://di1bkd00tmash" path="res://Asset/Prefabs/Tutorial/steps/StepTrash.tscn" id="34_t35pu"]
 [ext_resource type="PackedScene" uid="uid://ytscjs0cvjus" path="res://Asset/Prefabs/Tutorial/steps/StepFinal.tscn" id="35_0phn1"]
 [ext_resource type="PackedScene" uid="uid://dwts3jnp3g332" path="res://Asset/Prefabs/Enemy.tscn" id="37_km4a4"]
+[ext_resource type="PackedScene" uid="uid://de3nkn5ndw4b2" path="res://Asset/Prefabs/Ui/Option/Pause.tscn" id="38_ubtjh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_icw0q"]
 size = Vector3(8.48229, 0.181755, 12.1253)
@@ -404,13 +405,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -0.5, 11)
 mesh = ExtResource("2_nt3cx")
 skeleton = NodePath("../../..")
 
-[node name="GameManager" parent="." node_paths=PackedStringArray("_spawnPoints") instance=ExtResource("22_au5ku")]
+[node name="GameManager" parent="." node_paths=PackedStringArray("_spawnPoints", "_pauseMenu") instance=ExtResource("22_au5ku")]
 _defaultState = 1
 _timeUpScene = "res://Levels/LevelMenu.tscn"
 _timeBeforeStart = 0.0
 _spawnPoints = [NodePath("SpawnPoint")]
 _numberPlayer = 1
 _nextLevelName = "Level01"
+_pauseMenu = NodePath("../Pause")
 
 [node name="SpawnPoint" type="Node3D" parent="GameManager"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
@@ -745,3 +747,39 @@ Good luck on the kitchen chief."
 
 [node name="Enemy" parent="." instance=ExtResource("37_km4a4")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.344476, 0)
+
+[node name="Pause" parent="." instance=ExtResource("38_ubtjh")]
+visible = false
+
+[connection signal="pressed" from="Pause/PauseMenu/Menu/MarginContainer/VBoxContainer/ButtonBack" to="GameManager" method="TogglePause"]
+
+[editable path="Pause"]
+[editable path="Pause/Option"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer2"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer3"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer4"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer5"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer6"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer7"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer2/MarginContainer"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer2/MarginContainer2"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer2/MarginContainer3"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer2/MarginContainer4"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer2/MarginContainer5"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer2/MarginContainer6"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer2/MarginContainer7"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer/MarginContainer"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer/MarginContainer2"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer/MarginContainer3"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer/MarginContainer4"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer/MarginContainer5"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer/MarginContainer6"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer/MarginContainer7"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer2/MarginContainer"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer2/MarginContainer2"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer2/MarginContainer3"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer2/MarginContainer4"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer2/MarginContainer5"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer2/MarginContainer6"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer2/MarginContainer7"]
