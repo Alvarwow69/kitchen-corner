@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="KitchenCorner"
-run/main_scene="res://Levels/SC_LevelMenu.tscn"
+run/main_scene="res://Levels/SC_MainMenu.tscn"
 config/features=PackedStringArray("4.1", "C#", "Forward Plus")
 run/max_fps=60
 boot_splash/bg_color=Color(0.537255, 0.219608, 0.537255, 1)

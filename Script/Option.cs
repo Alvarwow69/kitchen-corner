@@ -6,8 +6,16 @@ public partial class Option : Control
 {
 	[Export] private Control _optionMenu;
 	[Export] private Control _commandMenu;
+	[Export] private Slider _sliderMusic;
+	[Export] private Slider _sliderSfx;
 
 	private bool _isInCommand = false;
+
+	public override void _Ready()
+	{
+		_sliderMusic.Value = AudioServer.GetBusVolumeDb(AudioServer.GetBusIndex("Music"));
+		_sliderSfx.Value = AudioServer.GetBusVolumeDb(AudioServer.GetBusIndex("Sfx"));
+	}
 
 	public void OnSliderMusicChange(float value)
 	{

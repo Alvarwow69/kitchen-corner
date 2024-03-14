@@ -67,7 +67,7 @@ border_width_top = 1
 border_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 5
 
-[node name="SC_City" type="Node3D"]
+[node name="Level02" type="Node3D"]
 
 [node name="World" type="Node3D" parent="."]
 
@@ -642,16 +642,16 @@ _nextLevelName = "Level03"
 _pauseMenu = NodePath("../Pause")
 
 [node name="SpawnPoint" type="Node3D" parent="GameManager"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, 0)
 
 [node name="SpawnPoint2" type="Node3D" parent="GameManager"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, 0)
 
 [node name="SpawnPoint3" type="Node3D" parent="GameManager"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 1, 0)
 
 [node name="SpawnPoint4" type="Node3D" parent="GameManager"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 1, 0)
 
 [node name="Player0" parent="." instance=ExtResource("15_j77jw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23, 1, 4)
@@ -777,6 +777,7 @@ _commandType = 1
 [node name="UI_CountDown" parent="." instance=ExtResource("23_y2pkd")]
 
 [node name="Pause" parent="." instance=ExtResource("33_hrew8")]
+visible = false
 
 [node name="Enemy" parent="." instance=ExtResource("33_qh1rp")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11, 0.41036, 0)

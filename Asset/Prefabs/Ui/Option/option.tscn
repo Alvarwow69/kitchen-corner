@@ -43,7 +43,7 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[node name="Option" type="Control" node_paths=PackedStringArray("_optionMenu", "_commandMenu")]
+[node name="Option" type="Control" node_paths=PackedStringArray("_optionMenu", "_commandMenu", "_sliderMusic", "_sliderSfx")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -53,6 +53,8 @@ grow_vertical = 2
 script = ExtResource("1_n52up")
 _optionMenu = NodePath("Menu/MarginContainer/Options")
 _commandMenu = NodePath("Menu/MarginContainer/Commands")
+_sliderMusic = NodePath("Menu/MarginContainer/Options/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/HSlider")
+_sliderSfx = NodePath("Menu/MarginContainer/Options/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2/HSlider")
 
 [node name="Menu" type="PanelContainer" parent="."]
 layout_mode = 1

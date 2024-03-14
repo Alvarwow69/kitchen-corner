@@ -1883,16 +1883,16 @@ _nextLevelName = "Level02"
 _pauseMenu = NodePath("../Pause")
 
 [node name="SpawnPoint" type="Node3D" parent="GameManager"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, -4)
 
 [node name="SpawnPoint2" type="Node3D" parent="GameManager"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 1, -4)
 
 [node name="SpawnPoint3" type="Node3D" parent="GameManager"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -8)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 1, -8)
 
 [node name="SpawnPoint4" type="Node3D" parent="GameManager"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -8)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, -8)
 
 [node name="Enemy" parent="." instance=ExtResource("37_7o1yp")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 19.2299, 0.718372, -3.45774)
@@ -1935,7 +1935,7 @@ offset_bottom = 40.0
 grow_horizontal = 0
 theme = SubResource("Theme_3ma7n")
 script = ExtResource("33_ebvcc")
-_time = 60.0
+_time = 10.0
 _text = NodePath("Panel/Label")
 
 [node name="Panel" type="Panel" parent="Timer"]

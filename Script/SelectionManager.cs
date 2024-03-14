@@ -42,7 +42,10 @@ public partial class SelectionManager : Node3D
 		{
 			foreach (var levelSelector in _listLevel)
 				if (_levels.Content[levelSelector.Name].Activated)
+				{
 					levelSelector.Activate();
+					levelSelector.Score = _levels.Content[levelSelector.Name].Score;
+				}
 			_gameState = SelectionState.Waiting;
 			return;
 		}
