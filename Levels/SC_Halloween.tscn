@@ -1933,7 +1933,7 @@ offset_bottom = 40.0
 grow_horizontal = 0
 theme = SubResource("Theme_3ma7n")
 script = ExtResource("33_ebvcc")
-_time = 10.0
+_time = 60.0
 _text = NodePath("Panel/Label")
 
 [node name="Panel" type="Panel" parent="Timer"]

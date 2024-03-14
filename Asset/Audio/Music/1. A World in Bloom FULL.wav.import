@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dpgou8wlde68m"
+path="res://.godot/imported/1. A World in Bloom FULL.wav-9c690b59e2a5ffad89b75111e600cb00.sample"
+
+[deps]
+
+source_file="res://Asset/Audio/Music/1. A World in Bloom FULL.wav"
+dest_files=["res://.godot/imported/1. A World in Bloom FULL.wav-9c690b59e2a5ffad89b75111e600cb00.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

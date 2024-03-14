@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://hi46t3r2tcox"]
+[gd_scene load_steps=45 format=3 uid="uid://hi46t3r2tcox"]
 
 [ext_resource type="ArrayMesh" uid="uid://ccb1fco8siu45" path="res://Asset/LevelMenu/obj/hex_forest_roadD.obj" id="1_lcu1y"]
 [ext_resource type="ArrayMesh" uid="uid://cvt3134p2xwsd" path="res://Asset/LevelMenu/obj/hex_forest_roadF.obj" id="2_5t0p3"]
@@ -25,8 +25,9 @@
 [ext_resource type="ArrayMesh" uid="uid://btnjc64hsawsy" path="res://Asset/LevelMenu/obj/hex_water_detail.obj" id="23_xa7pr"]
 [ext_resource type="ArrayMesh" uid="uid://1xq8ap01tbk3" path="res://Asset/LevelMenu/obj/hex_forest_waterB_detail.obj" id="24_3amyh"]
 [ext_resource type="PackedScene" uid="uid://bgjxdbqjt8ota" path="res://Asset/Prefabs/LevelSelection.tscn" id="25_26p5f"]
-[ext_resource type="PackedScene" uid="uid://2srn8qk2e34b" path="res://Asset/Prefabs/Player_selection.tscn" id="26_xvx2l"]
+[ext_resource type="PackedScene" path="res://Asset/Prefabs/Player_selection.tscn" id="26_xvx2l"]
 [ext_resource type="PackedScene" uid="uid://bbw6nxxu8ml8f" path="res://Asset/Prefabs/SelectionManager.tscn" id="27_shbuw"]
+[ext_resource type="AudioStream" uid="uid://17w5o2tvavfk" path="res://Asset/Audio/Music/2. Swaying Daisies LOOP.wav" id="28_xkvi6"]
 
 [sub_resource type="Gradient" id="Gradient_jkki1"]
 offsets = PackedFloat32Array(0.771318, 1)
@@ -1101,7 +1102,6 @@ _levelName = "Level03"
 [node name="Camera3D2" type="Camera3D" parent="."]
 transform = Transform3D(-0.707107, -0.353553, 0.612372, 2.26267e-08, 0.866025, 0.5, -0.707107, 0.353553, -0.612373, -4, 11, 4)
 environment = SubResource("Environment_osaiu")
-fov = 92.2176
 
 [node name="Player" parent="." instance=ExtResource("26_xvx2l")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6, 4, -5)
@@ -1114,3 +1114,9 @@ transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 
 environment = SubResource("Environment_osaiu")
 current = true
 fov = 92.2176
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("28_xkvi6")
+volume_db = -6.0
+autoplay = true
+bus = &"Music"

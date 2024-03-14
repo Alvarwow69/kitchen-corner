@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://c0e63ifu8dmus"]
+[gd_scene load_steps=40 format=3 uid="uid://c0e63ifu8dmus"]
 
 [ext_resource type="ArrayMesh" uid="uid://c5c6w2qgivril" path="res://Asset/Dungeon/floor_tile_large.obj" id="1_buh2b"]
 [ext_resource type="ArrayMesh" uid="uid://cgxye0tfeapvc" path="res://Asset/Kitchen/obj/wall.obj" id="2_7s3hi"]
@@ -26,6 +26,8 @@
 [ext_resource type="StyleBox" uid="uid://8d08lcdmispt" path="res://Button.tres" id="23_cf7fc"]
 [ext_resource type="StyleBox" uid="uid://cfak4daicqq2e" path="res://Levels/Button_Hover.tres" id="24_mu17t"]
 [ext_resource type="StyleBox" uid="uid://cff030ofuxttr" path="res://Levels/Button_Pressed.tres" id="25_h7mnm"]
+[ext_resource type="Script" path="res://Script/Option.cs" id="26_b4cni"]
+[ext_resource type="AudioStream" uid="uid://dpgou8wlde68m" path="res://Asset/Audio/Music/1. A World in Bloom FULL.wav" id="27_cp7ge"]
 
 [sub_resource type="Environment" id="Environment_kxx2n"]
 background_mode = 1
@@ -88,7 +90,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("../Credits:scale")
+tracks/3/path = NodePath("../Credits2:scale")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -139,14 +141,14 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("../Credits:scale")
+tracks/3/path = NodePath("../Credits2:scale")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(2, 2, 2)]
+"values": [Vector3(1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lo4q1"]
@@ -155,13 +157,55 @@ _data = {
 "RESET": SubResource("Animation_jpbmo")
 }
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4mm0k"]
-bg_color = Color(1, 1, 1, 0.698039)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lk7xm"]
+bg_color = Color(1, 1, 1, 0.607843)
 border_width_left = 5
 border_width_top = 5
 border_width_right = 5
 border_width_bottom = 5
-border_color = Color(0.643137, 0.333333, 0, 1)
+border_color = Color(0.870588, 0.458824, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4mm0k"]
+bg_color = Color(0.643137, 0.333333, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.870588, 0.458824, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wj76x"]
+bg_color = Color(0.870588, 0.458824, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yajxx"]
+bg_color = Color(0.670588, 0.34902, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rlt8n"]
+bg_color = Color(0.478431, 0.243137, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.388235, 0.388235, 0.388235, 1)
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
@@ -450,7 +494,7 @@ libraries = {
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -5)
 mesh = ExtResource("22_r45sx")
 
-[node name="UI" type="Control" parent="." node_paths=PackedStringArray("_animationCamera", "_menu", "_back")]
+[node name="UI" type="Control" parent="." node_paths=PackedStringArray("_animationCamera", "_menu", "_back", "_option")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -462,6 +506,7 @@ _nextScene = "res://Levels/SC_LevelMenu.tscn"
 _animationCamera = NodePath("../Camera3D/AnimationPlayer")
 _menu = NodePath("Main")
 _back = NodePath("Back")
+_option = NodePath("../Option")
 
 [node name="Main" type="Control" parent="UI"]
 layout_mode = 1
@@ -496,7 +541,7 @@ offset_right = -82.0
 offset_bottom = 181.0
 grow_horizontal = 0
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_4mm0k")
+theme_override_styles/panel = SubResource("StyleBoxFlat_lk7xm")
 
 [node name="MarginContainer" type="MarginContainer" parent="UI/Main/Menu"]
 layout_mode = 2
@@ -577,6 +622,115 @@ theme_override_styles/hover = ExtResource("24_mu17t")
 theme_override_styles/pressed = ExtResource("25_h7mnm")
 text = "Back"
 
+[node name="Option" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("26_b4cni")
+
+[node name="Menu" type="PanelContainer" parent="Option"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -510.0
+offset_top = -300.0
+offset_right = 511.0
+offset_bottom = 297.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4mm0k")
+
+[node name="MarginContainer" type="MarginContainer" parent="Option/Menu"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Option/Menu/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Option/Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 75
+text = "Options"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Option/Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Option/Menu/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="ButtonCommand" type="Button" parent="Option/Menu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 70)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_wj76x")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yajxx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rlt8n")
+text = "Command"
+
+[node name="MarginContainer" type="MarginContainer" parent="Option/Menu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Option/Menu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Option/Menu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Option/Menu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Music                "
+
+[node name="HSlider" type="HSlider" parent="Option/Menu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+min_value = -30.0
+max_value = 3.0
+value = -6.0
+rounded = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Option/Menu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Option/Menu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Sounds effects"
+
+[node name="HSlider" type="HSlider" parent="Option/Menu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+min_value = -30.0
+max_value = 3.0
+value = -6.0
+rounded = true
+
+[node name="MarginContainer2" type="MarginContainer" parent="Option/Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 100
+
+[node name="ButtonCommand" type="Button" parent="Option/Menu/MarginContainer/VBoxContainer/MarginContainer2"]
+custom_minimum_size = Vector2(100, 70)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_wj76x")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yajxx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rlt8n")
+text = "Back"
+
 [node name="SubViewport" type="SubViewport" parent="."]
 transparent_bg = true
 size_2d_override = Vector2i(-155, 0)
@@ -644,16 +798,25 @@ Nicolas
 Laurenne"
 horizontal_alignment = 1
 
-[node name="Credits" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.73205, 0, 1, 0, 2, 0, -1, 0, 1.73205, -4, 0.859137, -3)
+[node name="Credits2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, -4, 0.911497, -3)
 mesh = ExtResource("14_wy6m6")
 
-[node name="Sprite3D" type="Sprite3D" parent="Credits"]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.0289939, 0.202183, 0.0356817)
+[node name="Sprite3D" type="Sprite3D" parent="Credits2"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.036727, 0.200678, 0.0317612)
 texture = SubResource("ViewportTexture_6wo40")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("27_cp7ge")
+volume_db = -6.0
+autoplay = true
+bus = &"Music"
 
 [connection signal="pressed" from="UI/Main/Menu/MarginContainer/VBoxContainer/ButtonPlay" to="UI" method="OnPressPlay"]
 [connection signal="pressed" from="UI/Main/Menu/MarginContainer/VBoxContainer/ButtonOption" to="UI" method="OnPressOption"]
 [connection signal="pressed" from="UI/Main/Menu/MarginContainer/VBoxContainer/ButtonCredits" to="UI" method="OnPressCredits"]
 [connection signal="pressed" from="UI/Main/Menu/MarginContainer/VBoxContainer/ButtonExit" to="UI" method="OnPressExit"]
 [connection signal="pressed" from="UI/Back/MarginContainer/ButtonExit" to="UI" method="OnPressCredits"]
+[connection signal="value_changed" from="Option/Menu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/HSlider" to="Option" method="OnSliderMusicChange"]
+[connection signal="value_changed" from="Option/Menu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2/HSlider" to="Option" method="OnSliderSfxChange"]
+[connection signal="pressed" from="Option/Menu/MarginContainer/VBoxContainer/MarginContainer2/ButtonCommand" to="UI" method="OnPressOption"]
