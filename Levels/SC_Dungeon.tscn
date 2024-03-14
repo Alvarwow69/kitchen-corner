@@ -22,14 +22,15 @@
 [ext_resource type="PackedScene" uid="uid://dh24ddwlra6qp" path="res://Asset/Prefabs/GameManager.tscn" id="18_mp1nw"]
 [ext_resource type="PackedScene" uid="uid://k5io6bxv6534" path="res://Asset/Prefabs/Player.tscn" id="19_t4eqb"]
 [ext_resource type="Script" path="res://Script/TimerManager.cs" id="20_34rvw"]
-[ext_resource type="StyleBox" uid="uid://2ay566iyxb45" path="res://Levels/Tab.tres" id="21_ksq1h"]
 [ext_resource type="Script" path="res://Script/OutOfBound.cs" id="21_pquy1"]
 [ext_resource type="Texture2D" uid="uid://c5dshwlfeeod7" path="res://icon.svg" id="22_88xdp"]
 [ext_resource type="Script" path="res://Script/ScoreManager.cs" id="23_wd33q"]
 [ext_resource type="Script" path="res://Script/CommandManager.cs" id="24_gcg4x"]
 [ext_resource type="PackedScene" uid="uid://bqoe4qgir527x" path="res://Asset/Prefabs/Ui/UI_Command_Stew.tscn" id="25_1ayid"]
 [ext_resource type="PackedScene" uid="uid://c3qgdnrjem5wl" path="res://Asset/Prefabs/Ui/UI_CountDown.tscn" id="26_oab2w"]
+[ext_resource type="StyleBox" uid="uid://bc44r1ai5s7uw" path="res://Levels/TimerBox.tres" id="26_yffde"]
 [ext_resource type="PackedScene" uid="uid://c6vhdvaujvtsv" path="res://Asset/Prefabs/Bowl.tscn" id="28_ohfbk"]
+[ext_resource type="StyleBox" uid="uid://baeppel8r83ip" path="res://Levels/ScoreBox.tres" id="29_k5ue8"]
 [ext_resource type="PackedScene" uid="uid://dwts3jnp3g332" path="res://Asset/Prefabs/Enemy.tscn" id="31_6qptb"]
 [ext_resource type="PackedScene" uid="uid://de3nkn5ndw4b2" path="res://Asset/Prefabs/Ui/Option/Pause.tscn" id="32_mpklb"]
 
@@ -61,13 +62,6 @@ size = Vector3(0.489065, 1.87528, 2.37909)
 size = Vector3(37.3052, 3, 51.9981)
 
 [sub_resource type="Theme" id="Theme_ydykt"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s77gh"]
-bg_color = Color(1, 1, 1, 1)
-border_width_left = 1
-border_width_top = 1
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 5
 
 [node name="Level03" type="Node3D"]
 
@@ -671,7 +665,7 @@ layout_mode = 0
 offset_left = -301.0
 offset_right = 40.0
 offset_bottom = 132.0
-theme_override_styles/panel = ExtResource("21_ksq1h")
+theme_override_styles/panel = ExtResource("26_yffde")
 
 [node name="TextureRect" type="TextureRect" parent="Timer/Panel"]
 layout_mode = 1
@@ -699,7 +693,6 @@ offset_right = -22.0
 offset_bottom = 18.0
 grow_horizontal = 0
 grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 21
 text = "6:00"
 horizontal_alignment = 1
@@ -731,7 +724,7 @@ offset_left = -341.0
 offset_top = -132.0
 grow_horizontal = 0
 grow_vertical = 0
-theme_override_styles/panel = SubResource("StyleBoxFlat_s77gh")
+theme_override_styles/panel = ExtResource("29_k5ue8")
 
 [node name="Label" type="Label" parent="ScoreManager/Panel"]
 layout_mode = 1
@@ -746,7 +739,6 @@ offset_right = 89.0
 offset_bottom = 21.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 21
 text = "Score: 1000"
 horizontal_alignment = 1

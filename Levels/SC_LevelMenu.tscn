@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://hi46t3r2tcox"]
+[gd_scene load_steps=49 format=3 uid="uid://hi46t3r2tcox"]
 
 [ext_resource type="ArrayMesh" uid="uid://ccb1fco8siu45" path="res://Asset/LevelMenu/obj/hex_forest_roadD.obj" id="1_lcu1y"]
 [ext_resource type="ArrayMesh" uid="uid://cvt3134p2xwsd" path="res://Asset/LevelMenu/obj/hex_forest_roadF.obj" id="2_5t0p3"]
@@ -118,6 +118,23 @@ size = Vector3(4.00365, 3, 6.92764)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_o8pun"]
 size = Vector3(73.0762, 3.04277, 50.0948)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_31avp"]
+resource_local_to_scene = true
+lifetime_randomness = 0.3
+emission_shape = 3
+emission_box_extents = Vector3(2.5, 0, 2.5)
+direction = Vector3(0, 0, 0)
+gravity = Vector3(0, 1, 0)
+linear_accel_max = 20.0
+angle_min = -471.6
+angle_max = 530.5
+scale_min = 0.1
+scale_max = 0.2
+color = Color(1, 1, 0.498039, 0.839216)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_u0vf0"]
+viewport_path = NodePath("Level03/SubViewport")
 
 [sub_resource type="Environment" id="Environment_osaiu"]
 background_mode = 1
@@ -1103,6 +1120,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 4, -10.3273)
 _newLevel = "res://Levels/SC_Dungeon.tscn"
 _levelName = "Level03"
 
+[node name="GPUParticles3D" parent="Level03" index="1"]
+process_material = SubResource("ParticleProcessMaterial_31avp")
+
+[node name="Sprite3D" parent="Level03" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.28151, -2.19578)
+texture = SubResource("ViewportTexture_u0vf0")
+
 [node name="Camera3D2" type="Camera3D" parent="."]
 transform = Transform3D(-0.707107, -0.353553, 0.612372, 2.26267e-08, 0.866025, 0.5, -0.707107, 0.353553, -0.612373, -4, 11, 4)
 environment = SubResource("Environment_osaiu")
@@ -1136,6 +1160,7 @@ visible = false
 
 [connection signal="pressed" from="Pause/PauseMenu/Menu/MarginContainer/VBoxContainer/ButtonBack" to="SelectionManager" method="TogglePause"]
 
+[editable path="Level03"]
 [editable path="Pause"]
 [editable path="Pause/Option"]
 [editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer"]

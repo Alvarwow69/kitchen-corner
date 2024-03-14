@@ -33,7 +33,6 @@
 [ext_resource type="Script" path="res://Script/TimerManager.cs" id="33_ebvcc"]
 [ext_resource type="ArrayMesh" uid="uid://bhayamctmpqbd" path="res://Asset/Halloween/floor_dirt_grave.obj" id="33_ksuhs"]
 [ext_resource type="ArrayMesh" uid="uid://bdoqgg86ujp2u" path="res://Asset/Halloween/coffin_decorated.obj" id="34_bgmep"]
-[ext_resource type="StyleBox" uid="uid://2ay566iyxb45" path="res://Levels/Tab.tres" id="34_des6u"]
 [ext_resource type="Texture2D" uid="uid://c5dshwlfeeod7" path="res://icon.svg" id="35_xypyy"]
 [ext_resource type="Script" path="res://Script/ScoreManager.cs" id="36_qsoqn"]
 [ext_resource type="PackedScene" uid="uid://dwts3jnp3g332" path="res://Asset/Prefabs/Enemy.tscn" id="37_7o1yp"]
@@ -42,7 +41,9 @@
 [ext_resource type="ArrayMesh" uid="uid://d3pj0dgj7yewk" path="res://Asset/Halloween/lantern_hanging.obj" id="39_m34ca"]
 [ext_resource type="Environment" uid="uid://cxgswh2bhdqjl" path="res://Levels/Halloween_Env.tres" id="39_sex74"]
 [ext_resource type="ArrayMesh" uid="uid://m8a3fed2tlgq" path="res://Asset/Halloween/lantern_standing.obj" id="40_cyebk"]
+[ext_resource type="StyleBox" uid="uid://bc44r1ai5s7uw" path="res://Levels/TimerBox.tres" id="40_pf72g"]
 [ext_resource type="ArrayMesh" uid="uid://dtgqll2c04qw8" path="res://Asset/Halloween/bench.obj" id="41_arqsv"]
+[ext_resource type="StyleBox" uid="uid://baeppel8r83ip" path="res://Levels/ScoreBox.tres" id="43_2fdx4"]
 [ext_resource type="PackedScene" uid="uid://dh24ddwlra6qp" path="res://Asset/Prefabs/GameManager.tscn" id="43_rddyo"]
 [ext_resource type="PackedScene" uid="uid://c3qgdnrjem5wl" path="res://Asset/Prefabs/Ui/UI_CountDown.tscn" id="44_4df60"]
 [ext_resource type="PackedScene" uid="uid://de3nkn5ndw4b2" path="res://Asset/Prefabs/Ui/Option/Pause.tscn" id="46_vjgog"]
@@ -57,13 +58,6 @@ size = Vector3(1.00878, 2.96937, 16.1707)
 size = Vector3(1.00878, 2.96937, 22.1159)
 
 [sub_resource type="Theme" id="Theme_3ma7n"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q32un"]
-bg_color = Color(1, 1, 1, 1)
-border_width_left = 1
-border_width_top = 1
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 5
 
 [node name="Level01" type="Node3D"]
 
@@ -1943,7 +1937,7 @@ layout_mode = 0
 offset_left = -301.0
 offset_right = 40.0
 offset_bottom = 132.0
-theme_override_styles/panel = ExtResource("34_des6u")
+theme_override_styles/panel = ExtResource("40_pf72g")
 
 [node name="TextureRect" type="TextureRect" parent="Timer/Panel"]
 layout_mode = 1
@@ -1971,7 +1965,6 @@ offset_right = -22.0
 offset_bottom = 18.0
 grow_horizontal = 0
 grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 21
 text = "6:00"
 horizontal_alignment = 1
@@ -2003,7 +1996,7 @@ offset_left = -341.0
 offset_top = -132.0
 grow_horizontal = 0
 grow_vertical = 0
-theme_override_styles/panel = SubResource("StyleBoxFlat_q32un")
+theme_override_styles/panel = ExtResource("43_2fdx4")
 
 [node name="Label" type="Label" parent="ScoreManager/Panel"]
 layout_mode = 1
@@ -2018,7 +2011,6 @@ offset_right = 89.0
 offset_bottom = 21.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 21
 text = "Score: 1000"
 horizontal_alignment = 1
