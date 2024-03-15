@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://ciygwkfbpkmod"]
+[gd_scene load_steps=52 format=3 uid="uid://ciygwkfbpkmod"]
 
 [ext_resource type="ArrayMesh" uid="uid://tf2shsqcvqr2" path="res://Asset/Halloween/arch_gate_right.obj" id="5_5ipvt"]
 [ext_resource type="ArrayMesh" uid="uid://d0cnrprh042ni" path="res://Asset/Halloween/arch_gate_left.obj" id="6_sg4mv"]
@@ -33,18 +33,21 @@
 [ext_resource type="Script" path="res://Script/TimerManager.cs" id="33_ebvcc"]
 [ext_resource type="ArrayMesh" uid="uid://bhayamctmpqbd" path="res://Asset/Halloween/floor_dirt_grave.obj" id="33_ksuhs"]
 [ext_resource type="ArrayMesh" uid="uid://bdoqgg86ujp2u" path="res://Asset/Halloween/coffin_decorated.obj" id="34_bgmep"]
-[ext_resource type="StyleBox" uid="uid://2ay566iyxb45" path="res://Levels/Tab.tres" id="34_des6u"]
 [ext_resource type="Texture2D" uid="uid://c5dshwlfeeod7" path="res://icon.svg" id="35_xypyy"]
 [ext_resource type="Script" path="res://Script/ScoreManager.cs" id="36_qsoqn"]
 [ext_resource type="PackedScene" uid="uid://dwts3jnp3g332" path="res://Asset/Prefabs/Enemy.tscn" id="37_7o1yp"]
 [ext_resource type="Script" path="res://Script/CommandManager.cs" id="37_f7hfq"]
 [ext_resource type="PackedScene" uid="uid://bd70in7lumm2a" path="res://Asset/Prefabs/Ui/UI_Command_Burger.tscn" id="38_3mhx1"]
+[ext_resource type="Theme" uid="uid://cwyjy2ghbm00c" path="res://Asset/Prefabs/Ui/Option/MainTheme.tres" id="39_8bj07"]
 [ext_resource type="ArrayMesh" uid="uid://d3pj0dgj7yewk" path="res://Asset/Halloween/lantern_hanging.obj" id="39_m34ca"]
 [ext_resource type="Environment" uid="uid://cxgswh2bhdqjl" path="res://Levels/Halloween_Env.tres" id="39_sex74"]
 [ext_resource type="ArrayMesh" uid="uid://m8a3fed2tlgq" path="res://Asset/Halloween/lantern_standing.obj" id="40_cyebk"]
+[ext_resource type="StyleBox" uid="uid://bc44r1ai5s7uw" path="res://Levels/TimerBox.tres" id="40_pf72g"]
 [ext_resource type="ArrayMesh" uid="uid://dtgqll2c04qw8" path="res://Asset/Halloween/bench.obj" id="41_arqsv"]
+[ext_resource type="StyleBox" uid="uid://baeppel8r83ip" path="res://Levels/ScoreBox.tres" id="43_2fdx4"]
 [ext_resource type="PackedScene" uid="uid://dh24ddwlra6qp" path="res://Asset/Prefabs/GameManager.tscn" id="43_rddyo"]
 [ext_resource type="PackedScene" uid="uid://c3qgdnrjem5wl" path="res://Asset/Prefabs/Ui/UI_CountDown.tscn" id="44_4df60"]
+[ext_resource type="PackedScene" uid="uid://de3nkn5ndw4b2" path="res://Asset/Prefabs/Ui/Option/Pause.tscn" id="46_vjgog"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pou7l"]
 size = Vector3(19.7711, 0.497987, 16.1707)
@@ -54,15 +57,6 @@ size = Vector3(1.00878, 2.96937, 16.1707)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_js2ij"]
 size = Vector3(1.00878, 2.96937, 22.1159)
-
-[sub_resource type="Theme" id="Theme_3ma7n"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q32un"]
-bg_color = Color(1, 1, 1, 1)
-border_width_left = 1
-border_width_top = 1
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 5
 
 [node name="Level01" type="Node3D"]
 
@@ -1871,7 +1865,7 @@ shape = SubResource("BoxShape3D_js2ij")
 transform = Transform3D(-4.37114e-08, -4.37114e-08, -1, 4.37114e-08, 1, -4.37114e-08, 1, -4.37114e-08, -4.37114e-08, 8.01447, 0.416175, -14.5847)
 shape = SubResource("BoxShape3D_js2ij")
 
-[node name="GameManager" parent="." node_paths=PackedStringArray("_uiCountDown", "_scoreManager", "_spawnPoints") instance=ExtResource("43_rddyo")]
+[node name="GameManager" parent="." node_paths=PackedStringArray("_uiCountDown", "_scoreManager", "_spawnPoints", "_pauseMenu") instance=ExtResource("43_rddyo")]
 _timeUpScene = "res://Levels/SC_LevelMenu.tscn"
 _timeBeforeStart = 4.0
 _uiCountDown = NodePath("../UI_CountDown")
@@ -1879,18 +1873,19 @@ _scoreManager = NodePath("../ScoreManager")
 _spawnPoints = [NodePath("SpawnPoint"), NodePath("SpawnPoint2"), NodePath("SpawnPoint3"), NodePath("SpawnPoint4")]
 _numberPlayer = 1
 _nextLevelName = "Level02"
+_pauseMenu = NodePath("../Pause")
 
 [node name="SpawnPoint" type="Node3D" parent="GameManager"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, -4)
 
 [node name="SpawnPoint2" type="Node3D" parent="GameManager"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 1, -4)
 
 [node name="SpawnPoint3" type="Node3D" parent="GameManager"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -8)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 1, -8)
 
 [node name="SpawnPoint4" type="Node3D" parent="GameManager"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -8)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, -8)
 
 [node name="Enemy" parent="." instance=ExtResource("37_7o1yp")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 19.2299, 0.718372, -3.45774)
@@ -1931,7 +1926,7 @@ anchor_right = 1.0
 offset_left = -40.0
 offset_bottom = 40.0
 grow_horizontal = 0
-theme = SubResource("Theme_3ma7n")
+theme = ExtResource("39_8bj07")
 script = ExtResource("33_ebvcc")
 _time = 10.0
 _text = NodePath("Panel/Label")
@@ -1941,7 +1936,8 @@ layout_mode = 0
 offset_left = -301.0
 offset_right = 40.0
 offset_bottom = 132.0
-theme_override_styles/panel = ExtResource("34_des6u")
+theme = ExtResource("39_8bj07")
+theme_override_styles/panel = ExtResource("40_pf72g")
 
 [node name="TextureRect" type="TextureRect" parent="Timer/Panel"]
 layout_mode = 1
@@ -1969,7 +1965,6 @@ offset_right = -22.0
 offset_bottom = 18.0
 grow_horizontal = 0
 grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 21
 text = "6:00"
 horizontal_alignment = 1
@@ -1986,7 +1981,7 @@ offset_left = -342.0
 offset_top = -133.0
 grow_horizontal = 0
 grow_vertical = 0
-theme = SubResource("Theme_3ma7n")
+theme = ExtResource("39_8bj07")
 script = ExtResource("36_qsoqn")
 _text = NodePath("Panel/Label")
 
@@ -2001,7 +1996,7 @@ offset_left = -341.0
 offset_top = -132.0
 grow_horizontal = 0
 grow_vertical = 0
-theme_override_styles/panel = SubResource("StyleBoxFlat_q32un")
+theme_override_styles/panel = ExtResource("43_2fdx4")
 
 [node name="Label" type="Label" parent="ScoreManager/Panel"]
 layout_mode = 1
@@ -2016,7 +2011,6 @@ offset_right = 89.0
 offset_bottom = 21.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 21
 text = "Score: 1000"
 horizontal_alignment = 1
@@ -2032,3 +2026,39 @@ script = ExtResource("37_f7hfq")
 _commandScene = Array[PackedScene]([ExtResource("38_3mhx1")])
 
 [node name="UI_CountDown" parent="." instance=ExtResource("44_4df60")]
+
+[node name="Pause" parent="." instance=ExtResource("46_vjgog")]
+visible = false
+
+[connection signal="pressed" from="Pause/PauseMenu/Menu/MarginContainer/VBoxContainer/ButtonBack" to="GameManager" method="TogglePause"]
+
+[editable path="Pause"]
+[editable path="Pause/Option"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer2"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer3"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer4"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer5"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer6"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer7"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer2/MarginContainer"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer2/MarginContainer2"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer2/MarginContainer3"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer2/MarginContainer4"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer2/MarginContainer5"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer2/MarginContainer6"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer2/MarginContainer7"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer/MarginContainer"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer/MarginContainer2"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer/MarginContainer3"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer/MarginContainer4"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer/MarginContainer5"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer/MarginContainer6"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer/MarginContainer7"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer2/MarginContainer"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer2/MarginContainer2"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer2/MarginContainer3"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer2/MarginContainer4"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer2/MarginContainer5"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer2/MarginContainer6"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer2/MarginContainer7"]

@@ -5,6 +5,7 @@ public abstract partial class Cooker : Container
 {
 	protected bool Cook = false;
 	[Export] protected GpuParticles3D Particles;
+	[Export] protected AudioStreamPlayer Audio;
 	[Export] protected ProgressBar ProgressBar;
 
 	public override void _Ready()
@@ -28,6 +29,7 @@ public abstract partial class Cooker : Container
 			return;
 		Cook = true;
 		Particles.Emitting = true;
+		Audio?.Play();
 	}
 
 	public void StopCooking()
@@ -35,5 +37,6 @@ public abstract partial class Cooker : Container
 		Cook = false;
 		Particles.Emitting = false;
 		ProgressBar.Visible = false;
+		Audio?.Stop();
 	}
 }

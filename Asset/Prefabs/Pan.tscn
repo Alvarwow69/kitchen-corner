@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://cqrgm414sjfhp"]
+[gd_scene load_steps=13 format=3 uid="uid://cqrgm414sjfhp"]
 
 [ext_resource type="ArrayMesh" uid="uid://dcnowrqnkbi2q" path="res://Asset/Kitchen/obj/pan_A.obj" id="1_1kdj1"]
 [ext_resource type="Script" path="res://Script/Furniture/Pan.cs" id="1_2acte"]
 [ext_resource type="PackedScene" uid="uid://c7028uon8wrot" path="res://Asset/Prefabs/utils/ProgressBar.tscn" id="3_l8wfu"]
+[ext_resource type="AudioStream" uid="uid://dw32vw0assyfe" path="res://Asset/Audio/SX/frying-steak-74556.mp3" id="4_hhpka"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rtx7j"]
 size = Vector3(1, 0.736964, 1.65015)
@@ -38,9 +39,10 @@ height = 0.2
 [sub_resource type="ViewportTexture" id="ViewportTexture_ybwd2"]
 viewport_path = NodePath("SubViewport")
 
-[node name="Pan" type="Node3D" node_paths=PackedStringArray("Particles", "ProgressBar")]
+[node name="Pan" type="Node3D" node_paths=PackedStringArray("Particles", "Audio", "ProgressBar")]
 script = ExtResource("1_2acte")
 Particles = NodePath("SmokeParticle")
+Audio = NodePath("AudioStreamPlayer")
 ProgressBar = NodePath("SubViewport/ProgressBar")
 
 [node name="HitBox" type="Area3D" parent="."]
@@ -89,3 +91,8 @@ transparent_bg = true
 transform = Transform3D(0.668461, 0, 0, 0, 0.668461, 0, 0, 0, 0.668461, 0, 1.79084, 0)
 billboard = 1
 texture = SubResource("ViewportTexture_ybwd2")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_hhpka")
+volume_db = -9.0
+bus = &"Sfx"

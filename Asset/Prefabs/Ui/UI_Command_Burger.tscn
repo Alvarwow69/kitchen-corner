@@ -1,15 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://bd70in7lumm2a"]
 
 [ext_resource type="Script" path="res://Script/Command.cs" id="1_4jq6k"]
+[ext_resource type="Theme" uid="uid://cwyjy2ghbm00c" path="res://Asset/Prefabs/Ui/Option/MainTheme.tres" id="1_8q4x3"]
 [ext_resource type="Texture2D" uid="uid://c8jvxgl2348ht" path="res://Asset/Kitchen/obj/restaurantbits_texture.png" id="1_y8x5g"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i3lh8"]
-bg_color = Color(1, 1, 1, 1)
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0, 0, 0, 1)
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f43a3"]
 bg_color = Color(0.996078, 0.188235, 0.258824, 1)
@@ -32,7 +25,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_i3lh8")
+theme = ExtResource("1_8q4x3")
 script = ExtResource("1_4jq6k")
 _waitingTime = 40.0
 _progressBar = NodePath("AspectRatioContainer/VBoxContainer/ProgressBar")
@@ -66,7 +59,6 @@ expand_mode = 2
 [node name="Label" type="Label" parent="AspectRatioContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
-theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "WORK FAST!!!!!"
 horizontal_alignment = 1
 vertical_alignment = 1

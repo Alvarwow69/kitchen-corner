@@ -1,0 +1,574 @@
+[gd_scene load_steps=11 format=3 uid="uid://bbefhylvxynv6"]
+
+[ext_resource type="Script" path="res://Script/Option.cs" id="1_n52up"]
+[ext_resource type="Theme" uid="uid://cwyjy2ghbm00c" path="res://Asset/Prefabs/Ui/Option/MainTheme.tres" id="2_6pcbs"]
+[ext_resource type="PackedScene" uid="uid://bho3d4w7kvv18" path="res://Asset/Prefabs/Ui/Option/OptionKey.tscn" id="2_dc71q"]
+[ext_resource type="Texture2D" uid="uid://k7wpxwdwq4ad" path="res://Asset/Ui/Gamepad/Xbox/button_xbox_analog_l_direction_1.png" id="3_pijli"]
+[ext_resource type="Texture2D" uid="uid://560jpx4xgy5h" path="res://Asset/Ui/Gamepad/Xbox/button_xbox_analog_l_direction_3.png" id="4_a0cn4"]
+[ext_resource type="Texture2D" uid="uid://w07ectqhy2lu" path="res://Asset/Ui/Gamepad/Xbox/button_xbox_analog_l_direction_4.png" id="5_the2t"]
+[ext_resource type="Texture2D" uid="uid://dthmaea4hjwf3" path="res://Asset/Ui/Gamepad/Xbox/button_xbox_analog_l_direction_2.png" id="6_scghr"]
+[ext_resource type="Texture2D" uid="uid://4uxymm7r62t" path="res://Asset/Ui/Gamepad/Xbox/button_xbox_digital_a_1.png" id="7_tewcu"]
+[ext_resource type="Texture2D" uid="uid://dd87yd5dvr2d" path="res://Asset/Ui/Gamepad/Xbox/button_xbox_digital_x_1.png" id="8_6vna1"]
+[ext_resource type="Texture2D" uid="uid://6ln8xkpj11ap" path="res://Asset/Ui/Gamepad/Xbox/button_xbox_digital_b_1.png" id="9_51iu3"]
+
+[node name="Option" type="Control" node_paths=PackedStringArray("_optionMenu", "_commandMenu", "_sliderMusic", "_sliderSfx")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_6pcbs")
+script = ExtResource("1_n52up")
+_optionMenu = NodePath("Menu/MarginContainer/Options")
+_commandMenu = NodePath("Menu/MarginContainer/Commands")
+_sliderMusic = NodePath("Menu/MarginContainer/Options/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/HSlider")
+_sliderSfx = NodePath("Menu/MarginContainer/Options/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2/HSlider")
+
+[node name="Menu" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -510.0
+offset_top = -300.0
+offset_right = 511.0
+offset_bottom = 297.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Menu"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="Options" type="VBoxContainer" parent="Menu/MarginContainer"]
+custom_minimum_size = Vector2(0, 570)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Menu/MarginContainer/Options"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 75
+text = "Options"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Menu/MarginContainer/Options"]
+layout_mode = 2
+theme_override_constants/margin_top = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/MarginContainer/Options/MarginContainer"]
+layout_mode = 2
+
+[node name="ButtonCommand" type="Button" parent="Menu/MarginContainer/Options/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 70)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 30
+text = "Command"
+
+[node name="MarginContainer" type="MarginContainer" parent="Menu/MarginContainer/Options/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/MarginContainer/Options/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Menu/MarginContainer/Options/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Menu/MarginContainer/Options/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Music                "
+
+[node name="HSlider" type="HSlider" parent="Menu/MarginContainer/Options/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+min_value = -30.0
+max_value = 3.0
+value = -6.0
+rounded = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Menu/MarginContainer/Options/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Menu/MarginContainer/Options/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Sounds effects"
+
+[node name="HSlider" type="HSlider" parent="Menu/MarginContainer/Options/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+min_value = -30.0
+max_value = 3.0
+value = -6.0
+rounded = true
+
+[node name="MarginContainer2" type="MarginContainer" parent="Menu/MarginContainer/Options"]
+layout_mode = 2
+theme_override_constants/margin_top = 100
+
+[node name="ButtonCommand" type="Button" parent="Menu/MarginContainer/Options/MarginContainer2"]
+custom_minimum_size = Vector2(100, 70)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 30
+text = "Back"
+
+[node name="Commands" type="VBoxContainer" parent="Menu/MarginContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 570)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Menu/MarginContainer/Commands"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 75
+text = "Commands"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Menu/MarginContainer/Commands"]
+layout_mode = 2
+theme_override_constants/margin_top = 0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Menu/MarginContainer/Commands/MarginContainer"]
+custom_minimum_size = Vector2(0, 375)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Player1" type="MarginContainer" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(14.92, 370)
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player1"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player1/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Player 1"
+
+[node name="MarginContainer" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player1/VBoxContainer" instance=ExtResource("2_dc71q")]
+layout_mode = 2
+
+[node name="ButtonCommand" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player1/VBoxContainer/MarginContainer/HBoxContainer/HBoxContainer" index="0"]
+text = "Z"
+
+[node name="ButtonCommand2" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player1/VBoxContainer/MarginContainer/HBoxContainer/HBoxContainer" index="1"]
+icon = ExtResource("3_pijli")
+
+[node name="MarginContainer2" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player1/VBoxContainer" instance=ExtResource("2_dc71q")]
+layout_mode = 2
+
+[node name="Label" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player1/VBoxContainer/MarginContainer2/HBoxContainer" index="0"]
+text = "Backward:"
+
+[node name="ButtonCommand" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player1/VBoxContainer/MarginContainer2/HBoxContainer/HBoxContainer" index="0"]
+text = "S"
+
+[node name="ButtonCommand2" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player1/VBoxContainer/MarginContainer2/HBoxContainer/HBoxContainer" index="1"]
+icon = ExtResource("4_a0cn4")
+
+[node name="MarginContainer3" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player1/VBoxContainer" instance=ExtResource("2_dc71q")]
+layout_mode = 2
+
+[node name="Label" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player1/VBoxContainer/MarginContainer3/HBoxContainer" index="0"]
+text = "Left:"
+
+[node name="ButtonCommand" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player1/VBoxContainer/MarginContainer3/HBoxContainer/HBoxContainer" index="0"]
+text = "Q"
+
+[node name="ButtonCommand2" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player1/VBoxContainer/MarginContainer3/HBoxContainer/HBoxContainer" index="1"]
+icon = ExtResource("5_the2t")
+
+[node name="MarginContainer4" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player1/VBoxContainer" instance=ExtResource("2_dc71q")]
+layout_mode = 2
+
+[node name="Label" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player1/VBoxContainer/MarginContainer4/HBoxContainer" index="0"]
+text = "Right:"
+
+[node name="ButtonCommand" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player1/VBoxContainer/MarginContainer4/HBoxContainer/HBoxContainer" index="0"]
+text = "D"
+
+[node name="ButtonCommand2" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player1/VBoxContainer/MarginContainer4/HBoxContainer/HBoxContainer" index="1"]
+icon = ExtResource("6_scghr")
+
+[node name="MarginContainer5" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player1/VBoxContainer" instance=ExtResource("2_dc71q")]
+layout_mode = 2
+
+[node name="Label" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player1/VBoxContainer/MarginContainer5/HBoxContainer" index="0"]
+text = "Grab:"
+
+[node name="ButtonCommand" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player1/VBoxContainer/MarginContainer5/HBoxContainer/HBoxContainer" index="0"]
+text = "SPACE"
+
+[node name="ButtonCommand2" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player1/VBoxContainer/MarginContainer5/HBoxContainer/HBoxContainer" index="1"]
+icon = ExtResource("7_tewcu")
+
+[node name="MarginContainer6" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player1/VBoxContainer" instance=ExtResource("2_dc71q")]
+layout_mode = 2
+
+[node name="Label" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player1/VBoxContainer/MarginContainer6/HBoxContainer" index="0"]
+text = "Action:"
+
+[node name="ButtonCommand" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player1/VBoxContainer/MarginContainer6/HBoxContainer/HBoxContainer" index="0"]
+text = "L. ALT"
+
+[node name="ButtonCommand2" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player1/VBoxContainer/MarginContainer6/HBoxContainer/HBoxContainer" index="1"]
+icon = ExtResource("8_6vna1")
+
+[node name="MarginContainer7" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player1/VBoxContainer" instance=ExtResource("2_dc71q")]
+layout_mode = 2
+
+[node name="Label" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player1/VBoxContainer/MarginContainer7/HBoxContainer" index="0"]
+text = "Dash:"
+
+[node name="ButtonCommand" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player1/VBoxContainer/MarginContainer7/HBoxContainer/HBoxContainer" index="0"]
+text = "L. SHIFT"
+
+[node name="ButtonCommand2" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player1/VBoxContainer/MarginContainer7/HBoxContainer/HBoxContainer" index="1"]
+icon = ExtResource("9_51iu3")
+
+[node name="Player2" type="MarginContainer" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(14.92, 370)
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player2/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Player 2"
+
+[node name="MarginContainer" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player2/VBoxContainer2" instance=ExtResource("2_dc71q")]
+layout_mode = 2
+
+[node name="ButtonCommand" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player2/VBoxContainer2/MarginContainer/HBoxContainer/HBoxContainer" index="0"]
+text = "UP"
+
+[node name="ButtonCommand2" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player2/VBoxContainer2/MarginContainer/HBoxContainer/HBoxContainer" index="1"]
+icon = ExtResource("3_pijli")
+
+[node name="MarginContainer2" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player2/VBoxContainer2" instance=ExtResource("2_dc71q")]
+layout_mode = 2
+
+[node name="Label" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player2/VBoxContainer2/MarginContainer2/HBoxContainer" index="0"]
+text = "Backward:"
+
+[node name="ButtonCommand" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player2/VBoxContainer2/MarginContainer2/HBoxContainer/HBoxContainer" index="0"]
+text = "DOWN"
+
+[node name="ButtonCommand2" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player2/VBoxContainer2/MarginContainer2/HBoxContainer/HBoxContainer" index="1"]
+icon = ExtResource("4_a0cn4")
+
+[node name="MarginContainer3" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player2/VBoxContainer2" instance=ExtResource("2_dc71q")]
+layout_mode = 2
+
+[node name="Label" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player2/VBoxContainer2/MarginContainer3/HBoxContainer" index="0"]
+text = "Left:"
+
+[node name="ButtonCommand" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player2/VBoxContainer2/MarginContainer3/HBoxContainer/HBoxContainer" index="0"]
+text = "LEFT"
+
+[node name="ButtonCommand2" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player2/VBoxContainer2/MarginContainer3/HBoxContainer/HBoxContainer" index="1"]
+icon = ExtResource("5_the2t")
+
+[node name="MarginContainer4" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player2/VBoxContainer2" instance=ExtResource("2_dc71q")]
+layout_mode = 2
+
+[node name="Label" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player2/VBoxContainer2/MarginContainer4/HBoxContainer" index="0"]
+text = "Right:"
+
+[node name="ButtonCommand" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player2/VBoxContainer2/MarginContainer4/HBoxContainer/HBoxContainer" index="0"]
+text = "RIGHT"
+
+[node name="ButtonCommand2" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player2/VBoxContainer2/MarginContainer4/HBoxContainer/HBoxContainer" index="1"]
+icon = ExtResource("6_scghr")
+
+[node name="MarginContainer5" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player2/VBoxContainer2" instance=ExtResource("2_dc71q")]
+layout_mode = 2
+
+[node name="Label" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player2/VBoxContainer2/MarginContainer5/HBoxContainer" index="0"]
+text = "Grab:"
+
+[node name="ButtonCommand" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player2/VBoxContainer2/MarginContainer5/HBoxContainer/HBoxContainer" index="0"]
+text = "R. SHIFT"
+
+[node name="ButtonCommand2" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player2/VBoxContainer2/MarginContainer5/HBoxContainer/HBoxContainer" index="1"]
+icon = ExtResource("7_tewcu")
+
+[node name="MarginContainer6" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player2/VBoxContainer2" instance=ExtResource("2_dc71q")]
+layout_mode = 2
+
+[node name="Label" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player2/VBoxContainer2/MarginContainer6/HBoxContainer" index="0"]
+text = "Action:"
+
+[node name="ButtonCommand" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player2/VBoxContainer2/MarginContainer6/HBoxContainer/HBoxContainer" index="0"]
+text = "R. CTRL"
+
+[node name="ButtonCommand2" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player2/VBoxContainer2/MarginContainer6/HBoxContainer/HBoxContainer" index="1"]
+icon = ExtResource("8_6vna1")
+
+[node name="MarginContainer7" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player2/VBoxContainer2" instance=ExtResource("2_dc71q")]
+layout_mode = 2
+
+[node name="Label" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player2/VBoxContainer2/MarginContainer7/HBoxContainer" index="0"]
+text = "Dash:"
+
+[node name="ButtonCommand" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player2/VBoxContainer2/MarginContainer7/HBoxContainer/HBoxContainer" index="0"]
+text = "R. ALT"
+
+[node name="ButtonCommand2" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player2/VBoxContainer2/MarginContainer7/HBoxContainer/HBoxContainer" index="1"]
+icon = ExtResource("9_51iu3")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Player3" type="MarginContainer" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player3"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player3/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Player 3"
+
+[node name="MarginContainer" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player3/VBoxContainer" instance=ExtResource("2_dc71q")]
+layout_mode = 2
+
+[node name="ButtonCommand" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player3/VBoxContainer/MarginContainer/HBoxContainer/HBoxContainer" index="0"]
+text = " "
+
+[node name="ButtonCommand2" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player3/VBoxContainer/MarginContainer/HBoxContainer/HBoxContainer" index="1"]
+icon = ExtResource("3_pijli")
+
+[node name="MarginContainer2" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player3/VBoxContainer" instance=ExtResource("2_dc71q")]
+layout_mode = 2
+
+[node name="Label" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player3/VBoxContainer/MarginContainer2/HBoxContainer" index="0"]
+text = "Backward:"
+
+[node name="ButtonCommand" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player3/VBoxContainer/MarginContainer2/HBoxContainer/HBoxContainer" index="0"]
+text = " "
+
+[node name="ButtonCommand2" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player3/VBoxContainer/MarginContainer2/HBoxContainer/HBoxContainer" index="1"]
+icon = ExtResource("4_a0cn4")
+
+[node name="MarginContainer3" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player3/VBoxContainer" instance=ExtResource("2_dc71q")]
+layout_mode = 2
+
+[node name="Label" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player3/VBoxContainer/MarginContainer3/HBoxContainer" index="0"]
+text = "Left:"
+
+[node name="ButtonCommand" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player3/VBoxContainer/MarginContainer3/HBoxContainer/HBoxContainer" index="0"]
+text = " "
+
+[node name="ButtonCommand2" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player3/VBoxContainer/MarginContainer3/HBoxContainer/HBoxContainer" index="1"]
+icon = ExtResource("5_the2t")
+
+[node name="MarginContainer4" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player3/VBoxContainer" instance=ExtResource("2_dc71q")]
+layout_mode = 2
+
+[node name="Label" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player3/VBoxContainer/MarginContainer4/HBoxContainer" index="0"]
+text = "Right:"
+
+[node name="ButtonCommand" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player3/VBoxContainer/MarginContainer4/HBoxContainer/HBoxContainer" index="0"]
+text = " "
+
+[node name="ButtonCommand2" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player3/VBoxContainer/MarginContainer4/HBoxContainer/HBoxContainer" index="1"]
+icon = ExtResource("6_scghr")
+
+[node name="MarginContainer5" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player3/VBoxContainer" instance=ExtResource("2_dc71q")]
+layout_mode = 2
+
+[node name="Label" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player3/VBoxContainer/MarginContainer5/HBoxContainer" index="0"]
+text = "Grab:"
+
+[node name="ButtonCommand" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player3/VBoxContainer/MarginContainer5/HBoxContainer/HBoxContainer" index="0"]
+text = " "
+
+[node name="ButtonCommand2" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player3/VBoxContainer/MarginContainer5/HBoxContainer/HBoxContainer" index="1"]
+icon = ExtResource("7_tewcu")
+
+[node name="MarginContainer6" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player3/VBoxContainer" instance=ExtResource("2_dc71q")]
+layout_mode = 2
+
+[node name="Label" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player3/VBoxContainer/MarginContainer6/HBoxContainer" index="0"]
+text = "Action:"
+
+[node name="ButtonCommand" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player3/VBoxContainer/MarginContainer6/HBoxContainer/HBoxContainer" index="0"]
+text = " "
+
+[node name="ButtonCommand2" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player3/VBoxContainer/MarginContainer6/HBoxContainer/HBoxContainer" index="1"]
+icon = ExtResource("8_6vna1")
+
+[node name="MarginContainer7" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player3/VBoxContainer" instance=ExtResource("2_dc71q")]
+layout_mode = 2
+
+[node name="Label" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player3/VBoxContainer/MarginContainer7/HBoxContainer" index="0"]
+text = "Dash:"
+
+[node name="ButtonCommand" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player3/VBoxContainer/MarginContainer7/HBoxContainer/HBoxContainer" index="0"]
+text = " "
+
+[node name="ButtonCommand2" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player3/VBoxContainer/MarginContainer7/HBoxContainer/HBoxContainer" index="1"]
+icon = ExtResource("9_51iu3")
+
+[node name="Player4" type="MarginContainer" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player4"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player4/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Player 4"
+
+[node name="MarginContainer" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player4/VBoxContainer2" instance=ExtResource("2_dc71q")]
+layout_mode = 2
+
+[node name="ButtonCommand" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player4/VBoxContainer2/MarginContainer/HBoxContainer/HBoxContainer" index="0"]
+text = " "
+
+[node name="ButtonCommand2" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player4/VBoxContainer2/MarginContainer/HBoxContainer/HBoxContainer" index="1"]
+icon = ExtResource("3_pijli")
+
+[node name="MarginContainer2" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player4/VBoxContainer2" instance=ExtResource("2_dc71q")]
+layout_mode = 2
+
+[node name="Label" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player4/VBoxContainer2/MarginContainer2/HBoxContainer" index="0"]
+text = "Backward:"
+
+[node name="ButtonCommand" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player4/VBoxContainer2/MarginContainer2/HBoxContainer/HBoxContainer" index="0"]
+text = " "
+
+[node name="ButtonCommand2" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player4/VBoxContainer2/MarginContainer2/HBoxContainer/HBoxContainer" index="1"]
+icon = ExtResource("4_a0cn4")
+
+[node name="MarginContainer3" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player4/VBoxContainer2" instance=ExtResource("2_dc71q")]
+layout_mode = 2
+
+[node name="Label" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player4/VBoxContainer2/MarginContainer3/HBoxContainer" index="0"]
+text = "Left:"
+
+[node name="ButtonCommand" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player4/VBoxContainer2/MarginContainer3/HBoxContainer/HBoxContainer" index="0"]
+text = " "
+
+[node name="ButtonCommand2" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player4/VBoxContainer2/MarginContainer3/HBoxContainer/HBoxContainer" index="1"]
+icon = ExtResource("5_the2t")
+
+[node name="MarginContainer4" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player4/VBoxContainer2" instance=ExtResource("2_dc71q")]
+layout_mode = 2
+
+[node name="Label" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player4/VBoxContainer2/MarginContainer4/HBoxContainer" index="0"]
+text = "Right:"
+
+[node name="ButtonCommand" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player4/VBoxContainer2/MarginContainer4/HBoxContainer/HBoxContainer" index="0"]
+text = " "
+
+[node name="ButtonCommand2" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player4/VBoxContainer2/MarginContainer4/HBoxContainer/HBoxContainer" index="1"]
+icon = ExtResource("6_scghr")
+
+[node name="MarginContainer5" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player4/VBoxContainer2" instance=ExtResource("2_dc71q")]
+layout_mode = 2
+
+[node name="Label" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player4/VBoxContainer2/MarginContainer5/HBoxContainer" index="0"]
+text = "Grab:"
+
+[node name="ButtonCommand" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player4/VBoxContainer2/MarginContainer5/HBoxContainer/HBoxContainer" index="0"]
+text = " "
+
+[node name="ButtonCommand2" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player4/VBoxContainer2/MarginContainer5/HBoxContainer/HBoxContainer" index="1"]
+icon = ExtResource("7_tewcu")
+
+[node name="MarginContainer6" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player4/VBoxContainer2" instance=ExtResource("2_dc71q")]
+layout_mode = 2
+
+[node name="Label" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player4/VBoxContainer2/MarginContainer6/HBoxContainer" index="0"]
+text = "Action:"
+
+[node name="ButtonCommand" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player4/VBoxContainer2/MarginContainer6/HBoxContainer/HBoxContainer" index="0"]
+text = " "
+
+[node name="ButtonCommand2" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player4/VBoxContainer2/MarginContainer6/HBoxContainer/HBoxContainer" index="1"]
+icon = ExtResource("8_6vna1")
+
+[node name="MarginContainer7" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player4/VBoxContainer2" instance=ExtResource("2_dc71q")]
+layout_mode = 2
+
+[node name="Label" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player4/VBoxContainer2/MarginContainer7/HBoxContainer" index="0"]
+text = "Dash:"
+
+[node name="ButtonCommand" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player4/VBoxContainer2/MarginContainer7/HBoxContainer/HBoxContainer" index="0"]
+text = " "
+
+[node name="ButtonCommand2" parent="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player4/VBoxContainer2/MarginContainer7/HBoxContainer/HBoxContainer" index="1"]
+icon = ExtResource("9_51iu3")
+
+[node name="MarginContainer2" type="MarginContainer" parent="Menu/MarginContainer/Commands"]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+
+[node name="ButtonCommand" type="Button" parent="Menu/MarginContainer/Commands/MarginContainer2"]
+custom_minimum_size = Vector2(100, 70)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 30
+text = "Back"
+
+[connection signal="pressed" from="Menu/MarginContainer/Options/MarginContainer/VBoxContainer/ButtonCommand" to="." method="OnButtonCommandPressed"]
+[connection signal="value_changed" from="Menu/MarginContainer/Options/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/HSlider" to="." method="OnSliderMusicChange"]
+[connection signal="value_changed" from="Menu/MarginContainer/Options/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2/HSlider" to="." method="OnSliderSfxChange"]
+[connection signal="pressed" from="Menu/MarginContainer/Commands/MarginContainer2/ButtonCommand" to="." method="OnButtonCommandPressed"]
+
+[editable path="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player1/VBoxContainer/MarginContainer"]
+[editable path="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player1/VBoxContainer/MarginContainer2"]
+[editable path="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player1/VBoxContainer/MarginContainer3"]
+[editable path="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player1/VBoxContainer/MarginContainer4"]
+[editable path="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player1/VBoxContainer/MarginContainer5"]
+[editable path="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player1/VBoxContainer/MarginContainer6"]
+[editable path="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player1/VBoxContainer/MarginContainer7"]
+[editable path="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player2/VBoxContainer2/MarginContainer"]
+[editable path="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player2/VBoxContainer2/MarginContainer2"]
+[editable path="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player2/VBoxContainer2/MarginContainer3"]
+[editable path="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player2/VBoxContainer2/MarginContainer4"]
+[editable path="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player2/VBoxContainer2/MarginContainer5"]
+[editable path="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player2/VBoxContainer2/MarginContainer6"]
+[editable path="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player2/VBoxContainer2/MarginContainer7"]
+[editable path="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player3/VBoxContainer/MarginContainer"]
+[editable path="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player3/VBoxContainer/MarginContainer2"]
+[editable path="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player3/VBoxContainer/MarginContainer3"]
+[editable path="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player3/VBoxContainer/MarginContainer4"]
+[editable path="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player3/VBoxContainer/MarginContainer5"]
+[editable path="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player3/VBoxContainer/MarginContainer6"]
+[editable path="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player3/VBoxContainer/MarginContainer7"]
+[editable path="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player4/VBoxContainer2/MarginContainer"]
+[editable path="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player4/VBoxContainer2/MarginContainer2"]
+[editable path="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player4/VBoxContainer2/MarginContainer3"]
+[editable path="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player4/VBoxContainer2/MarginContainer4"]
+[editable path="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player4/VBoxContainer2/MarginContainer5"]
+[editable path="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player4/VBoxContainer2/MarginContainer6"]
+[editable path="Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player4/VBoxContainer2/MarginContainer7"]

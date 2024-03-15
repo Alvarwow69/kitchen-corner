@@ -1,0 +1,95 @@
+[gd_scene load_steps=16 format=3 uid="uid://bo1gq21ejmxvr"]
+
+[ext_resource type="Script" path="res://Script/Player/Player.cs" id="1_m6ju4"]
+[ext_resource type="ArrayMesh" uid="uid://dy1t20cl67mcm" path="res://Asset/City/car_taxi.obj" id="2_ed8ks"]
+[ext_resource type="PackedScene" uid="uid://k6e3wnp4najl" path="res://Asset/Prefabs/Dash.tscn" id="2_v15ic"]
+[ext_resource type="ArrayMesh" uid="uid://c52o4q5ia1ncr" path="res://Asset/City/car_taxi_wheel_front_left.obj" id="3_ehvt5"]
+[ext_resource type="ArrayMesh" uid="uid://dv6e13xfcwplr" path="res://Asset/City/car_taxi_wheel_front_right.obj" id="4_trbcd"]
+[ext_resource type="ArrayMesh" uid="uid://ca7egvi366wnr" path="res://Asset/City/car_taxi_wheel_rear_left.obj" id="5_srkf2"]
+[ext_resource type="ArrayMesh" uid="uid://ct0tep2y8y1k1" path="res://Asset/City/car_taxi_wheel_rear_right.obj" id="6_8u6wl"]
+
+[sub_resource type="Gradient" id="Gradient_6ac7o"]
+colors = PackedColorArray(0.545098, 0.545098, 0.545098, 1, 0.545098, 0.545098, 0.545098, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_fi6dh"]
+gradient = SubResource("Gradient_6ac7o")
+
+[sub_resource type="Curve" id="Curve_oyu5j"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.290657, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_j0g4f"]
+curve = SubResource("Curve_oyu5j")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_h85nv"]
+direction = Vector3(0, 0, 1)
+spread = 0.0
+gravity = Vector3(0, 1, 0)
+initial_velocity_min = 0.5
+initial_velocity_max = 1.0
+scale_min = 0.4
+scale_max = 0.7
+scale_curve = SubResource("CurveTexture_j0g4f")
+color_ramp = SubResource("GradientTexture1D_fi6dh")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_626w5"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.545098, 0.545098, 0.545098, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_hyvqa"]
+material = SubResource("StandardMaterial3D_626w5")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xtafb"]
+size = Vector3(1, 0.901622, 1.91898)
+
+[node name="Player" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.480941)
+collision_mask = 7
+script = ExtResource("1_m6ju4")
+
+[node name="Pivot" type="Node3D" parent="."]
+
+[node name="RayCast3D" type="RayCast3D" parent="Pivot"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.374714, 0)
+target_position = Vector3(2, 0, 0)
+collision_mask = 20
+collide_with_areas = true
+debug_shape_custom_color = Color(1, 0, 0, 1)
+debug_shape_thickness = 5
+
+[node name="playerMesh" type="MeshInstance3D" parent="Pivot"]
+transform = Transform3D(-3, 0, -4.52987e-07, 0, 3, 0, 4.52987e-07, 0, -3, 0, 0, 0)
+mesh = ExtResource("2_ed8ks")
+skeleton = NodePath("../../..")
+
+[node name="Wheel" type="MeshInstance3D" parent="Pivot/playerMesh"]
+mesh = ExtResource("3_ehvt5")
+skeleton = NodePath("../../../..")
+
+[node name="Wheel2" type="MeshInstance3D" parent="Pivot/playerMesh"]
+mesh = ExtResource("4_trbcd")
+skeleton = NodePath("../../../..")
+
+[node name="Wheel3" type="MeshInstance3D" parent="Pivot/playerMesh"]
+mesh = ExtResource("5_srkf2")
+skeleton = NodePath("../../../..")
+
+[node name="Wheel4" type="MeshInstance3D" parent="Pivot/playerMesh"]
+mesh = ExtResource("6_8u6wl")
+skeleton = NodePath("../../../..")
+
+[node name="Anchor" type="Node3D" parent="Pivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.933548)
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Pivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.36175, 0, 1.38349)
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_h85nv")
+draw_pass_1 = SubResource("SphereMesh_hyvqa")
+
+[node name="Dash" parent="." instance=ExtResource("2_v15ic")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.325269, 0)
+shape = SubResource("BoxShape3D_xtafb")

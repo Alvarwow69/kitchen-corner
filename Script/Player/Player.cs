@@ -113,6 +113,8 @@ public partial class Player : CharacterBody3D
     {
         Vector3 velocity = Velocity;
 
+        if (GameManager.GetGameState() != GameManager.GameState.InGame && SelectionManager.GetGameState() != SelectionManager.SelectionState.Waiting)
+            return;
         if (!IsOnFloor())
             velocity.Y -= _gravity * (float)delta;
 

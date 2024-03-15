@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://bgjxdbqjt8ota"]
+[gd_scene load_steps=11 format=3 uid="uid://bgjxdbqjt8ota"]
 
 [ext_resource type="Script" path="res://Script/Level/NodeLevelSelector.cs" id="1_3hjjh"]
 [ext_resource type="Script" path="res://Script/Ui/StarManager.cs" id="2_5k4wl"]
+[ext_resource type="Theme" uid="uid://cwyjy2ghbm00c" path="res://Asset/Prefabs/Ui/Option/MainTheme.tres" id="2_ka4q6"]
 [ext_resource type="PackedScene" uid="uid://codvm0rtsmwt7" path="res://Asset/Ui/star.tscn" id="3_74k1g"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_p0y77"]
@@ -31,8 +32,17 @@ material = SubResource("StandardMaterial3D_m8r2v")
 [sub_resource type="ViewportTexture" id="ViewportTexture_sok8l"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qlecq"]
-bg_color = Color(1, 1, 1, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d7ndd"]
+bg_color = Color(0.643137, 0.333333, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.870588, 0.458824, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [node name="LevelSelection" type="Node3D" node_paths=PackedStringArray("_particles", "_title", "_starManager", "_sprite3D")]
 script = ExtResource("1_3hjjh")
@@ -83,6 +93,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_ka4q6")
 
 [node name="Panel" type="Panel" parent="SubViewport/PanelContainer"]
 custom_minimum_size = Vector2(200, 100)
@@ -99,7 +110,7 @@ offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.5, 1.5)
-theme_override_styles/panel = SubResource("StyleBoxFlat_qlecq")
+theme_override_styles/panel = SubResource("StyleBoxFlat_d7ndd")
 
 [node name="VFlowContainer" type="HFlowContainer" parent="SubViewport/PanelContainer/Panel"]
 layout_mode = 1
@@ -120,7 +131,8 @@ alignment = 1
 
 [node name="Title" type="Label" parent="SubViewport/PanelContainer/Panel/VFlowContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme = ExtResource("2_ka4q6")
+theme_override_font_sizes/font_size = 21
 text = "[TITLE]"
 horizontal_alignment = 1
 vertical_alignment = 1

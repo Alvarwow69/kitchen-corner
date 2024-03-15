@@ -1,9 +1,26 @@
-[gd_scene load_steps=6 format=3 uid="uid://d312hlyms7td0"]
+[gd_scene load_steps=9 format=3 uid="uid://d312hlyms7td0"]
 
 [ext_resource type="Script" path="res://Script/Furniture/DishRack.cs" id="1_w5o1k"]
 [ext_resource type="ArrayMesh" uid="uid://bwtlv07oyl0wn" path="res://Asset/Kitchen/obj/kitchencounter_straight_B.obj" id="2_a1afh"]
+[ext_resource type="Shader" path="res://Selection.gdshader" id="3_6ewnj"]
 [ext_resource type="ArrayMesh" uid="uid://t1um62k2jdb2" path="res://Asset/Kitchen/obj/dishrack.obj" id="3_jcuoa"]
-[ext_resource type="Material" uid="uid://buw721hn78rq4" path="res://Selection.tres" id="4_8fl1h"]
+[ext_resource type="Texture2D" uid="uid://c8jvxgl2348ht" path="res://Asset/Kitchen/obj/restaurantbits_texture.png" id="4_1cssu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jp0fb"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("3_6ewnj")
+shader_parameter/selectColor = Color(0.94902, 0.964706, 0, 1)
+shader_parameter/selected = false
+shader_parameter/tex = ExtResource("4_1cssu")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cpp03"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("3_6ewnj")
+shader_parameter/selectColor = Color(0.94902, 0.964706, 0, 1)
+shader_parameter/selected = false
+shader_parameter/tex = ExtResource("4_1cssu")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3yypa"]
 size = Vector3(2, 2, 2)
@@ -19,12 +36,12 @@ collision_mask = 0
 
 [node name="Counter" type="MeshInstance3D" parent="DishRack"]
 mesh = ExtResource("2_a1afh")
-surface_material_override/0 = ExtResource("4_8fl1h")
+surface_material_override/0 = SubResource("ShaderMaterial_jp0fb")
 
 [node name="Mesh" type="MeshInstance3D" parent="DishRack"]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, 1, 0)
 mesh = ExtResource("3_jcuoa")
-surface_material_override/0 = ExtResource("4_8fl1h")
+surface_material_override/0 = SubResource("ShaderMaterial_cpp03")
 
 [node name="Anchor" type="Node3D" parent="DishRack"]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -0.00221002, 1.29301, 0)

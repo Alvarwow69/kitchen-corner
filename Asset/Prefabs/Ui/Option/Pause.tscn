@@ -1,0 +1,134 @@
+[gd_scene load_steps=4 format=3 uid="uid://de3nkn5ndw4b2"]
+
+[ext_resource type="Theme" uid="uid://ddm6nuwmv2d1s" path="res://Asset/Prefabs/Ui/Option/SecondaryTheme.tres" id="1_ijmls"]
+[ext_resource type="Script" path="res://Script/PauseMenu.cs" id="1_rdh0r"]
+[ext_resource type="PackedScene" uid="uid://bbefhylvxynv6" path="res://Asset/Prefabs/Ui/Option/option.tscn" id="5_gqayg"]
+
+[node name="Pause" type="Control" node_paths=PackedStringArray("_optionMenu", "_pauseMenu")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ijmls")
+script = ExtResource("1_rdh0r")
+_optionMenu = NodePath("Option")
+_pauseMenu = NodePath("PauseMenu")
+
+[node name="PauseMenu" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="PauseMenu"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -271.0
+offset_right = 271.0
+offset_bottom = 106.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 75
+text = "Pause"
+horizontal_alignment = 1
+
+[node name="Menu" type="PanelContainer" parent="PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -185.0
+offset_top = -181.0
+offset_right = 185.0
+offset_bottom = 181.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PauseMenu/Menu"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/Menu/MarginContainer"]
+layout_mode = 2
+
+[node name="ButtonBack" type="Button" parent="PauseMenu/Menu/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 70)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Back"
+
+[node name="ButtonOption" type="Button" parent="PauseMenu/Menu/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 70)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Option"
+
+[node name="ButtonMenu" type="Button" parent="PauseMenu/Menu/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 70)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Main Menu"
+
+[node name="ButtonExit" type="Button" parent="PauseMenu/Menu/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 70)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Exit Game"
+
+[node name="Option" parent="." instance=ExtResource("5_gqayg")]
+visible = false
+layout_mode = 1
+
+[node name="@HScrollBar@622827" type="HScrollBar" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer" index="1"]
+layout_mode = 2
+max_value = 910.0
+
+[node name="@VScrollBar@622828" type="VScrollBar" parent="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer" index="2"]
+layout_mode = 2
+max_value = 739.0
+page = 367.0
+
+[connection signal="pressed" from="PauseMenu/Menu/MarginContainer/VBoxContainer/ButtonOption" to="." method="OnButtonOptionPressed"]
+[connection signal="pressed" from="PauseMenu/Menu/MarginContainer/VBoxContainer/ButtonMenu" to="." method="OnButtonMenuPressed"]
+[connection signal="pressed" from="PauseMenu/Menu/MarginContainer/VBoxContainer/ButtonExit" to="." method="OnButtonExitPressed"]
+[connection signal="pressed" from="Option/Menu/MarginContainer/Options/MarginContainer2/ButtonCommand" to="." method="OnButtonOptionPressed"]
+
+[editable path="Option"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player1/VBoxContainer/MarginContainer"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player1/VBoxContainer/MarginContainer2"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player1/VBoxContainer/MarginContainer3"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player1/VBoxContainer/MarginContainer4"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player1/VBoxContainer/MarginContainer5"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player1/VBoxContainer/MarginContainer6"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player1/VBoxContainer/MarginContainer7"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player2/VBoxContainer2/MarginContainer"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player2/VBoxContainer2/MarginContainer2"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player2/VBoxContainer2/MarginContainer3"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player2/VBoxContainer2/MarginContainer4"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player2/VBoxContainer2/MarginContainer5"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player2/VBoxContainer2/MarginContainer6"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player2/VBoxContainer2/MarginContainer7"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player3/VBoxContainer/MarginContainer"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player3/VBoxContainer/MarginContainer2"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player3/VBoxContainer/MarginContainer3"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player3/VBoxContainer/MarginContainer4"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player3/VBoxContainer/MarginContainer5"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player3/VBoxContainer/MarginContainer6"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player3/VBoxContainer/MarginContainer7"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player4/VBoxContainer2/MarginContainer"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player4/VBoxContainer2/MarginContainer2"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player4/VBoxContainer2/MarginContainer3"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player4/VBoxContainer2/MarginContainer4"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player4/VBoxContainer2/MarginContainer5"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player4/VBoxContainer2/MarginContainer6"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player4/VBoxContainer2/MarginContainer7"]

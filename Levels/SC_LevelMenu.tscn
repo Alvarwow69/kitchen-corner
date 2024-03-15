@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://hi46t3r2tcox"]
+[gd_scene load_steps=49 format=3 uid="uid://hi46t3r2tcox"]
 
 [ext_resource type="ArrayMesh" uid="uid://ccb1fco8siu45" path="res://Asset/LevelMenu/obj/hex_forest_roadD.obj" id="1_lcu1y"]
 [ext_resource type="ArrayMesh" uid="uid://cvt3134p2xwsd" path="res://Asset/LevelMenu/obj/hex_forest_roadF.obj" id="2_5t0p3"]
@@ -25,8 +25,11 @@
 [ext_resource type="ArrayMesh" uid="uid://btnjc64hsawsy" path="res://Asset/LevelMenu/obj/hex_water_detail.obj" id="23_xa7pr"]
 [ext_resource type="ArrayMesh" uid="uid://1xq8ap01tbk3" path="res://Asset/LevelMenu/obj/hex_forest_waterB_detail.obj" id="24_3amyh"]
 [ext_resource type="PackedScene" uid="uid://bgjxdbqjt8ota" path="res://Asset/Prefabs/LevelSelection.tscn" id="25_26p5f"]
-[ext_resource type="PackedScene" uid="uid://2srn8qk2e34b" path="res://Asset/Prefabs/Player_selection.tscn" id="26_xvx2l"]
+[ext_resource type="PackedScene" path="res://Asset/Prefabs/Player_selection.tscn" id="26_xvx2l"]
 [ext_resource type="PackedScene" uid="uid://bbw6nxxu8ml8f" path="res://Asset/Prefabs/SelectionManager.tscn" id="27_shbuw"]
+[ext_resource type="PackedScene" uid="uid://bo1gq21ejmxvr" path="res://Asset/Prefabs/PlayerSelection.tscn" id="28_a3iue"]
+[ext_resource type="AudioStream" uid="uid://17w5o2tvavfk" path="res://Asset/Audio/Music/2. Swaying Daisies LOOP.wav" id="28_xkvi6"]
+[ext_resource type="PackedScene" uid="uid://de3nkn5ndw4b2" path="res://Asset/Prefabs/Ui/Option/Pause.tscn" id="29_udsf3"]
 
 [sub_resource type="Gradient" id="Gradient_jkki1"]
 offsets = PackedFloat32Array(0.771318, 1)
@@ -115,6 +118,23 @@ size = Vector3(4.00365, 3, 6.92764)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_o8pun"]
 size = Vector3(73.0762, 3.04277, 50.0948)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_31avp"]
+resource_local_to_scene = true
+lifetime_randomness = 0.3
+emission_shape = 3
+emission_box_extents = Vector3(2.5, 0, 2.5)
+direction = Vector3(0, 0, 0)
+gravity = Vector3(0, 1, 0)
+linear_accel_max = 20.0
+angle_min = -471.6
+angle_max = 530.5
+scale_min = 0.1
+scale_max = 0.2
+color = Color(1, 1, 0.498039, 0.839216)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_u0vf0"]
+viewport_path = NodePath("Level03/SubViewport")
 
 [sub_resource type="Environment" id="Environment_osaiu"]
 background_mode = 1
@@ -1074,8 +1094,9 @@ collision_mask = 0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.48354, 0)
 shape = SubResource("BoxShape3D_o8pun")
 
-[node name="SelectionManager" parent="." node_paths=PackedStringArray("_listLevel") instance=ExtResource("27_shbuw")]
+[node name="SelectionManager" parent="." node_paths=PackedStringArray("_listLevel", "_pauseMenu") instance=ExtResource("27_shbuw")]
 _listLevel = [NodePath("../Tutorial"), NodePath("../Level01"), NodePath("../Level02"), NodePath("../Level03")]
+_pauseMenu = NodePath("../Pause")
 
 [node name="Tutorial" parent="." instance=ExtResource("25_26p5f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 4, 0)
@@ -1086,6 +1107,7 @@ _levelName = "Tutorial"
 [node name="Level01" parent="." instance=ExtResource("25_26p5f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 4, 10.3137)
 _newLevel = "res://Levels/SC_Halloween.tscn"
+Activated = true
 _levelName = "Level01"
 
 [node name="Level02" parent="." instance=ExtResource("25_26p5f")]
@@ -1098,19 +1120,74 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 4, -10.3273)
 _newLevel = "res://Levels/SC_Dungeon.tscn"
 _levelName = "Level03"
 
+[node name="GPUParticles3D" parent="Level03" index="1"]
+process_material = SubResource("ParticleProcessMaterial_31avp")
+
+[node name="Sprite3D" parent="Level03" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.28151, -2.19578)
+texture = SubResource("ViewportTexture_u0vf0")
+
 [node name="Camera3D2" type="Camera3D" parent="."]
 transform = Transform3D(-0.707107, -0.353553, 0.612372, 2.26267e-08, 0.866025, 0.5, -0.707107, 0.353553, -0.612373, -4, 11, 4)
 environment = SubResource("Environment_osaiu")
-fov = 92.2176
 
 [node name="Player" parent="." instance=ExtResource("26_xvx2l")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6, 4, -5)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1, 7, -5)
+visible = false
+NormalSpeed = 8.0
+PlayerNumber = 1
+
+[node name="Player2" parent="." instance=ExtResource("28_a3iue")]
+transform = Transform3D(-1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -1, 3.1364, 3.44733, -5.18019)
 NormalSpeed = 8.0
 PlayerNumber = 0
 _enabled = true
 
-[node name="Camera3D" type="Camera3D" parent="Player"]
+[node name="Camera3D" type="Camera3D" parent="Player2"]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 7, 9)
 environment = SubResource("Environment_osaiu")
 current = true
 fov = 92.2176
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("28_xkvi6")
+volume_db = -6.0
+autoplay = true
+bus = &"Music"
+
+[node name="Pause" parent="." instance=ExtResource("29_udsf3")]
+visible = false
+
+[connection signal="pressed" from="Pause/PauseMenu/Menu/MarginContainer/VBoxContainer/ButtonBack" to="SelectionManager" method="TogglePause"]
+
+[editable path="Level03"]
+[editable path="Pause"]
+[editable path="Pause/Option"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player1/VBoxContainer/MarginContainer"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player1/VBoxContainer/MarginContainer2"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player1/VBoxContainer/MarginContainer3"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player1/VBoxContainer/MarginContainer4"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player1/VBoxContainer/MarginContainer5"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player1/VBoxContainer/MarginContainer6"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player1/VBoxContainer/MarginContainer7"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player2/VBoxContainer2/MarginContainer"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player2/VBoxContainer2/MarginContainer2"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player2/VBoxContainer2/MarginContainer3"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player2/VBoxContainer2/MarginContainer4"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player2/VBoxContainer2/MarginContainer5"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player2/VBoxContainer2/MarginContainer6"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player2/VBoxContainer2/MarginContainer7"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player3/VBoxContainer/MarginContainer"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player3/VBoxContainer/MarginContainer2"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player3/VBoxContainer/MarginContainer3"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player3/VBoxContainer/MarginContainer4"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player3/VBoxContainer/MarginContainer5"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player3/VBoxContainer/MarginContainer6"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player3/VBoxContainer/MarginContainer7"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player4/VBoxContainer2/MarginContainer"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player4/VBoxContainer2/MarginContainer2"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player4/VBoxContainer2/MarginContainer3"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player4/VBoxContainer2/MarginContainer4"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player4/VBoxContainer2/MarginContainer5"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player4/VBoxContainer2/MarginContainer6"]
+[editable path="Pause/Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player4/VBoxContainer2/MarginContainer7"]
