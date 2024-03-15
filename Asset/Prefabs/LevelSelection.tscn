@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://bgjxdbqjt8ota"]
+[gd_scene load_steps=11 format=3 uid="uid://bgjxdbqjt8ota"]
 
 [ext_resource type="Script" path="res://Script/Level/NodeLevelSelector.cs" id="1_3hjjh"]
 [ext_resource type="Script" path="res://Script/Ui/StarManager.cs" id="2_5k4wl"]
+[ext_resource type="Theme" uid="uid://cwyjy2ghbm00c" path="res://Asset/Prefabs/Ui/Option/MainTheme.tres" id="2_ka4q6"]
 [ext_resource type="PackedScene" uid="uid://codvm0rtsmwt7" path="res://Asset/Ui/star.tscn" id="3_74k1g"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_p0y77"]
@@ -92,6 +93,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_ka4q6")
 
 [node name="Panel" type="Panel" parent="SubViewport/PanelContainer"]
 custom_minimum_size = Vector2(200, 100)
@@ -129,6 +131,8 @@ alignment = 1
 
 [node name="Title" type="Label" parent="SubViewport/PanelContainer/Panel/VFlowContainer"]
 layout_mode = 2
+theme = ExtResource("2_ka4q6")
+theme_override_font_sizes/font_size = 21
 text = "[TITLE]"
 horizontal_alignment = 1
 vertical_alignment = 1

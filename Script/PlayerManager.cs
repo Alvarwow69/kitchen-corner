@@ -7,6 +7,12 @@ public partial class PlayerManager : Control
 	[Export] private Array<PlayerItem> _playerController = new Array<PlayerItem>();
 
 	private int _playernumber = 1;
+	public override void _Ready()
+	{
+		var tmp = GetNode<GameConfig>("/root/GameConfig").GetNumberPlayer();
+		for (int i = 1; i < tmp; i++)
+			AddPlayer();
+	}
 
 	private void AddPlayer()
 	{

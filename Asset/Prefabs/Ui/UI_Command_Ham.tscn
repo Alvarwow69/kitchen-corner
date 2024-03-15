@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://vb58s1dxnr6s"]
 
+[ext_resource type="Theme" uid="uid://cwyjy2ghbm00c" path="res://Asset/Prefabs/Ui/Option/MainTheme.tres" id="1_2bbkx"]
 [ext_resource type="Script" path="res://Script/Command.cs" id="1_pb70e"]
-[ext_resource type="StyleBox" uid="uid://ddiihbr7q5dbv" path="res://DefaultFlatBox.tres" id="1_ux7mx"]
 [ext_resource type="Texture2D" uid="uid://c8jvxgl2348ht" path="res://Asset/Kitchen/obj/restaurantbits_texture.png" id="2_0yysq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f43a3"]
@@ -25,7 +25,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = ExtResource("1_ux7mx")
+theme = ExtResource("1_2bbkx")
 script = ExtResource("1_pb70e")
 _progressBar = NodePath("AspectRatioContainer/VBoxContainer/ProgressBar")
 _styleBox = SubResource("StyleBoxFlat_f43a3")

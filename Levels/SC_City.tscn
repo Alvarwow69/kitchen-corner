@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://dneb4yg6fqepa"]
+[gd_scene load_steps=44 format=3 uid="uid://dneb4yg6fqepa"]
 
 [ext_resource type="ArrayMesh" uid="uid://cys0na8igqcpx" path="res://Asset/Kitchen/obj/floor_kitchen.obj" id="1_5l1vo"]
 [ext_resource type="ArrayMesh" uid="uid://2b25ludeigr1" path="res://Asset/City/road_straight_crossing.obj" id="1_ge6eu"]
@@ -16,7 +16,9 @@
 [ext_resource type="PackedScene" uid="uid://d312hlyms7td0" path="res://Asset/Prefabs/Furniture/DishRack.tscn" id="8_a6isx"]
 [ext_resource type="ArrayMesh" uid="uid://b6n7pgiunw5cx" path="res://Asset/City/building_C.obj" id="8_mxa8e"]
 [ext_resource type="PackedScene" uid="uid://cpl53s0o03r5r" path="res://Asset/Prefabs/Furniture/Counter_Sink.tscn" id="9_83tq1"]
+[ext_resource type="PackedScene" uid="uid://cqhd3ht4yxttr" path="res://Asset/Prefabs/Plate.tscn" id="9_dwydj"]
 [ext_resource type="PackedScene" path="res://Asset/Prefabs/Furniture/Trash.tscn" id="10_5p5dm"]
+[ext_resource type="PackedScene" uid="uid://cqrgm414sjfhp" path="res://Asset/Prefabs/Pan.tscn" id="10_aswe3"]
 [ext_resource type="PackedScene" uid="uid://cnehf3jphwdje" path="res://Asset/Prefabs/Creates/Create_Carrot.tscn" id="11_o4im3"]
 [ext_resource type="PackedScene" uid="uid://c12j08jxgtyfm" path="res://Asset/Prefabs/Creates/Create_Ham.tscn" id="12_vhbg3"]
 [ext_resource type="PackedScene" uid="uid://c11cm5a88t5w0" path="res://Asset/Prefabs/Furniture/Counter_Slicer.tscn" id="13_juk3i"]
@@ -171,7 +173,7 @@ mesh = ExtResource("2_qmv57")
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -1, 0, -9)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="World/Base"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00937352, 0.0102283, 5.99347)
 mesh = ExtResource("3_wcq0s")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="World/Base"]
@@ -389,6 +391,23 @@ mesh = ExtResource("4_23qsl")
 
 [node name="Kitchen" type="Node3D" parent="."]
 
+[node name="Utils" type="Node3D" parent="Kitchen"]
+
+[node name="Plate" parent="Kitchen/Utils" instance=ExtResource("9_dwydj")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1, 1, 5)
+
+[node name="Plate2" parent="Kitchen/Utils" instance=ExtResource("9_dwydj")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 15, 1, 5)
+
+[node name="Plate3" parent="Kitchen/Utils" instance=ExtResource("9_dwydj")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 13, 1, -5)
+
+[node name="Pan" parent="Kitchen/Utils" instance=ExtResource("10_aswe3")]
+transform = Transform3D(-1, 0, -4.37114e-08, 0, 1, 0, 4.37114e-08, 0, -1, 9, 1, -5)
+
+[node name="Pan2" parent="Kitchen/Utils" instance=ExtResource("10_aswe3")]
+transform = Transform3D(-1, 0, -4.37114e-08, 0, 1, 0, 4.37114e-08, 0, -1, 17, 1, -5)
+
 [node name="Floor" type="Node3D" parent="Kitchen"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 
@@ -477,8 +496,9 @@ skeleton = NodePath("")
 
 [node name="Counter" type="Node3D" parent="Kitchen"]
 
-[node name="CounterStraight" parent="Kitchen/Counter" instance=ExtResource("3_5vkac")]
+[node name="CounterStraight" parent="Kitchen/Counter" node_paths=PackedStringArray("_defaultInteractable") instance=ExtResource("3_5vkac")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 5)
+_defaultInteractable = NodePath("../../Utils/Plate")
 
 [node name="CounterStraight2" parent="Kitchen/Counter" instance=ExtResource("3_5vkac")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1, 0, 5)
@@ -507,23 +527,27 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 9, 0, 
 [node name="CounterStraight12" parent="Kitchen/Counter" instance=ExtResource("3_5vkac")]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 19, 0, 1)
 
-[node name="CounterStraight13" parent="Kitchen/Counter" instance=ExtResource("3_5vkac")]
+[node name="CounterStraight13" parent="Kitchen/Counter" node_paths=PackedStringArray("_defaultInteractable") instance=ExtResource("3_5vkac")]
 transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 17, 0, -5)
+_defaultInteractable = NodePath("../../Utils/Pan2")
 
-[node name="CounterStraight15" parent="Kitchen/Counter" instance=ExtResource("3_5vkac")]
+[node name="CounterStraight15" parent="Kitchen/Counter" node_paths=PackedStringArray("_defaultInteractable") instance=ExtResource("3_5vkac")]
 transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 9, 0, -5)
+_defaultInteractable = NodePath("../../Utils/Pan")
 
 [node name="CounterStraight16" parent="Kitchen/Counter" instance=ExtResource("3_5vkac")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 17, 0, 5)
 
-[node name="CounterStraightB8" parent="Kitchen/Counter" instance=ExtResource("4_mbopo")]
+[node name="CounterStraightB8" parent="Kitchen/Counter" node_paths=PackedStringArray("_defaultInteractable") instance=ExtResource("4_mbopo")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 15, 0, 5)
+_defaultInteractable = NodePath("../../Utils/Plate2")
 
 [node name="CounterStraightB9" parent="Kitchen/Counter" instance=ExtResource("4_mbopo")]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 19, 0, -1)
 
-[node name="CounterStraightB11" parent="Kitchen/Counter" instance=ExtResource("4_mbopo")]
+[node name="CounterStraightB11" parent="Kitchen/Counter" node_paths=PackedStringArray("_defaultInteractable") instance=ExtResource("4_mbopo")]
 transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 13, 0, -5)
+_defaultInteractable = NodePath("../../Utils/Plate3")
 
 [node name="CounterInnercorner" parent="Kitchen/Counter" instance=ExtResource("5_c0i5v")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9, 0, -5)

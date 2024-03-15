@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://dkrmcdsqhuhss"]
+[gd_scene load_steps=45 format=3 uid="uid://dkrmcdsqhuhss"]
 
 [ext_resource type="ArrayMesh" uid="uid://bi6xqy4gbju5r" path="res://Asset/Dungeon/floor_dirt_large.obj" id="1_1wllr"]
 [ext_resource type="ArrayMesh" uid="uid://b5lrr8y3b6j3r" path="res://Asset/Dungeon/stairs_wall_left.obj" id="2_8wmpp"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://cpl53s0o03r5r" path="res://Asset/Prefabs/Furniture/Counter_Sink.tscn" id="8_w0bml"]
 [ext_resource type="PackedScene" uid="uid://crfuuyh333nfb" path="res://Asset/Prefabs/Furniture/Dungeon/DG_OrderWindow.tscn" id="9_64ype"]
 [ext_resource type="PackedScene" uid="uid://dger84eef3jnr" path="res://Asset/Prefabs/Creates/Create_Onions.tscn" id="10_g2caw"]
+[ext_resource type="PackedScene" uid="uid://dgxiv3v83xnem" path="res://Asset/Prefabs/Pot.tscn" id="11_15ycu"]
 [ext_resource type="PackedScene" uid="uid://ca72728kboj3a" path="res://Asset/Prefabs/Creates/Create_Tomatoes.tscn" id="11_diilb"]
 [ext_resource type="PackedScene" uid="uid://0kny5tbt5xst" path="res://Asset/Prefabs/Furniture/Dungeon/DG_Counter_Slicer.tscn" id="12_02du3"]
 [ext_resource type="PackedScene" uid="uid://dkk2yqn7fqrcl" path="res://Asset/Prefabs/Furniture/Dungeon/DG_DishRack.tscn" id="14_kxjgg"]
@@ -484,11 +485,16 @@ skeleton = NodePath("../../Floor1")
 
 [node name="Kitchen" type="Node3D" parent="."]
 
-[node name="Bowl" parent="Kitchen" instance=ExtResource("28_ohfbk")]
+[node name="Utils" type="Node3D" parent="Kitchen"]
+
+[node name="Bowl" parent="Kitchen/Utils" instance=ExtResource("28_ohfbk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.39887, 1.31145, 3.44514)
 
-[node name="Bowl2" parent="Kitchen" instance=ExtResource("28_ohfbk")]
+[node name="Bowl2" parent="Kitchen/Utils" instance=ExtResource("28_ohfbk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.39887, 1.31145, 1.44514)
+
+[node name="Pot" parent="Kitchen/Utils" instance=ExtResource("11_15ycu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 1, -2)
 
 [node name="Limites" type="StaticBody3D" parent="Kitchen"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.0592719, 0, -0.0233755)
@@ -557,11 +563,11 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8.559
 
 [node name="DG_CounterStraight2" parent="Kitchen/Furnitures" node_paths=PackedStringArray("_defaultInteractable") instance=ExtResource("8_7xygu")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -4.55927, 0, 1.24491)
-_defaultInteractable = NodePath("../../Bowl2")
+_defaultInteractable = NodePath("../../Utils/Bowl2")
 
 [node name="DG_CounterStraight3" parent="Kitchen/Furnitures" node_paths=PackedStringArray("_defaultInteractable") instance=ExtResource("8_7xygu")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4.55927, 0, 3.24491)
-_defaultInteractable = NodePath("../../Bowl")
+_defaultInteractable = NodePath("../../Utils/Bowl")
 
 [node name="DG_CounterStraight4" parent="Kitchen/Furnitures" instance=ExtResource("8_7xygu")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -4.55927, 0, 5.24491)
@@ -586,8 +592,9 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 12.440
 [node name="Trash" parent="Kitchen/Furnitures" instance=ExtResource("15_mo6wy")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 12.4407, 0, -0.392833)
 
-[node name="Stove" parent="Kitchen/Furnitures" instance=ExtResource("16_jfd0a")]
+[node name="Stove" parent="Kitchen/Furnitures" node_paths=PackedStringArray("_defaultInteractable") instance=ExtResource("16_jfd0a")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 12.4407, 0, -2.39283)
+_defaultInteractable = NodePath("../../Utils/Pot")
 
 [node name="PlateManager" parent="Kitchen/Furnitures" instance=ExtResource("17_sm0un")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8.44006, 0, -4.43801)

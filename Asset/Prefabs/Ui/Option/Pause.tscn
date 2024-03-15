@@ -1,22 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://de3nkn5ndw4b2"]
+[gd_scene load_steps=4 format=3 uid="uid://de3nkn5ndw4b2"]
 
+[ext_resource type="Theme" uid="uid://ddm6nuwmv2d1s" path="res://Asset/Prefabs/Ui/Option/SecondaryTheme.tres" id="1_ijmls"]
 [ext_resource type="Script" path="res://Script/PauseMenu.cs" id="1_rdh0r"]
-[ext_resource type="StyleBox" uid="uid://8d08lcdmispt" path="res://Button.tres" id="2_sd8eo"]
-[ext_resource type="StyleBox" uid="uid://cfak4daicqq2e" path="res://Levels/Button_Hover.tres" id="3_yrll5"]
-[ext_resource type="StyleBox" uid="uid://cff030ofuxttr" path="res://Levels/Button_Pressed.tres" id="4_bfsyf"]
 [ext_resource type="PackedScene" uid="uid://bbefhylvxynv6" path="res://Asset/Prefabs/Ui/Option/option.tscn" id="5_gqayg"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sppfr"]
-bg_color = Color(1, 1, 1, 0.607843)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color(0.870588, 0.458824, 0, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
 
 [node name="Pause" type="Control" node_paths=PackedStringArray("_optionMenu", "_pauseMenu")]
 layout_mode = 3
@@ -25,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_ijmls")
 script = ExtResource("1_rdh0r")
 _optionMenu = NodePath("Option")
 _pauseMenu = NodePath("PauseMenu")
@@ -63,7 +50,6 @@ offset_right = 185.0
 offset_bottom = 181.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_sppfr")
 
 [node name="MarginContainer" type="MarginContainer" parent="PauseMenu/Menu"]
 layout_mode = 2
@@ -79,36 +65,24 @@ layout_mode = 2
 custom_minimum_size = Vector2(300, 70)
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = ExtResource("2_sd8eo")
-theme_override_styles/hover = ExtResource("3_yrll5")
-theme_override_styles/pressed = ExtResource("4_bfsyf")
 text = "Back"
 
 [node name="ButtonOption" type="Button" parent="PauseMenu/Menu/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(300, 70)
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = ExtResource("2_sd8eo")
-theme_override_styles/hover = ExtResource("3_yrll5")
-theme_override_styles/pressed = ExtResource("4_bfsyf")
 text = "Option"
 
 [node name="ButtonMenu" type="Button" parent="PauseMenu/Menu/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(300, 70)
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = ExtResource("2_sd8eo")
-theme_override_styles/hover = ExtResource("3_yrll5")
-theme_override_styles/pressed = ExtResource("4_bfsyf")
 text = "Main Menu"
 
 [node name="ButtonExit" type="Button" parent="PauseMenu/Menu/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(300, 70)
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = ExtResource("2_sd8eo")
-theme_override_styles/hover = ExtResource("3_yrll5")
-theme_override_styles/pressed = ExtResource("4_bfsyf")
 text = "Exit Game"
 
 [node name="Option" parent="." instance=ExtResource("5_gqayg")]
@@ -130,31 +104,31 @@ page = 367.0
 [connection signal="pressed" from="Option/Menu/MarginContainer/Options/MarginContainer2/ButtonCommand" to="." method="OnButtonOptionPressed"]
 
 [editable path="Option"]
-[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer"]
-[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer2"]
-[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer3"]
-[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer4"]
-[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer5"]
-[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer6"]
-[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer7"]
-[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer2/MarginContainer"]
-[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer2/MarginContainer2"]
-[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer2/MarginContainer3"]
-[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer2/MarginContainer4"]
-[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer2/MarginContainer5"]
-[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer2/MarginContainer6"]
-[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer2/MarginContainer7"]
-[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer/MarginContainer"]
-[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer/MarginContainer2"]
-[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer/MarginContainer3"]
-[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer/MarginContainer4"]
-[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer/MarginContainer5"]
-[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer/MarginContainer6"]
-[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer/MarginContainer7"]
-[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer2/MarginContainer"]
-[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer2/MarginContainer2"]
-[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer2/MarginContainer3"]
-[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer2/MarginContainer4"]
-[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer2/MarginContainer5"]
-[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer2/MarginContainer6"]
-[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer2/MarginContainer7"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player1/VBoxContainer/MarginContainer"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player1/VBoxContainer/MarginContainer2"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player1/VBoxContainer/MarginContainer3"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player1/VBoxContainer/MarginContainer4"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player1/VBoxContainer/MarginContainer5"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player1/VBoxContainer/MarginContainer6"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player1/VBoxContainer/MarginContainer7"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player2/VBoxContainer2/MarginContainer"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player2/VBoxContainer2/MarginContainer2"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player2/VBoxContainer2/MarginContainer3"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player2/VBoxContainer2/MarginContainer4"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player2/VBoxContainer2/MarginContainer5"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player2/VBoxContainer2/MarginContainer6"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Player2/VBoxContainer2/MarginContainer7"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player3/VBoxContainer/MarginContainer"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player3/VBoxContainer/MarginContainer2"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player3/VBoxContainer/MarginContainer3"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player3/VBoxContainer/MarginContainer4"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player3/VBoxContainer/MarginContainer5"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player3/VBoxContainer/MarginContainer6"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player3/VBoxContainer/MarginContainer7"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player4/VBoxContainer2/MarginContainer"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player4/VBoxContainer2/MarginContainer2"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player4/VBoxContainer2/MarginContainer3"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player4/VBoxContainer2/MarginContainer4"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player4/VBoxContainer2/MarginContainer5"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player4/VBoxContainer2/MarginContainer6"]
+[editable path="Option/Menu/MarginContainer/Commands/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/Player4/VBoxContainer2/MarginContainer7"]

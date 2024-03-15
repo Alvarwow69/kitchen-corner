@@ -38,6 +38,7 @@
 [ext_resource type="PackedScene" uid="uid://dwts3jnp3g332" path="res://Asset/Prefabs/Enemy.tscn" id="37_7o1yp"]
 [ext_resource type="Script" path="res://Script/CommandManager.cs" id="37_f7hfq"]
 [ext_resource type="PackedScene" uid="uid://bd70in7lumm2a" path="res://Asset/Prefabs/Ui/UI_Command_Burger.tscn" id="38_3mhx1"]
+[ext_resource type="Theme" uid="uid://cwyjy2ghbm00c" path="res://Asset/Prefabs/Ui/Option/MainTheme.tres" id="39_8bj07"]
 [ext_resource type="ArrayMesh" uid="uid://d3pj0dgj7yewk" path="res://Asset/Halloween/lantern_hanging.obj" id="39_m34ca"]
 [ext_resource type="Environment" uid="uid://cxgswh2bhdqjl" path="res://Levels/Halloween_Env.tres" id="39_sex74"]
 [ext_resource type="ArrayMesh" uid="uid://m8a3fed2tlgq" path="res://Asset/Halloween/lantern_standing.obj" id="40_cyebk"]
@@ -56,8 +57,6 @@ size = Vector3(1.00878, 2.96937, 16.1707)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_js2ij"]
 size = Vector3(1.00878, 2.96937, 22.1159)
-
-[sub_resource type="Theme" id="Theme_3ma7n"]
 
 [node name="Level01" type="Node3D"]
 
@@ -1927,7 +1926,7 @@ anchor_right = 1.0
 offset_left = -40.0
 offset_bottom = 40.0
 grow_horizontal = 0
-theme = SubResource("Theme_3ma7n")
+theme = ExtResource("39_8bj07")
 script = ExtResource("33_ebvcc")
 _time = 10.0
 _text = NodePath("Panel/Label")
@@ -1937,6 +1936,7 @@ layout_mode = 0
 offset_left = -301.0
 offset_right = 40.0
 offset_bottom = 132.0
+theme = ExtResource("39_8bj07")
 theme_override_styles/panel = ExtResource("40_pf72g")
 
 [node name="TextureRect" type="TextureRect" parent="Timer/Panel"]
@@ -1981,7 +1981,7 @@ offset_left = -342.0
 offset_top = -133.0
 grow_horizontal = 0
 grow_vertical = 0
-theme = SubResource("Theme_3ma7n")
+theme = ExtResource("39_8bj07")
 script = ExtResource("36_qsoqn")
 _text = NodePath("Panel/Label")
 
