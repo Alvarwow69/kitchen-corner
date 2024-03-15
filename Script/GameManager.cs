@@ -42,6 +42,7 @@ public partial class GameManager : Node3D
 		TargetEvent.OnTutorialFinished += OnTimeUp;
 		PlayerEvent.OnPlayerHitByCar += OnPlayerHitByCar;
 		_gameState = _defaultState;
+		_numberPlayer = GetNode<GameConfig>("/root/GameConfig").GetNumberPlayer();
 		for (int i = 0; i < _numberPlayer; i++)
 			SpawnPlayers(i);
 		GameEvent.PerformanceOnGameStateChange(_gameState);
@@ -113,7 +114,7 @@ public partial class GameManager : Node3D
 
 	private void SpawnPlayers(int index)
 	{
-		var player = GetNode<Player>("/root/" + GetTree().Root.GetChild<Node>(1).Name + "/Player" + index);
+		var player = GetNode<Player>("/root/" + GetTree().Root.GetChild<Node>(2).Name + "/Player" + index);
 		var sPoint = _spawnPoints[index];
 
 		player.PlayerNumber = index;

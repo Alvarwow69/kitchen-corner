@@ -42,6 +42,8 @@ public partial class SaveLevel : Node
         while (saveGame.GetPosition() < saveGame.GetLength())
         {
             var line = saveGame.GetLine().Split(":");
+            if (line[0] == "")
+                continue;
             Content.TryAdd(line[0], new LevelData(line[0], Int32.Parse(line[1]), line[2] == "True"));
         }
     }

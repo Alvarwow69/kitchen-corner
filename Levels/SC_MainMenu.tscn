@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://c0e63ifu8dmus"]
+[gd_scene load_steps=42 format=3 uid="uid://c0e63ifu8dmus"]
 
 [ext_resource type="ArrayMesh" uid="uid://c5c6w2qgivril" path="res://Asset/Dungeon/floor_tile_large.obj" id="1_buh2b"]
 [ext_resource type="ArrayMesh" uid="uid://cgxye0tfeapvc" path="res://Asset/Kitchen/obj/wall.obj" id="2_7s3hi"]
@@ -21,13 +21,18 @@
 [ext_resource type="ArrayMesh" uid="uid://bb6yo8whw61ey" path="res://Asset/Kitchen/obj/plate.obj" id="15_gj5pd"]
 [ext_resource type="ArrayMesh" uid="uid://b3f70apc50gsg" path="res://Asset/Kitchen/obj/food_stew.obj" id="16_53cq8"]
 [ext_resource type="ArrayMesh" uid="uid://ds8m1ienhnjrn" path="res://Asset/Kitchen/obj/food_burger.obj" id="16_65mda"]
-[ext_resource type="ArrayMesh" uid="uid://k0isdd8dxuu5" path="res://Asset/Player/player.obj" id="22_r45sx"]
+[ext_resource type="PackedScene" uid="uid://bym5neydrql7w" path="res://Asset/Prefabs/PlayerModel.tscn" id="21_06jf6"]
 [ext_resource type="Script" path="res://Script/MainMenu.cs" id="23_4ejof"]
 [ext_resource type="StyleBox" uid="uid://8d08lcdmispt" path="res://Button.tres" id="23_cf7fc"]
 [ext_resource type="StyleBox" uid="uid://cfak4daicqq2e" path="res://Levels/Button_Hover.tres" id="24_mu17t"]
 [ext_resource type="StyleBox" uid="uid://cff030ofuxttr" path="res://Levels/Button_Pressed.tres" id="25_h7mnm"]
 [ext_resource type="PackedScene" uid="uid://bbefhylvxynv6" path="res://Asset/Prefabs/Ui/Option/option.tscn" id="26_aalxg"]
+[ext_resource type="StyleBox" uid="uid://bmd634tsgx6qg" path="res://DeletePlayer.tres" id="26_m4jxj"]
+[ext_resource type="Script" path="res://Script/PlayerManager.cs" id="26_r60yu"]
+[ext_resource type="StyleBox" uid="uid://dtwpmldwmyyh6" path="res://DeletePlayerHover.tres" id="27_avlna"]
 [ext_resource type="AudioStream" uid="uid://dpgou8wlde68m" path="res://Asset/Audio/Music/1. A World in Bloom FULL.wav" id="27_cp7ge"]
+[ext_resource type="Script" path="res://Script/PlayerItem.cs" id="27_xasy8"]
+[ext_resource type="StyleBox" uid="uid://dlu86ndvp8yfa" path="res://DeletePlayerPress.tres" id="28_8v1kf"]
 
 [sub_resource type="Environment" id="Environment_kxx2n"]
 background_mode = 1
@@ -460,9 +465,18 @@ libraries = {
 "": SubResource("AnimationLibrary_lo4q1")
 }
 
-[node name="Player" type="MeshInstance3D" parent="."]
+[node name="Player1" parent="." instance=ExtResource("21_06jf6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -5)
-mesh = ExtResource("22_r45sx")
+_defaultActivate = true
+
+[node name="Player2" parent="." instance=ExtResource("21_06jf6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -5)
+
+[node name="Player3" parent="." instance=ExtResource("21_06jf6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -5)
+
+[node name="Player4" parent="." instance=ExtResource("21_06jf6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -5)
 
 [node name="UI" type="Control" parent="." node_paths=PackedStringArray("_animationCamera", "_menu", "_back", "_option")]
 layout_mode = 3
@@ -558,6 +572,160 @@ theme_override_styles/normal = ExtResource("23_cf7fc")
 theme_override_styles/hover = ExtResource("24_mu17t")
 theme_override_styles/pressed = ExtResource("25_h7mnm")
 text = "Exit"
+
+[node name="Players" type="Control" parent="UI/Main" node_paths=PackedStringArray("_playerController")]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+script = ExtResource("26_r60yu")
+_playerController = [NodePath("Menu/MarginContainer/VBoxContainer/Player1"), NodePath("Menu/MarginContainer/VBoxContainer/Player2"), NodePath("Menu/MarginContainer/VBoxContainer/Player3"), NodePath("Menu/MarginContainer/VBoxContainer/Player4")]
+
+[node name="Menu" type="PanelContainer" parent="UI/Main/Players"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -452.0
+offset_top = -181.0
+offset_right = -69.0
+offset_bottom = -41.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lk7xm")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/Main/Players/Menu"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="VBoxContainer" type="HBoxContainer" parent="UI/Main/Players/Menu/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 11
+
+[node name="Player1" type="Button" parent="UI/Main/Players/Menu/MarginContainer/VBoxContainer" node_paths=PackedStringArray("_eraseButton", "_mainButton", "_playerModel")]
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = ExtResource("23_cf7fc")
+theme_override_styles/hover = ExtResource("24_mu17t")
+theme_override_styles/pressed = ExtResource("25_h7mnm")
+text = "+"
+script = ExtResource("27_xasy8")
+_eraseButton = NodePath("ButtonPlay2")
+_mainButton = NodePath(".")
+_buttonText = "P1"
+_defaultState = true
+_canDisable = false
+_playerModel = NodePath("../../../../../../../Player1")
+
+[node name="ButtonPlay2" type="Button" parent="UI/Main/Players/Menu/MarginContainer/VBoxContainer/Player1"]
+visible = false
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+offset_left = 59.0
+offset_top = -9.0
+offset_right = 79.0
+offset_bottom = 11.0
+theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = ExtResource("26_m4jxj")
+theme_override_styles/hover = ExtResource("27_avlna")
+theme_override_styles/pressed = ExtResource("28_8v1kf")
+text = "x"
+
+[node name="Player2" type="Button" parent="UI/Main/Players/Menu/MarginContainer/VBoxContainer" node_paths=PackedStringArray("_eraseButton", "_mainButton", "_playerModel")]
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = ExtResource("23_cf7fc")
+theme_override_styles/hover = ExtResource("24_mu17t")
+theme_override_styles/pressed = ExtResource("25_h7mnm")
+text = "+"
+script = ExtResource("27_xasy8")
+_eraseButton = NodePath("ButtonPlay2")
+_mainButton = NodePath(".")
+_buttonText = "P2"
+_playerModel = NodePath("../../../../../../../Player2")
+
+[node name="ButtonPlay2" type="Button" parent="UI/Main/Players/Menu/MarginContainer/VBoxContainer/Player2"]
+visible = false
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+offset_left = 59.0
+offset_top = -9.0
+offset_right = 79.0
+offset_bottom = 11.0
+theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = ExtResource("26_m4jxj")
+theme_override_styles/hover = ExtResource("27_avlna")
+theme_override_styles/pressed = ExtResource("28_8v1kf")
+text = "x"
+
+[node name="Player3" type="Button" parent="UI/Main/Players/Menu/MarginContainer/VBoxContainer" node_paths=PackedStringArray("_eraseButton", "_mainButton", "_playerModel")]
+visible = false
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = ExtResource("23_cf7fc")
+theme_override_styles/hover = ExtResource("24_mu17t")
+theme_override_styles/pressed = ExtResource("25_h7mnm")
+text = "+"
+script = ExtResource("27_xasy8")
+_eraseButton = NodePath("ButtonPlay2")
+_mainButton = NodePath(".")
+_buttonText = "P3"
+_playerModel = NodePath("../../../../../../../Player3")
+
+[node name="ButtonPlay2" type="Button" parent="UI/Main/Players/Menu/MarginContainer/VBoxContainer/Player3"]
+visible = false
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+offset_left = 59.0
+offset_top = -9.0
+offset_right = 79.0
+offset_bottom = 11.0
+theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = ExtResource("26_m4jxj")
+theme_override_styles/hover = ExtResource("27_avlna")
+theme_override_styles/pressed = ExtResource("28_8v1kf")
+text = "x"
+
+[node name="Player4" type="Button" parent="UI/Main/Players/Menu/MarginContainer/VBoxContainer" node_paths=PackedStringArray("_eraseButton", "_mainButton", "_playerModel")]
+visible = false
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = ExtResource("23_cf7fc")
+theme_override_styles/hover = ExtResource("24_mu17t")
+theme_override_styles/pressed = ExtResource("25_h7mnm")
+text = "+"
+script = ExtResource("27_xasy8")
+_eraseButton = NodePath("ButtonPlay2")
+_mainButton = NodePath(".")
+_buttonText = "P4"
+_playerModel = NodePath("../../../../../../../Player4")
+
+[node name="ButtonPlay2" type="Button" parent="UI/Main/Players/Menu/MarginContainer/VBoxContainer/Player4"]
+visible = false
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+offset_left = 59.0
+offset_top = -9.0
+offset_right = 79.0
+offset_bottom = 11.0
+theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = ExtResource("26_m4jxj")
+theme_override_styles/hover = ExtResource("27_avlna")
+theme_override_styles/pressed = ExtResource("28_8v1kf")
+text = "x"
 
 [node name="Back" type="PanelContainer" parent="UI"]
 visible = false
@@ -673,13 +841,20 @@ texture = SubResource("ViewportTexture_6wo40")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("27_cp7ge")
 volume_db = -6.0
-autoplay = true
 bus = &"Music"
 
 [connection signal="pressed" from="UI/Main/Menu/MarginContainer/VBoxContainer/ButtonPlay" to="UI" method="OnPressPlay"]
 [connection signal="pressed" from="UI/Main/Menu/MarginContainer/VBoxContainer/ButtonOption" to="UI" method="OnPressOption"]
 [connection signal="pressed" from="UI/Main/Menu/MarginContainer/VBoxContainer/ButtonCredits" to="UI" method="OnPressCredits"]
 [connection signal="pressed" from="UI/Main/Menu/MarginContainer/VBoxContainer/ButtonExit" to="UI" method="OnPressExit"]
+[connection signal="pressed" from="UI/Main/Players/Menu/MarginContainer/VBoxContainer/Player1" to="UI/Main/Players" method="AddPlayer"]
+[connection signal="pressed" from="UI/Main/Players/Menu/MarginContainer/VBoxContainer/Player1/ButtonPlay2" to="UI/Main/Players" method="RemovePlayer"]
+[connection signal="pressed" from="UI/Main/Players/Menu/MarginContainer/VBoxContainer/Player2" to="UI/Main/Players" method="AddPlayer"]
+[connection signal="pressed" from="UI/Main/Players/Menu/MarginContainer/VBoxContainer/Player2/ButtonPlay2" to="UI/Main/Players" method="RemovePlayer"]
+[connection signal="pressed" from="UI/Main/Players/Menu/MarginContainer/VBoxContainer/Player3" to="UI/Main/Players" method="AddPlayer"]
+[connection signal="pressed" from="UI/Main/Players/Menu/MarginContainer/VBoxContainer/Player3/ButtonPlay2" to="UI/Main/Players" method="RemovePlayer"]
+[connection signal="pressed" from="UI/Main/Players/Menu/MarginContainer/VBoxContainer/Player4" to="UI/Main/Players" method="AddPlayer"]
+[connection signal="pressed" from="UI/Main/Players/Menu/MarginContainer/VBoxContainer/Player4/ButtonPlay2" to="UI/Main/Players" method="RemovePlayer"]
 [connection signal="pressed" from="UI/Back/MarginContainer/ButtonExit" to="UI" method="OnPressCredits"]
 [connection signal="pressed" from="Option/Menu/MarginContainer/Options/MarginContainer2/ButtonCommand" to="UI" method="OnPressOption"]
 
