@@ -12,25 +12,31 @@ on:
       - "develop"
   workflow_dispatch:
 
+env:
+  GODOT_VERSION: 4.1.3
+  EXPORT_NAME: Kitchen_Corner-0.1.0
+
 jobs:
   Godot:
     runs-on: ubuntu-latest
+    container:
+      image: docker://barichello/godot-ci:mono-4.1.3
     strategy:
       matrix:
         platform: [linux, windows, mac]
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
         with:
           lfs: true
+      - name: Setup
+        run: |
+          mkdir -v -p build/${{ matrix.platform }} ~/.local/share/godot/templates
+          mv /root/.local/share/godot/templates/${GODOT_VERSION}.stable ~/.local/share/godot/templates/${GODOT_VERSION}.stable
       - name: Build
-        id: build
-        uses: manleydev/build-godot-action@v1.5.0
-        with:
-          name: example
-          preset: ${{ matrix.platform }}
-          debugMode: "true"
+        run: godot -v --export-pack "${{ matrix.platform }}" ./build/${{ matrix.platform }}/
       - name: Upload Artifact
         uses: actions/upload-artifact@v2
         with:
           name: Client - ${{ matrix.platform }}
-          path: ${{ github.workspace }}/${{ steps.build.outputs.build }}
+          path: ${{ github.workspace }}/build/${{ matrix.platform }}/
