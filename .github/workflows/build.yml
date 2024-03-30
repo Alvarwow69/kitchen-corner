@@ -14,7 +14,7 @@ on:
 
 env:
   GODOT_VERSION: 4.1.3
-  EXPORT_NAME: Kitchen_Corner-0.1.0
+  EXPORT_NAME: KitchenCorner-0.1.0
 
 jobs:
   Godot:
@@ -24,6 +24,7 @@ jobs:
     strategy:
       matrix:
         platform: [windows]
+        mode: [release, debug]
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -42,9 +43,9 @@ jobs:
       - name: Build
         run: |
           mkdir -v -p build/${{ matrix.platform }}
-          godot -v --headless --export-release "${{ matrix.platform }}" build/${{ matrix.platform }}/${EXPORT_NAME}.exe
+          godot -v --headless --export-${{ matrix.mode }} "${{ matrix.platform }}" build/${{ matrix.platform }}/${EXPORT_NAME}.exe
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: Client - ${{ matrix.platform }}
+          name: ${{ env.EXPORT_NAME }} - ${{ matrix.platform }} - ${{ matrix.platform }}
           path: build/${{ matrix.platform }}/
