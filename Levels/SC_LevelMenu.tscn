@@ -134,7 +134,7 @@ scale_max = 0.2
 color = Color(1, 1, 0.498039, 0.839216)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_u0vf0"]
-viewport_path = NodePath("Level03/SubViewport")
+viewport_path = NodePath("SubViewport")
 
 [sub_resource type="Environment" id="Environment_osaiu"]
 background_mode = 1
